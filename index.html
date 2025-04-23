@@ -15,8 +15,9 @@
     }
 
     header {
-      text-align: center;
-      padding: 4rem 0 2rem;
+      max-width: 900px;
+      margin: 4rem auto 2rem;
+      text-align: left;
     }
 
     header h1 {
@@ -29,7 +30,6 @@
       font-size: 1.1rem;
       color: #555;
       max-width: 600px;
-      margin: 0 auto;
     }
 
     .locations {
@@ -49,37 +49,55 @@
     }
 
     .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .project {
+    .project-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
       border: 1px solid #eee;
       border-radius: 12px;
-      padding: 1.5rem;
-      background: #fafafa;
+      background-color: #fafafa;
       transition: box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .project:hover {
+    .project-card:hover {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     }
 
-    .project h3 {
+    .project-info {
+      max-width: 70%;
+    }
+
+    .project-info h3 {
       margin: 0 0 0.5rem;
       font-size: 1.2rem;
     }
 
-    .project p {
+    .project-info p {
+      margin: 0.5rem 0 0;
       font-size: 0.95rem;
       color: #444;
     }
 
-    .project .tags {
+    .project-info .tags {
       font-size: 0.85rem;
       color: #666;
-      margin-top: 0.5rem;
+    }
+
+    .project-thumb {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-left: 1rem;
+      flex-shrink: 0;
     }
 
     footer {
@@ -89,13 +107,8 @@
       margin: 3rem 0 2rem;
     }
 
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
-
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -110,36 +123,61 @@
   <section>
     <h2>Work</h2>
     <div class="projects">
-      <div class="project">
-        <h3>VIAM Machine Configuration</h3>
-        <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
-        <p>Viam helps bring AI and automation into your business. $117m raised, 2,750+ devs, 40+ partnerships.</p>
-      </div>
-      <div class="project">
-        <h3>VIAM TeleOp</h3>
-        <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
-        <p>Real-time sensor data visualizations. $2.75m in signed contracts, +6 B2B partnerships.</p>
-      </div>
-      <div class="project">
-        <h3>Assortment Optimization</h3>
-        <div class="tags">Research · Facilitation · UX · UI · IA · Prototyping · Validation</div>
-        <p>Buyers & analysts platform. $39m in reduced costs, 96% activity time reduction.</p>
-      </div>
-      <div class="project">
-        <h3>Transportation Management</h3>
-        <div class="tags">Research · Facilitation · UX · UI · IA · Prototyping · Validation</div>
-        <p>USAA financial insights redesign. 3 legacy systems consolidated.</p>
-      </div>
-      <div class="project">
-        <h3>Manage My Money</h3>
-        <div class="tags">Research · UX · IA · Design Language · Prototyping · Testing</div>
-        <p>Modernized account summary views. -13% MSR calls, $7.4m annual savings.</p>
-      </div>
-      <div class="project">
-        <h3>Auto AR Pilot</h3>
-        <div class="tags">Research · Journey Mapping · UX · Wireframing · IA · UI</div>
-        <p>Augmented reality vehicle viewer. 810 members, 5m 55s avg time, 44% reuse.</p>
-      </div>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>VIAM Machine Configuration</h3>
+          <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
+          <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+1" alt="Project 1 Thumbnail" />
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>VIAM TeleOp</h3>
+          <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
+          <p>Real-time sensor dashboards. $2.75m signed, +6 B2B partners.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+2" alt="Project 2 Thumbnail" />
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>Assortment Optimization</h3>
+          <div class="tags">Research · Facilitation · UX · UI · IA · Prototyping · Validation</div>
+          <p>Smarter buyer tools. $39m in savings, 96% activity time cut.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+3" alt="Project 3 Thumbnail" />
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>Transportation Management</h3>
+          <div class="tags">Research · Facilitation · UX · UI · IA · Prototyping · Validation</div>
+          <p>Modern USAA financial views. 3 legacy systems merged.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+4" alt="Project 4 Thumbnail" />
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>Manage My Money</h3>
+          <div class="tags">Research · UX · IA · Design Language · Prototyping · Testing</div>
+          <p>Summary redesign. -13% calls, $7.4m annual savings.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+5" alt="Project 5 Thumbnail" />
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-info">
+          <h3>Auto AR Pilot</h3>
+          <div class="tags">Research · Journey Mapping · UX · Wireframing · IA · UI</div>
+          <p>AR car viewer. 810 members, 44% reuse, 5m 55s avg time.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/120x90?text=Project+6" alt="Project 6 Thumbnail" />
+      </a>
+
     </div>
   </section>
 
