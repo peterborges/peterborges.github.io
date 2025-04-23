@@ -1,0 +1,79 @@
+<!-- case-study-auto-ar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto AR Pilot | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>Auto AR Pilot</h1>
+      <p class="subtitle">Augmented reality for automotive insight</p>
+
+      <p><strong>Timeline:</strong> Ongoing from Feb 2018</p>
+      <p><strong>Roles:</strong> Strategy, Wireframing, Visual Design, Experience Design</p>
+
+      <h2>Overview</h2>
+      <p>An augmented reality platform that lets USAA members explore, identify, and get real-time vehicle information by simply pointing their phones at nearby cars.</p>
+
+      <h2>Design Drivers</h2>
+      <ul>
+        <li>📱 Use AR to simplify car buying research</li>
+        <li>🧠 Offer insights in a non-intrusive, intuitive way</li>
+        <li>💡 Empower confident financial decisions with in-context info</li>
+      </ul>
+
+      <h2>How It Works</h2>
+      <p>The user walks around a vehicle while the phone scans and recognizes it. The app returns specs, pricing, ratings, and offers insurance/loan quotes from USAA — all in real time.</p>
+
+      <h2>User Insights</h2>
+      <ul>
+        <li>Members want everything integrated and helpful</li>
+        <li>Users lack confidence in major financial decisions</li>
+        <li>Desire for automated, relevant, non-cluttered experiences</li>
+      </ul>
+
+      <h2>Functionality Prioritization</h2>
+      <p>Research led to a leaner MVP — showing relevant info first, with deeper layers accessible through interaction rather than overload.</p>
+
+      <h2>Testing</h2>
+      <p>Tested with 12 members. Findings confirmed excitement about AR, but highlighted the need for simplified UIs and optional onboarding for first-time users.</p>
+
+      <h2>Results</h2>
+      <ul>
+        <li>📈 810 members registered</li>
+        <li>🕒 5m 55s avg session time</li>
+        <li>🔁 44% reuse rate</li>
+        <li>🚘 Ford F-150 most searched vehicle</li>
+      </ul>
+
+      <h2>Lessons Learned</h2>
+      <ul>
+        <li>AR display fatigue is real — ergonomic design matters</li>
+        <li>Educating users is essential for emerging tech</li>
+        <li>Not all info belongs in AR — progressive disclosure works better</li>
+      </ul>
+
+      <p><a href="https://cheddar.com/videos/how-usaa-is-bringing-augmented-reality-to-car-shopping" target="_blank">Watch the feature on Cheddar →</a></p>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+    function includeHTML(selector, url) {
+      fetch(url).then(res => res.text()).then(data => {
+        document.querySelector(selector).innerHTML = data;
+      });
+    }
+  </script>
+</body>
+</html>

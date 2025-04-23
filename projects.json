@@ -37,7 +37,7 @@
       "description": "Redesigned account summaries across checking, savings, and credit cards.",
       "impact": "-13% MSR calls · -28% task completion time · $7.4M annual savings",
       "image": "images/index/manage-my-money-hero.jpg",
-      "link": "case-study.html"
+      "link": "manage-my-money.html"
     },
     {
       "title": "Auto AR Pilot",
@@ -45,7 +45,7 @@
       "description": "AR platform to explore and capture vehicle information instantly.",
       "impact": "810 members · 5m 55s avg session · 44% reuse rate",
       "image": "images/index/auto-ar-pilot.png",
-      "link": "case-study.html"
+      "link": "auto-ar-pilot.html"
     }
   ]
   

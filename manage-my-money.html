@@ -1,0 +1,81 @@
+<!-- case-study-manage-my-money.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage My Money | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>Manage My Money</h1>
+      <p class="subtitle">Designing clarity into financial wellbeing</p>
+
+      <p><strong>Timeline:</strong> March 2018 – Dec 2019</p>
+      <p><strong>Roles:</strong> Strategy, Experience Design, Competitive Research, Member Research, Site Analytics</p>
+      <p><strong>Team:</strong> 1 Design Director · 1 PM · 3 Designers · 1 Experience Owner · 8 Developers</p>
+
+      <h2>Objective</h2>
+      <p>Help members better understand and manage their money through human-centered design and digital tooling, with a focus on increasing financial literacy and engagement.</p>
+
+      <h2>Design Drivers</h2>
+      <ul>
+        <li>Bad UI erodes trust — users switch banks when digital tools underdeliver</li>
+        <li>Users prefer efficient, focused tools over one-size-fits-all apps</li>
+        <li>Feedback loops with real members improved trust and utility</li>
+      </ul>
+
+      <h2>Success Metrics</h2>
+      <ul>
+        <li>📉 -13% MSR calls · 📈 -28% task time · 💰 $7.48M annual savings</li>
+        <li>Increased parity between web and native mobile</li>
+        <li>Improved personalization and member satisfaction</li>
+      </ul>
+
+      <h2>Process</h2>
+      <h3>Heuristic Evaluation</h3>
+      <p>Used internal design guidelines to audit inconsistencies across account summary pages. Uncovered issues around clarity, hierarchy, and unauthenticated access.</p>
+
+      <h3>Research & Competitive Analysis</h3>
+      <p>Compared USAA tools to banks and fintechs (Capital One, Simple, etc.) and built an internal research library to close gaps in competitor understanding.</p>
+
+      <h3>Information Architecture</h3>
+      <p>Ran IA tests using Treejack to restructure content based on real user behaviors. Simplified and consolidated account hierarchy across savings, checking, and credit products.</p>
+
+      <h3>Prototyping & Testing</h3>
+      <p>Developed prototypes in InVision and tested with users via usertesting.com. Iterated based on feedback and performance analytics.</p>
+
+      <h2>Lessons Learned</h2>
+      <ul>
+        <li>Design system alignment saved dev time and increased modularity</li>
+        <li>Data from analytics and user interviews gave credibility to recommendations</li>
+        <li>Prototypes helped build trust and secure quick approvals</li>
+      </ul>
+
+      <h2>Pilot Results</h2>
+      <ul>
+        <li>-13% drop in support calls</li>
+        <li>-28% task time across mobile flows</li>
+        <li>$7.48M in projected cost savings</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+    function includeHTML(selector, url) {
+      fetch(url).then(res => res.text()).then(data => {
+        document.querySelector(selector).innerHTML = data;
+      });
+    }
+  </script>
+</body>
+</html>
