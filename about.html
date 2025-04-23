@@ -9,23 +9,29 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="navbar">
-    <a href="index.html" class="logo">Peter Borges</a>
-    <nav>
-      <a href="index.html#work">Work</a>
-      <a href="resume.html">Resume</a>
-    </nav>
+  <div id="site-header"></div>
+
+  <div class="content-container">
+    <section>
+      <img class="about-image" src="images/about/RevUnit-CoWorking.jpg" alt="Workshop photo" />
+      <h2>About</h2>
+      <p>I’m a product designer focused on systems thinking, human-centered research, and designing for clarity. I believe good design is as much about understanding people as it is about pixels and process.</p>
+      <p>I’ve worked across industries including robotics, fintech, logistics, and retail, helping companies grow smarter, more intuitive digital experiences.</p>
+    </section>
   </div>
 
-  <section>
-    <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project" alt="Workshop photo" />
-    <h2>About</h2>
-    <p>Hi, I’m Peter. I’m a product designer focused on systems thinking, human-centered research, and designing for clarity. I believe good design is as much about understanding people as it is about pixels and process.</p>
-    <p>I’ve worked across industries including robotics, fintech, logistics, and retail, helping companies grow smarter, more intuitive digital experiences.</p>
-  </section>
+  <div id="site-footer"></div>
 
-  <footer>
-    <p>© 2025 Peter Borges</p>
-  </footer>
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
 </body>
 </html>

@@ -1,45 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #fff;
   color: #111;
   margin: 0;
   padding-top: 70px;
+  overflow-x: hidden;
 }
 
+/* NAVIGATION */
 .navbar {
-  position: fixed;
-  top: 0;
   width: 100%;
-  background: #ffffffcc;
-  backdrop-filter: blur(6px);
+  background-color: #fff;
   border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
-.navbar .logo {
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logo {
   font-weight: 600;
   font-size: 1.1rem;
   color: #111;
   text-decoration: none;
 }
 
-.navbar nav a {
-  margin-left: 1.5rem;
+.navbar-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-.navbar nav a:hover {
+.navbar-nav a:hover {
   text-decoration: underline;
 }
 
+@media (max-width: 800px) {
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+}
+
+/* MAIN LAYOUT */
+.content-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* HEADER SECTION */
 header {
-  max-width: 900px;
   margin: 4rem auto 2rem;
   text-align: left;
 }
@@ -62,20 +103,11 @@ header p {
   margin-top: 0.5rem;
 }
 
-section {
-  max-width: 900px;
-  margin: 2rem auto;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
+/* PROJECT CARDS */
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 6rem;
 }
 
 .project-card {
@@ -124,17 +156,46 @@ h2 {
   flex-shrink: 0;
 }
 
+@media (max-width: 800px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-thumb, .project-info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* ABOUT PAGE IMAGE */
+.about-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  object-fit: cover;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   font-size: 0.9rem;
   color: #aaa;
+  padding: 4rem 2rem; /* ← adds vertical space */
   margin: 3rem 0 2rem;
 }
-
-a:hover {
-  text-decoration: none;
+footer a {
+  color: #aaa;
+  margin-left: 0.5rem;
 }
 
-html {
-  scroll-behavior: smooth;
+footer a:hover {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+footer i {
+  font-size: 1.1rem;
+  vertical-align: middle;
 }

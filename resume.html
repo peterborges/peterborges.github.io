@@ -1,14 +1,46 @@
+<!-- resume.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>this is the resume page</p>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter Borges | Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container">
+    <section>
+      <h2>Resume</h2>
+      <p>You can download my full resume <a href="files/Peter-Borges-Resume.pdf" target="_blank">here</a>.</p>
+
+      <!-- You can add inline resume sections below or keep it as a downloadable -->
+      <h3>Experience</h3>
+      <p><strong>Lead Product Designer</strong> – Company Name<br />Location · YYYY–Present</p>
+      <ul>
+        <li>Key contribution or project</li>
+        <li>Impactful result or outcome</li>
+      </ul>
+
+      <h3>Education</h3>
+      <p><strong>University Name</strong><br />Degree, Year</p>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
+</body>
 </html>

@@ -7,6 +7,8 @@
   <title>Peter Borges | Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     html, body {
       height: 100%;
@@ -16,14 +18,8 @@
       display: flex;
       flex-direction: column;
     }
-    .navbar, footer {
-      width: 100%;
-    }
     footer {
       margin-top: auto;
-    }
-    .navbar {
-      box-sizing: border-box;
     }
     .content-container {
       max-width: 1400px;
@@ -79,31 +75,25 @@
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <a href="index.html" class="logo">Peter Borges</a>
-    <nav>
-      <a href="index.html#work">Work</a>
-      <a href="about.html">About</a>
-      <a href="resume.html">Resume</a>
-    </nav>
-  </div>
+  <!-- Dynamic Header -->
+  <div id="site-header"></div>
 
   <div class="content-container">
-    <header>
+    <header class="intro-section">
       <p class="intro">A lead product designer who turns curiosity and design into business advantage over 10 years of practice.</p>
       <div class="locations">Based in <s>Providence,</s> <s>San Francisco,</s> <s>Baltimore,</s> <s>San Antonio</s>, Brooklyn.</div>
     </header>
-
+  
     <section id="work">
       <div class="projects" id="projectContainer"></div>
     </section>
   </div>
 
-  <footer>
-    <p>© 2025 Peter Borges · <a href="https://peterborges.com" target="_blank">peterborges.com</a></p>
-  </footer>
+  <!-- Dynamic Footer -->
+  <div id="site-footer"></div>
 
   <script>
+    // Load projects from JSON
     fetch('projects.json')
       .then(response => response.json())
       .then(data => {
@@ -115,18 +105,27 @@
           if (index % 2 === 1) card.style.flexDirection = 'row-reverse';
 
           card.innerHTML = `
-  <div class="project-info">
-    <h3>${project.title}</h3>
-    <div class="tags">${project.tags}</div>
-    <p>${project.description.replace(/(\$?\d[\d,.]*\+?%?m?)/gi, '<strong>$1</strong>')}</p>
-  </div>
-  <img class="project-thumb" src="${project.image}" alt="${project.title} Thumbnail" />
-`;
-
-
+            <div class="project-info">
+              <h3>${project.title}</h3>
+              <div class="tags">${project.tags}</div>
+              <p>${project.description.replace(/(\$?\d[\d,.]*\+?%?m?)/gi, '<strong>$1</strong>')}</p>
+            </div>
+            <img class="project-thumb" src="${project.image}" alt="${project.title} Thumbnail" />
+          `;
           container.appendChild(card);
         });
       });
+
+    // Load header and footer from partials
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
   </script>
 </body>
 </html>
