@@ -25,21 +25,50 @@
     .navbar {
       box-sizing: border-box;
     }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 250px;
+    }
     .project-card {
       display: flex;
-      padding: 0;
+      flex-wrap: wrap;
+      width: 100%;
+      min-height: 250px;
       overflow: hidden;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-card:nth-child(even) {
+      flex-direction: row-reverse;
     }
     .project-info {
-      width: 50%;
+      flex: 1 1 50%;
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .project-thumb {
-      width: 50%;
-      height: auto;
+      flex: 1 1 50%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 0;
-      margin: 0;
+      width: 100%;
+    }
+    @media (max-width: 800px) {
+      .projects {
+        padding: 0 1rem;
+      }
+      .project-card {
+        flex-direction: column !important;
+      }
+      .project-thumb, .project-info {
+        flex: 1 1 100%;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -61,14 +90,45 @@
   <section id="work">
     <h2>Work</h2>
     <div class="projects">
-      <!-- Example Project Card -->
       <a href="case-study.html" class="project-card">
         <div class="project-info">
           <h3>VIAM Machine Configuration</h3>
           <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
           <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
         </div>
-        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project" alt="Project Thumbnail" />
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project+1" alt="Project 1 Thumbnail" />
+      </a>
+      <a href="case-study.html" class="project-card">
+        <div class="project-info">
+          <h3>VIAM TeleOp</h3>
+          <div class="tags">UX · Dashboard · Sensor Data</div>
+          <p>Live sensor dashboard. $2.75m signed contracts, 6+ partnerships.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project+2" alt="Project 2 Thumbnail" />
+      </a>
+      <a href="case-study.html" class="project-card">
+        <div class="project-info">
+          <h3>Assortment Optimization</h3>
+          <div class="tags">Retail · UX · Optimization</div>
+          <p>Retail intelligence tool. $39m in savings, 96% time reduction.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3 Thumbnail" />
+      </a>
+      <a href="case-study.html" class="project-card">
+        <div class="project-info">
+          <h3>Manage My Money</h3>
+          <div class="tags">Fintech · UX · Research</div>
+          <p>Account insights modernization. $7.4m annual savings.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project+4" alt="Project 4 Thumbnail" />
+      </a>
+      <a href="case-study.html" class="project-card">
+        <div class="project-info">
+          <h3>Auto AR Pilot</h3>
+          <div class="tags">AR · Automotive · UX</div>
+          <p>Augmented reality vehicle viewer. 810+ users, 44% reuse rate.</p>
+        </div>
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project+5" alt="Project 5 Thumbnail" />
       </a>
     </div>
   </section>
