@@ -1,0 +1,48 @@
+[
+    {
+      "title": "VIAM Machine Configuration",
+      "tags": "Strategy · Research · UX · UI · IA · Prototyping · Launch",
+      "description": "AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.",
+      "image": "images/index/app-viam-mockup.png",
+      "link": "case-study.html"
+    },
+
+    {
+      "title": "VIAM TeleOp",
+      "tags": "UX · Dashboard · Sensor Data",
+      "description": "Live sensor dashboard. $2.75m signed contracts, 6+ partnerships.",
+      "image": "images/index/teleop-hero-4.png",
+      "link": "case-study.html"
+    },
+
+    {
+        "title": "Assortment Optimization",
+        "tags": "Research · Facilitation · UX · UI · IA · Prototyping · Validation",
+        "description": "A platform that enables buyers and analysts to make smaller, faster, and more impactful decisions—learning from past actions over time. $39m in reduced costs and 96% reduction in activity time.",
+        "image": "images/index/heb-hero.png",
+        "link": "case-study.html"
+      },
+      {
+        "title": "Transportation Management",
+        "tags": "Research · Facilitation · UX · UI · IA · Prototyping · Validation",
+        "description": "A digital refresh to consolidate and optimize decades old systems. 3 legacy systems consolidated ",
+        "image": "images/index/ab-hero.png",
+        "link": "case-study.html"
+      },
+      {
+        "title": "Manage My Money",
+        "tags": "Research · UX · IA · Design Language · Prototyping · Testing",
+        "description": "Redesigned account summaries across checking, savings, and credit cards. -13% MSR call volume, -28% task completion time, and $7.4m in annual savings.",
+        "image": "images/index/manage-my-money-hero.jpg",
+        "link": "case-study.html"
+      },
+      {
+        "title": "Auto AR Pilot",
+        "tags": "Research · Journey Mapping · UX · Wireframing · IA · UI",
+        "description": "An AR platform to explore and capture information about vehicles instantly. 810 members registered, 5m 55s avg session time, 44% reuse rate.",
+        "image": "images/index/auto-ar-pilot.png",
+        "link": "case-study.html"
+      }
+
+  ]
+  
