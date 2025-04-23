@@ -1,180 +1,80 @@
+<!-- index.html (Home Page) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Peter Borges | Product Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter Borges | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fff;
-      color: #111;
+    html, body {
+      height: 100%;
       margin: 0;
-      padding-top: 70px; /* Space for fixed header */
     }
-
-    /* Navigation */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #ffffffcc;
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #eee;
+    body {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 1000;
+      flex-direction: column;
     }
-
-    .navbar .logo {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #111;
-      text-decoration: none;
+    .navbar, footer {
+      width: 100%;
     }
-
-    .navbar nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
+    footer {
+      margin-top: auto;
     }
-
-    .navbar nav a:hover {
-      text-decoration: underline;
+    .navbar {
+      box-sizing: border-box;
     }
-
     .project-card {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      background-color: #fafafa;
-      transition: box-shadow 0.3s;
-      text-decoration: none;
-      color: inherit;
+      padding: 0;
+      overflow: hidden;
     }
-
-    .project-card:hover {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    }
-
     .project-info {
-      max-width: 70%;
+      width: 50%;
+      padding: 1.5rem;
     }
-
-    .project-info h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .project-info p {
-      margin: 0.5rem 0 0;
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    .project-info .tags {
-      font-size: 0.85rem;
-      color: #666;
-    }
-
     .project-thumb {
-      width: 120px;
-      height: 90px;
+      width: 50%;
+      height: auto;
       object-fit: cover;
-      border-radius: 8px;
-      margin-left: 1rem;
-      flex-shrink: 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin: 3rem 0 2rem;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      border-radius: 0;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
   <div class="navbar">
-    <a href="#" class="logo">Peter Borges</a>
+    <a href="index.html" class="logo">Peter Borges</a>
     <nav>
-      <a href="#work">Work</a>
-      <a href="https://peterborges.com/resume" target="_blank">Resume</a>
+      <a href="index.html#work">Work</a>
+      <a href="resume.html">Resume</a>
     </nav>
   </div>
 
-  <!-- Hero / Intro -->
   <header>
     <h1>Peter Borges</h1>
     <p>I’m a product designer who turns curiosity and design into business advantage.</p>
-    <div class="locations">Based in <s>Providence,</s> <s>San Francisco,</s> <s>Baltimore,</s> <s>San Antonio,</s> Brooklyn.</div>
+    <div class="locations">Based in Providence, San Francisco, Baltimore, San Antonio, Brooklyn.</div>
   </header>
 
-  <!-- Work Section -->
   <section id="work">
     <h2>Work</h2>
     <div class="projects">
-
-      <!-- Project Cards -->
-      <a href="#" class="project-card">
+      <!-- Example Project Card -->
+      <a href="case-study.html" class="project-card">
         <div class="project-info">
           <h3>VIAM Machine Configuration</h3>
           <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
           <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
         </div>
-        <img class="project-thumb" src="images/app-viam-mockup.png" />
+        <img class="project-thumb" src="https://via.placeholder.com/600x400?text=Project" alt="Project Thumbnail" />
       </a>
-
-      <a href="#" class="project-card">
-        <div class="project-info">
-          <h3>VIAM TeleOp</h3>
-          <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
-          <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
-        </div>
-        <img class="project-thumb" src="images/app-viam-mockup.png" />
-      </a>
-
-      <a href="#" class="project-card">
-        <div class="project-info">
-          <h3>Assortment Optimizer</h3>
-          <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
-          <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
-        </div>
-        <img class="project-thumb" src="images/app-viam-mockup.png" />
-      </a>
-
-      <a href="#" class="project-card">
-        <div class="project-info">
-          <h3>Arcbest</h3>
-          <div class="tags">Strategy · Research · UX · UI · IA · Prototyping · Launch</div>
-          <p>AI/automation tooling. $117m raised, 2,750+ devs, 40+ partnerships.</p>
-        </div>
-        <img class="project-thumb" src="images/app-viam-mockup.png" />
-      </a>
-
-      <!-- Repeat more project cards as needed... -->
-
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Peter Borges · <a href="https://peterborges.com" target="_blank">peterborges.com</a></p>
   </footer>
-
 </body>
 </html>
