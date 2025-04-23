@@ -7,25 +7,78 @@
   <title>Peter Borges | Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .resume-inner {
+      max-width: 60%;
+      margin: 0 auto;
+      padding-top: 4rem;
+    }
+
+    .resume-download {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-download:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 800px) {
+      .resume-inner {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
 
   <div class="content-container">
-    <section>
-      <h2>Resume</h2>
-      <p>You can download my full resume <a href="files/Peter-Borges-Resume.pdf" target="_blank">here</a>.</p>
+    <section class="resume-inner">
+      <a href="files/Peter-Borges-Resume.pdf" class="resume-download" target="_blank">Download PDF Resume</a>
 
-      <!-- You can add inline resume sections below or keep it as a downloadable -->
-      <h3>Experience</h3>
-      <p><strong>Lead Product Designer</strong> – Company Name<br />Location · YYYY–Present</p>
+      <h1>Peter Borges</h1>
+      <p><strong>Lead Product Designer</strong></p>
+      <p>I design systems that simplify complexity. From robotics to finance, I apply user-centered design and cross-functional collaboration to deliver high-impact solutions across platforms and industries.</p>
+
+      <h2>Experience</h2>
+
+      <h3>Viam Robotics – Lead Product Designer</h3>
+      <p><em>2022–Present · New York, NY</em></p>
       <ul>
-        <li>Key contribution or project</li>
-        <li>Impactful result or outcome</li>
+        <li>Designed core machine and teleoperation platforms used by 2,750+ developers and 40+ partners</li>
+        <li>Led design for AI-based robotics tools, contributing to $117M in funding and 6+ new B2B partnerships</li>
       </ul>
 
-      <h3>Education</h3>
-      <p><strong>University Name</strong><br />Degree, Year</p>
+      <h3>HEB (via RevUnit) – Senior Product Designer</h3>
+      <p><em>2019–2022 · Bentonville, AR / Remote</em></p>
+      <ul>
+        <li>Led UX for supply chain and financial tools saving $39M+ in annual operational costs</li>
+        <li>Streamlined internal processes, reducing time-on-task by 96%</li>
+      </ul>
+
+      <h3>USAA – UX Designer</h3>
+      <p><em>2017–2019 · San Antonio, TX</em></p>
+      <ul>
+        <li>Modernized digital money management tools across web and native apps</li>
+        <li>Reduced support calls by 13% and increased task completion by 28%</li>
+      </ul>
+
+      <h2>Skills & Tools</h2>
+      <ul>
+        <li>User research, design systems, UX strategy, prototyping, accessibility</li>
+        <li>Figma, Framer, Sketch, HTML/CSS, Notion, Jira</li>
+      </ul>
+
+      <h2>Education</h2>
+      <p><strong>Rhode Island School of Design</strong><br />BFA · 2015</p>
     </section>
   </div>
 
