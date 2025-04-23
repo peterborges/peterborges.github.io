@@ -1,0 +1,90 @@
+<!-- case-study-assortment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H-E-B Assortment Tool | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>H-E-B Assortment Tool</h1>
+      <p class="subtitle">Smarter assortment planning at scale</p>
+
+      <p><strong>Timeline:</strong> Jan 2019 – Mar 2021</p>
+      <p><strong>Roles:</strong> Strategy, Competitive Research, Experience Design, User Research, Site Analytics</p>
+      <p><strong>Team:</strong> 1 PO · 1 Researcher · 2 Designers · 1 Scrum Master · 8 Developers</p>
+
+      <h2>Overview</h2>
+      <p>H-E-B is a leading Texas-based supermarket chain with over 350 locations. The Assortment Tool project aimed to give buyers and analysts better insight into the cost, value, and impact of shelf decisions—moving from gut feel to data-driven actions.</p>
+
+      <h2>Outcomes</h2>
+      <ul>
+        <li><strong>$39M</strong> in reduced shelf planning costs (1-year cycle reduced to 3 months)</li>
+        <li><strong>96%</strong> reduction in labor costs for tailoring (20 hours down to 1 hour per activity)</li>
+        <li>Increased active users from 3 to over 60 monthly</li>
+      </ul>
+
+      <h2>Challenges</h2>
+      <p>Buyers struggled to understand the ROI of their decisions due to fragmented systems and inaccessible data. Assortment updates often led to costly missteps or poor store alignment.</p>
+
+      <h2>Design Goals</h2>
+      <ul>
+        <li>Increase speed to shelf</li>
+        <li>Standardize processes across stores and categories</li>
+        <li>Improve profitability and strategic innovation</li>
+      </ul>
+
+      <h2>Approach</h2>
+      <h3>Story Mapping & Research</h3>
+      <p>We aligned stakeholders through story mapping and regular user charrettes. These research sprints built empathy and drove faster iteration across the complex ecosystem of H-E-B’s 400+ internal tools.</p>
+
+      <h3>Understanding Users</h3>
+      <p>We designed for two core user types:</p>
+      <ul>
+        <li><strong>Business Development Managers (BDMs):</strong> Balance product mix and profitability across categories</li>
+        <li><strong>Shelf Edge Analysts (SEAs):</strong> Tailor assortments for store performance and changing demand</li>
+      </ul>
+
+      <h2>Design System & Information Architecture</h2>
+      <p>We created an IA that worked within the broader suite of H-E-B tools (like Product Attribute Manager and Visual Planner) while introducing modular flows like:</p>
+      <ul>
+        <li><strong>Decision Tree:</strong> Evaluate item mix, demand, and strategy</li>
+        <li><strong>New Item Queue:</strong> Prioritize and compare new vs existing items</li>
+        <li><strong>Assortment Optimizer:</strong> Model and finalize item selection</li>
+        <li><strong>Shelf Edge Calendar:</strong> View and manage all planning activities</li>
+      </ul>
+
+      <h2>Analytics & Reporting</h2>
+      <p>Users gained new visibility into assortment health, out-of-stocks, and ROI. Visual dashboards empowered better strategic planning and decision validation.</p>
+
+      <h2>Reflections</h2>
+      <p>This project transformed how a key business function operated at H-E-B. By designing in sync with existing workflows and elevating user research, we delivered massive ROI and long-term usability improvements.</p>
+
+      <h2>Testimonials</h2>
+      <blockquote>“This flow is user friendly, attractive, and would provide real value by moving decision-making that was ‘in the brain’ onto paper.” — <em>BDM, Healthy Living</em></blockquote>
+      <blockquote>“Being able to validate intuition with data across clusters is something I’ve never been able to do until now.” — <em>Buying Decision Manager</em></blockquote>
+      <blockquote>“Looking at these metrics visually is already giving me insights. I think I could live in this tool all day.” — <em>Buying Decision Manager</em></blockquote>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
+</body>
+</html>

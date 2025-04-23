@@ -1,14 +1,95 @@
+<!-- viam-machine-configuration.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>this is the Viam Machine Configuration page</p>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIAM Machine Configuration | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>VIAM Machine Configuration</h1>
+      <p class="subtitle">Unlocking data & AI in the physical world</p>
+
+      <p><strong>Timeline:</strong> Nov 2023 – Feb 2024</p>
+      <p><strong>Roles:</strong> Strategy, Competitive Research, Experience Design, User Research, Visual Design</p>
+      <p><strong>Team:</strong> 1 Project Owner · 1 Designer · 1 TPM · 7 Developers</p>
+
+      <h2>Overview</h2>
+      <p>Viam enables businesses to quickly integrate AI and automation into robotics and IoT. To unlock the value of Viam’s ecosystem — including machine learning, component registries, and data aggregation — users needed an efficient way to configure machines.</p>
+
+      <h2>Challenges</h2>
+      <ul>
+        <li><strong>Design/technical debt:</strong> Years of features needed consolidation.</li>
+        <li><strong>Usability:</strong> Developer tooling needed familiar UI patterns.</li>
+        <li><strong>Fragmented flows:</strong> Creation/configuration processes were disjointed.</li>
+      </ul>
+
+      <h2>Success Metrics</h2>
+      <ul>
+        <li>Increased enterprise adoption</li>
+        <li>Reduced configuration time for solutions engineers</li>
+        <li>Incorporated familiar developer UI patterns</li>
+      </ul>
+
+      <h2>Research & Competitive Analysis</h2>
+      <p>We studied leading platforms like ROS, Cogniteam, Intrinsic, ArduinoWeb, and VSCode. Insights included:</p>
+      <ul>
+        <li><strong>File trees:</strong> Essential for navigation</li>
+        <li><strong>Flexible IDE layouts:</strong> Users expected customization</li>
+      </ul>
+
+      <h2>Design Process</h2>
+      <h3>Flow Mapping</h3>
+      <p>Aligned with stakeholders to streamline the machine creation process into fewer, more intuitive steps.</p>
+
+      <h3>Wireframing</h3>
+      <p>Built early low-fidelity wireframes to test ideas. Ensured scalability for complex machine setups and allowed editing/refinement mid-flow.</p>
+
+      <h3>UI System Integration</h3>
+      <p>Extended and migrated the PRIME design system to support the new UI patterns needed for machine configuration.</p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Tree navigation:</strong> Manage machines and sub-parts easily</li>
+        <li><strong>JSON editing:</strong> Granular configuration through direct code</li>
+        <li><strong>Null states:</strong> Friendly guidance for new users</li>
+        <li><strong>Logs:</strong> Real-time diagnostics and feedback</li>
+        <li><strong>Connect tab:</strong> Auto-generated boilerplate for quick integration</li>
+      </ul>
+
+      <h2>Outcomes</h2>
+      <ul>
+        <li>$117M raised, including a $30M Series C</li>
+        <li>40+ partnerships and 2,750+ developers</li>
+        <li>23,000+ machines created</li>
+        <li>65% reduction in configuration time</li>
+      </ul>
+
+      <h2>Reflections</h2>
+      <p>This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch and earlier design system alignment could have accelerated delivery.</p>
+
+      <p><a href="https://app.viam.com/try" target="_blank" class="resume-download">Try Viam →</a></p>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
+</body>
 </html>

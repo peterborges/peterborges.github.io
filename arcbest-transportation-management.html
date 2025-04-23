@@ -1,0 +1,103 @@
+<!-- case-study-arcbest.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArcBest TMS | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>ArcBest Transportation Management System (TMS)</h1>
+      <p class="subtitle">Designing for logistics at scale</p>
+
+      <p><strong>Timeline:</strong> March 2021 – Present</p>
+      <p><strong>Roles:</strong> Strategy, Generative Research, Experience Design, Member Research, Design Language</p>
+      <p><strong>Team:</strong> 1 Internal PO · 1 RevUnit PO · 2 Designers · 12 Developers</p>
+
+      <h2>Overview</h2>
+      <p>ArcBest is a freight and logistics company offering integrated services across multiple transportation service lines. The goal was to consolidate tools across divisions into a single Transportation Management System (TMS) that reduces reliance on third-party systems and enhances internal efficiency.</p>
+
+      <h2>My Role</h2>
+      <p>I led user research, stakeholder workshops, workflow mapping, and the definition of a unified design language. I also supported feature validation and UI delivery across multiple teams.</p>
+
+      <h2>What is a TMS?</h2>
+      <p>A TMS manages data on loads, carriers, routes, costs, and contact info — providing a centralized view of freight movements and enabling planning, tracking, and coordination.</p>
+
+      <h2>Service Lines Supported</h2>
+      <ul>
+        <li><strong>Partial Truckload (PT):</strong> Purchased capacity from 3rd party vendors</li>
+        <li><strong>Less Than Truckload Brokerage (LTLB):</strong> Small shipments from multiple customers</li>
+        <li><strong>Truckload (TL):</strong> Full trailer loads across hubs</li>
+        <li><strong>Expedite:</strong> Critical, time-sensitive loads</li>
+        <li><strong>Dedicated:</strong> Vehicles dedicated to single clients or contracts</li>
+      </ul>
+
+      <h2>Key Challenges</h2>
+      <ul>
+        <li>Fragmented tools and inconsistent workflows across teams</li>
+        <li>Overlapping data and disconnected service line logic</li>
+        <li>Need for visual consistency and platform-wide design language</li>
+      </ul>
+
+      <h2>Insights</h2>
+      <ul>
+        <li><strong>“A shipment is a shipment”:</strong> Found significant overlap in load structure and lifecycle across service lines</li>
+        <li><strong>Unified UI patterns:</strong> Required consistent interactions and interface elements</li>
+        <li><strong>Multiple parallel projects:</strong> Influenced other ArcBest product teams to adopt shared language</li>
+      </ul>
+
+      <h2>Design Solutions</h2>
+
+      <h3>Prioritized Action List (PAL)</h3>
+      <p>Centralized task view for users to manage loads assigned by supervisors — eliminating redundancy and noise.</p>
+
+      <h3>Load Board</h3>
+      <p>Displays load lifecycle stages across service lines. Enables prioritization via quick filters based on location and operational status.</p>
+
+      <h3>Load Details Tabs</h3>
+      <ul>
+        <li><strong>Stops:</strong> Origin/destination and contact info</li>
+        <li><strong>Commodities:</strong> Item-level shipping and pricing logic</li>
+        <li><strong>Tracking:</strong> GPS or manual load progress and status</li>
+        <li><strong>Carrier Details:</strong> Company, driver, and vehicle info</li>
+        <li><strong>Carrier Actions:</strong> Tendering history and negotiations</li>
+        <li><strong>Financials:</strong> Rates, cost transparency, and margins</li>
+        <li><strong>References:</strong> Infrequent metadata gathered in one place</li>
+      </ul>
+
+      <h3>Manual Load Creation</h3>
+      <p>Enabled users to create loads manually via phone or email if not received through automated EDI feeds.</p>
+
+      <h2>Outcomes</h2>
+      <ul>
+        <li>Unified user experience across previously siloed teams</li>
+        <li>Improved visibility into operations and financials</li>
+        <li>Simplified onboarding for new service lines and workflows</li>
+      </ul>
+
+      <h2>Reflections</h2>
+      <p>This was a complex, multi-year systems integration challenge. Working across service lines meant aligning on terminology, workflows, and tools. Early wins came from shared visual patterns and consistent user research cadence. The design language helped bring cohesion and speed to a long roadmap of products.</p>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
+</body>
+</html>
