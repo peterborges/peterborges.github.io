@@ -73,8 +73,7 @@ body {
 
 /* MAIN LAYOUT */
 .content-container {
-  max-width: 1400px;
-  width: 100%;
+  max-width: min(vw, 1000px); /* 80% or 1120px max */
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -198,4 +197,10 @@ footer a:hover {
 footer i {
   font-size: 1.1rem;
   vertical-align: middle;
+}
+
+.about-inner {
+  max-width: 70%; /* matches .project-info */
+  margin: 0 auto;
+  padding-top: 4rem;
 }
