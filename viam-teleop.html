@@ -1,0 +1,97 @@
+<!-- case-study-teleop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viam TeleOp | Peter Borges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <section class="case-study">
+      <h1>Viam TeleOp</h1>
+      <p class="subtitle">Remote sensor visibility and control in real time</p>
+
+      <img src="img_chania.jpg" alt="Flowers in Chania">
+
+      <p><strong>Timeline:</strong> [e.g. Oct 2023 – Jan 2024]</p>
+      <p><strong>Roles:</strong> [e.g. UX, Systems Design, Sensor Mapping, UI Design, Research]</p>
+      <p><strong>Team:</strong> [e.g. 1 Designer · 1 PM · 6 Developers]</p>
+
+      <h2>Overview</h2>
+      <p>Companies often struggle to gain visibility into their machines' data due to fragmented systems, legacy equipment that lacks data-sharing capabilities, and the absence of standardization across devices. These limitations make seamless data integration and analysis difficult, leaving organizations unprepared when machines underperform or fail. Insufficient infrastructure, high costs, and connectivity challenges—especially in remote areas—further complicate real-time monitoring.</p>
+
+      <h2>Problem</h2>
+      <p>What problem were you solving? Describe the friction, inefficiencies, or lack of functionality that prompted this initiative.<br>
+        <br>
+        Companies often struggle to gain visibility into their machines' data due to fragmented systems, legacy equipment that lacks data-sharing capabilities, and the absence of standardization across devices. These limitations make seamless data integration and analysis difficult, leaving organizations unprepared when machines underperform or fail. Insufficient infrastructure, high costs, and connectivity challenges—especially in remote areas—further complicate real-time monitoring.
+      </p>
+
+      <h2>Goals</h2>
+      <ul>
+        <li>Enable real-time visibility into robot sensor states</li>
+        <li>Support bi-directional control for developers and operators</li>
+        <li>Standardize telemetry UI for machine health</li>
+      </ul>
+
+      <h2>Process</h2>
+      <h3>Research & Discovery</h3>
+      <p>What you learned from users or technical stakeholders. Highlight research methods used.</p>
+
+      <h3>Design Approach</h3>
+      <p>Sketches, early flows, wireframes, iterations — your thinking and decisions.</p>
+
+      <h3>Key Components</h3>
+      <ul>
+        <li><strong>Live sensor dashboard:</strong> Unified view of camera, LiDAR, GPS, and more</li>
+        <li><strong>Custom controls:</strong> Joystick-like interactions for remote navigation</li>
+        <li><strong>Diagnostics panel:</strong> Streamlined logs and system health indicators</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <ul>
+        <li><strong>$2.75M</strong> in signed contracts from early enterprise users</li>
+        <li><strong>6+ partnerships</strong> including government and robotics integrators</li>
+        <li>Improved uptime and operational safety for fleet operators</li>
+      </ul>
+
+      <h2>Reflections</h2>
+      <p>What did you learn? What worked well? What might you improve or scale in the future?</p>
+      <h4>What went well</h4>
+      <ul>
+        <li>Higher engagement with both business and consumer customers.</li>
+        <li>Increased customer conversion</li>
+        <li>Reduced effort for our solutions engineering team members.</li>
+        <li>Greater developer comfort when using the app.</li>
+        <li>Reduced times for task completion.</li>
+        <li>Integration of long-standing and blocked backlog items.</li>
+      </ul>
+      <h4>Areas for Improvement</h4>
+      <ul>
+        <li>Overall time to develop & launch.</li>
+        <li>Phased launched approach would have allowed us to launch faster.</li>
+        <li>Simultaneous development of the design language during this effort.</li>
+        <li>Balancing other organization demands with a long-term project.</li>
+      </ul>
+
+      <p><a href="https://app.viam.com" target="_blank">Explore TeleOp in Viam →</a></p>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url) {
+      fetch(url).then(res => res.text()).then(data => {
+        document.querySelector(selector).innerHTML = data;
+      });
+    }
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html');
+  </script>
+</body>
+</html>
