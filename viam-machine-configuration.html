@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIAM Machine Configuration | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,18 +17,49 @@
       <h1>VIAM Machine Configuration</h1>
       <p class="subtitle">Unlocking data & AI in the physical world</p>
 
-      <p><strong>Timeline:</strong> Nov 2023 – Feb 2024</p>
-      <p><strong>Roles:</strong> Strategy, Competitive Research, Experience Design, User Research, Visual Design</p>
-      <p><strong>Team:</strong> 1 Project Owner · 1 Designer · 1 TPM · 7 Developers</p>
+      <img src="images/viam-machine-configuration/app-viam-mockup.png" alt="Machine Configuration Hero Image" class="hero-image" />
+
+      <div class="project-meta-block">
+        <div class="meta-column">
+          <h4><i class="fas fa-users"></i> Team</h4>
+          <ul>
+            <li>1 Project Owner</li>
+            <li>1 Designer</li>
+            <li>1 Technical Program Manager</li>
+            <li>7 Developers</li>
+          </ul>
+        </div>
+      
+        <div class="meta-column">
+          <h4><i class="fas fa-user-cog"></i> My Roles</h4>
+          <ul>
+            <li>Strategy</li>
+            <li>Competitive Research</li>
+            <li>Experience Design</li>
+            <li>User Research</li>
+            <li>Visual Design</li>
+          </ul>
+        </div>
+      
+        <div class="meta-column">
+          <h4>📅 Project Timeline</h4>
+          <p>Nov 2023 – Feb 2024</p>
+        </div>
+      </div>      
 
       <h2>Overview</h2>
-      <p>Viam enables businesses to quickly integrate AI and automation into robotics and IoT. To unlock the value of Viam’s ecosystem — including machine learning, component registries, and data aggregation — users needed an efficient way to configure machines.</p>
+      <p>Viam has been working since 2019 to create a new standard for hobbyist developers developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices. <br>
+        <br>
+        To leverage the full power of Viam’s ecosystem of products, from data aggregation, machine learning models, and a registry of compliant components, users need a way to efficiently configure and test their new smart machines. Machine configuration acts as the core of the VIAM platform which other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem level value from.</p>
 
       <h2>Challenges</h2>
       <ul>
-        <li><strong>Design/technical debt:</strong> Years of features needed consolidation.</li>
-        <li><strong>Usability:</strong> Developer tooling needed familiar UI patterns.</li>
-        <li><strong>Fragmented flows:</strong> Creation/configuration processes were disjointed.</li>
+        <li><strong>Design/technical debt</strong> 
+          <br>Years of features needed consolidation.</li>
+        <li><strong>Usability</strong> 
+          <br>Developer tooling needed familiar UI patterns.</li>
+        <li><strong>Fragmented flows</strong> 
+          <br>Creation/configuration processes were disjointed.</li>
       </ul>
 
       <h2>Success Metrics</h2>
@@ -44,23 +76,98 @@
         <li><strong>Flexible IDE layouts:</strong> Users expected customization</li>
       </ul>
 
+      <div class="insight-section">
+        <div class="insight-text">
+          <h3>Competitive Analysis</h3>
+          <ul class="key-insights">...your list...</ul>
+        </div>
+        <div class="insight-image">
+          <img src="images/viam-machine-configuration/ardunio-web.png" alt="Arduino IDE" />
+          <img src="images/viam-machine-configuration/intrinsic_flowstate.jpg" alt="Intrinsic" />
+        </div>
+      </div>
+
+      <h3>Key Insights</h3>
+      <ul class="key-insights">
+        <li><strong>File-tree navigation is essential:</strong> Developers expect to see a structured, nested view of machine components, similar to IDEs or JSON structures they're familiar with.</li>
+        <li><strong>Configuration needs to be readable and editable:</strong> Users wanted clear machine definitions they could read at a glance — and the flexibility to edit settings inline or via raw JSON when needed.</li>
+        <li><strong>Separation of setup and operation is critical:</strong> Many platforms confuse configuration with live control. Users wanted to configure safely before deployment — not while the robot is running.</li>
+        <li><strong>Familiar UI patterns reduce ramp-up time:</strong> Competitor tools like ROS and Intrinsic often rely on complex CLI tools or XML files. Viam’s web-based UI had an opportunity to stand out with familiar UI/UX conventions.</li>
+        <li><strong>Debugging needs to be integrated:</strong> Users expected to see real-time logs, validation warnings, and machine state summaries during configuration to reduce guesswork and deployment errors.</li>
+      </ul>
+      
+
       <h2>Design Process</h2>
       <h3>Flow Mapping</h3>
+      <img src="images/viam-machine-configuration/new-machine-flow.png" alt="Configuration flow" class="hero-image" />
       <p>Aligned with stakeholders to streamline the machine creation process into fewer, more intuitive steps.</p>
 
       <h3>Wireframing</h3>
+      <img src="images/viam-machine-configuration/adding-part-wireframe.png" alt="Configuration flow" class="hero-image" />
       <p>Built early low-fidelity wireframes to test ideas. Ensured scalability for complex machine setups and allowed editing/refinement mid-flow.</p>
 
       <h3>UI System Integration</h3>
+      <section class="demo">
+        <video 
+          class="hero-video" 
+          src="images/viam-machine-configuration/prime.mp4" 
+          autoplay 
+          muted 
+          loop 
+          playsinline>
+        </video>
+      </section>      
+      
       <p>Extended and migrated the PRIME design system to support the new UI patterns needed for machine configuration.</p>
 
       <h2>Key Features</h2>
       <ul>
         <li><strong>Tree navigation:</strong> Manage machines and sub-parts easily</li>
+        <section class="demo">
+          <video 
+            class="hero-video" 
+            src="images/viam-machine-configuration/tree-nav.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+          </video>
+        </section>    
         <li><strong>JSON editing:</strong> Granular configuration through direct code</li>
+        <section class="demo">
+          <video 
+            class="hero-video" 
+            src="images/viam-machine-configuration/json.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+          </video>
+        </section>    
         <li><strong>Null states:</strong> Friendly guidance for new users</li>
+        <img src="images/viam-machine-configuration/null-state.png" alt="Configuration flow" class="hero-image" /> 
         <li><strong>Logs:</strong> Real-time diagnostics and feedback</li>
+        <section class="demo">
+          <video 
+            class="hero-video" 
+            src="images/viam-machine-configuration/logs.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+          </video>
+        </section>    
         <li><strong>Connect tab:</strong> Auto-generated boilerplate for quick integration</li>
+        <section class="demo">
+          <video 
+            class="hero-video" 
+            src="images/viam-machine-configuration/connect.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+          </video>
+        </section>    
       </ul>
 
       <h2>Outcomes</h2>
