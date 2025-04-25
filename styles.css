@@ -172,7 +172,7 @@ header p {
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 4px;
   margin-bottom: 2rem;
   object-fit: cover;
 }
@@ -250,4 +250,131 @@ footer i {
   margin: 1.5rem 0;
   border-left: 4px solid #eee;
   padding-left: 1rem;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  object-fit: cover;
+}
+
+.project-meta-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.meta-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.meta-column h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.meta-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meta-column li {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.meta-column p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .project-meta-block {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.meta-column h4 i {
+  margin-right: 0.5rem;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.goals-list i {
+  margin-right: 0.5rem;
+  color: #555;
+  min-width: 1.25rem;
+}
+
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goals-list i {
+  margin-right: 0.5rem;
+  color: #555;
+  min-width: 1.25rem;
+}
+
+.key-insights {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+}
+
+.key-insights li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.key-insights li::before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.insight-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 4rem 0;
+}
+
+.insight-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.insight-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.insight-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.06);
 }

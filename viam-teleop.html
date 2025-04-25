@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Viam TeleOp | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,31 +17,73 @@
       <h1>Viam TeleOp</h1>
       <p class="subtitle">Remote sensor visibility and control in real time</p>
 
-      <img src="img_chania.jpg" alt="Flowers in Chania">
+      <img src="images/viam-teleop/teleop-hero-2.png" alt="TeleOp Hero Image" class="hero-image" />
 
-      <p><strong>Timeline:</strong> [e.g. Oct 2023 – Jan 2024]</p>
-      <p><strong>Roles:</strong> [e.g. UX, Systems Design, Sensor Mapping, UI Design, Research]</p>
-      <p><strong>Team:</strong> [e.g. 1 Designer · 1 PM · 6 Developers]</p>
+      <div class="project-meta-block">
+        <div class="meta-column">
+          <h4><i class="fas fa-users"></i> Team</h4>
+          <ul>
+            <li>1 Project Owner</li>
+            <li>1 Designer</li>
+            <li>1 Technical Program Manager</li>
+            <li>7 Developers</li>
+          </ul>
+        </div>
+      
+        <div class="meta-column">
+          <h4><i class="fas fa-user-cog"></i> My Roles</h4>
+          <ul>
+            <li>Strategy</li>
+            <li>Competitive Research</li>
+            <li>Experience Design</li>
+            <li>User Research</li>
+            <li>Visual Design</li>
+          </ul>
+        </div>
+      
+        <div class="meta-column">
+          <h4><i class="fas fa-calendar-alt"></i> Project Timeline</h4>
+          <p>Sep 2024 – Oct 2024</p>
+        </div>
+      </div>      
+        
 
       <h2>Overview</h2>
-      <p>Companies often struggle to gain visibility into their machines' data due to fragmented systems, legacy equipment that lacks data-sharing capabilities, and the absence of standardization across devices. These limitations make seamless data integration and analysis difficult, leaving organizations unprepared when machines underperform or fail. Insufficient infrastructure, high costs, and connectivity challenges—especially in remote areas—further complicate real-time monitoring.</p>
+      <p>Many companies lack real-time visibility into their machines due to fragmented systems, outdated hardware, and inconsistent data standards. These gaps make it difficult to detect issues early, integrate insights, or respond quickly, especially in remote or infrastructure-poor environments.</p>
 
       <h2>Problem</h2>
-      <p>What problem were you solving? Describe the friction, inefficiencies, or lack of functionality that prompted this initiative.<br>
-        <br>
-        Companies often struggle to gain visibility into their machines' data due to fragmented systems, legacy equipment that lacks data-sharing capabilities, and the absence of standardization across devices. These limitations make seamless data integration and analysis difficult, leaving organizations unprepared when machines underperform or fail. Insufficient infrastructure, high costs, and connectivity challenges—especially in remote areas—further complicate real-time monitoring.
-      </p>
+      <p>While Viam could collect data from a wide range of input sources and expose it through the UI and exports, the information was fragmented and difficult for users to interpret or act on effectively.</p>
 
       <h2>Goals</h2>
-      <ul>
-        <li>Enable real-time visibility into robot sensor states</li>
-        <li>Support bi-directional control for developers and operators</li>
-        <li>Standardize telemetry UI for machine health</li>
-      </ul>
+      <ul class="goals-list">
+        <li><i class="fas fa-eye"></i> Enable real-time visibility into robot sensor states</li>
+        <li><i class="fas fa-arrows-alt-h"></i> Support bi-directional control for developers and operators</li>
+        <li><i class="fas fa-heartbeat"></i> Standardize telemetry UI for machine health</li>
+      </ul>         
 
       <h2>Process</h2>
       <h3>Research & Discovery</h3>
-      <p>What you learned from users or technical stakeholders. Highlight research methods used.</p>
+      <p>We conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. We also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow — familiar layouts, responsive controls, and streamlined diagnostics.</p>
+     
+      <div class="insight-section">
+        <div class="insight-text">
+          <h3>Competitive Analysis</h3>
+          <ul class="key-insights">...your list...</ul>
+        </div>
+        <div class="insight-image">
+          <img src="images/viam-teleop/arduino-dashboard.png" alt="Arduino IoT dashboard" />
+          <img src="images/viam-teleop/datadog-dashboard.png" alt="Datadog dashboard" />
+        </div>
+      </div>
+      
+      <h3>Key Insights</h3>
+<ul class="key-insights">
+  <li><strong>Sensor data was available, but not actionable</strong> <br>Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior.</br></li>
+  <li><strong>Developers wanted control + clarity</strong> <br>Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely.</br></li>
+  <li><strong>Tooling fatigue was real</strong> <br>Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment.</br></li>
+  <li><strong>Familiar patterns helped adoption</strong> <br>Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel “native” to their workflow.</br></li>
+</ul>
+
 
       <h3>Design Approach</h3>
       <p>Sketches, early flows, wireframes, iterations — your thinking and decisions.</p>
@@ -52,10 +95,10 @@
         <li><strong>Diagnostics panel:</strong> Streamlined logs and system health indicators</li>
       </ul>
 
-      <h2>Outcome</h2>
+      <h2>Outcomes</h2>
       <ul>
         <li><strong>$2.75M</strong> in signed contracts from early enterprise users</li>
-        <li><strong>6+ partnerships</strong> including government and robotics integrators</li>
+        <li><strong>6+ partnerships</strong> including marine and robotics integrators</li>
         <li>Improved uptime and operational safety for fleet operators</li>
       </ul>
 
