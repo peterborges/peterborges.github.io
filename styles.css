@@ -263,6 +263,7 @@ footer i {
 }
 
 .project-meta-block {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -290,12 +291,12 @@ footer i {
 }
 
 .meta-column li {
-  font-weight: 500;
+  font-weight: normal;
   margin-bottom: 0.5rem;
 }
 
 .meta-column p {
-  font-weight: 600;
+  font-weight: normal;
   font-size: 1rem;
   margin: 0;
 }
@@ -440,4 +441,48 @@ footer i {
 .flow-arrow {
   font-size: 2rem;
   color: #999;
+}
+
+.goals-card {
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0 3rem; /* <-- smaller margin on top, larger margin on bottom */
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px dashed #ddd;
+  margin: 4rem 0; /* big space above and below */
+  width: 100%;
+}
+
+.highlight-card {
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 2.5rem 2rem; /* More top/bottom padding than sides */
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* nice breathing room between title and list */
+}
+
+.highlight-card h2 {
+  margin-top: 0;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlight-list li {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }

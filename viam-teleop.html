@@ -21,7 +21,7 @@
 
       <div class="project-meta-block">
         <div class="meta-column">
-          <h4><i class="fas fa-users"></i> Team</h4>
+          <h4></i>👥 Team</h4>
           <ul>
             <li>1 Project Owner</li>
             <li>1 Designer</li>
@@ -31,7 +31,7 @@
         </div>
       
         <div class="meta-column">
-          <h4><i class="fas fa-user-cog"></i> My Roles</h4>
+          <h4></i>👨‍🎨 My Roles</h4>
           <ul>
             <li>Strategy</li>
             <li>Competitive Research</li>
@@ -42,36 +42,40 @@
         </div>
       
         <div class="meta-column">
-          <h4><i class="fas fa-calendar-alt"></i> Project Timeline</h4>
+          <h4></i>🗓️ Project Timeline</h4>
           <p>Sep 2024 – Oct 2024</p>
         </div>
       </div>      
         
-
       <h2>Overview</h2>
       <p>Many companies lack real-time visibility into their machines due to fragmented systems, outdated hardware, and inconsistent data standards. These gaps make it difficult to detect issues early, integrate insights, or respond quickly, especially in remote or infrastructure-poor environments.</p>
 
       <h2>Problem</h2>
       <p>While Viam could collect data from a wide range of input sources and expose it through the UI and exports, the information was fragmented and difficult for users to interpret or act on effectively.</p>
-
+    
+    <div class="highlight-card">
       <h2>Goals</h2>
-      <ul class="goals-list">
-        <li><i class="fas fa-eye"></i> Enable real-time visibility into robot sensor states</li>
-        <li><i class="fas fa-arrows-alt-h"></i> Support bi-directional control for developers and operators</li>
-        <li><i class="fas fa-heartbeat"></i> Standardize telemetry UI for machine health</li>
-      </ul>         
+      <ul class="highlight-list">
+        <li>👁️ Enable real-time visibility into robot sensor states</li>
+        <li>↔️ Support bi-directional control for developers and operators</li>
+        <li>📶 Standardize telemetry UI for machine health</li>
+        <li>🛠️ Reduce tooling fatigue by consolidating multiple dashboards</li>
+      </ul>
+    </div>
+     
+<hr class="section-divider" />
 
       <h2>Process</h2>
       <h3>Research & Discovery</h3>
-      <p>We conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. We also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow — familiar layouts, responsive controls, and streamlined diagnostics.</p>
+      <p>I conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. I also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow, familiar layouts, responsive controls, and streamlined diagnostics.</p>
      
       <div class="insight-section">
         <div class="insight-text">
           <h3>Competitive Analysis</h3>
-          <ul class="key-insights">
-            <li>Arduino dashboards prioritize real-time device status but lack detailed sensor state correlation.</li>
-            <li>Datadog excels at observability but is built around server monitoring rather than physical robotics.</li>
-            <li>Opportunity: Create a robotics-native UI that balances live status, control, and machine health.</li>
+          <ul>
+            <li><strong>Arduino</strong> <br>Prioritize real-time device status but lack detailed sensor state correlation.</li>
+            <li><strong>Datadog</strong> <br>Excels at observability but is built around server monitoring rather than physical robotics.</li>
+            <li><Strong>Opportunity</Strong> <br>A robotics-native UI that balances live status, control, and machine health.</li>
           </ul>
         </div>
       
@@ -89,20 +93,32 @@
       </div>      
       
       <h3>Key Insights</h3>
-        <ul class="key-insights">
-            <li><strong>Sensor data was available, but not actionable</strong> <br>Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior.</br></li>
-            <li><strong>Developers wanted control + clarity</strong> <br>Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely.</br></li>
-            <li><strong>Tooling fatigue was real</strong> <br>Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment.</br></li>
-            <li><strong>Familiar patterns helped adoption</strong> <br>Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel “native” to their workflow.</br></li>
-        </ul>
+      📈 <strong>Sensor data was available, but not actionable</strong><br>
+        Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior.
+        <br>
+        <br>
+      🎮 <strong>Developers wanted control + clarity</strong><br>
+        Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely.
+        <br>
+        <br>
+      🧩 <strong>Tooling fatigue was real</strong><br>
+        Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment.
+        <br>
+        <br>
+      🧠 <strong>Familiar patterns helped adoption</strong><br>
+        Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel “native” to their workflow.
+        <br>
+        <br>
+      
 
-
+<br>
         <h3>Design Approach</h3>
-
+        <!--
         <h4>Sketches</h4>
         <p>Early sketches explored how to unify multiple real-time sensor feeds (camera, LiDAR, GPS) into a single, intuitive dashboard. I focused on finding layouts that reduced cognitive load and grouped related information logically for quick access during remote operations.</p>
         <img src="" alt="Initial Sketches" class="hero-image" />
         <br>
+      -->
 
         <h4>Flow Map</h4>
         <p>I mapped out the core user journeys for different personas, including solutions engineers and developers. Early flows prioritized quick access to machine status, streamlined manual control interactions, and fallback paths for degraded network environments.</p>
@@ -147,7 +163,9 @@
             <p>Diagnostics & Health Reporting</p>
           </div>
         </div>
-        
+
+<hr class="section-divider" />
+
         <h3>Key Functionality</h3>
           <h4>Adding Widgets</h4>
             <p>Centralized view of visual, spatial, and diagnostic sensor data for live machine monitoring.</p>
@@ -160,7 +178,8 @@
                 loop 
                 playsinline>
               </video>
-            </section>      
+            </section>
+            <br>  
 
           <h4>Adding a machine</h4>
             <p>Centralized view of visual, spatial, and diagnostic sensor data for live machine monitoring.</p>
@@ -173,10 +192,11 @@
                 loop 
                 playsinline>
               </video>
-            </section>      
+            </section>
+            <br>
 
             <h4>Widget configuration</h4>
-            <p>xxx</p>
+            <p>Modular setup for selecting, arranging, and customizing live data and control widgets across the dashboard.</p>
             <section class="demo">
               <video 
                 class="hero-video" 
@@ -186,7 +206,8 @@
                 loop 
                 playsinline>
               </video>
-            </section>   
+            </section>
+            <br>
 
           <h4>Machine monitoring</h4> 
             <p>Centralized view of visual, spatial, and diagnostic sensor data for live machine monitoring.</p>
@@ -199,32 +220,38 @@
                 loop 
                 playsinline>
               </video>
-            </section>      
+            </section>
+            <br>
+            
+<hr class="section-divider" />
 
-      <h2>Outcomes</h2>
-      <p>📝<strong>$2.75M</strong> in signed contracts from early enterprise users</p>
-      <p>🤝<strong>6+</strong> partnerships</p>
-      <p>🛠️Improved uptime and operational safety for fleet operators</p>
-      </ul>
+<div class="highlight-card">
+  <h2>Outcomes</h2>
+  <ul class="highlight-list">
+    <li>📝 <strong>$2.75M</strong> in signed contracts from early enterprise users</li>
+    <li>🤝 <strong>6</strong>partnerships</li>
+    <li>🛠️ Improved uptime and operational safety for fleet operators</li>
+  </ul>
+</div>
+
 
       <h2>Reflections</h2>
-      <p>What did you learn? What worked well? What might you improve or scale in the future?</p>
-      <h4>What went well</h4>
-      <ul>
-        <li>Higher engagement with both business and consumer customers.</li>
-        <li>Increased customer conversion</li>
-        <li>Reduced effort for our solutions engineering team members.</li>
-        <li>Greater developer comfort when using the app.</li>
-        <li>Reduced times for task completion.</li>
-        <li>Integration of long-standing and blocked backlog items.</li>
-      </ul>
+      <h4>What Went Well</h4>
+      <ul class="insights-list">
+        <li>📈 Higher engagement across both business and consumer customers.</li>
+        <li>🛒 Increased customer conversion through clearer telemetry visibility.</li>
+        <li>🤝 Reduced support effort for our solutions engineering team.</li>
+        <li>🧠 Improved developer comfort and ease-of-use inside the app.</li>
+        <li>⚡ Faster task completion times for operators and engineers.</li>
+        <li>🛠️ Successfully integrated long-standing backlog items that had been blocked.</li>
+      </ul>      
       <h4>Areas for Improvement</h4>
-      <ul>
-        <li>Overall time to develop & launch.</li>
-        <li>Phased launched approach would have allowed us to launch faster.</li>
-        <li>Simultaneous development of the design language during this effort.</li>
-        <li>Balancing other organization demands with a long-term project.</li>
-      </ul>
+      <ul class="insights-list">
+        <li>⏳ Overall time to develop and launch could be reduced.</li>
+        <li>🚀 A phased launch approach would have accelerated delivery and feedback loops.</li>
+        <li>🎨 Simultaneous development of the design system slowed product velocity.</li>
+        <li>⚖️ Balancing organization-wide demands with deep project work proved challenging.</li>
+      </ul>      
 
       <p><a href="https://docs.viam.com/manage/troubleshoot/teleoperate/custom-interface/" target="_blank">Explore TeleOp in Viam →</a></p>
     </section>
