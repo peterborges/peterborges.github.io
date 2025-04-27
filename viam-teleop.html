@@ -68,13 +68,25 @@
       <div class="insight-section">
         <div class="insight-text">
           <h3>Competitive Analysis</h3>
-          <ul class="key-insights">...your list...</ul>
+          <ul class="key-insights">
+            <li>Arduino dashboards prioritize real-time device status but lack detailed sensor state correlation.</li>
+            <li>Datadog excels at observability but is built around server monitoring rather than physical robotics.</li>
+            <li>Opportunity: Create a robotics-native UI that balances live status, control, and machine health.</li>
+          </ul>
         </div>
-        <div class="insight-image">
-          <img src="images/viam-teleop/arduino-dashboard.png" alt="Arduino IoT dashboard" />
-          <img src="images/viam-teleop/datadog-dashboard.png" alt="Datadog dashboard" />
+      
+        <div class="insight-image-row">
+          <div class="image-wrapper">
+            <img src="images/viam-teleop/arduino-dashboard.png" alt="Arduino IoT dashboard" />
+            <p class="image-caption">Arduino IoT dashboard: Device-centric, but not built for robotic sensor workflows.</p>
+          </div>
+      
+          <div class="image-wrapper">
+            <img src="images/viam-teleop/datadog-dashboard.png" alt="Datadog dashboard" />
+            <p class="image-caption">Datadog: Excellent for server observability, less intuitive for machine telemetry.</p>
+          </div>
         </div>
-      </div>
+      </div>      
       
       <h3>Key Insights</h3>
         <ul class="key-insights">
@@ -85,21 +97,75 @@
         </ul>
 
 
-      <h3>Design Approach</h3>
-      <p>Sketches, early flows, wireframes, iterations — your thinking and decisions.</p>
+        <h3>Design Approach</h3>
 
-      <h3>Key Components</h3>
+        <h4>Sketches</h4>
+        <p>Early sketches explored how to unify multiple real-time sensor feeds (camera, LiDAR, GPS) into a single, intuitive dashboard. I focused on finding layouts that reduced cognitive load and grouped related information logically for quick access during remote operations.</p>
+        <img src="" alt="Initial Sketches" class="hero-image" />
+        <br>
+
+        <h4>Flow Map</h4>
+        <p>I mapped out the core user journeys for different personas, including solutions engineers and developers. Early flows prioritized quick access to machine status, streamlined manual control interactions, and fallback paths for degraded network environments.</p>
+        <img src="images/viam-teleop/TeleOp-Flowmap.jpg" alt="TeleOp Hero Image" class="hero-image" />
+        <br>
+
+        <h4>Wireframes</h4>
+        <p>Low-fidelity wireframes tested different structural models: tabbed dashboards, collapsible sensor panels, and split-view layouts combining control and telemetry. Wireframes helped validate navigation hierarchy and the balance between overview and detail views.</p>
+        <img src="images/viam-teleop/teleop-wireframes.png" alt="TeleOp Wireframes" class="hero-image" />
+        <br>
+
+        <h4>Iterations</h4>
+        <p>Through rounds of feedback and internal testing, we refined the UI to prioritize actionability — surfacing the most critical sensor states first and simplifying manual overrides. Design iterations also focused on making the dashboard feel responsive even under slower network conditions, improving trust during remote operations. Side panel for configuration of widgets instead of an edit mode<br>
+        Need to create a new workspace from an existing machine
+        </p>
+        <br>
+
+        <div class="design-flow">
+          <div class="flow-step">
+            <div class="flow-icon">🛰️</div>
+            <p>Sensor Feeds (LiDAR, Camera, GPS)</p>
+          </div>
+        
+          <div class="flow-arrow">→</div>
+        
+          <div class="flow-step">
+            <div class="flow-icon">📊</div>
+            <p>Live Dashboard (Sensor Monitoring)</p>
+          </div>
+        
+          <div class="flow-arrow">→</div>
+        
+          <div class="flow-step">
+            <div class="flow-icon">🎮</div>
+            <p>Manual Control Panel (Remote Actions)</p>
+          </div>
+        
+          <div class="flow-arrow">→</div>
+        
+          <div class="flow-step">
+            <div class="flow-icon">⚙️</div>
+            <p>Diagnostics & Health Reporting</p>
+          </div>
+        </div>
+        
+        <h3>Key Components</h3>
+        <ul class="key-insights">
+          <li><strong>Live Sensor Dashboard:</strong> Centralized view of visual, spatial, and diagnostic sensor data for live machine monitoring.</li>
+          <li><strong>Manual Control Panel:</strong> Responsive joystick-like controls enabling safe remote navigation and action triggers.</li>
+          <li><strong>Health Diagnostics Panel:</strong> Surfaced system warnings, battery status, network strength, and component-level error reporting to support fast troubleshooting.</li>
+        </ul>
+        
+      
       <ul>
-        <li><strong>Live sensor dashboard:</strong> Unified view of camera, LiDAR, GPS, and more</li>
-        <li><strong>Custom controls:</strong> Joystick-like interactions for remote navigation</li>
-        <li><strong>Diagnostics panel:</strong> Streamlined logs and system health indicators</li>
+        <li><strong>Live sensor dashboard</strong> <br>Unified view of camera, LiDAR, GPS, and more</li>
+        <li><strong>Custom controls</strong> <br>Joystick-like interactions for remote navigation</li>
+        <li><strong>Diagnostics panel</strong> <br>Streamlined logs and system health indicators</li>
       </ul>
 
       <h2>Outcomes</h2>
-      <ul>
-        <li><strong>$2.75M</strong> in signed contracts from early enterprise users</li>
-        <li><strong>6+ partnerships</strong> including marine and robotics integrators</li>
-        <li>Improved uptime and operational safety for fleet operators</li>
+      <p>📝<strong>$2.75M</strong> in signed contracts from early enterprise users</p>
+      <p>🤝<strong>6+</strong> partnerships</p>
+      <p>🛠️Improved uptime and operational safety for fleet operators</p>
       </ul>
 
       <h2>Reflections</h2>
@@ -121,7 +187,7 @@
         <li>Balancing other organization demands with a long-term project.</li>
       </ul>
 
-      <p><a href="https://app.viam.com" target="_blank">Explore TeleOp in Viam →</a></p>
+      <p><a href="https://docs.viam.com/manage/troubleshoot/teleoperate/custom-interface/" target="_blank">Explore TeleOp in Viam →</a></p>
     </section>
   </div>
 
