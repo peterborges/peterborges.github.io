@@ -14,6 +14,14 @@
       "impact": "$2.75M signed contracts · 6 business partnerships",
       "image": "images/index/teleop-hero-4.png",
       "link": "viam-teleop.html"
+    },
+    {
+      "title": "GovWell Plan Review",
+      "tags": "UX · UI · Prototyping",
+      "description": "Full case study under development",
+      "impact": "Coming soon",
+      "image": "images/index/govwell-hero.png",
+      "link": "govwell-plan-review.html"
     }
   ]
   
