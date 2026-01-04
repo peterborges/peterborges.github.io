@@ -41,6 +41,12 @@
       padding: 1.5rem 0;
       overflow: visible;
     }
+    .project-card h3 {
+      display: inline;
+    }
+    .project-card:hover h3 {
+      text-decoration: underline;
+    }
     .project-info p {
       opacity: 0;
       visibility: hidden;
@@ -154,27 +160,116 @@
     // Initialize theme from saved preference or system preference
     (function() {
       const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else if (prefersDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          // Follow system preference
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
       }
+      
+      // Apply initial theme
+      applyTheme(savedTheme || 'system');
+      
+      // Listen for system theme changes
+      prefersDark.addEventListener('change', (e) => {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
     })();
     
-    includeHTML('#site-header', 'partials/header.html', function() {
-      // Setup theme toggle after header loads
-      const toggle = document.querySelector('.theme-toggle');
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const currentTheme = document.documentElement.getAttribute('data-theme');
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', newTheme);
-          localStorage.setItem('theme', newTheme);
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      // Fetch visitor location after footer loads
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+          const locationEl = document.getElementById('visitor-location');
+          if (locationEl) {
+            if (data.city && data.region) {
+              locationEl.textContent = `${data.city}, ${data.region}`;
+            } else if (data.city && data.country_name) {
+              locationEl.textContent = `${data.city}, ${data.country_name}`;
+            } else if (data.country_name) {
+              locationEl.textContent = data.country_name;
+            } else {
+              locationEl.textContent = 'somewhere on Earth';
+            }
+          }
+        })
+        .catch(() => {
+          const locationEl = document.getElementById('visitor-location');
+          if (locationEl) locationEl.textContent = 'parts unknown';
+        });
+        
+      // Email copy functionality
+      const copyBtn = document.getElementById('copyBtn');
+      const tooltip = document.getElementById('emailTooltip');
+      const email = 'pborges@alumni.risd.edu';
+      
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          navigator.clipboard.writeText(email).then(() => {
+            tooltip.classList.add('copied');
+            setTimeout(() => tooltip.classList.remove('copied'), 2000);
+          }).catch(() => {
+            const textArea = document.createElement('textarea');
+            textArea.value = email;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            tooltip.classList.add('copied');
+            setTimeout(() => tooltip.classList.remove('copied'), 2000);
+          });
+        });
+      }
+      
+      // Setup theme switcher
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Set initial active state
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) {
+            btn.classList.add('active');
+          }
+        });
+        
+        // Handle clicks
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const theme = btn.dataset.theme;
+            
+            // Update active state
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Apply theme
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+              localStorage.setItem('theme', 'system');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+              localStorage.setItem('theme', theme);
+            }
+          });
         });
       }
     });
-    includeHTML('#site-footer', 'partials/footer.html');
 
     // Headshot spotlight effect
     const headshotContainer = document.querySelector('.headshot-container');
