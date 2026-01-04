@@ -475,20 +475,27 @@ header p {
 }
 
 .footer-bottom {
-  text-align: left;
-  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid var(--border-color);
   padding-top: 1.5rem;
+}
+
+.footer-bottom-left {
+  text-align: left;
 }
 
 .footer-bottom p {
   margin: 0;
   font-size: 0.85rem;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .visitor-location {
   margin-top: 0.25rem !important;
-  color: #bbb !important;
+  color: var(--text-muted) !important;
+  opacity: 0.7;
 }
 
 /* Legacy footer support */
