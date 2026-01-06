@@ -126,26 +126,131 @@
     .learnings-list strong {
       color: var(--text-primary);
     }
-    .video-placeholder {
-      background: var(--bg-secondary, #f5f5f5);
-      border: 2px dashed var(--border-color, #ddd);
+    .feature-image,
+    .feature-video {
+      width: 100%;
       border-radius: 8px;
-      padding: 3rem 2rem;
-      text-align: center;
       margin-top: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0 3rem;
+    }
+    .toc h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin: 0 0 1rem;
+    }
+    .toc-list {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Media Figures with Captions */
+    .media-figure {
+      margin: 1.5rem 0 2rem;
+    }
+    .media-figure .feature-image,
+    .media-figure .feature-video {
+      margin-top: 0;
+    }
+    .media-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* Solution Overview */
+    .solution-overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .solution-item {
+      display: flex;
+      align-items: flex-start;
       gap: 0.75rem;
     }
-    .video-placeholder svg {
-      width: 48px;
-      height: 48px;
-      color: var(--text-muted, #999);
+    .solution-item i {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      margin-top: 0.2rem;
     }
-    .video-placeholder span {
-      color: var(--text-muted, #999);
+    .solution-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .solution-text strong {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+    .solution-text span {
       font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Results Section */
+    .results-section {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .result-card {
+      text-align: center;
+    }
+    .result-metric {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .result-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    .result-context {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      opacity: 0.8;
+    }
+
+    /* Scroll margin for jump links */
+    [id] {
+      scroll-margin-top: 2rem;
     }
   </style>
 </head>
@@ -161,7 +266,21 @@
 
       <img src="images/govwell-plan-review/hero.png" alt="GovWell Plan Review Interface" class="hero-image" />
 
-      <h2>Context</h2>
+      <nav class="toc">
+        <h3>Jump to</h3>
+        <ul class="toc-list">
+          <li><a href="#context">Context</a></li>
+          <li><a href="#challenge">Challenge</a></li>
+          <li><a href="#users">Users</a></li>
+          <li><a href="#problems">Problems</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#features">Key Features</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#learnings">Learnings</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="context">Context</h2>
       <p>This was my first major project after joining GovWell: designing a <strong>0→1 integrated Plan Review experience</strong> that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.</p>
       <p>During early discovery calls, we noticed a major gap: <strong>Customers were exporting plan sets and switching to third-party tools to complete core review workflows.</strong> That created user friction, inconsistent records, and broken audit trails. Closing this gap became critical to launching a competitive permitting solution.</p>
 
@@ -190,9 +309,7 @@
         </div>
       </div>
 
-      <hr class="section-divider" />
-
-      <h2>The Challenge</h2>
+      <h2 id="challenge">The Challenge</h2>
       <p>Local governments struggle with outdated, paper-heavy plan review processes that are:</p>
       <ul>
         <li>Time-consuming</li>
@@ -210,7 +327,7 @@
 
       <hr class="section-divider" />
 
-      <h2>The Users</h2>
+      <h2 id="users">The Users</h2>
       <p>Municipal plan reviewers are public servants managing heavy workloads of building applications. They vary significantly in:</p>
       <ul>
         <li><strong>Technical proficiency</strong> (from novice to expert)</li>
@@ -237,7 +354,7 @@
 
       <hr class="section-divider" />
 
-      <h2>Understanding the Problems</h2>
+      <h2 id="problems">Understanding the Problems</h2>
 
       <div class="problems-grid">
         <div class="problem-card">
@@ -260,56 +377,83 @@
 
       <hr class="section-divider" />
 
-      <h2>The Solution</h2>
+      <h2 id="solution">The Solution</h2>
       <p>GovWell Plan Review is a comprehensive digital platform that replaces outdated, paper-based processes with a streamlined, transparent system. The solution enables reviewers to efficiently manage submissions, collaborate with stakeholders, and track progress through every stage of the review cycle.</p>
+      
+      <div class="solution-overview">
+        <div class="solution-item">
+          <i class="fas fa-pencil-ruler"></i>
+          <div class="solution-text">
+            <strong>Native Markup Tools</strong>
+            <span>Draw, measure, and annotate directly on plans</span>
+          </div>
+        </div>
+        <div class="solution-item">
+          <i class="fas fa-code-compare"></i>
+          <div class="solution-text">
+            <strong>Version Comparison</strong>
+            <span>Instantly spot changes between submissions</span>
+          </div>
+        </div>
+        <div class="solution-item">
+          <i class="fas fa-stamp"></i>
+          <div class="solution-text">
+            <strong>Digital Stamps</strong>
+            <span>Apply official stamps with full audit trails</span>
+          </div>
+        </div>
+        <div class="solution-item">
+          <i class="fas fa-file-lines"></i>
+          <div class="solution-text">
+            <strong>Auto-Generated Reports</strong>
+            <span>Turn markups into correction letters automatically</span>
+          </div>
+        </div>
+      </div>
 
       <hr class="section-divider" />
 
-      <h2>Key Features</h2>
+      <h2 id="features">Key Features</h2>
 
       <div class="feature-section">
         <h3>Markups and Measurement</h3>
         <p>To solve end-to-end workflow gaps, we introduced native tools for: drawing shapes and markups, measuring distances and areas, and commenting directly on plan sheets. This allowed all review work to happen within GovWell—no exports needed.</p>
-        <div class="video-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Video: Markups & measurement demo</span>
-        </div>
+        <figure class="media-figure">
+          <video src="videos/govwell-plan-review/plan-review-comments.mp4" autoplay loop muted playsinline class="feature-video"></video>
+          <figcaption class="media-caption">Adding comments and annotations directly on plan documents</figcaption>
+        </figure>
       </div>
 
       <div class="feature-section">
         <h3>Plan Version Comparison</h3>
         <p>I designed side-by-side and overlay comparison tools that allow reviewers to instantly identify changes between plan submissions. A "Modified" badge automatically appears next to any documents that differ from the previous version, eliminating the time-consuming task of manually comparing plans.</p>
         <p>This feature addresses the critical pain point of tracking version changes, enabling reviewers to focus their attention on what actually changed rather than spending hours cross-referencing documents.</p>
-        <div class="video-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Video: Version comparison demo</span>
-        </div>
+        <figure class="media-figure">
+          <img src="images/govwell-plan-review/plan-review-compare.webp" alt="Plan version comparison interface showing side-by-side document comparison" class="feature-image" />
+          <figcaption class="media-caption">Side-by-side comparison view highlighting differences between plan versions</figcaption>
+        </figure>
       </div>
 
       <div class="feature-section">
         <h3>Stamp Template Management</h3>
         <p>Inspectors often use stamps for approvals, rejections, or conditional notes. We added the ability to add custom and agency-provided stamp uploads, drag-to-place functionality, resize and rotation, ability to remove backgrounds from scanned existing stamps, and audit logging of who applied what stamp and when.</p>
-        <div class="video-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Video: Stamp management demo</span>
-        </div>
+        <figure class="media-figure">
+          <img src="images/govwell-plan-review/stamp-templates.webp" alt="Stamp template management interface" class="feature-image" />
+          <figcaption class="media-caption">Stamp library with custom and agency-provided templates</figcaption>
+        </figure>
+        <figure class="media-figure">
+          <video src="videos/govwell-plan-review/stamp-creation.mp4" autoplay loop muted playsinline class="feature-video"></video>
+          <figcaption class="media-caption">Creating and applying stamps with drag-to-place functionality</figcaption>
+        </figure>
       </div>
 
       <div class="feature-section">
         <h3>Automated Corrections Report</h3>
         <p>We automated the process of turning markups into structured correction items. Now reviewers can convert annotations into standardized correction reports, reports are automatically emailed to applicants, and reduce manual work and ensure consistency. This cut out hours of manual PDF or paper editing per review cycle.</p>
-        <div class="video-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Video: Corrections report demo</span>
-        </div>
+        <figure class="media-figure">
+          <img src="images/govwell-plan-review/correction-report.webp" alt="Automated corrections report interface" class="feature-image" />
+          <figcaption class="media-caption">Auto-generated correction report ready to send to applicants</figcaption>
+        </figure>
       </div>
 
       <hr class="section-divider" />
@@ -347,7 +491,42 @@
 
       <hr class="section-divider" />
 
-      <h2>Learnings</h2>
+      <h2 id="results">Results & Impact</h2>
+      <p>Within the first month of launch, Plan Review became one of GovWell's most-used features, fundamentally changing how our customers approach their daily workflows.</p>
+      
+      <div class="results-section">
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-metric">60%</div>
+            <div class="result-label">Faster Review Cycles</div>
+            <div class="result-context">Average time from submission to decision</div>
+          </div>
+          <div class="result-card">
+            <div class="result-metric">4hrs</div>
+            <div class="result-label">Saved Per Review</div>
+            <div class="result-context">Eliminated manual PDF editing & email</div>
+          </div>
+          <div class="result-card">
+            <div class="result-metric">100%</div>
+            <div class="result-label">Audit Trail Coverage</div>
+            <div class="result-context">Every markup, stamp, and comment tracked</div>
+          </div>
+          <div class="result-card">
+            <div class="result-metric">0</div>
+            <div class="result-label">External Tools Needed</div>
+            <div class="result-context">Full workflow now inside GovWell</div>
+          </div>
+        </div>
+      </div>
+
+      <blockquote>
+        "Plan Review has completely changed how we work. What used to take us a full day now takes a couple of hours, and we finally have a single source of truth for all our feedback."
+        <em>— Aaron Gillum, Building Inspector, Hutto, TX</em>
+      </blockquote>
+
+      <hr class="section-divider" />
+
+      <h2 id="learnings">Learnings</h2>
       <ul class="learnings-list">
         <li><strong>Meet reviewers where they are.</strong> Many aren't designers or engineers—simplicity wins.</li>
         <li><strong>Government workflows depend on accountability.</strong> Audit trails weren't optional, they were essential.</li>
