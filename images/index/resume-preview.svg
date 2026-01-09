@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <rect width="400" height="280" fill="#f5f5f5"/>
+  
+  <!-- Paper shadow -->
+  <rect x="95" y="25" width="220" height="240" rx="2" fill="#e0e0e0"/>
+  
+  <!-- Paper -->
+  <rect x="90" y="20" width="220" height="240" rx="2" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Header -->
+  <text x="110" y="50" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111">Peter Borges</text>
+  <text x="110" y="66" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#666">Software Designer</text>
+  
+  <!-- Contact info placeholder -->
+  <rect x="240" y="40" width="55" height="4" rx="1" fill="#ddd"/>
+  <rect x="250" y="48" width="45" height="3" rx="1" fill="#ddd"/>
+  <rect x="245" y="55" width="50" height="3" rx="1" fill="#ddd"/>
+  
+  <!-- Intro paragraph lines -->
+  <rect x="110" y="80" width="185" height="3" rx="1" fill="#ccc"/>
+  <rect x="110" y="87" width="180" height="3" rx="1" fill="#ccc"/>
+  <rect x="110" y="94" width="160" height="3" rx="1" fill="#ccc"/>
+  
+  <!-- Experience section -->
+  <text x="110" y="115" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="500" fill="#888" letter-spacing="0.5">EXPERIENCE</text>
+  <rect x="110" y="120" width="185" height="0.5" fill="#eee"/>
+  
+  <!-- Job 1 -->
+  <rect x="110" y="130" width="80" height="4" rx="1" fill="#333"/>
+  <rect x="110" y="138" width="185" height="2" rx="1" fill="#ddd"/>
+  <rect x="110" y="143" width="180" height="2" rx="1" fill="#ddd"/>
+  
+  <!-- Job 2 -->
+  <rect x="110" y="155" width="90" height="4" rx="1" fill="#333"/>
+  <rect x="110" y="163" width="185" height="2" rx="1" fill="#ddd"/>
+  <rect x="110" y="168" width="170" height="2" rx="1" fill="#ddd"/>
+  
+  <!-- Job 3 -->
+  <rect x="110" y="180" width="75" height="4" rx="1" fill="#333"/>
+  <rect x="110" y="188" width="180" height="2" rx="1" fill="#ddd"/>
+  <rect x="110" y="193" width="165" height="2" rx="1" fill="#ddd"/>
+  
+  <!-- Skills section -->
+  <text x="110" y="212" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="500" fill="#888" letter-spacing="0.5">SKILLS</text>
+  <rect x="110" y="217" width="185" height="0.5" fill="#eee"/>
+  
+  <!-- Skills grid -->
+  <rect x="110" y="225" width="40" height="3" rx="1" fill="#999"/>
+  <rect x="110" y="231" width="80" height="2" rx="1" fill="#ddd"/>
+  
+  <rect x="200" y="225" width="50" height="3" rx="1" fill="#999"/>
+  <rect x="200" y="231" width="90" height="2" rx="1" fill="#ddd"/>
+</svg>
