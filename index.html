@@ -27,14 +27,44 @@
       margin: 0 auto;
       padding: 0 2rem;
     }
+    .site-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .intro-section {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin: 3rem 0 1.5rem calc(100px + 2rem);
+    }
+    @media (max-width: 600px) {
+      .section-label { margin-left: 0; }
+    }
     .projects {
       display: flex;
       flex-direction: column;
       gap: 0;
+      position: relative;
+      margin-left: calc(100px + 2rem);
+    }
+    @media (max-width: 600px) {
+      .projects {
+        margin-left: 0;
+      }
     }
     .project-card {
       display: block;
-      position: relative;
+      position: static;
       width: 100%;
       text-decoration: none;
       color: inherit;
@@ -43,9 +73,17 @@
     }
     .project-card h3 {
       display: inline;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
     .project-card:hover h3 {
       text-decoration: underline;
+    }
+    .project-card .tags {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
     }
     .project-info p {
       opacity: 0;
@@ -53,10 +91,18 @@
       transition: opacity 0.25s ease, visibility 0.25s ease;
       margin: 0.5rem 0 0;
       color: var(--text-secondary);
+      font-size: 0.95rem;
     }
     .project-card:hover .project-info p {
       opacity: 1;
       visibility: visible;
+    }
+    .project-impact {
+      font-size: 0.85rem;
+    }
+    .project-impact strong {
+      color: var(--text-primary);
+      font-weight: 600;
     }
     .project-info {
       display: flex;
@@ -73,6 +119,7 @@
       width: 400px;
       height: 280px;
       object-fit: cover;
+      object-position: top;
       border-radius: 12px;
       opacity: 0;
       pointer-events: none;
@@ -83,6 +130,14 @@
     .project-card:hover .project-thumb {
       opacity: 1 !important;
     }
+    
+    /* Resume card specific styles */
+    .resume-card .project-thumb {
+      object-fit: contain;
+      background: var(--bg-secondary);
+      object-position: center top;
+    }
+    
     @media (max-width: 1200px) {
       .content-container {
         padding: 0 1rem;
@@ -93,12 +148,42 @@
         display: none;
       }
     }
+    
+    /* City popover styles */
+    .city-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .city {
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .city:hover {
+      color: var(--text-primary);
+    }
+    .city-popover {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+      pointer-events: none;
+      z-index: 100;
+    }
+    .city-wrapper:hover .city-popover {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
-  <!-- Dynamic Header -->
-  <div id="site-header"></div>
-
   <div class="content-container">
     <header class="intro-section">
       <div class="intro-content">
@@ -108,13 +193,19 @@
           <div class="headshot-spotlight"></div>
         </div>
         <div class="intro-text">
+          <h1 class="site-title">Peter Borges</h1>
           <p class="intro">I turn complex systems into interfaces people actually enjoy using. Ten years of making robots, banks, and governments feel human.</p>
-          <div class="locations">Based in <s>Providence,</s> <s>San Francisco,</s> Brooklyn.</div>
+          <div class="locations">Based in 
+            <span class="city-wrapper"><s class="city" data-city="providence">Providence,</s><img src="https://images.unsplash.com/photo-1562693811-b13f3e97c4a7?w=300&h=200&fit=crop" alt="Providence" class="city-popover" /></span>
+            <span class="city-wrapper"><s class="city" data-city="sf">San Francisco,</s><img src="https://images.unsplash.com/photo-1521464302861-ce943915d1c3?w=300&h=200&fit=crop" alt="San Francisco Painted Ladies" class="city-popover" /></span>
+            <span class="city-wrapper"><span class="city" data-city="brooklyn">Brooklyn.</span><img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=300&h=200&fit=crop" alt="Brooklyn brownstones" class="city-popover" /></span>
+          </div>
         </div>
       </div>
     </header>
 
     <section id="work">
+      <h2 class="section-label">Selected Work</h2>
       <div class="projects" id="projectContainer"></div>
     </section>
   </div>
@@ -128,6 +219,8 @@
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('projectContainer');
+        
+        // Add case study cards
         data.forEach((project, index) => {
           const card = document.createElement('a');
           card.href = project.link;
@@ -145,9 +238,23 @@
 
           container.appendChild(card);
         });
+        
+        // Add Resume card at the end
+        const resumeCard = document.createElement('a');
+        resumeCard.href = 'resume.html';
+        resumeCard.className = 'project-card resume-card';
+        resumeCard.innerHTML = `
+  <div class="project-info">
+    <h3>Resume</h3>
+    <div class="tags">Experience · Skills · Education</div>
+    <p>10+ years designing for robotics, fintech, and government.</p>
+  </div>
+  <img class="project-thumb" src="images/index/resume-preview.svg" alt="Resume Preview" />
+`;
+        container.appendChild(resumeCard);
       });
 
-    // Load header and footer from partials
+    // Load footer from partial
     function includeHTML(selector, url, callback) {
       fetch(url)
         .then(response => response.text())
@@ -183,7 +290,6 @@
       });
     })();
     
-    includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
       // Fetch visitor location after footer loads
       fetch('https://ipapi.co/json/')
