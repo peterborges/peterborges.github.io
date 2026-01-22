@@ -8,308 +8,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .case-study-header {
-      margin-bottom: 3rem;
-    }
-    .case-study-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .case-study-header .subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
-    .project-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .meta-item h4 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin: 0 0 0.5rem;
-    }
-    .meta-item p, .meta-item ul {
-      margin: 0;
-      font-size: 0.95rem;
-      color: var(--text-primary);
-    }
-    .meta-item ul {
-      list-style: none;
-      padding: 0;
-    }
-    .meta-item li {
-      margin-bottom: 0.25rem;
-    }
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--border-color);
-      margin: 3rem 0;
-    }
-    .case-study h2 {
-      font-size: 1.5rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-    .case-study h3 {
-      font-size: 1.2rem;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-    }
-    .case-study p {
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-    .case-study ul {
-      line-height: 1.7;
-      color: var(--text-secondary);
-      padding-left: 1.5rem;
-    }
-    .case-study li {
-      margin-bottom: 0.5rem;
-    }
-    .case-study blockquote {
-      border-left: 3px solid var(--text-muted);
-      padding-left: 1.5rem;
-      margin: 1.5rem 0;
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-    .case-study blockquote em {
-      display: block;
-      margin-top: 0.5rem;
-      font-style: normal;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .problems-grid {
-      display: grid;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .problem-card {
-      padding: 1.5rem;
-      background: var(--bg-secondary);
-      border-radius: 8px;
-    }
-    .problem-card h4 {
-      margin: 0 0 0.75rem;
-      font-size: 1rem;
-    }
-    .problem-card p {
-      margin: 0;
-      font-size: 0.95rem;
-    }
-    .feature-section {
-      margin: 2.5rem 0;
-    }
-    .feature-section h3 {
-      margin-bottom: 1rem;
-    }
-    .learnings-list {
-      list-style: none;
-      padding: 0;
-    }
-    .learnings-list li {
-      margin-bottom: 1rem;
-      padding-left: 0;
-    }
-    .learnings-list strong {
-      color: var(--text-primary);
-    }
-    .feature-image,
-    .feature-video {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Table of Contents */
-    .toc {
-      background: var(--bg-secondary);
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0 3rem;
-    }
-    .toc h3 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin: 0 0 1rem;
-    }
-    .toc-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 2rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .toc-list a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .toc-list a:hover {
-      color: var(--text-primary);
-    }
-
-    /* Media Figures with Captions */
-    .media-figure {
-      margin: 1.5rem 0 2rem;
-    }
-    .media-figure .feature-image,
-    .media-figure .feature-video {
-      margin-top: 0;
-    }
-    .media-caption {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.75rem;
-      text-align: center;
-      font-style: italic;
-    }
-
-    /* Solution Overview */
-    .solution-overview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .solution-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    .solution-item i {
-      color: var(--text-muted);
-      font-size: 1.25rem;
-      margin-top: 0.2rem;
-    }
-    .solution-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .solution-text strong {
-      color: var(--text-primary);
-      font-size: 0.95rem;
-    }
-    .solution-text span {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-
-    /* Results Section */
-    .results-section {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-      border-radius: 12px;
-      padding: 2.5rem;
-      margin: 2rem 0;
-    }
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .result-card {
-      text-align: center;
-    }
-    .result-metric {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-    .result-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-    .result-context {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-      opacity: 0.8;
-    }
-
-    /* Scroll margin for jump links */
-    [id] {
-      scroll-margin-top: 2rem;
-    }
-  </style>
 </head>
 <body>
   <div id="site-header"></div>
 
   <div class="content-container" style="padding-top: 4rem;">
     <section class="case-study">
-      <div class="case-study-header">
-        <h1>GovWell Plan Review</h1>
-        <p class="subtitle">Modernizing the review process for local government inspectors</p>
-      </div>
+      <h1>GovWell Plan Review</h1>
+      <p class="subtitle">Modernizing the plan review process for local governments</p>
 
-      <img src="images/govwell-plan-review/hero.png" alt="GovWell Plan Review Interface" class="hero-image" />
-
-      <nav class="toc">
-        <h3>Jump to</h3>
-        <ul class="toc-list">
-          <li><a href="#context">Context</a></li>
-          <li><a href="#challenge">Challenge</a></li>
-          <li><a href="#users">Users</a></li>
-          <li><a href="#problems">Problems</a></li>
-          <li><a href="#solution">Solution</a></li>
-          <li><a href="#features">Key Features</a></li>
-          <li><a href="#results">Results</a></li>
-          <li><a href="#learnings">Learnings</a></li>
-        </ul>
-      </nav>
-
-      <h2 id="context">Context</h2>
-      <p>This was my first major project after joining GovWell: designing a <strong>0→1 integrated Plan Review experience</strong> that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.</p>
-      <p>During early discovery calls, we noticed a major gap: <strong>Customers were exporting plan sets and switching to third-party tools to complete core review workflows.</strong> That created user friction, inconsistent records, and broken audit trails. Closing this gap became critical to launching a competitive permitting solution.</p>
-
-      <div class="project-meta-grid">
-        <div class="meta-item">
-          <h4>Team</h4>
+      <div class="project-meta-block">
+        <div class="meta-column">
+          <h4><i class="fas fa-users"></i> Team</h4>
           <ul>
+            <li>1 Designer (Me)</li>
+            <li>1 Front-End Engineer</li>
             <li>1 CTO</li>
-            <li>1 Designer</li>
-            <li>1 Full-Stack Engineer</li>
           </ul>
         </div>
-        <div class="meta-item">
-          <h4>My Roles</h4>
+      
+        <div class="meta-column">
+          <h4><i class="fas fa-user-cog"></i> Role</h4>
           <ul>
-            <li>Strategy</li>
-            <li>Competitive Research</li>
-            <li>Experience Design</li>
-            <li>User Research</li>
-            <li>Visual Design</li>
+            <li>UX Designer</li>
+            <li>UI Designer</li>
+            <li>Prototyping</li>
           </ul>
         </div>
-        <div class="meta-item">
-          <h4>Timeline</h4>
-          <p>July 2025</p>
+
+        <div class="meta-column">
+          <h4>📅 Duration</h4>
+          <p>2 months</p>
+        </div>
+
+        <div class="meta-column">
+          <h4>🌐 Platform</h4>
+          <p>Web</p>
+        </div>
+
+        <div class="meta-column">
+          <h4>✅ Status</h4>
+          <p>Launched</p>
         </div>
       </div>
 
-      <h2 id="challenge">The Challenge</h2>
+      <img src="images/index/govwell-hero.png" alt="GovWell Plan Review Hero Image" class="hero-image" />
+
+      <h2>Context</h2>
+      <p>This was my first major project after joining GovWell: designing a 0→1 integrated Plan Review experience that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.</p>
+      <p>During early discovery calls, we noticed a major gap: customers were exporting plan sets and switching to third-party tools to complete core review workflows. That created user friction, inconsistent records, and broken audit trails. Closing this gap became critical to launching a competitive permitting solution.</p>
+
+      <h2>The Challenge</h2>
       <p>Local governments struggle with outdated, paper-heavy plan review processes that are:</p>
       <ul>
         <li>Time-consuming</li>
@@ -325,138 +74,90 @@
         <li>Provides a single source of truth across departments</li>
       </ul>
 
-      <hr class="section-divider" />
-
-      <h2 id="users">The Users</h2>
+      <h2>The User</h2>
       <p>Municipal plan reviewers are public servants managing heavy workloads of building applications. They vary significantly in:</p>
       <ul>
-        <li><strong>Technical proficiency</strong> (from novice to expert)</li>
-        <li><strong>Role</strong> (planning, fire, engineering, zoning)</li>
-        <li><strong>Department size and structure</strong></li>
-        <li><strong>Available time</strong></li>
+        <li>Technical proficiency (from novice to expert)</li>
+        <li>Role (planning, fire, engineering, zoning)</li>
+        <li>Department size and structure</li>
+        <li>Available time</li>
       </ul>
-      <p>Designing a tool for them required striking the right balance: <strong>Simple enough for a junior reviewer, powerful enough for a seasoned inspector while providing insights to applicants.</strong></p>
+      <p>Designing a tool for them required striking the right balance: simple enough for a junior reviewer, powerful enough for a seasoned inspector.</p>
 
-      <blockquote>
-        "We're drowning in paper. Tracking which version of plans we're reviewing and what changed between submissions is nearly impossible."
-        <em>— Alicia Dixon, Building/Onsite Permit Technician, Paradise, CA</em>
-      </blockquote>
+      <h2>Understanding the Problems</h2>
 
-      <blockquote>
-        "…I have to keep moving across GovWell and Bluebeam to finish reviewing applications, right now it's still easier to work on paper for us."
-        <em>— Aaron Gillum, Building Inspector, Hutto, TX</em>
-      </blockquote>
-
-      <blockquote>
-        "There's no visibility into where plans are in the review process. Applicants call constantly asking for status updates, and we waste time tracking down information manually."
-        <em>— Jonathan Fanning, Building Inspector, Decatur, TX</em>
-      </blockquote>
-
-      <hr class="section-divider" />
-
-      <h2 id="problems">Understanding the Problems</h2>
-
-      <div class="problems-grid">
-        <div class="problem-card">
-          <h4>Problem 1 — Incomplete end-to-end permit workflows</h4>
-          <p>Reviewers couldn't complete plan reviews inside GovWell; they had to export PDFs to external tools. This created data fragmentation, slowed teams down, and made GovWell feel incomplete.</p>
-        </div>
-        <div class="problem-card">
-          <h4>Problem 2 — Inability to give clear, async feedback on plan revisions</h4>
-          <p>Reviewers had no structured way to provide comments or request revisions. This forced them into email threads or sticky notes on printed plans.</p>
-        </div>
-        <div class="problem-card">
-          <h4>Problem 3 — Long turnaround times</h4>
-          <p>Without digital workflows, review cycles were slow and untrackable. Users couldn't easily identify what changed between versions or who was waiting on whom.</p>
-        </div>
-        <div class="problem-card">
-          <h4>Problem 4 — No auditability or accountability of feedback</h4>
-          <p>Feedback was scattered across email, PDFs, physical copies, and shared drives.</p>
-        </div>
+      <div class="problem-section">
+        <h3>Problem 1 — Incomplete end-to-end permit workflows</h3>
+        <p><strong>Description:</strong> Reviewers couldn't complete plan reviews inside GovWell; they had to export PDFs to external tools. This created data fragmentation, slowed teams down, and made GovWell feel incomplete.</p>
+        <blockquote>"I always end up leaving GovWell for Bluebeam—there's no way to actually review here." — <em>Plan Reviewer</em></blockquote>
       </div>
 
-      <hr class="section-divider" />
-
-      <h2 id="solution">The Solution</h2>
-      <p>GovWell Plan Review is a comprehensive digital platform that replaces outdated, paper-based processes with a streamlined, transparent system. The solution enables reviewers to efficiently manage submissions, collaborate with stakeholders, and track progress through every stage of the review cycle.</p>
-      
-      <div class="solution-overview">
-        <div class="solution-item">
-          <i class="fas fa-pencil-ruler"></i>
-          <div class="solution-text">
-            <strong>Native Markup Tools</strong>
-            <span>Draw, measure, and annotate directly on plans</span>
-          </div>
-        </div>
-        <div class="solution-item">
-          <i class="fas fa-code-compare"></i>
-          <div class="solution-text">
-            <strong>Version Comparison</strong>
-            <span>Instantly spot changes between submissions</span>
-          </div>
-        </div>
-        <div class="solution-item">
-          <i class="fas fa-stamp"></i>
-          <div class="solution-text">
-            <strong>Digital Stamps</strong>
-            <span>Apply official stamps with full audit trails</span>
-          </div>
-        </div>
-        <div class="solution-item">
-          <i class="fas fa-file-lines"></i>
-          <div class="solution-text">
-            <strong>Auto-Generated Reports</strong>
-            <span>Turn markups into correction letters automatically</span>
-          </div>
-        </div>
+      <div class="problem-section">
+        <h3>Problem 2 — Inability to give clear, async feedback on plan revisions</h3>
+        <p><strong>Description:</strong> Reviewers had no structured way to provide comments or request revisions. This forced them into email threads or sticky notes on printed plans.</p>
+        <blockquote>"I leave notes on paper and scan them back in… it's messy and things get lost." — <em>Plan Reviewer</em></blockquote>
       </div>
 
-      <hr class="section-divider" />
+      <div class="problem-section">
+        <h3>Problem 3 — Long turnaround times</h3>
+        <p><strong>Description:</strong> Without digital workflows, review cycles were slow and untrackable. Users couldn't easily identify what changed between versions or who was waiting on whom.</p>
+        <blockquote>"We spend so much time just figuring out what changed from one upload to the next." — <em>Plan Reviewer</em></blockquote>
+      </div>
 
-      <h2 id="features">Key Features</h2>
+      <div class="problem-section">
+        <h3>Problem 4 — No auditability or accountability of feedback</h3>
+        <p><strong>Description:</strong> Feedback was scattered across email, PDFs, physical copies, and shared drives. No centralized record meant no consistency, no oversight, and no reliable history.</p>
+        <blockquote>"There's no paper trail when multiple departments are involved." — <em>Planning Department Manager</em></blockquote>
+      </div>
+
+      <h2>The Solution</h2>
 
       <div class="feature-section">
-        <h3>Markups and Measurement</h3>
-        <p>To solve end-to-end workflow gaps, we introduced native tools for: drawing shapes and markups, measuring distances and areas, and commenting directly on plan sheets. This allowed all review work to happen within GovWell—no exports needed.</p>
-        <figure class="media-figure">
-          <video src="videos/govwell-plan-review/plan-review-comments.mp4" autoplay loop muted playsinline class="feature-video"></video>
-          <figcaption class="media-caption">Adding comments and annotations directly on plan documents</figcaption>
-        </figure>
+        <h3><span class="feature-number">01</span> Markups & Measurements</h3>
+        <p>To solve end-to-end workflow gaps, we introduced native tools for drawing shapes and markups, measuring distances and areas, and commenting directly on plan sheets. This allowed all review work to happen within GovWell—no exports needed.</p>
+        <div class="feature-media">
+          <!-- Placeholder for video or image -->
+          <img src="images/govwell-plan-review/markups-measurements.png" alt="Markups & Measurements feature" class="hero-image" />
+        </div>
       </div>
 
       <div class="feature-section">
-        <h3>Plan Version Comparison</h3>
-        <p>I designed side-by-side and overlay comparison tools that allow reviewers to instantly identify changes between plan submissions. A "Modified" badge automatically appears next to any documents that differ from the previous version, eliminating the time-consuming task of manually comparing plans.</p>
-        <p>This feature addresses the critical pain point of tracking version changes, enabling reviewers to focus their attention on what actually changed rather than spending hours cross-referencing documents.</p>
-        <figure class="media-figure">
-          <img src="images/govwell-plan-review/plan-review-compare.webp" alt="Plan version comparison interface showing side-by-side document comparison" class="feature-image" />
-          <figcaption class="media-caption">Side-by-side comparison view highlighting differences between plan versions</figcaption>
-        </figure>
+        <h3><span class="feature-number">02</span> Real-Time Collaboration</h3>
+        <p>Multiple reviewers can now collaborate on the same plan set simultaneously. Features included live cursors, shared annotations, role-based visibility, and instant autosave. This ensured departments stayed aligned without switching tools.</p>
+        <div class="feature-media">
+          <!-- Placeholder for video or image -->
+          <img src="images/govwell-plan-review/collaboration.png" alt="Real-Time Collaboration feature" class="hero-image" />
+        </div>
       </div>
 
       <div class="feature-section">
-        <h3>Stamp Template Management</h3>
-        <p>Inspectors often use stamps for approvals, rejections, or conditional notes. We added the ability to add custom and agency-provided stamp uploads, drag-to-place functionality, resize and rotation, ability to remove backgrounds from scanned existing stamps, and audit logging of who applied what stamp and when.</p>
-        <figure class="media-figure">
-          <img src="images/govwell-plan-review/stamp-templates.webp" alt="Stamp template management interface" class="feature-image" />
-          <figcaption class="media-caption">Stamp library with custom and agency-provided templates</figcaption>
-        </figure>
-        <figure class="media-figure">
-          <video src="videos/govwell-plan-review/stamp-creation.mp4" autoplay loop muted playsinline class="feature-video"></video>
-          <figcaption class="media-caption">Creating and applying stamps with drag-to-place functionality</figcaption>
-        </figure>
+        <h3><span class="feature-number">03</span> Automated Corrections Reports</h3>
+        <p>We automated the process of turning markups into structured correction items. Now reviewers can convert annotations into standardized correction reports, send them to applicants, and reduce manual work while ensuring consistency. This cut out hours of manual PDF editing per review cycle.</p>
+        <div class="feature-media">
+          <!-- Placeholder for video or image -->
+          <img src="images/govwell-plan-review/corrections-reports.png" alt="Automated Corrections Reports feature" class="hero-image" />
+        </div>
       </div>
 
       <div class="feature-section">
-        <h3>Automated Corrections Report</h3>
-        <p>We automated the process of turning markups into structured correction items. Now reviewers can convert annotations into standardized correction reports, reports are automatically emailed to applicants, and reduce manual work and ensure consistency. This cut out hours of manual PDF or paper editing per review cycle.</p>
-        <figure class="media-figure">
-          <img src="images/govwell-plan-review/correction-report.webp" alt="Automated corrections report interface" class="feature-image" />
-          <figcaption class="media-caption">Auto-generated correction report ready to send to applicants</figcaption>
-        </figure>
+        <h3><span class="feature-number">04</span> Stamp Creation & Management</h3>
+        <p>Inspectors often use stamps for approvals, rejections, or conditional notes. We added custom and agency-provided stamp uploads, drag-to-place functionality, resize and rotation, and audit logging of who applied what stamp and when.</p>
+        <div class="feature-media">
+          <!-- Placeholder for video or image -->
+          <img src="images/govwell-plan-review/stamps.png" alt="Stamp Creation & Management feature" class="hero-image" />
+        </div>
       </div>
 
-      <hr class="section-divider" />
+      <h2>Business Impact</h2>
+      <p>This project resulted in [insert results: reduced turnaround time / increased adoption / X% more reviews completed internally].</p>
+      <p>Examples you can include:</p>
+      <ul>
+        <li>X% faster review turnaround</li>
+        <li>Y% reduction in email follow-ups</li>
+        <li>Z% of reviewers completing plan reviews inside GovWell</li>
+        <li>Increased trust & adoption among pilot agencies</li>
+      </ul>
+      <p>You can also incorporate screenshots or Slack messages from customers reacting positively to the launch.</p>
 
       <h2>Feedback & Iterations</h2>
       <p>Through weekly feedback sessions with planning and engineering reviewers, we made iterative improvements:</p>
@@ -489,141 +190,32 @@
         <li>Clearer UI hierarchy for annotations vs. comments</li>
       </ul>
 
-      <hr class="section-divider" />
-
-      <h2 id="results">Results & Impact</h2>
-      <p>Within the first month of launch, Plan Review became one of GovWell's most-used features, fundamentally changing how our customers approach their daily workflows.</p>
-      
-      <div class="results-section">
-        <div class="results-grid">
-          <div class="result-card">
-            <div class="result-metric">60%</div>
-            <div class="result-label">Faster Review Cycles</div>
-            <div class="result-context">Average time from submission to decision</div>
-          </div>
-          <div class="result-card">
-            <div class="result-metric">4hrs</div>
-            <div class="result-label">Saved Per Review</div>
-            <div class="result-context">Eliminated manual PDF editing & email</div>
-          </div>
-          <div class="result-card">
-            <div class="result-metric">100%</div>
-            <div class="result-label">Audit Trail Coverage</div>
-            <div class="result-context">Every markup, stamp, and comment tracked</div>
-          </div>
-          <div class="result-card">
-            <div class="result-metric">0</div>
-            <div class="result-label">External Tools Needed</div>
-            <div class="result-context">Full workflow now inside GovWell</div>
-          </div>
-        </div>
-      </div>
-
-      <blockquote>
-        "Plan Review has completely changed how we work. What used to take us a full day now takes a couple of hours, and we finally have a single source of truth for all our feedback."
-        <em>— Aaron Gillum, Building Inspector, Hutto, TX</em>
-      </blockquote>
-
-      <hr class="section-divider" />
-
-      <h2 id="learnings">Learnings</h2>
-      <ul class="learnings-list">
+      <h2>Learnings</h2>
+      <ul>
         <li><strong>Meet reviewers where they are.</strong> Many aren't designers or engineers—simplicity wins.</li>
-        <li><strong>Government workflows depend on accountability.</strong> Audit trails weren't optional, they were essential.</li>
-        <li><strong>0→1 features require tight collaboration.</strong> Fast cycles with engineering and CTO alignment were crucial to shipping meaningfully in four weeks.</li>
+        <li><strong>Government workflows depend on accountability.</strong> Audit trails weren't optional; they were essential.</li>
+        <li><strong>0→1 features require tight collaboration.</strong> Fast cycles with engineering and CTO alignment were crucial to shipping meaningfully in eight weeks.</li>
         <li><strong>Adoption is earned.</strong> The easier we made the workflow, the faster teams embraced it.</li>
       </ul>
 
-      <hr class="section-divider" />
-
       <h2>Conclusion</h2>
-      <p>The Plan Review experience transformed GovWell from a permitting intake tool into a fully integrated review platform. By closing the workflow gap, we increased product stickiness, improved turnaround times, and helped municipalities modernize one of the most painful steps in permitting.</p>
+      <p>The Plan Review experience transformed GovWell from a permitting intake tool into a fully integrated review platform. By closing the workflow gap, we increased product stickiness, improved turnaround times, and helped agencies modernize one of the most painful steps in permitting.</p>
 
+      <h2>Testimonials</h2>
+      <blockquote>"The new Plan Review Toolkit has completely transformed how we work. Being able to move stamps and edit markups directly on the plans saves us hours every week." — <em>Plan Reviewer, City Planning Department</em></blockquote>
+      <blockquote>"The version comparison feature is a game-changer. We can instantly see what changed between submissions, which makes our reviews so much more efficient." — <em>Building Inspector</em></blockquote>
+      <blockquote>"Finally, a digital solution that actually works for government. The transparency and tracking features have improved communication with applicants significantly." — <em>Planning Director</em></blockquote>
     </section>
   </div>
-
-  <!-- Next Case Study CTA -->
-  <div class="next-case-study">
-    <div class="next-case-study-inner">
-      <span class="next-label">Next Case Study</span>
-      <a href="viam-machine-configuration.html" class="next-case-study-card">
-        <div class="next-case-study-info">
-          <h3>VIAM Machine Configuration</h3>
-          <p>AI/automation tooling for configuring smart machines.</p>
-        </div>
-        <img src="images/index/app-viam-mockup.png" alt="VIAM Machine Configuration" class="next-case-study-image" />
-      </a>
-    </div>
-  </div>
-
-  <style>
-    .next-case-study {
-      background: var(--bg-secondary);
-      padding: 4rem 2rem;
-      margin-top: 2rem;
-    }
-    .next-case-study-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .next-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .next-case-study-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      color: inherit;
-      padding: 1.5rem 0;
-      gap: 2rem;
-    }
-    .next-case-study-card:hover h3 {
-      text-decoration: underline;
-    }
-    .next-case-study-info h3 {
-      font-size: 1.5rem;
-      margin: 0 0 0.5rem;
-      color: var(--text-primary);
-    }
-    .next-case-study-info p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
-    .next-case-study-image {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
-    @media (max-width: 700px) {
-      .next-case-study-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .next-case-study-image {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
 
   <div id="site-footer"></div>
 
   <script>
-    function includeHTML(selector, url, callback) {
+    function includeHTML(selector, url) {
       fetch(url)
         .then(response => response.text())
         .then(data => {
           document.querySelector(selector).innerHTML = data;
-          if (callback) callback();
         });
     }
     includeHTML('#site-header', 'partials/header.html');
