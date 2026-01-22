@@ -26,7 +26,7 @@
             <li>1 CTO</li>
           </ul>
         </div>
-      
+
         <div class="meta-column">
           <h4><i class="fas fa-user-cog"></i> Role</h4>
           <ul>
@@ -116,8 +116,7 @@
         <h3><span class="feature-number">01</span> Markups & Measurements</h3>
         <p>To solve end-to-end workflow gaps, we introduced native tools for drawing shapes and markups, measuring distances and areas, and commenting directly on plan sheets. This allowed all review work to happen within GovWell—no exports needed.</p>
         <div class="feature-media">
-          <!-- Placeholder for video or image -->
-          <img src="images/govwell-plan-review/markups-measurements.png" alt="Markups & Measurements feature" class="hero-image" />
+          <img src="images/govwell-plan-review/govwell-plan-review.webp" alt="Markups & Measurements feature" class="hero-image" />
         </div>
       </div>
 
@@ -125,8 +124,7 @@
         <h3><span class="feature-number">02</span> Real-Time Collaboration</h3>
         <p>Multiple reviewers can now collaborate on the same plan set simultaneously. Features included live cursors, shared annotations, role-based visibility, and instant autosave. This ensured departments stayed aligned without switching tools.</p>
         <div class="feature-media">
-          <!-- Placeholder for video or image -->
-          <img src="images/govwell-plan-review/collaboration.png" alt="Real-Time Collaboration feature" class="hero-image" />
+          <img src="images/govwell-plan-review/plan-review-compare.webp" alt="Real-Time Collaboration feature" class="hero-image" />
         </div>
       </div>
 
@@ -134,8 +132,7 @@
         <h3><span class="feature-number">03</span> Automated Corrections Reports</h3>
         <p>We automated the process of turning markups into structured correction items. Now reviewers can convert annotations into standardized correction reports, send them to applicants, and reduce manual work while ensuring consistency. This cut out hours of manual PDF editing per review cycle.</p>
         <div class="feature-media">
-          <!-- Placeholder for video or image -->
-          <img src="images/govwell-plan-review/corrections-reports.png" alt="Automated Corrections Reports feature" class="hero-image" />
+          <img src="images/govwell-plan-review/correction-report.webp" alt="Automated Corrections Reports feature" class="hero-image" />
         </div>
       </div>
 
@@ -143,8 +140,7 @@
         <h3><span class="feature-number">04</span> Stamp Creation & Management</h3>
         <p>Inspectors often use stamps for approvals, rejections, or conditional notes. We added custom and agency-provided stamp uploads, drag-to-place functionality, resize and rotation, and audit logging of who applied what stamp and when.</p>
         <div class="feature-media">
-          <!-- Placeholder for video or image -->
-          <img src="images/govwell-plan-review/stamps.png" alt="Stamp Creation & Management feature" class="hero-image" />
+          <img src="images/govwell-plan-review/stamp-templates.webp" alt="Stamp Creation & Management feature" class="hero-image" />
         </div>
       </div>
 
@@ -220,6 +216,63 @@
     }
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html');
+
+    // Page load animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      // Hero title and subtitle (0ms delay)
+      const heroTitle = document.querySelector('.case-study h1');
+      const subtitle = document.querySelector('.case-study .subtitle');
+      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
+      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
+
+      // Meta block (150ms delay)
+      const metaBlock = document.querySelector('.project-meta-block');
+      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
+
+      // Hero image (200ms delay)
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+
+      // H2 sections with staggered delays (300ms + 100ms per section)
+      const h2Sections = document.querySelectorAll('.case-study h2');
+      h2Sections.forEach((h2, index) => {
+        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
+      });
+
+      // H3 sections
+      const h3Sections = document.querySelectorAll('.case-study h3');
+      h3Sections.forEach((h3, index) => {
+        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
+      });
+
+      // Problem sections (with 100ms stagger)
+      const problemSections = document.querySelectorAll('.problem-section');
+      problemSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
+      });
+
+      // Blockquotes (with 100ms stagger)
+      const blockquotes = document.querySelectorAll('.case-study blockquote');
+      blockquotes.forEach((quote, index) => {
+        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
+      });
+
+      // Feature sections (with 100ms stagger)
+      const featureSections = document.querySelectorAll('.feature-section');
+      featureSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
+      });
+
+      // Feature media images (with 50ms stagger)
+      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
+      featureImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
+      });
+    });
   </script>
 </body>
 </html>

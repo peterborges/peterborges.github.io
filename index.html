@@ -130,25 +130,45 @@
     .project-card:hover .project-thumb {
       opacity: 1 !important;
     }
-    
+
     /* Resume card specific styles */
     .resume-card .project-thumb {
       object-fit: contain;
       background: var(--bg-secondary);
       object-position: center top;
     }
-    
+
     @media (max-width: 1200px) {
       .content-container {
         padding: 0 1rem;
       }
     }
     @media (max-width: 800px) {
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+      }
+      .project-info {
+        max-width: 100%;
+      }
       .project-thumb {
-        display: none;
+        position: static;
+        transform: none;
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        opacity: 1;
+        pointer-events: auto;
+        margin-top: 0.5rem;
+        order: -1;
+      }
+      .project-card:hover .project-thumb {
+        opacity: 1;
       }
     }
-    
+
     /* City popover styles */
     .city-wrapper {
       position: relative;
@@ -196,7 +216,7 @@
           <h1 class="site-title">Peter Borges</h1>
           <p class="role-label">Product Designer</p>
           <p class="intro">I turn complex systems into interfaces people actually enjoy using. Ten years of making robots, banks, and governments feel human.</p>
-          <div class="locations">Based in 
+          <div class="locations">Based in
             <span class="city-wrapper"><s class="city" data-city="providence">Providence,</s><img src="images/index/providence.png" alt="Providence" class="city-popover" /></span>
             <span class="city-wrapper"><s class="city" data-city="sf">San Francisco,</s><img src="https://images.unsplash.com/photo-1521464302861-ce943915d1c3?w=300&h=200&fit=crop" alt="San Francisco Painted Ladies" class="city-popover" /></span>
             <span class="city-wrapper"><span class="city" data-city="brooklyn">Brooklyn.</span><img src="images/index/brooklyn.png" alt="Brooklyn brownstones" class="city-popover" /></span>
@@ -220,7 +240,7 @@
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('projectContainer');
-        
+
         // Add case study cards
         data.forEach((project, index) => {
           const card = document.createElement('a');
@@ -239,7 +259,7 @@
 
           container.appendChild(card);
         });
-        
+
         // Add Resume card at the end
         const resumeCard = document.createElement('a');
         resumeCard.href = 'resume.html';
@@ -264,12 +284,12 @@
           if (callback) callback();
         });
     }
-    
+
     // Initialize theme from saved preference or system preference
     (function() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      
+
       function applyTheme(theme) {
         if (theme === 'system' || !theme) {
           // Follow system preference
@@ -278,10 +298,10 @@
           document.documentElement.setAttribute('data-theme', theme);
         }
       }
-      
+
       // Apply initial theme
       applyTheme(savedTheme || 'system');
-      
+
       // Listen for system theme changes
       prefersDark.addEventListener('change', (e) => {
         const currentSetting = localStorage.getItem('theme');
@@ -290,7 +310,7 @@
         }
       });
     })();
-    
+
     includeHTML('#site-footer', 'partials/footer.html', function() {
       // Fetch visitor location after footer loads
       fetch('https://ipapi.co/json/')
@@ -313,17 +333,17 @@
           const locationEl = document.getElementById('visitor-location');
           if (locationEl) locationEl.textContent = 'parts unknown';
         });
-        
+
       // Email copy functionality
       const copyBtn = document.getElementById('copyBtn');
       const tooltip = document.getElementById('emailTooltip');
       const email = 'pborges@alumni.risd.edu';
-      
+
       if (copyBtn) {
         copyBtn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          
+
           navigator.clipboard.writeText(email).then(() => {
             tooltip.classList.add('copied');
             setTimeout(() => tooltip.classList.remove('copied'), 2000);
@@ -341,30 +361,30 @@
           });
         });
       }
-      
+
       // Setup theme switcher
       const themeSwitcher = document.querySelector('.theme-switcher');
       if (themeSwitcher) {
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        
+
         // Set initial active state
         buttons.forEach(btn => {
           if (btn.dataset.theme === savedTheme) {
             btn.classList.add('active');
           }
         });
-        
+
         // Handle clicks
         buttons.forEach(btn => {
           btn.addEventListener('click', () => {
             const theme = btn.dataset.theme;
-            
+
             // Update active state
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             // Apply theme
             if (theme === 'system') {
               document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
@@ -388,7 +408,7 @@
         headshotContainer.style.setProperty('--mouse-x', `${x}%`);
         headshotContainer.style.setProperty('--mouse-y', `${y}%`);
       });
-      
+
       headshotContainer.addEventListener('mouseleave', () => {
         headshotContainer.style.setProperty('--mouse-x', '50%');
         headshotContainer.style.setProperty('--mouse-y', '50%');

@@ -85,6 +85,53 @@
     }
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html');
+
+    // Page load animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const heroTitle = document.querySelector('.case-study h1');
+      const subtitle = document.querySelector('.case-study .subtitle');
+      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
+      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
+
+      const metaBlock = document.querySelector('.project-meta-block');
+      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
+
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+
+      const h2Sections = document.querySelectorAll('.case-study h2');
+      h2Sections.forEach((h2, index) => {
+        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
+      });
+
+      const h3Sections = document.querySelectorAll('.case-study h3');
+      h3Sections.forEach((h3, index) => {
+        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
+      });
+
+      const problemSections = document.querySelectorAll('.problem-section');
+      problemSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
+      });
+
+      const blockquotes = document.querySelectorAll('.case-study blockquote');
+      blockquotes.forEach((quote, index) => {
+        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
+      });
+
+      const featureSections = document.querySelectorAll('.feature-section');
+      featureSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
+      });
+
+      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
+      featureImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
+      });
+    });
   </script>
 </body>
 </html>

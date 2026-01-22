@@ -29,7 +29,7 @@
             <li>7 Developers</li>
           </ul>
         </div>
-      
+
         <div class="meta-column">
           <h4><i class="fas fa-user-cog"></i> My Roles</h4>
           <ul>
@@ -40,12 +40,12 @@
             <li>Visual Design</li>
           </ul>
         </div>
-      
+
         <div class="meta-column">
           <h4>📅 Project Timeline</h4>
           <p>Nov 2023 – Feb 2024</p>
         </div>
-      </div>      
+      </div>
 
       <h2>Overview</h2>
       <p>Viam has been working since 2019 to create a new standard for hobbyist developers developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices. <br>
@@ -54,11 +54,11 @@
 
       <h2>Challenges</h2>
       <ul>
-        <li><strong>Design/technical debt</strong> 
+        <li><strong>Design/technical debt</strong>
           <br>Years of features needed consolidation.</li>
-        <li><strong>Usability</strong> 
+        <li><strong>Usability</strong>
           <br>Developer tooling needed familiar UI patterns.</li>
-        <li><strong>Fragmented flows</strong> 
+        <li><strong>Fragmented flows</strong>
           <br>Creation/configuration processes were disjointed.</li>
       </ul>
 
@@ -95,7 +95,7 @@
         <li><strong>Familiar UI patterns reduce ramp-up time:</strong> Competitor tools like ROS and Intrinsic often rely on complex CLI tools or XML files. Viam’s web-based UI had an opportunity to stand out with familiar UI/UX conventions.</li>
         <li><strong>Debugging needs to be integrated:</strong> Users expected to see real-time logs, validation warnings, and machine state summaries during configuration to reduce guesswork and deployment errors.</li>
       </ul>
-      
+
 
       <h2>Design Process</h2>
       <h3>Flow Mapping</h3>
@@ -108,66 +108,66 @@
 
       <h3>UI System Integration</h3>
       <section class="demo">
-        <video 
-          class="hero-video" 
-          src="images/viam-machine-configuration/prime.mp4" 
-          autoplay 
-          muted 
-          loop 
+        <video
+          class="hero-video"
+          src="images/viam-machine-configuration/prime.mp4"
+          autoplay
+          muted
+          loop
           playsinline>
         </video>
-      </section>      
-      
+      </section>
+
       <p>Extended and migrated the PRIME design system to support the new UI patterns needed for machine configuration.</p>
 
       <h2>Key Features</h2>
       <ul>
         <li><strong>Tree navigation:</strong> Manage machines and sub-parts easily</li>
         <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/tree-nav.mp4" 
-            autoplay 
-            muted 
-            loop 
+          <video
+            class="hero-video"
+            src="images/viam-machine-configuration/tree-nav.mp4"
+            autoplay
+            muted
+            loop
             playsinline>
           </video>
-        </section>    
+        </section>
         <li><strong>JSON editing:</strong> Granular configuration through direct code</li>
         <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/json.mp4" 
-            autoplay 
-            muted 
-            loop 
+          <video
+            class="hero-video"
+            src="images/viam-machine-configuration/json.mp4"
+            autoplay
+            muted
+            loop
             playsinline>
           </video>
-        </section>    
+        </section>
         <li><strong>Null states:</strong> Friendly guidance for new users</li>
-        <img src="images/viam-machine-configuration/null-state.png" alt="Configuration flow" class="hero-image" /> 
+        <img src="images/viam-machine-configuration/null-state.png" alt="Configuration flow" class="hero-image" />
         <li><strong>Logs:</strong> Real-time diagnostics and feedback</li>
         <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/logs.mp4" 
-            autoplay 
-            muted 
-            loop 
+          <video
+            class="hero-video"
+            src="images/viam-machine-configuration/logs.mp4"
+            autoplay
+            muted
+            loop
             playsinline>
           </video>
-        </section>    
+        </section>
         <li><strong>Connect tab:</strong> Auto-generated boilerplate for quick integration</li>
         <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/connect.mp4" 
-            autoplay 
-            muted 
-            loop 
+          <video
+            class="hero-video"
+            src="images/viam-machine-configuration/connect.mp4"
+            autoplay
+            muted
+            loop
             playsinline>
           </video>
-        </section>    
+        </section>
       </ul>
 
       <h2>Outcomes</h2>
@@ -270,6 +270,53 @@
     }
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html');
+
+    // Page load animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const heroTitle = document.querySelector('.case-study h1');
+      const subtitle = document.querySelector('.case-study .subtitle');
+      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
+      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
+
+      const metaBlock = document.querySelector('.project-meta-block');
+      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
+
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+
+      const h2Sections = document.querySelectorAll('.case-study h2');
+      h2Sections.forEach((h2, index) => {
+        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
+      });
+
+      const h3Sections = document.querySelectorAll('.case-study h3');
+      h3Sections.forEach((h3, index) => {
+        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
+      });
+
+      const problemSections = document.querySelectorAll('.problem-section');
+      problemSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
+      });
+
+      const blockquotes = document.querySelectorAll('.case-study blockquote');
+      blockquotes.forEach((quote, index) => {
+        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
+      });
+
+      const featureSections = document.querySelectorAll('.feature-section');
+      featureSections.forEach((section, index) => {
+        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
+      });
+
+      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
+      featureImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
+      });
+    });
   </script>
 </body>
 </html>
