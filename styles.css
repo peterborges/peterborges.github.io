@@ -571,3 +571,27 @@ footer i {
 .feature-media {
   margin-top: 2rem;
 }
+
+.problem-section {
+  margin: 3rem 0;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  border-left: 4px solid #e5e7eb;
+  border-radius: 4px;
+}
+
+.problem-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.problem-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.problem-section blockquote {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
