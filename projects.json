@@ -1,26 +1,26 @@
 [
-    {
-      "title": "GovWell Plan Review",
-      "tags": "UX · UI · Prototyping",
-      "description": "Full case study under development",
-      "impact": "Coming soon",
-      "image": "images/index/govwell-hero.png",
-      "link": "govwell-plan-review.html"
-    },
-    {
-      "title": "VIAM Machine Configuration",
-      "tags": "Strategy · Research · UX · UI · IA · Prototyping · Launch",
-      "description": "AI/automation tooling for configuring smart machines.",
-      "impact": "$117M raised · 2,750+ devs · 40+ partnerships",
-      "image": "images/index/app-viam-mockup.png",
-      "link": "viam-machine-configuration.html"
-    },
-    {
-      "title": "VIAM TeleOp",
-      "tags": "UX · Dashboard · Sensor Data",
-      "description": "Live sensor dashboard for remote machine operation.",
-      "impact": "$2.75M signed contracts · 6 business partnerships",
-      "image": "images/index/teleop-hero-4.png",
-      "link": "viam-teleop.html"
-    }
-  ]
+  {
+    "title": "GovWell Plan Review",
+    "tags": "UX · UI · Prototyping · Claude Code · Launch",
+    "description": "Modernizing plan review permitting for local governments.",
+    "impact": "$9.5M seed funding · Launched to 80+ municipalities",
+    "image": "images/index/govwell-hero.png",
+    "link": "govwell-plan-review.html"
+  },
+  {
+    "title": "VIAM Machine Configuration",
+    "tags": "Strategy · Research · UX · UI · IA · Prototyping · Launch",
+    "description": "AI/automation tooling for configuring smart machines.",
+    "impact": "$117M raised · 2,750+ devs · 40+ partnerships",
+    "image": "images/index/app-viam-mockup.png",
+    "link": "viam-machine-configuration.html"
+  },
+  {
+    "title": "VIAM TeleOp",
+    "tags": "UX · Dashboard · Sensor Data",
+    "description": "Live sensor dashboard for remote machine operation.",
+    "impact": "$2.75M signed contracts · 6 business partnerships",
+    "image": "images/index/teleop-hero-4.png",
+    "link": "viam-teleop.html"
+  }
+]
