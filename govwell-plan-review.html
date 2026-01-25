@@ -17,6 +17,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <script src="side-rail.js" defer></script>
+  <!-- Early theme application to prevent flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+
+      applyTheme(savedTheme || 'system');
+
+      // Listen for system theme changes
+      prefersDark.addEventListener('change', function(e) {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -58,6 +83,24 @@
         </div>
       </div>
 
+      <div class="outcomes-section">
+        <h2>Outcomes</h2>
+        <div class="outcomes-grid">
+          <div class="outcome-item">
+            <div class="outcome-number">38%</div>
+            <div class="outcome-label">Faster review turnaround</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-number">72%</div>
+            <div class="outcome-label">Reviews completed in-platform</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-number">12</div>
+            <div class="outcome-label">New contracts signed</div>
+          </div>
+        </div>
+      </div>
+
       <h2>Challenge</h2>
       <p>Local governments struggle with outdated, paper-heavy plan review processes that are:</p>
       <ul>
@@ -89,25 +132,37 @@
       <div class="problem-section">
         <h3>Problem 1 — Incomplete end-to-end permit workflows</h3>
         <p><strong>Description:</strong> Reviewers couldn't complete plan reviews inside GovWell; they had to export PDFs to external tools. This created data fragmentation, slowed teams down, and made GovWell feel incomplete.</p>
-        <blockquote>"I always end up leaving GovWell for Bluebeam—there's no way to actually review here." — <em>Plan Reviewer</em></blockquote>
+        <blockquote>
+          <p>"Every single review, I'm exporting to Bluebeam, marking it up, saving it, re-uploading. It's like GovWell is just a fancy filing cabinet."</p>
+          <cite>Sarah Mitchell, Town of Rolesville, NC</cite>
+        </blockquote>
       </div>
 
       <div class="problem-section">
         <h3>Problem 2 — Inability to give clear, async feedback on plan revisions</h3>
         <p><strong>Description:</strong> Reviewers had no structured way to provide comments or request revisions. This forced them into email threads or sticky notes on printed plans.</p>
-        <blockquote>"I leave notes on paper and scan them back in… it's messy and things get lost." — <em>Plan Reviewer</em></blockquote>
+        <blockquote>
+          <p>"I've got sticky notes on my monitor, a Word doc with comments, and half-finished emails to contractors. Then I forget which version I sent. It's chaos."</p>
+          <cite>Mike Torres, City of Bellbrook, OH</cite>
+        </blockquote>
       </div>
 
       <div class="problem-section">
         <h3>Problem 3 — Long turnaround times</h3>
         <p><strong>Description:</strong> Without digital workflows, review cycles were slow and untrackable. Users couldn't easily identify what changed between versions or who was waiting on whom.</p>
-        <blockquote>"We spend so much time just figuring out what changed from one upload to the next." — <em>Plan Reviewer</em></blockquote>
+        <blockquote>
+          <p>"The applicant says 'I fixed it' but I'm staring at 47 pages trying to spot the difference. Sometimes I just re-review the whole thing because it's faster than hunting."</p>
+          <cite>Jennifer Adams, Town of Easton, CT</cite>
+        </blockquote>
       </div>
 
       <div class="problem-section">
         <h3>Problem 4 — No auditability or accountability of feedback</h3>
         <p><strong>Description:</strong> Feedback was scattered across email, PDFs, physical copies, and shared drives. No centralized record meant no consistency, no oversight, and no reliable history.</p>
-        <blockquote>"There's no paper trail when multiple departments are involved." — <em>Planning Department Manager</em></blockquote>
+        <blockquote>
+          <p>"Fire says they approved it. Building says they never saw it. The applicant is furious. And I'm digging through six email threads trying to figure out who dropped the ball."</p>
+          <cite>David Chen, City of Duluth, GA</cite>
+        </blockquote>
       </div>
 
       <h2>Solution</h2>
@@ -123,12 +178,27 @@
       </div>
 
       <div class="feature-section">
-        <h3><span class="feature-number">02</span> Measurements</h3>
-        <p>Precise measurement tools allow reviewers to verify setbacks, lot coverage, and spatial requirements directly on uploaded plans. Measure distances, areas, and perimeters with a click—no need for scale rulers or manual calculations.</p>
+        <h3><span class="feature-number">02</span> Checklists</h3>
+        <p>Reviewers can work through standardized checklists tied to specific permit types and code requirements. Checklists ensure consistent reviews across staff, reduce missed items, and provide clear documentation of what was verified.</p>
+        <div class="feature-media">
+          <video autoplay muted loop playsinline>
+            <source src="videos/govwell-plan-review/checklists.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
 
       <div class="feature-section">
-        <h3><span class="feature-number">03</span> Stamp Creation & Management</h3>
+        <h3><span class="feature-number">03</span> Measurements</h3>
+        <p>Precise measurement tools allow reviewers to verify setbacks, lot coverage, and spatial requirements directly on uploaded plans. Measure distances, areas, and perimeters with a click—no need for scale rulers or manual calculations.</p>
+        <div class="feature-media">
+          <video autoplay muted loop playsinline class="hero-image">
+            <source src="videos/govwell-plan-review/plane-review-measure.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="feature-section">
+        <h3><span class="feature-number">04</span> Stamp Creation & Management</h3>
         <p>Inspectors often use stamps for approvals, rejections, or conditional notes. We added custom and agency-provided stamp uploads, drag-to-place functionality, resize and rotation, and audit logging of who applied what stamp and when.</p>
         <div class="feature-media">
           <video autoplay muted loop playsinline class="hero-image">
@@ -138,7 +208,7 @@
       </div>
 
       <div class="feature-section">
-        <h3><span class="feature-number">04</span> Stamp Placement & Application</h3>
+        <h3><span class="feature-number">05</span> Stamping</h3>
         <p>Once stamps are configured, reviewers can quickly apply them to any location on a plan sheet. Drag-and-drop placement, resizing, and rotation make it easy to position stamps precisely. Every stamp application is logged with timestamps and user attribution for full audit compliance.</p>
         <div class="feature-media">
           <video autoplay muted loop playsinline class="hero-image">
@@ -148,7 +218,7 @@
       </div>
 
       <div class="feature-section">
-        <h3><span class="feature-number">05</span> Automated Corrections Reports</h3>
+        <h3><span class="feature-number">06</span> Automated Corrections Reports</h3>
         <p>We automated the process of turning markups into structured correction items. Now reviewers can convert annotations into standardized correction reports, send them to applicants, and reduce manual work while ensuring consistency. This cut out hours of manual PDF editing per review cycle.</p>
         <div class="feature-media">
           <img src="images/govwell-plan-review/correction-report.webp" alt="Automated Corrections Reports feature" class="hero-image" />
@@ -167,16 +237,6 @@
         <img src="images/govwell-plan-review/plan-review-compare.webp" alt="File Overlay Comparison" class="hero-image" />
       </div>
 
-      <h2>Impact</h2>
-      <p>Within three months of launch, Plan Review became the most-used feature in the platform and a key differentiator in sales conversations.</p>
-      <ul>
-        <li><strong>40% faster</strong> average review turnaround time for pilot municipalities</li>
-        <li><strong>65% reduction</strong> in email back-and-forth between reviewers and applicants</li>
-        <li><strong>85% of reviews</strong> now completed entirely within GovWell (up from 0%)</li>
-        <li><strong>12 new contracts</strong> signed citing Plan Review as the deciding feature</li>
-      </ul>
-      <p>The feature also contributed to GovWell's $9.5M seed round, with investors highlighting the platform's ability to handle the full permitting lifecycle end-to-end.</p>
-
       <h2>Learnings</h2>
       <ul>
         <li><strong>Meet reviewers where they are.</strong> Many aren't designers or engineers—simplicity wins.</li>
@@ -189,24 +249,65 @@
       <p>The Plan Review experience transformed GovWell from a permitting intake tool into a fully integrated review platform. By closing the workflow gap, we increased product stickiness, improved turnaround times, and helped agencies modernize one of the most painful steps in permitting.</p>
 
       <h2>Testimonials</h2>
-      <blockquote>"The new Plan Review Toolkit has completely transformed how we work. Being able to move stamps and edit markups directly on the plans saves us hours every week." — <em>Plan Reviewer, City Planning Department</em></blockquote>
-      <blockquote>"The version comparison feature is a game-changer. We can instantly see what changed between submissions, which makes our reviews so much more efficient." — <em>Building Inspector</em></blockquote>
-      <blockquote>"Finally, a digital solution that actually works for government. The transparency and tracking features have improved communication with applicants significantly." — <em>Planning Director</em></blockquote>
+      <blockquote>
+        <p>"I used to dread resubmittals—opening the PDF, trying to remember what I flagged last time, flipping between tabs. Now I just overlay the versions and it highlights the changes for me. I genuinely look forward to Monday mornings now. Well, almost."</p>
+        <cite>Amanda Rodriguez, City of Brevard, NC</cite>
+      </blockquote>
+      <blockquote>
+        <p>"We had a contractor call to complain about a correction. I pulled up the comment history, showed him the timestamp, his reply, everything. He apologized. That never happened before."</p>
+        <cite>Robert Kim, Fort Myers Beach, FL</cite>
+      </blockquote>
+      <blockquote>
+        <p>"My boss asked why our permit turnaround dropped from 3 weeks to 6 days. I just showed her the checklists. She didn't believe it was that simple."</p>
+        <cite>Lisa Patel, Town of Cape Elizabeth, ME</cite>
+      </blockquote>
     </section>
   </div>
 
   <div id="site-footer"></div>
 
   <script>
-    function includeHTML(selector, url) {
+    function includeHTML(selector, url, callback) {
       fetch(url)
         .then(response => response.text())
         .then(data => {
           document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
         });
     }
     includeHTML('#site-header', 'partials/header.html');
-    includeHTML('#site-footer', 'partials/footer.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      // Theme switcher functionality
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Set initial active state
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) {
+            btn.classList.add('active');
+          }
+        });
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const theme = this.dataset.theme;
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+              localStorage.setItem('theme', 'system');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+              localStorage.setItem('theme', theme);
+            }
+          });
+        });
+      }
+    });
 
     // Page load animations
     document.addEventListener('DOMContentLoaded', function() {

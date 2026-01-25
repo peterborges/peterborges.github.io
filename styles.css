@@ -622,6 +622,17 @@ footer:not(.site-footer) i {
   font-size: 0.9rem;
 }
 
+.case-study blockquote p {
+  margin: 0 0 0.75rem 0;
+}
+
+.case-study blockquote cite {
+  display: block;
+  color: var(--text-muted);
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
 .hero-image {
   display: block;
   width: 100%;
@@ -1204,8 +1215,156 @@ footer:not(.site-footer) i {
   }
 }
 
+/* Outcomes Section - Bold Typography */
+.outcomes-section {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  margin: 3rem 0;
+}
+
+.outcomes-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: var(--bg-primary);
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.outcome-item {
+  text-align: center;
+}
+
+.outcome-number {
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.outcome-label {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .outcomes-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .outcomes-section {
+    padding: 3rem 2rem;
+  }
+  .outcome-number {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Dark mode: remove card borders for seamless look */
 [data-theme="dark"] .project-card {
   background: var(--bg-primary);
   border: none;
+}
+
+/* ==========================================
+   DARK MODE - CASE STUDY SUPPORT
+   ========================================== */
+
+[data-theme="dark"] .case-study {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .case-study h1,
+[data-theme="dark"] .case-study h2,
+[data-theme="dark"] .case-study h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .case-study p,
+[data-theme="dark"] .case-study li {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .case-study .subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .problem-section {
+  background: linear-gradient(135deg, rgba(30,30,30,0.8) 0%, rgba(20,20,20,0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .problem-section h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .feature-section p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .feature-number {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .goals-card,
+[data-theme="dark"] .highlight-card {
+  background-color: #141414;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .section-divider {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .case-study blockquote {
+  border-left-color: var(--text-muted);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .case-study blockquote cite {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .project-context-block {
+  background: #141414;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .outcomes-section {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+[data-theme="dark"] .outcomes-section h2 {
+  color: var(--bg-primary);
+}
+
+[data-theme="dark"] .side-rail-nav a {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .side-rail-nav a:hover,
+[data-theme="dark"] .side-rail-nav a.active {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .feature-media img,
+[data-theme="dark"] .feature-media video,
+[data-theme="dark"] .hero-image {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
 }

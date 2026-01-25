@@ -17,6 +17,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <script src="side-rail.js" defer></script>
+  <!-- Early theme application to prevent flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+
+      applyTheme(savedTheme || 'system');
+
+      prefersDark.addEventListener('change', function(e) {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -39,9 +63,9 @@
 
           <div class="context-section">
             <h4>Team</h4>
-            <p>Eliot Horowitz, Project Owner</p>
-            <p>Peter Borges, Designer</p>
-            <p>Sierra Guequierre, TPM</p>
+            <p>1 Project Owner</p>
+            <p>1 Designer</p>
+            <p>1 TPM</p>
             <p>7 Engineers</p>
           </div>
 
@@ -314,15 +338,42 @@
   <div id="site-footer"></div>
 
   <script>
-    function includeHTML(selector, url) {
+    function includeHTML(selector, url, callback) {
       fetch(url)
         .then(response => response.text())
         .then(data => {
           document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
         });
     }
     includeHTML('#site-header', 'partials/header.html');
-    includeHTML('#site-footer', 'partials/footer.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      // Theme switcher functionality
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const theme = this.dataset.theme;
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('theme', theme);
+          });
+        });
+      }
+    });
 
     // Page load animations
     document.addEventListener('DOMContentLoaded', function() {

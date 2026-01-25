@@ -106,6 +106,28 @@
       height: 64px;
       border-radius: 50%;
       object-fit: cover;
+      transition: transform 1s ease;
+      cursor: pointer;
+    }
+    .headshot:hover {
+      transform: rotate(360deg);
+    }
+    .wave-emoji {
+      display: inline-block;
+      cursor: pointer;
+      transform-origin: 70% 70%;
+    }
+    .wave-emoji:hover {
+      animation: wave 2s ease-in-out 4;
+    }
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(12deg); }
+      30% { transform: rotate(-6deg); }
+      45% { transform: rotate(12deg); }
+      60% { transform: rotate(-2deg); }
+      75% { transform: rotate(6deg); }
+      100% { transform: rotate(0deg); }
     }
     .greeting {
       font-size: 1.25rem;
@@ -150,18 +172,18 @@
     }
     .grid-pattern {
       position: absolute;
-      top: -180px;
-      right: calc(-50vw + 50%);
-      width: 70vw;
-      height: calc(100% + 240px);
+      top: -56px;
+      left: calc(-50vw + 50%);
+      width: 100vw;
+      height: calc(100% + 56px);
       display: grid;
       grid-template-columns: repeat(auto-fill, 56px);
       grid-template-rows: repeat(auto-fill, 56px);
       gap: 0;
       pointer-events: none;
       z-index: 0;
-      mask-image: radial-gradient(ellipse 70% 100% at 100% 40%, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 100% at 100% 40%, black 30%, transparent 70%);
+      mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
     }
     .grid-square {
       width: 56px;
@@ -250,6 +272,9 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
+    [data-theme="dark"] .project-card:hover {
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
     .project-card h3 {
       font-size: 1.35rem;
       font-weight: 600;
@@ -300,6 +325,111 @@
       transform: translateY(10px);
     }
 
+    /* About Me Card */
+    .about-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      grid-template-rows: 1fr;
+      gap: 0;
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    .about-card > * {
+      min-height: 0;
+    }
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem;
+    }
+    .about-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 0 1.25rem 0;
+      color: var(--text-primary);
+    }
+    .about-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0 0 1rem 0;
+      font-size: 1.05rem;
+    }
+    .about-content p:last-child {
+      margin-bottom: 0;
+    }
+    .about-content a {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+    .about-content a:hover {
+      color: var(--text-secondary);
+    }
+    .about-content .text-muted {
+      color: var(--text-secondary);
+    }
+    .about-content .text-highlight-teal {
+      color: #14b8a6;
+    }
+    .about-content .text-highlight-orange {
+      color: #f59e0b;
+    }
+    .about-content .text-highlight-purple {
+      color: #8b5cf6;
+    }
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 15px 15px 0;
+      min-height: 100%;
+      align-self: stretch;
+    }
+    .about-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 180px;
+      background: linear-gradient(to right, var(--bg-secondary) 0%, var(--bg-secondary) 10%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .about-card {
+        grid-template-columns: 1fr;
+      }
+      .about-image {
+        order: -1;
+        height: 250px;
+        border-radius: 15px 15px 0 0;
+      }
+      .about-image::before {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 100%);
+      }
+      .about-content {
+        padding: 1.5rem;
+      }
+    }
 
     @media (max-width: 600px) {
       .project-thumb {
@@ -366,7 +496,7 @@
       <div class="intro-text">
         <div class="greeting-row">
           <img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot" />
-          <p class="greeting">Hi, I'm Peter 👋</p>
+          <p class="greeting">Hi, I'm Peter <span class="wave-emoji">👋</span></p>
         </div>
         <h1 class="site-title">Product designer turning complex systems into interfaces people love.</h1>
         <p class="intro">Ten years making robots, banks, and governments feel human.</p>
@@ -409,9 +539,24 @@
           container.appendChild(card);
         });
 
+        // Add About Me card
+        const aboutCard = document.createElement('div');
+        aboutCard.className = 'about-card';
+        aboutCard.innerHTML = `
+<div class="about-content">
+      <h3>About me</h3>
+      <p>I've spent the last decade obsessing over the details that make complex systems actually usable. Currently at <strong>GovWell</strong>, turning bureaucratic nightmares into interfaces people don't dread.</p>
+      <p>When I'm not in Figma, I'm probably <a href="https://www.kissenacycling.com/" target="_blank">racing bikes</a> through Brooklyn.</p>
+    </div>
+  <div class="about-image">
+    <img src="images/about/RevUnit-CoWorking.jpg" alt="Peter Borges at work" />
+  </div>
+`;
+        container.appendChild(aboutCard);
+
         // Add Resume card at the end
         const resumeCard = document.createElement('a');
-        resumeCard.href = 'https://drive.google.com/file/d/15g_KavnYfn1syP9O4ltiDJ5Yh6jWyVY5/view?usp=sharing';
+        resumeCard.href = 'https://docs.google.com/document/d/1U439qcGxMZGlIuwfDZVGVe63Ev6d9tl75mkUfjz6gcU/edit?usp=sharing';
         resumeCard.target = '_blank';
         resumeCard.className = 'project-card resume-card';
         resumeCard.innerHTML = `
