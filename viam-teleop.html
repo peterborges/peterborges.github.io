@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -354,8 +355,10 @@
       const metaBlock = document.querySelector('.project-meta-block');
       if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
 
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+      const heroImages = document.querySelectorAll('.hero-image');
+      heroImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in-up'), 200 + (index * 100));
+      });
 
       const h2Sections = document.querySelectorAll('.case-study h2');
       h2Sections.forEach((h2, index) => {

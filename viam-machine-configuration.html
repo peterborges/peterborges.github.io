@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -17,40 +18,40 @@
       <h1>VIAM Machine Configuration</h1>
       <p class="subtitle">Unlocking data & AI in the physical world</p>
 
-      <img src="images/viam-machine-configuration/app-viam-mockup.png" alt="Machine Configuration Hero Image" class="hero-image" />
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="images/viam-machine-configuration/create.mp4" type="video/mp4">
+      </video>
 
-      <div class="project-meta-block">
-        <div class="meta-column">
-          <h4><i class="fas fa-users"></i> Team</h4>
-          <ul>
-            <li>1 Project Owner</li>
-            <li>1 Designer</li>
-            <li>1 Technical Program Manager</li>
-            <li>7 Developers</li>
-          </ul>
+      <div class="project-context-block">
+        <div class="context-left">
+          <div class="context-section">
+            <h4>My Role</h4>
+            <p class="role-title"><strong>Lead Product Designer</strong> — Strategy, Competitive Research, Experience Design, User Research, Visual Design</p>
+          </div>
+
+          <div class="context-section">
+            <h4>Team</h4>
+            <p>Eliot Horowitz, Project Owner</p>
+            <p>Peter Borges, Designer</p>
+            <p>Sierra Guequierre, TPM</p>
+            <p>7 Engineers</p>
+          </div>
+
+          <div class="context-section">
+            <h4>Timeline & Status</h4>
+            <p>4 Months, <strong>Launched Feb 2024</strong></p>
+          </div>
         </div>
 
-        <div class="meta-column">
-          <h4><i class="fas fa-user-cog"></i> My Roles</h4>
-          <ul>
-            <li>Strategy</li>
-            <li>Competitive Research</li>
-            <li>Experience Design</li>
-            <li>User Research</li>
-            <li>Visual Design</li>
-          </ul>
-        </div>
-
-        <div class="meta-column">
-          <h4>📅 Project Timeline</h4>
-          <p>Nov 2023 – Feb 2024</p>
+        <div class="context-right">
+          <div class="context-section">
+            <h4>Overview</h4>
+            <p>Viam has been working since 2019 to create a new standard for hobbyist developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices.</p>
+            <p>To leverage the full power of Viam's ecosystem of products—from data aggregation to machine learning models to a registry of compliant components—users need a way to efficiently configure and test their new smart machines.</p>
+            <p>Machine configuration acts as the core of the VIAM platform, and other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem-level value from it.</p>
+          </div>
         </div>
       </div>
-
-      <h2>Overview</h2>
-      <p>Viam has been working since 2019 to create a new standard for hobbyist developers developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices. <br>
-        <br>
-        To leverage the full power of Viam’s ecosystem of products, from data aggregation, machine learning models, and a registry of compliant components, users need a way to efficiently configure and test their new smart machines. Machine configuration acts as the core of the VIAM platform which other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem level value from.</p>
 
       <h2>Challenges</h2>
       <ul>
@@ -69,43 +70,7 @@
         <li>Incorporated familiar developer UI patterns</li>
       </ul>
 
-      <h2>Research & Competitive Analysis</h2>
-      <p>We studied leading platforms like ROS, Cogniteam, Intrinsic, ArduinoWeb, and VSCode. Insights included:</p>
-      <ul>
-        <li><strong>File trees:</strong> Essential for navigation</li>
-        <li><strong>Flexible IDE layouts:</strong> Users expected customization</li>
-      </ul>
-
-      <div class="insight-section">
-        <div class="insight-text">
-          <h3>Competitive Analysis</h3>
-          <ul class="key-insights">...your list...</ul>
-        </div>
-        <div class="insight-image">
-          <img src="images/viam-machine-configuration/ardunio-web.png" alt="Arduino IDE" />
-          <img src="images/viam-machine-configuration/intrinsic_flowstate.jpg" alt="Intrinsic" />
-        </div>
-      </div>
-
-      <h3>Key Insights</h3>
-      <ul class="key-insights">
-        <li><strong>File-tree navigation is essential:</strong> Developers expect to see a structured, nested view of machine components, similar to IDEs or JSON structures they're familiar with.</li>
-        <li><strong>Configuration needs to be readable and editable:</strong> Users wanted clear machine definitions they could read at a glance — and the flexibility to edit settings inline or via raw JSON when needed.</li>
-        <li><strong>Separation of setup and operation is critical:</strong> Many platforms confuse configuration with live control. Users wanted to configure safely before deployment — not while the robot is running.</li>
-        <li><strong>Familiar UI patterns reduce ramp-up time:</strong> Competitor tools like ROS and Intrinsic often rely on complex CLI tools or XML files. Viam’s web-based UI had an opportunity to stand out with familiar UI/UX conventions.</li>
-        <li><strong>Debugging needs to be integrated:</strong> Users expected to see real-time logs, validation warnings, and machine state summaries during configuration to reduce guesswork and deployment errors.</li>
-      </ul>
-
-
       <h2>Design Process</h2>
-      <h3>Flow Mapping</h3>
-      <img src="images/viam-machine-configuration/new-machine-flow.png" alt="Configuration flow" class="hero-image" />
-      <p>Aligned with stakeholders to streamline the machine creation process into fewer, more intuitive steps.</p>
-
-      <h3>Wireframing</h3>
-      <img src="images/viam-machine-configuration/adding-part-wireframe.png" alt="Configuration flow" class="hero-image" />
-      <p>Built early low-fidelity wireframes to test ideas. Ensured scalability for complex machine setups and allowed editing/refinement mid-flow.</p>
-
       <h3>UI System Integration</h3>
       <section class="demo">
         <video
@@ -178,6 +143,19 @@
         <li><strong>65%</strong> reduction in configuration time</li>
       </ul>
 
+      <h2>Impact</h2>
+      <p>The redesign addressed long-overdue improvements to the machine configuration experience, transforming a fragmented interface into a clearer, more structured workflow. Beyond immediate usability gains, it established a stable foundation for future feature development and scalability. The response from both customers and internal teams was overwhelmingly positive:</p>
+      <div class="quotes-grid">
+        <img src="images/viam-machine-configuration/quote-1.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-2.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-3.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-4.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-5.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-6.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-7.webp" alt="Customer feedback quote" />
+        <img src="images/viam-machine-configuration/quote-8.webp" alt="Customer feedback quote" />
+      </div>
+
       <h2>Reflections</h2>
       <p>This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch and earlier design system alignment could have accelerated delivery.</p>
 
@@ -200,6 +178,75 @@
   </div>
 
   <style>
+    .project-context-block {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 3rem;
+      border-radius: 16px;
+      margin: 2rem 0 3rem 0;
+      border: 1px solid var(--border-color);
+    }
+    .context-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .context-right {
+      display: flex;
+      flex-direction: column;
+    }
+    .context-section h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+    .context-section p {
+      color: var(--text-secondary);
+      margin: 0 0 0.5rem 0;
+      line-height: 1.6;
+    }
+    .context-section p strong {
+      color: var(--text-primary);
+    }
+    .context-section .role-title {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    .context-section .role-title strong {
+      color: var(--text-primary);
+    }
+    .context-right .context-section p {
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) {
+      .project-context-block {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+    }
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .quotes-grid img {
+      width: 100%;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+    }
+    @media (max-width: 600px) {
+      .quotes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     .next-case-study {
       background: var(--bg-secondary);
       padding: 4rem 2rem;
@@ -284,8 +331,10 @@
       const metaBlock = document.querySelector('.project-meta-block');
       if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
 
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+      const heroImages = document.querySelectorAll('.hero-image');
+      heroImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in-up'), 200 + (index * 100));
+      });
 
       const h2Sections = document.querySelectorAll('.case-study h2');
       h2Sections.forEach((h2, index) => {
