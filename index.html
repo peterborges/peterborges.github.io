@@ -28,10 +28,9 @@
       to { opacity: 1; }
     }
 
-    .headshot-container {
-      animation: fadeIn 0.6s ease-out 0.1s both;
+    .headshot {
+      animation: fadeIn 0.5s ease-out 0.1s both;
     }
-
     .greeting {
       animation: fadeIn 0.5s ease-out 0.2s both;
     }
@@ -60,7 +59,6 @@
 
     /* Respect reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
-      .headshot-container,
       .greeting,
       .site-title,
       .intro-text .intro,
@@ -88,10 +86,22 @@
       margin: 0 auto;
       padding: 0 2rem;
     }
+    .greeting-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.25rem 0 0.75rem 0;
+    }
+    .headshot {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
     .greeting {
       font-size: 1.25rem;
       color: var(--text-muted);
-      margin: 1.25rem 0 0.75rem 0;
+      margin: 0;
       font-weight: 400;
     }
     .site-title {
@@ -129,18 +139,19 @@
     }
     .project-card {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
+      overflow: hidden;
       text-decoration: none;
       color: inherit;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      border: none;
       border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
     .project-card h3 {
       font-size: 1.35rem;
@@ -159,7 +170,7 @@
     .project-info {
       display: flex;
       flex-direction: column;
-      padding: 1.5rem 1.75rem;
+      padding: 1.25rem 1.5rem;
     }
     .project-info p {
       margin: 0.5rem 0 0;
@@ -175,20 +186,27 @@
       color: var(--text-primary);
       font-weight: 600;
     }
+    .project-thumb-wrapper {
+      padding: 0 3rem 0 3rem;
+      overflow: visible;
+    }
     .project-thumb {
       width: 100%;
-      height: 320px;
+      height: 520px;
       object-fit: cover;
       object-position: top;
+      border-radius: 12px;
       transition: transform 0.4s ease;
+      transform: translateY(30px);
     }
     .project-card:hover .project-thumb {
-      transform: scale(1.03);
+      transform: translateY(10px);
     }
+
 
     @media (max-width: 600px) {
       .project-thumb {
-        height: 220px;
+        height: 320px;
       }
     }
 
@@ -237,12 +255,10 @@
   <div class="content-container">
     <header class="intro-section">
       <div class="intro-text">
-        <div class="headshot-container">
-          <img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot-color" />
-          <img src="images/index/borges-headshot-dithered.png" alt="" class="headshot-dithered" aria-hidden="true" />
-          <div class="headshot-spotlight"></div>
+        <div class="greeting-row">
+          <img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot" />
+          <p class="greeting">Hi, I'm Peter 👋</p>
         </div>
-        <p class="greeting">Hi, I'm Peter 👋</p>
         <h1 class="site-title">Product designer turning complex systems into interfaces people love.</h1>
         <p class="intro">Ten years making robots, banks, and governments feel human. Currently designing at GovWell.</p>
       </div>
@@ -277,7 +293,7 @@
     <p>${project.description}</p>
     <p class="project-impact">${project.impact.replace(/(\$?\d[\d,.]*\+?%?m?)/gi, '<strong>$1</strong>')}</p>
   </div>
-  <img class="project-thumb" src="${project.image}" alt="${project.title} Thumbnail" />
+  <div class="project-thumb-wrapper"><img class="project-thumb" src="${project.image}" alt="${project.title} Thumbnail" /></div>
 `;
 
           container.appendChild(card);
@@ -285,7 +301,8 @@
 
         // Add Resume card at the end
         const resumeCard = document.createElement('a');
-        resumeCard.href = 'resume.html';
+        resumeCard.href = 'https://drive.google.com/file/d/15g_KavnYfn1syP9O4ltiDJ5Yh6jWyVY5/view?usp=sharing';
+        resumeCard.target = '_blank';
         resumeCard.className = 'project-card resume-card';
         resumeCard.innerHTML = `
   <div class="project-info">
@@ -420,22 +437,6 @@
       }
     });
 
-    // Headshot spotlight effect
-    const headshotContainer = document.querySelector('.headshot-container');
-    if (headshotContainer) {
-      headshotContainer.addEventListener('mousemove', (e) => {
-        const rect = headshotContainer.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        headshotContainer.style.setProperty('--mouse-x', `${x}%`);
-        headshotContainer.style.setProperty('--mouse-y', `${y}%`);
-      });
-
-      headshotContainer.addEventListener('mouseleave', () => {
-        headshotContainer.style.setProperty('--mouse-x', '50%');
-        headshotContainer.style.setProperty('--mouse-y', '50%');
-      });
-    }
   </script>
 </body>
 </html>

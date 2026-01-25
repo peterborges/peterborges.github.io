@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -17,46 +18,37 @@
       <h1>GovWell Plan Review</h1>
       <p class="subtitle">Modernizing the plan review process for local governments</p>
 
-      <div class="project-meta-block">
-        <div class="meta-column">
-          <h4><i class="fas fa-users"></i> Team</h4>
-          <ul>
-            <li>1 Designer (Me)</li>
-            <li>1 Front-End Engineer</li>
-            <li>1 CTO</li>
-          </ul>
-        </div>
-
-        <div class="meta-column">
-          <h4><i class="fas fa-user-cog"></i> Role</h4>
-          <ul>
-            <li>UX Designer</li>
-            <li>UI Designer</li>
-            <li>Prototyping</li>
-          </ul>
-        </div>
-
-        <div class="meta-column">
-          <h4>📅 Duration</h4>
-          <p>2 months</p>
-        </div>
-
-        <div class="meta-column">
-          <h4>🌐 Platform</h4>
-          <p>Web</p>
-        </div>
-
-        <div class="meta-column">
-          <h4>✅ Status</h4>
-          <p>Launched</p>
-        </div>
-      </div>
-
       <img src="images/index/govwell-hero.png" alt="GovWell Plan Review Hero Image" class="hero-image" />
 
-      <h2>Context</h2>
-      <p>This was my first major project after joining GovWell: designing a 0→1 integrated Plan Review experience that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.</p>
-      <p>During early discovery calls, we noticed a major gap: customers were exporting plan sets and switching to third-party tools to complete core review workflows. That created user friction, inconsistent records, and broken audit trails. Closing this gap became critical to launching a competitive permitting solution.</p>
+      <div class="project-context-block">
+        <div class="context-left">
+          <div class="context-section">
+            <h4>My Role</h4>
+            <p class="role-title"><strong>Lead Product Designer</strong> — UX Design, UI Design, Prototyping, User Research</p>
+          </div>
+
+          <div class="context-section">
+            <h4>Team</h4>
+            <p>Peter Borges, Designer</p>
+            <p>Matt Dyrland-Marquis, Front-End</p>
+            <p>Tyler Dyrland-Marquis, CTO</p>
+          </div>
+
+          <div class="context-section">
+            <h4>Timeline & Status</h4>
+            <p>2 Months, <strong>Launched Jan 2025</strong></p>
+          </div>
+        </div>
+
+        <div class="context-right">
+          <div class="context-section">
+            <h4>Overview</h4>
+            <p>This was my first major project after joining GovWell: designing a 0→1 integrated Plan Review experience that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.</p>
+            <p>During early discovery calls, we noticed a major gap: customers were exporting plan sets and switching to third-party tools to complete core review workflows. That created user friction, inconsistent records, and broken audit trails.</p>
+            <p>Closing this gap became critical to launching a competitive permitting solution.</p>
+          </div>
+        </div>
+      </div>
 
       <h2>The Challenge</h2>
       <p>Local governments struggle with outdated, paper-heavy plan review processes that are:</p>
@@ -234,8 +226,10 @@
       if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
 
       // Hero image (200ms delay)
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
+      const heroImages = document.querySelectorAll('.hero-image');
+      heroImages.forEach((img, index) => {
+        setTimeout(() => img.classList.add('fade-in-up'), 200 + (index * 100));
+      });
 
       // H2 sections with staggered delays (300ms + 100ms per section)
       const h2Sections = document.querySelectorAll('.case-study h2');
