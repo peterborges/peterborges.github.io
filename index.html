@@ -72,6 +72,7 @@
     html, body {
       height: 100%;
       margin: 0;
+      overflow-x: hidden;
     }
     body {
       display: flex;
@@ -123,6 +124,94 @@
       padding: 4rem 0 3rem;
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 1rem;
+      position: relative;
+      overflow: visible;
+    }
+    .intro-section .intro-text {
+      position: relative;
+      z-index: 1;
+    }
+    .grid-pattern-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .grid-pattern {
+      position: absolute;
+      top: -180px;
+      right: calc(-50vw + 50%);
+      width: 70vw;
+      height: calc(100% + 240px);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 56px);
+      grid-template-rows: repeat(auto-fill, 56px);
+      gap: 0;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 70% 100% at 100% 40%, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 100% at 100% 40%, black 30%, transparent 70%);
+    }
+    .grid-square {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+    .grid-square svg {
+      width: 52px;
+      height: 52px;
+      transition: all 1.2s ease-out;
+    }
+    .grid-square svg rect {
+      stroke: rgba(0, 0, 0, 0.04);
+      transition: stroke 1.2s ease-out, fill 1.2s ease-out;
+    }
+    .grid-square:hover svg {
+      transition: all 0.15s ease-out;
+    }
+    .grid-square:hover svg rect {
+      stroke: rgba(0, 0, 0, 0.12);
+      fill: rgba(0, 0, 0, 0.02);
+      transition: stroke 0.15s ease-out, fill 0.15s ease-out;
+    }
+    .grid-square.pulse svg rect {
+      animation: squarePulse 2.5s ease-in-out;
+    }
+    @keyframes squarePulse {
+      0%, 100% {
+        stroke: rgba(0, 0, 0, 0.04);
+        fill: transparent;
+      }
+      50% {
+        stroke: rgba(0, 0, 0, 0.1);
+        fill: rgba(0, 0, 0, 0.015);
+      }
+    }
+    [data-theme="dark"] .grid-square svg rect {
+      stroke: rgba(255, 255, 255, 0.04);
+    }
+    [data-theme="dark"] .grid-square:hover svg rect {
+      stroke: rgba(255, 255, 255, 0.15);
+      fill: rgba(255, 255, 255, 0.03);
+    }
+    [data-theme="dark"] .grid-square.pulse svg rect {
+      animation: squarePulseDark 2.5s ease-in-out;
+    }
+    @keyframes squarePulseDark {
+      0%, 100% {
+        stroke: rgba(255, 255, 255, 0.04);
+        fill: transparent;
+      }
+      50% {
+        stroke: rgba(255, 255, 255, 0.12);
+        fill: rgba(255, 255, 255, 0.02);
+      }
     }
     .section-label {
       font-size: 0.75rem;
@@ -229,9 +318,20 @@
     .city:hover {
       color: var(--text-primary);
     }
+    .city.struck {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+    .intro-text, .intro.locations, .city-wrapper {
+      overflow: visible;
+    }
+    .city-wrapper {
+      position: relative;
+      display: inline-block;
+    }
     .city-popover {
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 10px);
       left: 50%;
       transform: translateX(-50%);
       width: 200px;
@@ -243,7 +343,7 @@
       visibility: hidden;
       transition: opacity 0.25s ease, visibility 0.25s ease;
       pointer-events: none;
-      z-index: 100;
+      z-index: 1000;
     }
     .city-wrapper:hover .city-popover {
       opacity: 1;
@@ -254,13 +354,15 @@
 <body>
   <div class="content-container">
     <header class="intro-section">
+      <div class="grid-pattern" id="gridPattern"></div>
       <div class="intro-text">
         <div class="greeting-row">
           <img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot" />
           <p class="greeting">Hi, I'm Peter 👋</p>
         </div>
         <h1 class="site-title">Product designer turning complex systems into interfaces people love.</h1>
-        <p class="intro">Ten years making robots, banks, and governments feel human. Currently designing at GovWell.</p>
+        <p class="intro">Ten years making robots, banks, and governments feel human.</p>
+        <p class="intro locations">Based in <span class="city-wrapper"><span class="city struck">Providence</span><img src="images/index/providence.png" alt="Providence" class="city-popover" /></span>, <span class="city-wrapper"><span class="city struck">San Francisco</span><img src="images/index/san-francisco.png" alt="San Francisco" class="city-popover" /></span>, <span class="city-wrapper"><span class="city">Brooklyn</span><img src="images/index/brooklyn.png" alt="Brooklyn" class="city-popover" /></span>.</p>
       </div>
     </header>
 
@@ -313,6 +415,43 @@
 `;
         container.appendChild(resumeCard);
       });
+
+    // Generate grid pattern
+    (function() {
+      const gridContainer = document.getElementById('gridPattern');
+      if (!gridContainer) return;
+
+      const header = document.querySelector('.intro-section');
+      const cols = Math.ceil((header.offsetWidth * 1.1) / 56) + 2;
+      const rows = Math.ceil((header.offsetHeight + 112) / 56) + 2;
+
+      const squares = [];
+      for (let i = 0; i < cols * rows; i++) {
+        const square = document.createElement('div');
+        square.className = 'grid-square';
+        square.innerHTML = `<svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="48" height="48" rx="12" fill="none" stroke-width="1"/></svg>`;
+        gridContainer.appendChild(square);
+        squares.push(square);
+      }
+
+      // Random pulse animation
+      function pulseRandomSquare() {
+        const randomIndex = Math.floor(Math.random() * squares.length);
+        const square = squares[randomIndex];
+        if (!square.classList.contains('pulse')) {
+          square.classList.add('pulse');
+          setTimeout(() => square.classList.remove('pulse'), 2500);
+        }
+      }
+
+      // Start random pulses
+      setInterval(pulseRandomSquare, 400);
+      // Initial pulses
+      for (let i = 0; i < 3; i++) {
+        setTimeout(pulseRandomSquare, i * 300);
+      }
+    })();
+
 
     // Load footer from partial
     function includeHTML(selector, url, callback) {
