@@ -1274,10 +1274,10 @@ footer:not(.site-footer) i {
   }
 }
 
-/* Dark mode: remove card borders for seamless look */
+/* Dark mode: light border on cards */
 [data-theme="dark"] .project-card {
   background: var(--bg-primary);
-  border: none;
+  border: 1px solid var(--border-color);
 }
 
 /* ==========================================
