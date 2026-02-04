@@ -1,4 +1,3 @@
-<!-- viam-machine-configuration.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +16,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
       function applyTheme(theme) {
         if (theme === 'system' || !theme) {
           document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
@@ -30,9 +29,7 @@
           document.documentElement.setAttribute('data-theme', theme);
         }
       }
-
       applyTheme(savedTheme || 'system');
-
       prefersDark.addEventListener('change', function(e) {
         const currentSetting = localStorage.getItem('theme');
         if (!currentSetting || currentSetting === 'system') {
@@ -41,248 +38,7 @@
       });
     })();
   </script>
-</head>
-<body>
-  <div id="site-header"></div>
-
-  <div class="content-container" style="padding-top: 4rem;">
-    <section class="case-study">
-      <h1>VIAM Machine Configuration</h1>
-      <p class="subtitle">Unlocking data & AI in the physical world</p>
-
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="images/viam-machine-configuration/create.mp4" type="video/mp4">
-      </video>
-
-      <div class="project-context-block">
-        <div class="context-left">
-          <div class="context-section">
-            <h4>My Role</h4>
-            <p class="role-title"><strong>Lead Product Designer</strong> — Strategy, Competitive Research, Experience Design, User Research, Visual Design</p>
-          </div>
-
-          <div class="context-section">
-            <h4>Team</h4>
-            <p>1 Project Owner</p>
-            <p>1 Designer</p>
-            <p>1 TPM</p>
-            <p>7 Engineers</p>
-          </div>
-
-          <div class="context-section">
-            <h4>Timeline & Status</h4>
-            <p>4 Months, <strong>Launched Feb 2024</strong></p>
-          </div>
-        </div>
-
-        <div class="context-right">
-          <div class="context-section">
-            <h4>Overview</h4>
-            <p>Viam has been working since 2019 to create a new standard for hobbyist developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices.</p>
-            <p>To leverage the full power of Viam's ecosystem of products—from data aggregation to machine learning models to a registry of compliant components—users need a way to efficiently configure and test their new smart machines.</p>
-            <p>Machine configuration acts as the core of the VIAM platform, and other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem-level value from it.</p>
-          </div>
-        </div>
-      </div>
-
-      <h2>Challenges</h2>
-      <ul>
-        <li><strong>Design/technical debt</strong>
-          <br>Years of features needed consolidation.</li>
-        <li><strong>Usability</strong>
-          <br>Developer tooling needed familiar UI patterns.</li>
-        <li><strong>Fragmented flows</strong>
-          <br>Creation/configuration processes were disjointed.</li>
-      </ul>
-
-      <h2>Success Metrics</h2>
-      <ul>
-        <li>Increased enterprise adoption</li>
-        <li>Reduced configuration time for solutions engineers</li>
-        <li>Incorporated familiar developer UI patterns</li>
-      </ul>
-
-      <h2>Design Process</h2>
-      <h3>UI System Integration</h3>
-      <section class="demo">
-        <video
-          class="hero-video"
-          src="images/viam-machine-configuration/prime.mp4"
-          autoplay
-          muted
-          loop
-          playsinline>
-        </video>
-      </section>
-
-      <h2>Key Features</h2>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 01 — Tree Navigation</div>
-          <h3>Your machine, mapped out.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Flat lists & confusion.</div>
-          <p>Manage machines and sub-parts with an <strong>intuitive hierarchical structure</strong>. Navigate complex configurations with ease and understand relationships between components at a glance.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-machine-configuration/tree-nav.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 02 — JSON Editing</div>
-          <h3>Code when you need it.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — GUI-only limitations.</div>
-          <p>Power users get <strong>granular configuration through direct code access</strong>. Switch seamlessly between visual and code editing for maximum flexibility and control.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-machine-configuration/json.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 03 — Null States</div>
-          <h3>Never start from zero.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Blank screens & dead ends.</div>
-          <p>New users receive <strong>friendly guidance and contextual help</strong> at every step. Empty states become opportunities for learning, not barriers to progress.</p>
-        </div>
-        <div class="feature-media">
-          <img src="images/viam-machine-configuration/null-state.png" alt="Configuration flow" class="hero-image" />
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 04 — Logs</div>
-          <h3>See what's happening, live.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Debugging in the dark.</div>
-          <p>Access <strong>real-time diagnostics and feedback</strong> directly in the interface. Identify issues instantly and understand exactly what your machine is doing.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-machine-configuration/logs.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 05 — Connect Tab</div>
-          <h3>From config to code in seconds.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Manual boilerplate hell.</div>
-          <p>Get <strong>auto-generated boilerplate code</strong> for quick integration. Copy, paste, and start building—no more hunting through documentation.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-machine-configuration/connect.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <h2>Outcomes</h2>
-      <ul>
-        <li><strong>$117M</strong> raised, including a <strong>$30M</strong> Series C</li>
-        <li><strong>40+</strong> partnerships and <strong>2,750+</strong> developers</li>
-        <li><strong>23,000+</strong> machines created</li>
-        <li><strong>65%</strong> reduction in configuration time</li>
-      </ul>
-
-      <h2>Impact</h2>
-      <p>The redesign addressed long-overdue improvements to the machine configuration experience, transforming a fragmented interface into a clearer, more structured workflow. Beyond immediate usability gains, it established a stable foundation for future feature development and scalability. The response from both customers and internal teams was overwhelmingly positive:</p>
-      <div class="quotes-grid">
-        <img src="images/viam-machine-configuration/quote-1.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-2.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-3.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-4.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-5.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-6.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-7.webp" alt="Customer feedback quote" />
-        <img src="images/viam-machine-configuration/quote-8.webp" alt="Customer feedback quote" />
-      </div>
-
-      <h2>Reflections</h2>
-      <p>This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch could have accelerated delivery.</p>
-
-      <p><a href="https://app.viam.com/try" target="_blank" class="resume-download">Try Viam →</a></p>
-    </section>
-  </div>
-
-  <!-- Next Case Study CTA -->
-  <div class="next-case-study">
-    <div class="next-case-study-inner">
-      <span class="next-label">Next Case Study</span>
-      <a href="viam-teleop.html" class="next-case-study-card">
-        <div class="next-case-study-info">
-          <h3>VIAM TeleOp</h3>
-          <p>Live sensor dashboard for remote machine operation.</p>
-        </div>
-        <img src="images/index/teleop-hero-4.png" alt="VIAM TeleOp" class="next-case-study-image" />
-      </a>
-    </div>
-  </div>
-
   <style>
-    .project-context-block {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 4rem;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      padding: 3rem;
-      border-radius: 16px;
-      margin: 2rem 0 3rem 0;
-      border: 1px solid var(--border-color);
-    }
-    .context-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .context-right {
-      display: flex;
-      flex-direction: column;
-    }
-    .context-section h4 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-    .context-section p {
-      color: var(--text-secondary);
-      margin: 0 0 0.5rem 0;
-      line-height: 1.6;
-    }
-    .context-section p strong {
-      color: var(--text-primary);
-    }
-    .context-section .role-title {
-      font-size: 1.1rem;
-      margin-bottom: 0;
-    }
-    .context-section .role-title strong {
-      color: var(--text-primary);
-    }
-    .context-right .context-section p {
-      margin-bottom: 1rem;
-    }
-    @media (max-width: 768px) {
-      .project-context-block {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem;
-      }
-    }
     .quotes-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -356,6 +112,15 @@
       }
     }
   </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <div id="case-study-content">
+      <div class="loading-state">Loading...</div>
+    </div>
+  </div>
 
   <div id="site-footer"></div>
 
@@ -368,19 +133,17 @@
           if (callback) callback();
         });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
-      // Theme switcher functionality
       const themeSwitcher = document.querySelector('.theme-switcher');
       if (themeSwitcher) {
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
         buttons.forEach(btn => {
           if (btn.dataset.theme === savedTheme) btn.classList.add('active');
         });
-
         buttons.forEach(btn => {
           btn.addEventListener('click', function() {
             buttons.forEach(b => b.classList.remove('active'));
@@ -397,53 +160,9 @@
       }
     });
 
-    // Page load animations
     document.addEventListener('DOMContentLoaded', function() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const heroTitle = document.querySelector('.case-study h1');
-      const subtitle = document.querySelector('.case-study .subtitle');
-      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
-      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
-
-      const metaBlock = document.querySelector('.project-meta-block');
-      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
-
-      const heroImages = document.querySelectorAll('.hero-image');
-      heroImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in-up'), 200 + (index * 100));
-      });
-
-      const h2Sections = document.querySelectorAll('.case-study h2');
-      h2Sections.forEach((h2, index) => {
-        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
-      });
-
-      const h3Sections = document.querySelectorAll('.case-study h3');
-      h3Sections.forEach((h3, index) => {
-        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
-      });
-
-      const problemSections = document.querySelectorAll('.problem-section');
-      problemSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
-      });
-
-      const blockquotes = document.querySelectorAll('.case-study blockquote');
-      blockquotes.forEach((quote, index) => {
-        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
-      });
-
-      const featureSections = document.querySelectorAll('.feature-section');
-      featureSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
-      });
-
-      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
-      featureImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
-      });
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/viam-machine-configuration.json');
+      renderer.render();
     });
   </script>
 </body>

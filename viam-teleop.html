@@ -1,4 +1,3 @@
-<!-- case-study-teleop.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +16,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
       function applyTheme(theme) {
         if (theme === 'system' || !theme) {
           document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
@@ -30,9 +29,7 @@
           document.documentElement.setAttribute('data-theme', theme);
         }
       }
-
       applyTheme(savedTheme || 'system');
-
       prefersDark.addEventListener('change', function(e) {
         const currentSetting = localStorage.getItem('theme');
         if (!currentSetting || currentSetting === 'system') {
@@ -41,267 +38,6 @@
       });
     })();
   </script>
-</head>
-<body>
-  <div id="site-header"></div>
-
-  <div class="content-container" style="padding-top: 4rem;">
-    <section class="case-study">
-      <h1>Viam TeleOp</h1>
-      <p class="subtitle">Remote sensor visibility and control in real time</p>
-
-      <img src="images/viam-teleop/teleop-hero-2.png" alt="TeleOp Hero Image" class="hero-image" />
-
-      <div class="project-meta-block">
-        <div class="meta-column">
-          <h4></i>👥 Team</h4>
-          <ul>
-            <li>1 Project Owner</li>
-            <li>1 Designer</li>
-            <li>1 Technical Program Manager</li>
-            <li>4 Developers</li>
-          </ul>
-        </div>
-
-        <div class="meta-column">
-          <h4></i>👨‍🎨 My Roles</h4>
-          <ul>
-            <li>Strategy</li>
-            <li>Competitive Research</li>
-            <li>Experience Design</li>
-            <li>User Research</li>
-            <li>Visual Design</li>
-          </ul>
-        </div>
-
-        <div class="meta-column">
-          <h4></i>🗓️ Project Timeline</h4>
-          <p>Sep 2024 – Oct 2024</p>
-        </div>
-      </div>
-
-      <h2>Overview</h2>
-      <p>Many companies lack real-time visibility into their machines due to fragmented systems, outdated hardware, and inconsistent data standards. These gaps make it difficult to detect issues early, integrate insights, or respond quickly, especially in remote or infrastructure-poor environments.</p>
-
-      <h2>Problem</h2>
-      <p>While Viam could collect data from a wide range of input sources and expose it through the UI and exports, the information was fragmented and difficult for users to interpret or act on effectively.</p>
-
-    <div class="highlight-card">
-      <h2>Goals</h2>
-      <ul class="highlight-list">
-        <li>👁️ Enable real-time visibility into robot sensor states</li>
-        <li>↔️ Support bi-directional control for developers and operators</li>
-        <li>📶 Standardize telemetry UI for machine health</li>
-        <li>🛠️ Reduce tooling fatigue by consolidating multiple dashboards</li>
-      </ul>
-    </div>
-
-
-      <h2>Process</h2>
-      <h3>Research & Discovery</h3>
-      <p>I conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. I also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow, familiar layouts, responsive controls, and streamlined diagnostics.</p>
-
-      <div class="insight-section">
-        <div class="insight-text">
-          <h3>Competitive Analysis</h3>
-          <ul>
-            <li><strong>Arduino</strong> <br>Prioritize real-time device status but lack detailed sensor state correlation.</li>
-            <li><strong>Datadog</strong> <br>Excels at observability but is built around server monitoring rather than physical robotics.</li>
-            <li><Strong>Opportunity</Strong> <br>A robotics-native UI that balances live status, control, and machine health.</li>
-          </ul>
-        </div>
-
-        <div class="insight-image-row">
-          <div class="image-wrapper">
-            <img src="images/viam-teleop/arduino-dashboard.png" alt="Arduino IoT dashboard" />
-            <p class="image-caption">Arduino IoT dashboard: Device-centric, but not built for robotic sensor workflows.</p>
-          </div>
-
-          <div class="image-wrapper">
-            <img src="images/viam-teleop/datadog-dashboard.png" alt="Datadog dashboard" />
-            <p class="image-caption">Datadog: Excellent for server observability, less intuitive for machine telemetry.</p>
-          </div>
-        </div>
-      </div>
-
-      <h3>Key Insights</h3>
-      📈 <strong>Sensor data was available, but not actionable</strong><br>
-        Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior.
-        <br>
-        <br>
-      🎮 <strong>Developers wanted control + clarity</strong><br>
-        Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely.
-        <br>
-        <br>
-      🧩 <strong>Tooling fatigue was real</strong><br>
-        Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment.
-        <br>
-        <br>
-      🧠 <strong>Familiar patterns helped adoption</strong><br>
-        Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel “native” to their workflow.
-        <br>
-        <br>
-
-
-<br>
-        <h3>Design Approach</h3>
-        <!--
-        <h4>Sketches</h4>
-        <p>Early sketches explored how to unify multiple real-time sensor feeds (camera, LiDAR, GPS) into a single, intuitive dashboard. I focused on finding layouts that reduced cognitive load and grouped related information logically for quick access during remote operations.</p>
-        <img src="" alt="Initial Sketches" class="hero-image" />
-        <br>
-      -->
-
-        <h4>Flow Map</h4>
-        <p>I mapped out the core user journeys for different personas, including solutions engineers and developers. Early flows prioritized quick access to machine status, streamlined manual control interactions, and fallback paths for degraded network environments.</p>
-        <img src="images/viam-teleop/TeleOp-Flowmap.jpg" alt="TeleOp Hero Image" class="hero-image" />
-        <br>
-
-        <h4>Wireframes</h4>
-        <p>Low-fidelity wireframes tested different structural models: tabbed dashboards, collapsible sensor panels, and split-view layouts combining control and telemetry. Wireframes helped validate navigation hierarchy and the balance between overview and detail views.</p>
-        <img src="images/viam-teleop/teleop-wireframes.png" alt="TeleOp Wireframes" class="hero-image" />
-        <br>
-
-        <h4>Iterations</h4>
-        <p>Through rounds of feedback and internal testing, we refined the UI to prioritize actionability — surfacing the most critical sensor states first and simplifying manual overrides. Design iterations also focused on making the dashboard feel responsive even under slower network conditions, improving trust during remote operations. Side panel for configuration of widgets instead of an edit mode<br>
-        Need to create a new workspace from an existing machine
-        </p>
-        <br>
-
-        <div class="design-flow">
-          <div class="flow-step">
-            <div class="flow-icon">🛰️</div>
-            <p>Sensor Feeds (LiDAR, Camera, GPS)</p>
-          </div>
-
-          <div class="flow-arrow">→</div>
-
-          <div class="flow-step">
-            <div class="flow-icon">📊</div>
-            <p>Live Dashboard (Sensor Monitoring)</p>
-          </div>
-
-          <div class="flow-arrow">→</div>
-
-          <div class="flow-step">
-            <div class="flow-icon">🎮</div>
-            <p>Manual Control Panel (Remote Actions)</p>
-          </div>
-
-          <div class="flow-arrow">→</div>
-
-          <div class="flow-step">
-            <div class="flow-icon">⚙️</div>
-            <p>Diagnostics & Health Reporting</p>
-          </div>
-        </div>
-
-
-        <h2>Key Functionality</h2>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 01 — Adding Widgets</div>
-          <h3>Build your command center.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — One-size-fits-none.</div>
-          <p>Create a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Drag and drop the widgets you need, exactly where you need them.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-teleop/teleop-adding-widgets.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 02 — Adding Machines</div>
-          <h3>Connect in clicks, not hours.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Complex setup rituals.</div>
-          <p>Quickly add machines to your workspace with <strong>streamlined onboarding flows</strong>. Get from zero to monitoring in minutes, not hours.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-teleop/teleop-adding-machine.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 03 — Widget Configuration</div>
-          <h3>Your data, your way.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Static, inflexible views.</div>
-          <p>Enjoy <strong>modular setup for selecting, arranging, and customizing</strong> live data and control widgets across the dashboard. Every operator gets the view that works for them.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-teleop/teleop-configuring-widget.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 04 — Machine Monitoring</div>
-          <h3>Eyes everywhere, always.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Flying blind remotely.</div>
-          <p>Access a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Know exactly what's happening, no matter where you are.</p>
-        </div>
-        <div class="feature-media">
-          <video class="hero-image" src="images/viam-teleop/teleop-machine-monitoring.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-
-
-<div class="highlight-card">
-  <h2>Outcomes</h2>
-  <ul class="highlight-list">
-    <li>📝 <strong>$2.75M</strong> in signed contracts from early enterprise users</li>
-    <li>🤝 <strong>6</strong>partnerships</li>
-    <li>🛠️ Improved uptime and operational safety for fleet operators</li>
-  </ul>
-</div>
-
-
-      <h2>Reflections</h2>
-      <h4>What Went Well</h4>
-      <ul class="insights-list">
-        <li>📈 Higher engagement across both business and consumer customers.</li>
-        <li>🛒 Increased customer conversion through clearer telemetry visibility.</li>
-        <li>🤝 Reduced support effort for our solutions engineering team.</li>
-        <li>🧠 Improved developer comfort and ease-of-use inside the app.</li>
-        <li>⚡ Faster task completion times for operators and engineers.</li>
-        <li>🛠️ Successfully integrated long-standing backlog items that had been blocked.</li>
-      </ul>
-      <h4>Areas for Improvement</h4>
-      <ul class="insights-list">
-        <li>⏳ Overall time to develop and launch could be reduced.</li>
-        <li>🚀 A phased launch approach would have accelerated delivery and feedback loops.</li>
-        <li>🎨 Simultaneous development of the design system slowed product velocity.</li>
-        <li>⚖️ Balancing organization-wide demands with deep project work proved challenging.</li>
-      </ul>
-
-      <p><a href="https://docs.viam.com/manage/troubleshoot/teleoperate/custom-interface/" target="_blank">Explore TeleOp in Viam →</a></p>
-    </section>
-  </div>
-
-  <!-- Next Case Study CTA -->
-  <div class="next-case-study">
-    <div class="next-case-study-inner">
-      <span class="next-label">Next Case Study</span>
-      <a href="govwell-plan-review.html" class="next-case-study-card">
-        <div class="next-case-study-info">
-          <h3>GovWell Plan Review</h3>
-          <p>Modernizing the review process for local government inspectors.</p>
-        </div>
-        <img src="images/index/govwell-hero.png" alt="GovWell Plan Review" class="next-case-study-image" />
-      </a>
-    </div>
-  </div>
-
   <style>
     .next-case-study {
       background: var(--bg-secondary);
@@ -359,30 +95,90 @@
         height: auto;
       }
     }
+    .insight-section {
+      margin: 2rem 0;
+    }
+    .insight-image-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .image-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .insight-image-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .design-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+    }
+    .flow-step {
+      text-align: center;
+      padding: 1rem;
+    }
+    .flow-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .flow-step p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+    }
   </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <div id="case-study-content">
+      <div class="loading-state">Loading...</div>
+    </div>
+  </div>
 
   <div id="site-footer"></div>
 
   <script>
     function includeHTML(selector, url, callback) {
-      fetch(url).then(res => res.text()).then(data => {
-        document.querySelector(selector).innerHTML = data;
-        if (callback) callback();
-      });
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
+        });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
-      // Theme switcher functionality
       const themeSwitcher = document.querySelector('.theme-switcher');
       if (themeSwitcher) {
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
         buttons.forEach(btn => {
           if (btn.dataset.theme === savedTheme) btn.classList.add('active');
         });
-
         buttons.forEach(btn => {
           btn.addEventListener('click', function() {
             buttons.forEach(b => b.classList.remove('active'));
@@ -399,53 +195,9 @@
       }
     });
 
-    // Page load animations
     document.addEventListener('DOMContentLoaded', function() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const heroTitle = document.querySelector('.case-study h1');
-      const subtitle = document.querySelector('.case-study .subtitle');
-      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
-      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
-
-      const metaBlock = document.querySelector('.project-meta-block');
-      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
-
-      const heroImages = document.querySelectorAll('.hero-image');
-      heroImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in-up'), 200 + (index * 100));
-      });
-
-      const h2Sections = document.querySelectorAll('.case-study h2');
-      h2Sections.forEach((h2, index) => {
-        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
-      });
-
-      const h3Sections = document.querySelectorAll('.case-study h3');
-      h3Sections.forEach((h3, index) => {
-        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
-      });
-
-      const problemSections = document.querySelectorAll('.problem-section');
-      problemSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
-      });
-
-      const blockquotes = document.querySelectorAll('.case-study blockquote');
-      blockquotes.forEach((quote, index) => {
-        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
-      });
-
-      const featureSections = document.querySelectorAll('.feature-section');
-      featureSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
-      });
-
-      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
-      featureImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
-      });
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/viam-teleop.json');
+      renderer.render();
     });
   </script>
 </body>

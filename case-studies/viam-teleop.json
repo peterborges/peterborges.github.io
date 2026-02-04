@@ -1,0 +1,192 @@
+{
+  "title": "Viam TeleOp",
+  "subtitle": "Remote sensor visibility and control in real time",
+  "hero": {
+    "type": "image",
+    "src": "images/viam-teleop/teleop-hero-2.png",
+    "alt": "TeleOp Hero Image"
+  },
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Strategy", "Competitive Research", "Experience Design", "User Research", "Visual Design"]
+    },
+    "team": [
+      "1 Project Owner",
+      "1 Designer",
+      "1 Technical Program Manager",
+      "4 Developers"
+    ],
+    "timeline": {
+      "duration": "2 Months",
+      "status": "Launched Oct 2024"
+    },
+    "overview": [
+      "Many companies lack real-time visibility into their machines due to fragmented systems, outdated hardware, and inconsistent data standards. These gaps make it difficult to detect issues early, integrate insights, or respond quickly, especially in remote or infrastructure-poor environments."
+    ]
+  },
+  "sections": [
+    {
+      "type": "text",
+      "title": "Problem",
+      "paragraphs": ["While Viam could collect data from a wide range of input sources and expose it through the UI and exports, the information was fragmented and difficult for users to interpret or act on effectively."]
+    },
+    {
+      "type": "highlight",
+      "title": "Goals",
+      "items": [
+        "👁️ Enable real-time visibility into robot sensor states",
+        "↔️ Support bi-directional control for developers and operators",
+        "📶 Standardize telemetry UI for machine health",
+        "🛠️ Reduce tooling fatigue by consolidating multiple dashboards"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Process",
+      "subsections": [
+        {
+          "title": "Research & Discovery",
+          "paragraphs": ["I conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. I also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow, familiar layouts, responsive controls, and streamlined diagnostics."]
+        }
+      ]
+    },
+    {
+      "type": "insights",
+      "title": "Key Insights",
+      "items": [
+        { "icon": "📈", "title": "Sensor data was available, but not actionable", "description": "Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior." },
+        { "icon": "🎮", "title": "Developers wanted control + clarity", "description": "Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely." },
+        { "icon": "🧩", "title": "Tooling fatigue was real", "description": "Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment." },
+        { "icon": "🧠", "title": "Familiar patterns helped adoption", "description": "Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel \"native\" to their workflow." }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Design Approach",
+      "subsections": [
+        {
+          "title": "Flow Map",
+          "paragraphs": ["I mapped out the core user journeys for different personas, including solutions engineers and developers. Early flows prioritized quick access to machine status, streamlined manual control interactions, and fallback paths for degraded network environments."],
+          "media": {
+            "type": "image",
+            "src": "images/viam-teleop/TeleOp-Flowmap.jpg",
+            "alt": "TeleOp Flow Map"
+          }
+        },
+        {
+          "title": "Wireframes",
+          "paragraphs": ["Low-fidelity wireframes tested different structural models: tabbed dashboards, collapsible sensor panels, and split-view layouts combining control and telemetry. Wireframes helped validate navigation hierarchy and the balance between overview and detail views."],
+          "media": {
+            "type": "image",
+            "src": "images/viam-teleop/teleop-wireframes.png",
+            "alt": "TeleOp Wireframes"
+          }
+        },
+        {
+          "title": "Iterations",
+          "paragraphs": ["Through rounds of feedback and internal testing, we refined the UI to prioritize actionability — surfacing the most critical sensor states first and simplifying manual overrides. Design iterations also focused on making the dashboard feel responsive even under slower network conditions, improving trust during remote operations."]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Key Functionality",
+      "features": [
+        {
+          "name": "Adding Widgets",
+          "headline": "Build your command center.",
+          "before": "Before — One-size-fits-none.",
+          "description": "Create a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Drag and drop the widgets you need, exactly where you need them.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-adding-widgets.mp4"
+          }
+        },
+        {
+          "name": "Adding Machines",
+          "headline": "Connect in clicks, not hours.",
+          "before": "Before — Complex setup rituals.",
+          "description": "Quickly add machines to your workspace with <strong>streamlined onboarding flows</strong>. Get from zero to monitoring in minutes, not hours.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-adding-machine.mp4"
+          }
+        },
+        {
+          "name": "Widget Configuration",
+          "headline": "Your data, your way.",
+          "before": "Before — Static, inflexible views.",
+          "description": "Enjoy <strong>modular setup for selecting, arranging, and customizing</strong> live data and control widgets across the dashboard. Every operator gets the view that works for them.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-configuring-widget.mp4"
+          }
+        },
+        {
+          "name": "Machine Monitoring",
+          "headline": "Eyes everywhere, always.",
+          "before": "Before — Flying blind remotely.",
+          "description": "Access a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Know exactly what's happening, no matter where you are.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-machine-monitoring.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "type": "highlight",
+      "title": "Outcomes",
+      "items": [
+        "📝 <strong>$2.75M</strong> in signed contracts from early enterprise users",
+        "🤝 <strong>6</strong> partnerships",
+        "🛠️ Improved uptime and operational safety for fleet operators"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reflections",
+      "subsections": [
+        {
+          "title": "What Went Well",
+          "lists": [
+            {
+              "items": [
+                "📈 Higher engagement across both business and consumer customers.",
+                "🛒 Increased customer conversion through clearer telemetry visibility.",
+                "🤝 Reduced support effort for our solutions engineering team.",
+                "🧠 Improved developer comfort and ease-of-use inside the app.",
+                "⚡ Faster task completion times for operators and engineers.",
+                "🛠️ Successfully integrated long-standing backlog items that had been blocked."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Areas for Improvement",
+          "lists": [
+            {
+              "items": [
+                "⏳ Overall time to develop and launch could be reduced.",
+                "🚀 A phased launch approach would have accelerated delivery and feedback loops.",
+                "🎨 Simultaneous development of the design system slowed product velocity.",
+                "⚖️ Balancing organization-wide demands with deep project work proved challenging."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "text": "Explore TeleOp in Viam →",
+    "url": "https://docs.viam.com/manage/troubleshoot/teleoperate/custom-interface/"
+  },
+  "nextCaseStudy": {
+    "title": "GovWell Plan Review",
+    "description": "Modernizing the review process for local government inspectors.",
+    "url": "govwell-plan-review.html",
+    "image": "images/index/govwell-hero.png"
+  }
+}

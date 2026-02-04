@@ -1,0 +1,89 @@
+{
+  "title": "Auto AR Pilot",
+  "subtitle": "Augmented reality for automotive insight",
+  "context": {
+    "role": {
+      "title": "Product Designer",
+      "skills": ["Strategy", "Wireframing", "Visual Design", "Experience Design"]
+    },
+    "timeline": {
+      "duration": "Feb 2018",
+      "status": "Launched"
+    },
+    "overview": [
+      "An augmented reality platform that lets USAA members explore, identify, and get real-time vehicle information by simply pointing their phones at nearby cars."
+    ]
+  },
+  "sections": [
+    {
+      "type": "features",
+      "title": "Key Features",
+      "features": [
+        {
+          "name": "Vehicle Recognition",
+          "headline": "Point. Scan. Know.",
+          "before": "Before — Google everything.",
+          "description": "Walk around a vehicle while the phone <strong>scans and recognizes it instantly</strong>. The app returns specs, pricing, ratings, and offers insurance/loan quotes from USAA—all in real time."
+        },
+        {
+          "name": "Contextual Insights",
+          "headline": "Info when you need it.",
+          "before": "Before — Research overload.",
+          "description": "Offer insights in a <strong>non-intrusive, intuitive way</strong>. Information appears naturally in your view—no app switching, no tab juggling."
+        },
+        {
+          "name": "Financial Integration",
+          "headline": "Decide with confidence.",
+          "before": "Before — Separate finance apps.",
+          "description": "<strong>Empower confident financial decisions</strong> with in-context info. See what you can afford, get quotes, and understand total cost—all while standing next to the car."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "User Insights",
+      "lists": [
+        {
+          "items": [
+            "Members want everything integrated and helpful",
+            "Users lack confidence in major financial decisions",
+            "Desire for automated, relevant, non-cluttered experiences"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Functionality Prioritization",
+      "paragraphs": ["Research led to a leaner MVP — showing relevant info first, with deeper layers accessible through interaction rather than overload."]
+    },
+    {
+      "type": "text",
+      "title": "Testing",
+      "paragraphs": ["Tested with 12 members. Findings confirmed excitement about AR, but highlighted the need for simplified UIs and optional onboarding for first-time users."]
+    },
+    {
+      "type": "outcomes-list",
+      "title": "Results",
+      "items": [
+        "📈 810 members registered",
+        "🕒 5m 55s avg session time",
+        "🔁 44% reuse rate",
+        "🚘 Ford F-150 most searched vehicle"
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Lessons Learned",
+      "items": [
+        { "title": "AR display fatigue is real", "description": "— ergonomic design matters" },
+        { "title": "Educating users is essential", "description": "for emerging tech" },
+        { "title": "Not all info belongs in AR", "description": "— progressive disclosure works better" }
+      ]
+    }
+  ],
+  "cta": {
+    "text": "Watch the feature on Cheddar →",
+    "url": "https://cheddar.com/videos/how-usaa-is-bringing-augmented-reality-to-car-shopping"
+  }
+}

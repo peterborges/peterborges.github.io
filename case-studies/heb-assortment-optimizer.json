@@ -1,0 +1,129 @@
+{
+  "title": "H-E-B Assortment Tool",
+  "subtitle": "Smarter assortment planning at scale",
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Strategy", "Competitive Research", "Experience Design", "User Research", "Site Analytics"]
+    },
+    "team": [
+      "1 Product Owner",
+      "1 Researcher",
+      "2 Designers",
+      "1 Scrum Master",
+      "8 Developers"
+    ],
+    "timeline": {
+      "duration": "Jan 2019 – Mar 2021",
+      "status": "Launched"
+    },
+    "overview": [
+      "H-E-B is a leading Texas-based supermarket chain with over 350 locations. The Assortment Tool project aimed to give buyers and analysts better insight into the cost, value, and impact of shelf decisions—moving from gut feel to data-driven actions."
+    ]
+  },
+  "outcomes": [
+    { "value": "$39M", "label": "Reduced shelf planning costs" },
+    { "value": "96%", "label": "Reduction in labor costs" },
+    { "value": "60+", "label": "Monthly active users (from 3)" }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "title": "Challenges",
+      "paragraphs": ["Buyers struggled to understand the ROI of their decisions due to fragmented systems and inaccessible data. Assortment updates often led to costly missteps or poor store alignment."]
+    },
+    {
+      "type": "text",
+      "title": "Design Goals",
+      "lists": [
+        {
+          "items": [
+            "Increase speed to shelf",
+            "Standardize processes across stores and categories",
+            "Improve profitability and strategic innovation"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Approach",
+      "subsections": [
+        {
+          "title": "Story Mapping & Research",
+          "paragraphs": ["We aligned stakeholders through story mapping and regular user charrettes. These research sprints built empathy and drove faster iteration across the complex ecosystem of H-E-B's 400+ internal tools."]
+        },
+        {
+          "title": "Understanding Users",
+          "paragraphs": ["We designed for two core user types:"],
+          "lists": [
+            {
+              "items": [
+                "<strong>Business Development Managers (BDMs):</strong> Balance product mix and profitability across categories",
+                "<strong>Shelf Edge Analysts (SEAs):</strong> Tailor assortments for store performance and changing demand"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Key Features",
+      "features": [
+        {
+          "name": "Decision Tree",
+          "headline": "Strategy meets science.",
+          "before": "Before — Gut feel & guesswork.",
+          "description": "Evaluate <strong>item mix, demand patterns, and strategic fit</strong> through structured decision flows. Turn complex choices into clear, data-backed actions."
+        },
+        {
+          "name": "New Item Queue",
+          "headline": "New products, sorted.",
+          "before": "Before — Endless spreadsheets.",
+          "description": "<strong>Prioritize and compare new vs existing items</strong> in a unified workflow. Make room for innovation without sacrificing proven performers."
+        },
+        {
+          "name": "Assortment Optimizer",
+          "headline": "The perfect shelf, modeled.",
+          "before": "Before — Trial and error.",
+          "description": "<strong>Model and finalize item selection</strong> with optimization algorithms. See the impact of changes before committing to the shelf."
+        },
+        {
+          "name": "Shelf Edge Calendar",
+          "headline": "Every change, planned.",
+          "before": "Before — Missed deadlines & chaos.",
+          "description": "<strong>View and manage all planning activities</strong> in one timeline. Coordinate across teams and never miss a reset window again."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Analytics & Reporting",
+      "paragraphs": ["Users gained new visibility into assortment health, out-of-stocks, and ROI. Visual dashboards empowered better strategic planning and decision validation."]
+    },
+    {
+      "type": "text",
+      "title": "Reflections",
+      "paragraphs": ["This project transformed how a key business function operated at H-E-B. By designing in sync with existing workflows and elevating user research, we delivered massive ROI and long-term usability improvements."]
+    },
+    {
+      "type": "testimonials",
+      "title": "Testimonials",
+      "quotes": [
+        {
+          "text": "This flow is user friendly, attractive, and would provide real value by moving decision-making that was 'in the brain' onto paper.",
+          "author": "BDM, Healthy Living"
+        },
+        {
+          "text": "Being able to validate intuition with data across clusters is something I've never been able to do until now.",
+          "author": "Buying Decision Manager"
+        },
+        {
+          "text": "Looking at these metrics visually is already giving me insights. I think I could live in this tool all day.",
+          "author": "Buying Decision Manager"
+        }
+      ]
+    }
+  ]
+}

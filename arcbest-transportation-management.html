@@ -1,4 +1,3 @@
-<!-- case-study-arcbest.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArcBest TMS | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
@@ -41,102 +43,9 @@
   <div id="site-header"></div>
 
   <div class="content-container" style="padding-top: 4rem;">
-    <section class="case-study">
-      <h1>ArcBest Transportation Management System (TMS)</h1>
-      <p class="subtitle">Designing for logistics at scale</p>
-
-      <p><strong>Timeline:</strong> March 2021 – Present</p>
-      <p><strong>Roles:</strong> Strategy, Generative Research, Experience Design, Member Research, Design Language</p>
-      <p><strong>Team:</strong> 1 Internal PO · 1 RevUnit PO · 2 Designers · 12 Developers</p>
-
-      <h2>Overview</h2>
-      <p>ArcBest is a freight and logistics company offering integrated services across multiple transportation service lines. The goal was to consolidate tools across divisions into a single Transportation Management System (TMS) that reduces reliance on third-party systems and enhances internal efficiency.</p>
-
-      <h2>My Role</h2>
-      <p>I led user research, stakeholder workshops, workflow mapping, and the definition of a unified design language. I also supported feature validation and UI delivery across multiple teams.</p>
-
-      <h2>What is a TMS?</h2>
-      <p>A TMS manages data on loads, carriers, routes, costs, and contact info — providing a centralized view of freight movements and enabling planning, tracking, and coordination.</p>
-
-      <h2>Service Lines Supported</h2>
-      <ul>
-        <li><strong>Partial Truckload (PT):</strong> Purchased capacity from 3rd party vendors</li>
-        <li><strong>Less Than Truckload Brokerage (LTLB):</strong> Small shipments from multiple customers</li>
-        <li><strong>Truckload (TL):</strong> Full trailer loads across hubs</li>
-        <li><strong>Expedite:</strong> Critical, time-sensitive loads</li>
-        <li><strong>Dedicated:</strong> Vehicles dedicated to single clients or contracts</li>
-      </ul>
-
-      <h2>Key Challenges</h2>
-      <ul>
-        <li>Fragmented tools and inconsistent workflows across teams</li>
-        <li>Overlapping data and disconnected service line logic</li>
-        <li>Need for visual consistency and platform-wide design language</li>
-      </ul>
-
-      <h2>Insights</h2>
-      <ul>
-        <li><strong>“A shipment is a shipment”:</strong> Found significant overlap in load structure and lifecycle across service lines</li>
-        <li><strong>Unified UI patterns:</strong> Required consistent interactions and interface elements</li>
-        <li><strong>Multiple parallel projects:</strong> Influenced other ArcBest product teams to adopt shared language</li>
-      </ul>
-
-      <h2>Design Solutions</h2>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 01 — Prioritized Action List</div>
-          <h3>Your tasks, organized.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Noise everywhere.</div>
-          <p>A <strong>centralized task view</strong> for users to manage loads assigned by supervisors—eliminating redundancy and noise. Focus on what matters, ignore the rest.</p>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 02 — Load Board</div>
-          <h3>Every load, at a glance.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Scattered status checks.</div>
-          <p>Displays <strong>load lifecycle stages across service lines</strong>. Enables prioritization via quick filters based on location and operational status.</p>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 03 — Load Details</div>
-          <h3>Deep dive, instantly.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Tab hopping madness.</div>
-          <p>Unified tabs for <strong>Stops, Commodities, Tracking, Carrier Details, Financials</strong>, and more. Everything about a load, organized and accessible in one place.</p>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 04 — Manual Load Creation</div>
-          <h3>No EDI? No problem.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Workarounds everywhere.</div>
-          <p>Enabled users to <strong>create loads manually via phone or email</strong> if not received through automated EDI feeds. Flexibility when automation falls short.</p>
-        </div>
-      </div>
-
-      <h2>Outcomes</h2>
-      <ul>
-        <li>Unified user experience across previously siloed teams</li>
-        <li>Improved visibility into operations and financials</li>
-        <li>Simplified onboarding for new service lines and workflows</li>
-      </ul>
-
-      <h2>Reflections</h2>
-      <p>This was a complex, multi-year systems integration challenge. Working across service lines meant aligning on terminology, workflows, and tools. Early wins came from shared visual patterns and consistent user research cadence. The design language helped bring cohesion and speed to a long roadmap of products.</p>
-    </section>
+    <div id="case-study-content">
+      <div class="loading-state">Loading...</div>
+    </div>
   </div>
 
   <div id="site-footer"></div>
@@ -150,6 +59,7 @@
           if (callback) callback();
         });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
       const themeSwitcher = document.querySelector('.theme-switcher');
@@ -157,64 +67,28 @@
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        buttons.forEach(btn => { if (btn.dataset.theme === savedTheme) btn.classList.add('active'); });
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
         buttons.forEach(btn => {
           btn.addEventListener('click', function() {
             buttons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             const theme = this.dataset.theme;
-            document.documentElement.setAttribute('data-theme', theme === 'system' ? (prefersDark.matches ? 'dark' : 'light') : theme);
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
             localStorage.setItem('theme', theme);
           });
         });
       }
     });
 
-    // Page load animations
     document.addEventListener('DOMContentLoaded', function() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const heroTitle = document.querySelector('.case-study h1');
-      const subtitle = document.querySelector('.case-study .subtitle');
-      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
-      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
-
-      const metaBlock = document.querySelector('.project-meta-block');
-      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
-
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
-
-      const h2Sections = document.querySelectorAll('.case-study h2');
-      h2Sections.forEach((h2, index) => {
-        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
-      });
-
-      const h3Sections = document.querySelectorAll('.case-study h3');
-      h3Sections.forEach((h3, index) => {
-        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
-      });
-
-      const problemSections = document.querySelectorAll('.problem-section');
-      problemSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
-      });
-
-      const blockquotes = document.querySelectorAll('.case-study blockquote');
-      blockquotes.forEach((quote, index) => {
-        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
-      });
-
-      const featureSections = document.querySelectorAll('.feature-section');
-      featureSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
-      });
-
-      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
-      featureImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
-      });
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/arcbest-transportation-management.json');
+      renderer.render();
     });
   </script>
 </body>

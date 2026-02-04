@@ -1,4 +1,3 @@
-<!-- case-study-auto-ar.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auto AR Pilot | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
@@ -41,92 +43,23 @@
   <div id="site-header"></div>
 
   <div class="content-container" style="padding-top: 4rem;">
-    <section class="case-study">
-      <h1>Auto AR Pilot</h1>
-      <p class="subtitle">Augmented reality for automotive insight</p>
-
-      <p><strong>Timeline:</strong> Ongoing from Feb 2018</p>
-      <p><strong>Roles:</strong> Strategy, Wireframing, Visual Design, Experience Design</p>
-
-      <h2>Overview</h2>
-      <p>An augmented reality platform that lets USAA members explore, identify, and get real-time vehicle information by simply pointing their phones at nearby cars.</p>
-
-      <h2>Key Features</h2>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 01 — Vehicle Recognition</div>
-          <h3>Point. Scan. Know.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Google everything.</div>
-          <p>Walk around a vehicle while the phone <strong>scans and recognizes it instantly</strong>. The app returns specs, pricing, ratings, and offers insurance/loan quotes from USAA—all in real time.</p>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 02 — Contextual Insights</div>
-          <h3>Info when you need it.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Research overload.</div>
-          <p>Offer insights in a <strong>non-intrusive, intuitive way</strong>. Information appears naturally in your view—no app switching, no tab juggling.</p>
-        </div>
-      </div>
-
-      <div class="feature-section">
-        <div class="feature-header">
-          <div class="feature-label">Feature 03 — Financial Integration</div>
-          <h3>Decide with confidence.</h3>
-        </div>
-        <div class="feature-content">
-          <div class="feature-subtitle">Before — Separate finance apps.</div>
-          <p><strong>Empower confident financial decisions</strong> with in-context info. See what you can afford, get quotes, and understand total cost—all while standing next to the car.</p>
-        </div>
-      </div>
-
-      <h2>User Insights</h2>
-      <ul>
-        <li>Members want everything integrated and helpful</li>
-        <li>Users lack confidence in major financial decisions</li>
-        <li>Desire for automated, relevant, non-cluttered experiences</li>
-      </ul>
-
-      <h2>Functionality Prioritization</h2>
-      <p>Research led to a leaner MVP — showing relevant info first, with deeper layers accessible through interaction rather than overload.</p>
-
-      <h2>Testing</h2>
-      <p>Tested with 12 members. Findings confirmed excitement about AR, but highlighted the need for simplified UIs and optional onboarding for first-time users.</p>
-
-      <h2>Results</h2>
-      <ul>
-        <li>📈 810 members registered</li>
-        <li>🕒 5m 55s avg session time</li>
-        <li>🔁 44% reuse rate</li>
-        <li>🚘 Ford F-150 most searched vehicle</li>
-      </ul>
-
-      <h2>Lessons Learned</h2>
-      <ul>
-        <li>AR display fatigue is real — ergonomic design matters</li>
-        <li>Educating users is essential for emerging tech</li>
-        <li>Not all info belongs in AR — progressive disclosure works better</li>
-      </ul>
-
-      <p><a href="https://cheddar.com/videos/how-usaa-is-bringing-augmented-reality-to-car-shopping" target="_blank">Watch the feature on Cheddar →</a></p>
-    </section>
+    <div id="case-study-content">
+      <div class="loading-state">Loading...</div>
+    </div>
   </div>
 
   <div id="site-footer"></div>
 
   <script>
     function includeHTML(selector, url, callback) {
-      fetch(url).then(res => res.text()).then(data => {
-        document.querySelector(selector).innerHTML = data;
-        if (callback) callback();
-      });
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
+        });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
       const themeSwitcher = document.querySelector('.theme-switcher');
@@ -134,64 +67,28 @@
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        buttons.forEach(btn => { if (btn.dataset.theme === savedTheme) btn.classList.add('active'); });
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
         buttons.forEach(btn => {
           btn.addEventListener('click', function() {
             buttons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             const theme = this.dataset.theme;
-            document.documentElement.setAttribute('data-theme', theme === 'system' ? (prefersDark.matches ? 'dark' : 'light') : theme);
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
             localStorage.setItem('theme', theme);
           });
         });
       }
     });
 
-    // Page load animations
     document.addEventListener('DOMContentLoaded', function() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const heroTitle = document.querySelector('.case-study h1');
-      const subtitle = document.querySelector('.case-study .subtitle');
-      if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
-      if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
-
-      const metaBlock = document.querySelector('.project-meta-block');
-      if (metaBlock) setTimeout(() => metaBlock.classList.add('fade-in-up'), 150);
-
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) setTimeout(() => heroImage.classList.add('fade-in-up'), 200);
-
-      const h2Sections = document.querySelectorAll('.case-study h2');
-      h2Sections.forEach((h2, index) => {
-        setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
-      });
-
-      const h3Sections = document.querySelectorAll('.case-study h3');
-      h3Sections.forEach((h3, index) => {
-        setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
-      });
-
-      const problemSections = document.querySelectorAll('.problem-section');
-      problemSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
-      });
-
-      const blockquotes = document.querySelectorAll('.case-study blockquote');
-      blockquotes.forEach((quote, index) => {
-        setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
-      });
-
-      const featureSections = document.querySelectorAll('.feature-section');
-      featureSections.forEach((section, index) => {
-        setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
-      });
-
-      const featureImages = document.querySelectorAll('.feature-media img, .feature-media video');
-      featureImages.forEach((img, index) => {
-        setTimeout(() => img.classList.add('fade-in'), 800 + (index * 50));
-      });
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/auto-ar-pilot.json');
+      renderer.render();
     });
   </script>
 </body>

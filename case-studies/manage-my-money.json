@@ -1,0 +1,96 @@
+{
+  "title": "Manage My Money",
+  "subtitle": "Designing clarity into financial wellbeing",
+  "context": {
+    "role": {
+      "title": "Product Designer",
+      "skills": ["Strategy", "Experience Design", "Competitive Research", "Member Research", "Site Analytics"]
+    },
+    "team": [
+      "1 Design Director",
+      "1 Product Manager",
+      "3 Designers",
+      "1 Experience Owner",
+      "8 Developers"
+    ],
+    "timeline": {
+      "duration": "March 2018 – Dec 2019",
+      "status": "Launched"
+    },
+    "overview": [
+      "Help members better understand and manage their money through human-centered design and digital tooling, with a focus on increasing financial literacy and engagement."
+    ]
+  },
+  "outcomes": [
+    { "value": "-13%", "label": "MSR calls" },
+    { "value": "-28%", "label": "Task time" },
+    { "value": "$7.48M", "label": "Annual savings" }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "title": "Design Drivers",
+      "lists": [
+        {
+          "items": [
+            "Bad UI erodes trust — users switch banks when digital tools underdeliver",
+            "Users prefer efficient, focused tools over one-size-fits-all apps",
+            "Feedback loops with real members improved trust and utility"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Design Process",
+      "features": [
+        {
+          "label": "Phase 01 — Heuristic Evaluation",
+          "name": "Heuristic Evaluation",
+          "headline": "Finding the friction.",
+          "before": "Before — Inconsistent experiences.",
+          "description": "Used internal design guidelines to <strong>audit inconsistencies across account summary pages</strong>. Uncovered issues around clarity, hierarchy, and unauthenticated access."
+        },
+        {
+          "label": "Phase 02 — Competitive Analysis",
+          "name": "Competitive Analysis",
+          "headline": "Learning from the best.",
+          "before": "Before — Operating in a vacuum.",
+          "description": "Compared USAA tools to <strong>banks and fintechs</strong> (Capital One, Simple, etc.) and built an internal research library to close gaps in competitor understanding."
+        },
+        {
+          "label": "Phase 03 — Information Architecture",
+          "name": "Information Architecture",
+          "headline": "Structure that makes sense.",
+          "before": "Before — Confusing hierarchies.",
+          "description": "Ran IA tests using Treejack to <strong>restructure content based on real user behaviors</strong>. Simplified and consolidated account hierarchy across savings, checking, and credit products."
+        },
+        {
+          "label": "Phase 04 — Prototyping & Testing",
+          "name": "Prototyping & Testing",
+          "headline": "Build, test, repeat.",
+          "before": "Before — Ship and pray.",
+          "description": "Developed prototypes in InVision and <strong>tested with users via usertesting.com</strong>. Iterated based on feedback and performance analytics."
+        }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Lessons Learned",
+      "items": [
+        { "title": "Design system alignment", "description": "saved dev time and increased modularity" },
+        { "title": "Data from analytics and user interviews", "description": "gave credibility to recommendations" },
+        { "title": "Prototypes", "description": "helped build trust and secure quick approvals" }
+      ]
+    },
+    {
+      "type": "outcomes-list",
+      "title": "Pilot Results",
+      "items": [
+        "-13% drop in support calls",
+        "-28% task time across mobile flows",
+        "$7.48M in projected cost savings"
+      ]
+    }
+  ]
+}

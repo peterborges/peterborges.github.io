@@ -1,0 +1,167 @@
+{
+  "title": "VIAM Machine Configuration",
+  "subtitle": "Unlocking data & AI in the physical world",
+  "hero": {
+    "type": "video",
+    "src": "images/viam-machine-configuration/create.mp4"
+  },
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Strategy", "Competitive Research", "Experience Design", "User Research", "Visual Design"]
+    },
+    "team": [
+      "1 Project Owner",
+      "1 Designer",
+      "1 TPM",
+      "7 Engineers"
+    ],
+    "timeline": {
+      "duration": "4 Months",
+      "status": "Launched Feb 2024"
+    },
+    "overview": [
+      "Viam has been working since 2019 to create a new standard for hobbyist developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices.",
+      "To leverage the full power of Viam's ecosystem of products—from data aggregation to machine learning models to a registry of compliant components—users need a way to efficiently configure and test their new smart machines.",
+      "Machine configuration acts as the core of the VIAM platform, and other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem-level value from it."
+    ]
+  },
+  "sections": [
+    {
+      "type": "text",
+      "title": "Challenges",
+      "lists": [
+        {
+          "items": [
+            "<strong>Design/technical debt</strong><br>Years of features needed consolidation.",
+            "<strong>Usability</strong><br>Developer tooling needed familiar UI patterns.",
+            "<strong>Fragmented flows</strong><br>Creation/configuration processes were disjointed."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Success Metrics",
+      "lists": [
+        {
+          "items": [
+            "Increased enterprise adoption",
+            "Reduced configuration time for solutions engineers",
+            "Incorporated familiar developer UI patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Design Process",
+      "subsections": [
+        {
+          "title": "UI System Integration",
+          "media": {
+            "type": "video",
+            "src": "images/viam-machine-configuration/prime.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Key Features",
+      "features": [
+        {
+          "name": "Tree Navigation",
+          "headline": "Your machine, mapped out.",
+          "before": "Before — Flat lists & confusion.",
+          "description": "Manage machines and sub-parts with an <strong>intuitive hierarchical structure</strong>. Navigate complex configurations with ease and understand relationships between components at a glance.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-machine-configuration/tree-nav.mp4"
+          }
+        },
+        {
+          "name": "JSON Editing",
+          "headline": "Code when you need it.",
+          "before": "Before — GUI-only limitations.",
+          "description": "Power users get <strong>granular configuration through direct code access</strong>. Switch seamlessly between visual and code editing for maximum flexibility and control.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-machine-configuration/json.mp4"
+          }
+        },
+        {
+          "name": "Null States",
+          "headline": "Never start from zero.",
+          "before": "Before — Blank screens & dead ends.",
+          "description": "New users receive <strong>friendly guidance and contextual help</strong> at every step. Empty states become opportunities for learning, not barriers to progress.",
+          "media": {
+            "type": "image",
+            "src": "images/viam-machine-configuration/null-state.png",
+            "alt": "Configuration flow"
+          }
+        },
+        {
+          "name": "Logs",
+          "headline": "See what's happening, live.",
+          "before": "Before — Debugging in the dark.",
+          "description": "Access <strong>real-time diagnostics and feedback</strong> directly in the interface. Identify issues instantly and understand exactly what your machine is doing.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-machine-configuration/logs.mp4"
+          }
+        },
+        {
+          "name": "Connect Tab",
+          "headline": "From config to code in seconds.",
+          "before": "Before — Manual boilerplate hell.",
+          "description": "Get <strong>auto-generated boilerplate code</strong> for quick integration. Copy, paste, and start building—no more hunting through documentation.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-machine-configuration/connect.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "type": "outcomes-list",
+      "title": "Outcomes",
+      "items": [
+        "<strong>$117M</strong> raised, including a <strong>$30M</strong> Series C",
+        "<strong>40+</strong> partnerships and <strong>2,750+</strong> developers",
+        "<strong>23,000+</strong> machines created",
+        "<strong>65%</strong> reduction in configuration time"
+      ]
+    },
+    {
+      "type": "images-grid",
+      "title": "Impact",
+      "intro": "The redesign addressed long-overdue improvements to the machine configuration experience, transforming a fragmented interface into a clearer, more structured workflow. Beyond immediate usability gains, it established a stable foundation for future feature development and scalability. The response from both customers and internal teams was overwhelmingly positive:",
+      "images": [
+        { "src": "images/viam-machine-configuration/quote-1.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-2.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-3.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-4.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-5.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-6.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-7.webp", "alt": "Customer feedback quote" },
+        { "src": "images/viam-machine-configuration/quote-8.webp", "alt": "Customer feedback quote" }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reflections",
+      "paragraphs": ["This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch could have accelerated delivery."]
+    }
+  ],
+  "cta": {
+    "text": "Try Viam →",
+    "url": "https://app.viam.com/try"
+  },
+  "nextCaseStudy": {
+    "title": "VIAM TeleOp",
+    "description": "Live sensor dashboard for remote machine operation.",
+    "url": "viam-teleop.html",
+    "image": "images/index/teleop-hero-4.png"
+  }
+}
