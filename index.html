@@ -524,6 +524,33 @@
       opacity: 1;
       visibility: visible;
     }
+
+    /* Intro links (Resume, LinkedIn) */
+    .intro-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .intro-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .intro-link:hover {
+      color: var(--text-primary);
+    }
+    .intro-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+    .intro-link:hover svg {
+      transform: translate(2px, -2px);
+    }
   </style>
 </head>
 <body>
@@ -546,6 +573,10 @@
         <h1 class="site-title">Product designer turning complex systems into interfaces people love.</h1>
         <p class="intro">Ten years making robots, banks, and governments feel human.</p>
         <p class="intro locations">Based in <span class="city-wrapper"><span class="city struck">Providence</span><img src="images/index/providence.png" alt="Providence" class="city-popover" /></span>, <span class="city-wrapper"><span class="city struck">San Francisco</span><img src="images/index/san-francisco.png" alt="San Francisco" class="city-popover" /></span>, <span class="city-wrapper"><span class="city">Brooklyn</span><img src="images/index/brooklyn.png" alt="Brooklyn" class="city-popover" /></span>.</p>
+        <div class="intro-links">
+          <a href="https://docs.google.com/document/d/1U439qcGxMZGlIuwfDZVGVe63Ev6d9tl75mkUfjz6gcU/edit?usp=sharing" target="_blank" class="intro-link">Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+          <a href="https://www.linkedin.com/in/peterborges/" target="_blank" class="intro-link">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
       </div>
     </header>
 
