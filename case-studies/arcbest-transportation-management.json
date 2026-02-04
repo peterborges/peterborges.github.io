@@ -47,15 +47,22 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Key Challenges",
-      "lists": [
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Five service lines, zero consistency.",
+      "subheading": "Operations were held back by fragmentation:",
+      "cards": [
         {
-          "items": [
-            "Fragmented tools and inconsistent workflows across teams",
-            "Overlapping data and disconnected service line logic",
-            "Need for visual consistency and platform-wide design language"
-          ]
+          "icon": "layers",
+          "text": "Teams used different tools with inconsistent workflows, creating training overhead and errors."
+        },
+        {
+          "icon": "x",
+          "text": "Overlapping data and disconnected logic meant no single source of truth."
+        },
+        {
+          "icon": "search",
+          "text": "No unified design language made the platform feel like five separate products."
         }
       ]
     },

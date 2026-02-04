@@ -130,6 +130,8 @@ class CaseStudyRenderer {
     switch (section.type) {
       case 'text':
         return this.renderTextSection(section);
+      case 'challenge':
+        return this.renderChallengeSection(section);
       case 'problems':
         return this.renderProblemsSection(section);
       case 'features':
@@ -158,7 +160,7 @@ class CaseStudyRenderer {
   }
 
   // ============================================
-  // TEXT SECTION (Challenge, Users, Conclusion, etc.)
+  // TEXT SECTION (Users, Conclusion, etc.)
   // ============================================
   renderTextSection(section) {
     let html = `<h2>${section.title}</h2>`;
@@ -183,6 +185,53 @@ class CaseStudyRenderer {
       `).join('');
     }
     
+    return html;
+  }
+
+  // ============================================
+  // CHALLENGE SECTION (Distinctive Typography)
+  // ============================================
+  renderChallengeSection(section) {
+    const icons = {
+      lock: '<svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+      cloud: '<svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
+      users: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+      clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+      alert: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+      x: '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+      layers: '<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+      zap: '<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+      file: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>',
+      search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'
+    };
+
+    let html = `
+      <div class="challenge-section">
+        <div class="challenge-header">
+          <div class="challenge-label">${section.label || 'Problem Space'}</div>
+          <h2>${section.headline}</h2>
+        </div>
+    `;
+
+    if (section.cards && section.cards.length > 0) {
+      html += `
+        <div class="challenge-grid">
+          <div class="challenge-intro">
+            ${section.subheading ? `<p class="challenge-subheading">${section.subheading}</p>` : ''}
+          </div>
+          <div class="challenge-cards">
+            ${section.cards.map(card => `
+              <div class="challenge-card">
+                <div class="challenge-card-icon">${icons[card.icon] || icons.alert}</div>
+                <p>${card.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    html += '</div>';
     return html;
   }
 

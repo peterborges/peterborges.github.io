@@ -16,6 +16,26 @@
   },
   "sections": [
     {
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Car shopping was a research nightmare.",
+      "subheading": "Buyers faced information overload:",
+      "cards": [
+        {
+          "icon": "search",
+          "text": "Finding accurate vehicle specs, pricing, and comparisons required endless tab switching."
+        },
+        {
+          "icon": "x",
+          "text": "Financial details like insurance and loan quotes lived in separate apps entirely."
+        },
+        {
+          "icon": "clock",
+          "text": "The gap between seeing a car and understanding if you could afford it was too wide."
+        }
+      ]
+    },
+    {
       "type": "features",
       "title": "Key Features",
       "features": [

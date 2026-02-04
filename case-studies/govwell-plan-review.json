@@ -34,16 +34,26 @@
   ],
   "sections": [
     {
-      "type": "text",
-      "title": "Challenge",
-      "paragraphs": ["Local governments struggle with outdated, paper-heavy plan review processes that are:"],
-      "lists": [
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Paper-heavy workflows were killing productivity.",
+      "subheading": "Government plan review was stuck in the past:",
+      "cards": [
         {
-          "items": ["Time-consuming", "Error-prone", "Non-collaborative", "Lacking transparency for both reviewers and applicants"]
+          "icon": "clock",
+          "text": "Reviews took weeks due to manual processes and handoffs between departments."
         },
         {
-          "intro": "Reviewers and applicants need a modern, digital workflow that:",
-          "items": ["Reduces repetitive tasks", "Centralizes feedback", "Enables faster turnaround", "Provides a single source of truth across departments"]
+          "icon": "x",
+          "text": "Feedback was scattered across emails, sticky notes, and printed plans—impossible to track."
+        },
+        {
+          "icon": "users",
+          "text": "Multiple departments couldn't collaborate in real-time, creating bottlenecks."
+        },
+        {
+          "icon": "search",
+          "text": "No audit trail meant disputes were impossible to resolve objectively."
         }
       ]
     },

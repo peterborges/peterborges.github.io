@@ -27,9 +27,24 @@
   },
   "sections": [
     {
-      "type": "text",
-      "title": "Problem",
-      "paragraphs": ["While Viam could collect data from a wide range of input sources and expose it through the UI and exports, the information was fragmented and difficult for users to interpret or act on effectively."]
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Data overload without actionable insight.",
+      "subheading": "Machine operators were flying blind:",
+      "cards": [
+        {
+          "icon": "layers",
+          "text": "Sensor data from multiple sources was fragmented and difficult to interpret or act on."
+        },
+        {
+          "icon": "clock",
+          "text": "No real-time visibility meant issues were discovered too late to prevent downtime."
+        },
+        {
+          "icon": "x",
+          "text": "Users juggled multiple dashboards, logs, and CLI tools just to understand machine state."
+        }
+      ]
     },
     {
       "type": "highlight",

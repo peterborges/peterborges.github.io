@@ -28,9 +28,24 @@
   ],
   "sections": [
     {
-      "type": "text",
-      "title": "Challenges",
-      "paragraphs": ["Buyers struggled to understand the ROI of their decisions due to fragmented systems and inaccessible data. Assortment updates often led to costly missteps or poor store alignment."]
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Shelf decisions were driven by gut feel, not data.",
+      "subheading": "Category managers were working in the dark:",
+      "cards": [
+        {
+          "icon": "search",
+          "text": "Fragmented systems made ROI analysis nearly impossible for buyers."
+        },
+        {
+          "icon": "x",
+          "text": "Assortment updates frequently led to costly missteps or poor store alignment."
+        },
+        {
+          "icon": "clock",
+          "text": "Manual processes slowed speed-to-shelf and hindered competitive response."
+        }
+      ]
     },
     {
       "type": "text",

@@ -28,15 +28,22 @@
   ],
   "sections": [
     {
-      "type": "text",
-      "title": "Design Drivers",
-      "lists": [
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Members couldn't see the full picture of their finances.",
+      "subheading": "Financial tools were falling short:",
+      "cards": [
         {
-          "items": [
-            "Bad UI erodes trust — users switch banks when digital tools underdeliver",
-            "Users prefer efficient, focused tools over one-size-fits-all apps",
-            "Feedback loops with real members improved trust and utility"
-          ]
+          "icon": "x",
+          "text": "Bad UI eroded trust—members switched banks when digital tools underdelivered."
+        },
+        {
+          "icon": "layers",
+          "text": "One-size-fits-all apps overwhelmed users who wanted efficient, focused tools."
+        },
+        {
+          "icon": "users",
+          "text": "Lack of feedback loops meant products were built without real member insight."
         }
       ]
     },

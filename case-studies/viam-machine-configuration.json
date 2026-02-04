@@ -28,15 +28,22 @@
   },
   "sections": [
     {
-      "type": "text",
-      "title": "Challenges",
-      "lists": [
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Years of rapid growth left the platform fragmented.",
+      "subheading": "Configuration had become a bottleneck:",
+      "cards": [
         {
-          "items": [
-            "<strong>Design/technical debt</strong><br>Years of features needed consolidation.",
-            "<strong>Usability</strong><br>Developer tooling needed familiar UI patterns.",
-            "<strong>Fragmented flows</strong><br>Creation/configuration processes were disjointed."
-          ]
+          "icon": "layers",
+          "text": "Design and technical debt accumulated from years of feature additions without consolidation."
+        },
+        {
+          "icon": "search",
+          "text": "Developer tooling lacked familiar UI patterns, making adoption slow for enterprise teams."
+        },
+        {
+          "icon": "zap",
+          "text": "Creation and configuration flows were disjointed, forcing users through confusing multi-step processes."
         }
       ]
     },
