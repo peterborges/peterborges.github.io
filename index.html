@@ -562,6 +562,14 @@
     </div>
   </div>
 
+  <!-- Custom cursor for resume -->
+  <div class="cursor-follower" id="resumeCursorFollower">
+    <div class="cursor-follower-inner">
+      <span>View resume</span>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+  </div>
+
   <div class="content-container">
     <header class="intro-section">
       <div class="grid-pattern" id="gridPattern"></div>
@@ -593,9 +601,9 @@
     // Custom cursor follower
     (function() {
       const cursor = document.getElementById('cursorFollower');
+      const resumeCursor = document.getElementById('resumeCursorFollower');
       let mouseX = 0, mouseY = 0;
       let cursorX = 0, cursorY = 0;
-      let isHovering = false;
 
       // Smooth cursor movement
       function animateCursor() {
@@ -604,6 +612,8 @@
         cursorY += (mouseY - cursorY) * ease;
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
+        resumeCursor.style.left = cursorX + 'px';
+        resumeCursor.style.top = cursorY + 'px';
         requestAnimationFrame(animateCursor);
       }
       animateCursor();
@@ -617,23 +627,30 @@
       // Show/hide on project cards (using event delegation)
       document.addEventListener('mouseover', (e) => {
         const card = e.target.closest('.project-card:not(.resume-card)');
+        const resumeCard = e.target.closest('.resume-card');
         if (card) {
-          isHovering = true;
           cursor.classList.add('active');
+        }
+        if (resumeCard) {
+          resumeCursor.classList.add('active');
         }
       });
 
       document.addEventListener('mouseout', (e) => {
         const card = e.target.closest('.project-card:not(.resume-card)');
+        const resumeCard = e.target.closest('.resume-card');
         if (card && !card.contains(e.relatedTarget)) {
-          isHovering = false;
           cursor.classList.remove('active');
+        }
+        if (resumeCard && !resumeCard.contains(e.relatedTarget)) {
+          resumeCursor.classList.remove('active');
         }
       });
 
-      // Hide cursor when leaving window
+      // Hide cursors when leaving window
       document.addEventListener('mouseleave', () => {
         cursor.classList.remove('active');
+        resumeCursor.classList.remove('active');
       });
     })();
 

@@ -18,7 +18,7 @@
       "status": "Launched"
     },
     "overview": [
-      "H-E-B is a leading Texas-based supermarket chain with over 350 locations. The Assortment Tool project aimed to give buyers and analysts better insight into the cost, value, and impact of shelf decisions—moving from gut feel to data-driven actions."
+      "H-E-B is a leading Texas-based supermarket chain with over 350 locations. The Assortment Tool project aimed to give buyers and analysts better insight into the cost, value, and impact of shelf decisions, moving from gut feel to data-driven actions."
     ]
   },
   "outcomes": [
@@ -99,25 +99,25 @@
         {
           "name": "Decision Tree",
           "headline": "Strategy meets science.",
-          "before": "Before — Gut feel & guesswork.",
+          "before": "Before: Gut feel & guesswork.",
           "description": "Evaluate <strong>item mix, demand patterns, and strategic fit</strong> through structured decision flows. Turn complex choices into clear, data-backed actions."
         },
         {
           "name": "New Item Queue",
           "headline": "New products, sorted.",
-          "before": "Before — Endless spreadsheets.",
+          "before": "Before: Endless spreadsheets.",
           "description": "<strong>Prioritize and compare new vs existing items</strong> in a unified workflow. Make room for innovation without sacrificing proven performers."
         },
         {
           "name": "Assortment Optimizer",
           "headline": "The perfect shelf, modeled.",
-          "before": "Before — Trial and error.",
+          "before": "Before: Trial and error.",
           "description": "<strong>Model and finalize item selection</strong> with optimization algorithms. See the impact of changes before committing to the shelf."
         },
         {
           "name": "Shelf Edge Calendar",
           "headline": "Every change, planned.",
-          "before": "Before — Missed deadlines & chaos.",
+          "before": "Before: Missed deadlines & chaos.",
           "description": "<strong>View and manage all planning activities</strong> in one timeline. Coordinate across teams and never miss a reset window again."
         }
       ]

@@ -22,10 +22,15 @@
     },
     "overview": [
       "Viam has been working since 2019 to create a new standard for hobbyist developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices.",
-      "To leverage the full power of Viam's ecosystem of products—from data aggregation to machine learning models to a registry of compliant components—users need a way to efficiently configure and test their new smart machines.",
+      "To leverage the full power of Viam's ecosystem of products, from data aggregation to machine learning models to a registry of compliant components, users need a way to efficiently configure and test their new smart machines.",
       "Machine configuration acts as the core of the VIAM platform, and other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem-level value from it."
     ]
   },
+  "outcomes": [
+    { "value": "$117M", "label": "Total funding raised" },
+    { "value": "2,750+", "label": "Active developers" },
+    { "value": "65%", "label": "Faster configuration" }
+  ],
   "sections": [
     {
       "type": "challenge",
@@ -90,7 +95,6 @@
         {
           "name": "Tree Navigation",
           "headline": "Your machine, mapped out.",
-          "before": "Before — Flat lists & confusion.",
           "description": "Manage machines and sub-parts with an <strong>intuitive hierarchical structure</strong>. Navigate complex configurations with ease and understand relationships between components at a glance.",
           "media": {
             "type": "video",
@@ -100,7 +104,6 @@
         {
           "name": "JSON Editing",
           "headline": "Code when you need it.",
-          "before": "Before — GUI-only limitations.",
           "description": "Power users get <strong>granular configuration through direct code access</strong>. Switch seamlessly between visual and code editing for maximum flexibility and control.",
           "media": {
             "type": "video",
@@ -110,7 +113,6 @@
         {
           "name": "Null States",
           "headline": "Never start from zero.",
-          "before": "Before — Blank screens & dead ends.",
           "description": "New users receive <strong>friendly guidance and contextual help</strong> at every step. Empty states become opportunities for learning, not barriers to progress.",
           "media": {
             "type": "image",
@@ -121,7 +123,6 @@
         {
           "name": "Logs",
           "headline": "See what's happening, live.",
-          "before": "Before — Debugging in the dark.",
           "description": "Access <strong>real-time diagnostics and feedback</strong> directly in the interface. Identify issues instantly and understand exactly what your machine is doing.",
           "media": {
             "type": "video",
@@ -131,23 +132,12 @@
         {
           "name": "Connect Tab",
           "headline": "From config to code in seconds.",
-          "before": "Before — Manual boilerplate hell.",
-          "description": "Get <strong>auto-generated boilerplate code</strong> for quick integration. Copy, paste, and start building—no more hunting through documentation.",
+          "description": "Get <strong>auto-generated boilerplate code</strong> for quick integration. Copy, paste, and start building. No more hunting through documentation.",
           "media": {
             "type": "video",
             "src": "images/viam-machine-configuration/connect.mp4"
           }
         }
-      ]
-    },
-    {
-      "type": "outcomes-list",
-      "title": "Outcomes",
-      "items": [
-        "<strong>$117M</strong> raised, including a <strong>$30M</strong> Series C",
-        "<strong>40+</strong> partnerships and <strong>2,750+</strong> developers",
-        "<strong>23,000+</strong> machines created",
-        "<strong>65%</strong> reduction in configuration time"
       ]
     },
     {
@@ -177,8 +167,10 @@
   },
   "nextCaseStudy": {
     "title": "VIAM TeleOp",
+    "tags": "UX · Dashboard · Sensor Data",
     "description": "Live sensor dashboard for remote machine operation.",
+    "impact": "$2.75M signed contracts · 6 business partnerships",
     "url": "viam-teleop.html",
-    "image": "images/index/teleop-hero-4.png"
+    "image": "images/index/teleop-hero-3.png"
   }
 }

@@ -22,7 +22,7 @@
       "status": "Launched Jan 2025"
     },
     "overview": [
-      "This was my first major project after joining GovWell: designing a 0→1 integrated Plan Review experience that would allow government staff to complete an entire permit record—from intake to decision—without leaving our platform.",
+      "This was my first major project after joining GovWell: designing a 0→1 integrated Plan Review experience that would allow government staff to complete an entire permit record, from intake to decision, without leaving our platform.",
       "During early discovery calls, we noticed a major gap: customers were exporting plan sets and switching to third-party tools to complete core review workflows. That created user friction, inconsistent records, and broken audit trails.",
       "Closing this gap became critical to launching a competitive permitting solution."
     ]
@@ -35,7 +35,8 @@
   "sections": [
     {
       "type": "challenge",
-      "label": "The Challenge",
+      "label": "Challenge",
+      "navTitle": "Challenge",
       "headline": "Paper-heavy workflows were killing productivity.",
       "subheading": "Government plan review was stuck in the past:",
       "cards": [
@@ -45,7 +46,7 @@
         },
         {
           "icon": "x",
-          "text": "Feedback was scattered across emails, sticky notes, and printed plans—impossible to track."
+          "text": "Feedback was scattered across emails, sticky notes, and printed plans. Impossible to track."
         },
         {
           "icon": "users",
@@ -59,9 +60,10 @@
     },
     {
       "type": "principles",
-      "label": "The Users",
+      "label": "Users",
+      "navTitle": "Users",
       "headline": "Municipal plan reviewers with wildly different needs.",
-      "subheading": "Who we designed for:",
+      "subheading": "Who we designed for",
       "cards": [
         {
           "icon": "users",
@@ -71,7 +73,7 @@
         {
           "icon": "briefcase",
           "title": "Cross-functional roles",
-          "description": "Planning, fire, engineering, and zoning departments—each with unique review criteria."
+          "description": "Planning, fire, engineering, and zoning departments, each with unique review criteria."
         },
         {
           "icon": "settings",
@@ -82,10 +84,12 @@
     },
     {
       "type": "problems",
-      "title": "Problems",
+      "label": "Problems",
+      "headline": "What kept permitting stuck.",
+      "subheading": "What we heard from reviewers",
       "problems": [
         {
-          "title": "Problem 1 — Incomplete end-to-end permit workflows",
+          "title": "Incomplete end-to-end workflows",
           "description": "Reviewers couldn't complete plan reviews inside GovWell; they had to export PDFs to external tools. This created data fragmentation, slowed teams down, and made GovWell feel incomplete.",
           "quote": {
             "text": "Every single review, I'm exporting to Bluebeam, marking it up, saving it, re-uploading. It's like GovWell is just a fancy filing cabinet.",
@@ -93,7 +97,7 @@
           }
         },
         {
-          "title": "Problem 2 — Inability to give clear, async feedback on plan revisions",
+          "title": "No structured feedback mechanism",
           "description": "Reviewers had no structured way to provide comments or request revisions. This forced them into email threads or sticky notes on printed plans.",
           "quote": {
             "text": "I've got sticky notes on my monitor, a Word doc with comments, and half-finished emails to contractors. Then I forget which version I sent. It's chaos.",
@@ -101,7 +105,7 @@
           }
         },
         {
-          "title": "Problem 3 — Long turnaround times",
+          "title": "Long turnaround times",
           "description": "Without digital workflows, review cycles were slow and untrackable. Users couldn't easily identify what changed between versions or who was waiting on whom.",
           "quote": {
             "text": "The applicant says 'I fixed it' but I'm staring at 47 pages trying to spot the difference. Sometimes I just re-review the whole thing because it's faster than hunting.",
@@ -109,7 +113,7 @@
           }
         },
         {
-          "title": "Problem 4 — No auditability or accountability of feedback",
+          "title": "No auditability or accountability",
           "description": "Feedback was scattered across email, PDFs, physical copies, and shared drives. No centralized record meant no consistency, no oversight, and no reliable history.",
           "quote": {
             "text": "Fire says they approved it. Building says they never saw it. The applicant is furious. And I'm digging through six email threads trying to figure out who dropped the ball.",
@@ -125,7 +129,6 @@
         {
           "name": "Comments",
           "headline": "Feedback without the friction.",
-          "before": "Before — Lost in translation.",
           "description": "To solve end-to-end workflow gaps, we introduced <strong>native tools for drawing shapes</strong>, adding text annotations, and commenting directly on plan sheets. Reviewers can highlight issues, leave notes, and <strong>communicate feedback without exporting</strong> to external tools.",
           "media": {
             "type": "video",
@@ -134,8 +137,7 @@
         },
         {
           "name": "Checklists",
-          "headline": "The ol' bread & butter.",
-          "before": "Before — It was missing the butter.",
+          "headline": "Never miss a requirement again.",
           "description": "Reviewers can work through <strong>standardized checklists</strong> tied to specific permit types and code requirements. Checklists ensure <strong>consistent reviews across staff</strong>, reduce missed items, and provide clear documentation of what was verified.",
           "media": {
             "type": "video",
@@ -145,8 +147,7 @@
         {
           "name": "Measurements",
           "headline": "Precision at your fingertips.",
-          "before": "Before — Scale rulers & guesswork.",
-          "description": "Precise measurement tools allow reviewers to <strong>verify setbacks, lot coverage, and spatial requirements</strong> directly on uploaded plans. Measure distances, areas, and perimeters with a click—<strong>no need for scale rulers</strong> or manual calculations.",
+          "description": "Precise measurement tools allow reviewers to <strong>verify setbacks, lot coverage, and spatial requirements</strong> directly on uploaded plans. Measure distances, areas, and perimeters with a click. <strong>No need for scale rulers</strong> or manual calculations.",
           "media": {
             "type": "video",
             "src": "videos/govwell-plan-review/plane-review-measure.mp4"
@@ -154,8 +155,7 @@
         },
         {
           "name": "Stamp Creation",
-          "headline": "Your signature, digitized.",
-          "before": "Before — Rubber stamps & ink pads.",
+          "headline": "Custom stamps, zero setup.",
           "description": "Inspectors often use stamps for approvals, rejections, or conditional notes. We added <strong>custom and agency-provided stamp uploads</strong>, drag-to-place functionality, resize and rotation, and <strong>audit logging</strong> of who applied what stamp and when.",
           "media": {
             "type": "video",
@@ -164,8 +164,7 @@
         },
         {
           "name": "Stamping",
-          "headline": "Drop it like it's hot.",
-          "before": "Before — Hunt, stamp, repeat.",
+          "headline": "Place, resize, done.",
           "description": "Once stamps are configured, reviewers can quickly apply them to any location on a plan sheet. <strong>Drag-and-drop placement</strong>, resizing, and rotation make it easy to position stamps precisely. Every stamp application is <strong>logged with timestamps</strong> and user attribution for full audit compliance.",
           "media": {
             "type": "video",
@@ -175,7 +174,6 @@
         {
           "name": "Corrections Reports",
           "headline": "From markup to mailbox.",
-          "before": "Before — Hours of PDF editing.",
           "description": "We automated the process of turning markups into structured correction items. Now reviewers can <strong>convert annotations into standardized correction reports</strong>, send them to applicants, and reduce manual work while ensuring consistency. This <strong>cut out hours of manual PDF editing</strong> per review cycle.",
           "media": {
             "type": "image",
@@ -188,39 +186,53 @@
     {
       "type": "iterations",
       "title": "Iterations",
-      "intro": "Through weekly feedback sessions with planning and engineering reviewers, we made iterative improvements:",
+      "navTitle": "Iterations",
+      "headline": "Refining through feedback.",
       "items": [
         {
           "title": "Markup Editing",
-          "description": "We added precision resizing controls, expanded color and style options for annotations, and improved the undo/redo system to handle complex markup sequences reliably."
+          "icon": "edit",
+          "description": "Added precision resizing controls, expanded color and style options for annotations, and improved undo/redo to handle complex markup sequences."
         },
         {
           "title": "File Overlay",
-          "description": "Reviewers needed better tools to compare plan versions, so we built side-by-side version comparison, an overlay transparency slider, and automatic highlighting of changes between uploads."
+          "icon": "layers",
+          "description": "Built side-by-side version comparison, an overlay transparency slider, and automatic highlighting of changes between uploads."
+        },
+        {
+          "title": "AutoCheck",
+          "icon": "sparkles",
+          "description": "Introduced AI-powered review that analyzes applications and plan documents against requirements, giving reviewers smart comment suggestions."
         }
       ]
     },
     {
       "type": "learnings",
       "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "Designing for government is different.",
       "items": [
-        { "title": "Meet reviewers where they are.", "description": "Many aren't designers or engineers—simplicity wins." },
+        { "title": "Meet reviewers where they are.", "description": "Many aren't designers or engineers. Simplicity wins." },
         { "title": "Government workflows depend on accountability.", "description": "Audit trails weren't optional; they were essential." },
         { "title": "0→1 features require tight collaboration.", "description": "Fast cycles with engineering and CTO alignment were crucial to shipping meaningfully in eight weeks." },
         { "title": "Adoption is earned.", "description": "The easier we made the workflow, the faster teams embraced it." }
       ]
     },
     {
-      "type": "text",
+      "type": "conclusion",
       "title": "Conclusion",
+      "navTitle": "Conclusion",
+      "headline": "From intake tool to review platform.",
       "paragraphs": ["The Plan Review experience transformed GovWell from a permitting intake tool into a fully integrated review platform. By closing the workflow gap, we increased product stickiness, improved turnaround times, and helped agencies modernize one of the most painful steps in permitting."]
     },
     {
       "type": "testimonials",
       "title": "Testimonials",
+      "navTitle": "Testimonials",
+      "headline": "From the people who use it.",
       "quotes": [
         {
-          "text": "I used to dread resubmittals—opening the PDF, trying to remember what I flagged last time, flipping between tabs. Now I just overlay the versions and it highlights the changes for me. I genuinely look forward to Monday mornings now. Well, almost.",
+          "text": "I used to dread resubmittals. Opening the PDF, trying to remember what I flagged last time, flipping between tabs. Now I just overlay the versions and it highlights the changes for me. I genuinely look forward to Monday mornings now. Well, almost.",
           "author": "Amanda Rodriguez, City of Brevard, NC"
         },
         {
@@ -233,5 +245,13 @@
         }
       ]
     }
-  ]
+  ],
+  "nextCaseStudy": {
+    "title": "VIAM Machine Configuration",
+    "tags": "Strategy · Research · UX · UI · IA · Prototyping · Launch",
+    "description": "AI/automation tooling for configuring smart machines.",
+    "impact": "$117M raised · 2,750+ devs · 40+ partnerships",
+    "image": "images/index/app-viam-mockup.png",
+    "url": "viam-machine-configuration.html"
+  }
 }

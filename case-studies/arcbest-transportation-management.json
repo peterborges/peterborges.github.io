@@ -29,7 +29,7 @@
     {
       "type": "text",
       "title": "What is a TMS?",
-      "paragraphs": ["A TMS manages data on loads, carriers, routes, costs, and contact info — providing a centralized view of freight movements and enabling planning, tracking, and coordination."]
+      "paragraphs": ["A TMS manages data on loads, carriers, routes, costs, and contact info. It provides a centralized view of freight movements and enables planning, tracking, and coordination."]
     },
     {
       "type": "text",
@@ -96,25 +96,25 @@
         {
           "name": "Prioritized Action List",
           "headline": "Your tasks, organized.",
-          "before": "Before — Noise everywhere.",
-          "description": "A <strong>centralized task view</strong> for users to manage loads assigned by supervisors—eliminating redundancy and noise. Focus on what matters, ignore the rest."
+          "before": "Before: Noise everywhere.",
+          "description": "A <strong>centralized task view</strong> for users to manage loads assigned by supervisors, eliminating redundancy and noise. Focus on what matters, ignore the rest."
         },
         {
           "name": "Load Board",
           "headline": "Every load, at a glance.",
-          "before": "Before — Scattered status checks.",
+          "before": "Before: Scattered status checks.",
           "description": "Displays <strong>load lifecycle stages across service lines</strong>. Enables prioritization via quick filters based on location and operational status."
         },
         {
           "name": "Load Details",
           "headline": "Deep dive, instantly.",
-          "before": "Before — Tab hopping madness.",
+          "before": "Before: Tab hopping madness.",
           "description": "Unified tabs for <strong>Stops, Commodities, Tracking, Carrier Details, Financials</strong>, and more. Everything about a load, organized and accessible in one place."
         },
         {
           "name": "Manual Load Creation",
           "headline": "No EDI? No problem.",
-          "before": "Before — Workarounds everywhere.",
+          "before": "Before: Workarounds everywhere.",
           "description": "Enabled users to <strong>create loads manually via phone or email</strong> if not received through automated EDI feeds. Flexibility when automation falls short."
         }
       ]

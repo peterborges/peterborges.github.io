@@ -13,6 +13,9 @@ class CaseStudyRenderer {
       const data = await response.json();
       this.container.innerHTML = this.generateHTML(data);
       this.initAnimations();
+      
+      // Dispatch event to trigger side-rail initialization
+      document.dispatchEvent(new CustomEvent('caseStudyRendered'));
     } catch (error) {
       console.error('Error loading case study data:', error);
       this.container.innerHTML = '<p>Error loading case study.</p>';
@@ -28,8 +31,8 @@ class CaseStudyRenderer {
         ${data.outcomes ? this.renderOutcomes(data.outcomes) : ''}
         ${data.sections ? data.sections.map(section => this.renderSection(section)).join('') : ''}
         ${data.cta ? this.renderCTA(data.cta) : ''}
+        ${data.nextCaseStudy ? this.renderNextCaseStudy(data.nextCaseStudy) : ''}
       </section>
-      ${data.nextCaseStudy ? this.renderNextCaseStudy(data.nextCaseStudy) : ''}
     `;
   }
 
@@ -144,6 +147,8 @@ class CaseStudyRenderer {
         return this.renderIterationsSection(section);
       case 'learnings':
         return this.renderLearningsSection(section);
+      case 'conclusion':
+        return this.renderConclusionSection(section);
       case 'highlight':
         return this.renderHighlightSection(section);
       case 'media':
@@ -207,11 +212,12 @@ class CaseStudyRenderer {
       search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'
     };
 
+    const navTitle = section.navTitle || section.label || 'Challenge';
     let html = `
       <div class="challenge-section">
         <div class="challenge-header">
           <div class="challenge-label">${section.label || 'Problem Space'}</div>
-          <h2>${section.headline}</h2>
+          <h2 data-nav-title="${navTitle}">${section.headline}</h2>
         </div>
     `;
 
@@ -257,11 +263,12 @@ class CaseStudyRenderer {
       sparkle: '<svg viewBox="0 0 24 24"><path d="M12 3L14.5 8.5L20 9L16 13L17 19L12 16L7 19L8 13L4 9L9.5 8.5L12 3Z"></path></svg>'
     };
 
+    const navTitle = section.navTitle || section.label || 'Users';
     let html = `
       <div class="principles-section">
         <div class="principles-header">
           <div class="principles-label">${section.label || 'Users'}</div>
-          <h2>${section.headline}</h2>
+          <h2 data-nav-title="${navTitle}">${section.headline}</h2>
         </div>
     `;
 
@@ -291,24 +298,46 @@ class CaseStudyRenderer {
   }
 
   // ============================================
-  // PROBLEMS SECTION (with quotes)
+  // PROBLEMS SECTION (Distinctive Style)
   // ============================================
   renderProblemsSection(section) {
-    let html = `<h2>${section.title}</h2>`;
-    
-    html += section.problems.map(problem => `
-      <div class="problem-section">
-        <h3>${problem.title}</h3>
-        <p><strong>Description:</strong> ${problem.description}</p>
-        ${problem.quote ? `
-          <blockquote>
-            <p>"${problem.quote.text}"</p>
-            <cite>${problem.quote.author}</cite>
-          </blockquote>
-        ` : ''}
-      </div>
-    `).join('');
-    
+    const navTitle = section.navTitle || section.label || 'Problems';
+    let html = `
+      <div class="problems-section">
+        <div class="problems-header">
+          <div class="problems-label">${section.label || 'Problems'}</div>
+          <h2 data-nav-title="${navTitle}">${section.headline}</h2>
+        </div>
+    `;
+
+    if (section.problems && section.problems.length > 0) {
+      html += `
+        <div class="problems-grid">
+          <div class="problems-intro">
+            ${section.subheading ? `<p class="problems-subheading">${section.subheading}</p>` : ''}
+          </div>
+          <div class="problems-cards">
+            ${section.problems.map((problem, index) => `
+              <div class="problem-card">
+                <div class="problem-card-number">${index + 1}</div>
+                <div class="problem-card-content">
+                  <h4>${problem.title}</h4>
+                  <p>${problem.description}</p>
+                  ${problem.quote ? `
+                    <blockquote>
+                      <p>"${problem.quote.text}"</p>
+                      <cite>${problem.quote.author}</cite>
+                    </blockquote>
+                  ` : ''}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    html += '</div>';
     return html;
   }
 
@@ -316,21 +345,32 @@ class CaseStudyRenderer {
   // FEATURES SECTION (Distinctive Typography)
   // ============================================
   renderFeaturesSection(section) {
-    let html = `<h2>${section.title}</h2>`;
+    let html = `
+      <div class="solution-section">
+        <div class="solution-header">
+          <h2 class="solution-label" data-nav-title="Solution">Solution</h2>
+        </div>
+        <div class="features-container">
+    `;
     
     html += section.features.map((feature, index) => `
       <div class="feature-section">
         <div class="feature-header">
-          <div class="feature-label">${feature.label || `Feature ${String(index + 1).padStart(2, '0')} — ${feature.name}`}</div>
+          <div class="feature-label">${feature.label || `Feature ${String(index + 1).padStart(2, '0')}: ${feature.name}`}</div>
           <h3>${feature.headline}</h3>
         </div>
         <div class="feature-content">
-          <div class="feature-subtitle">${feature.before}</div>
+          ${feature.before ? `<div class="feature-subtitle">${feature.before}</div>` : ''}
           <p>${feature.description}</p>
         </div>
         ${feature.media ? this.renderFeatureMedia(feature.media) : ''}
       </div>
     `).join('');
+    
+    html += `
+        </div>
+      </div>
+    `;
     
     return html;
   }
@@ -359,20 +399,40 @@ class CaseStudyRenderer {
   // ITERATIONS SECTION
   // ============================================
   renderIterationsSection(section) {
-    let html = `<h2>${section.title}</h2>`;
-    
-    if (section.intro) {
-      html += `<p>${section.intro}</p>`;
-    }
-    
-    if (section.items) {
-      html += section.items.map(item => `
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-        ${item.media ? this.renderFeatureMedia(item.media) : ''}
+    const icons = {
+      edit: '<svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>',
+      layers: '<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+      zap: '<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+      refresh: '<svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>',
+      sparkles: '<svg viewBox="0 0 24 24"><path d="M14 4C14 4 14.5 7 15.5 8C16.5 9 19.5 9.5 19.5 9.5C19.5 9.5 16.5 10 15.5 11C14.5 12 14 15 14 15C14 15 13.5 12 12.5 11C11.5 10 8.5 9.5 8.5 9.5C8.5 9.5 11.5 9 12.5 8C13.5 7 14 4 14 4Z" fill="currentColor"></path><path d="M6 12C6 12 6.3 13.8 7 14.5C7.7 15.2 9.5 15.5 9.5 15.5C9.5 15.5 7.7 15.8 7 16.5C6.3 17.2 6 19 6 19C6 19 5.7 17.2 5 16.5C4.3 15.8 2.5 15.5 2.5 15.5C2.5 15.5 4.3 15.2 5 14.5C5.7 13.8 6 12 6 12Z" fill="currentColor"></path><path d="M18 16C18 16 18.2 17.2 18.7 17.7C19.2 18.2 20.5 18.5 20.5 18.5C20.5 18.5 19.2 18.8 18.7 19.3C18.2 19.8 18 21 18 21C18 21 17.8 19.8 17.3 19.3C16.8 18.8 15.5 18.5 15.5 18.5C15.5 18.5 16.8 18.2 17.3 17.7C17.8 17.2 18 16 18 16Z" fill="currentColor"></path></svg>',
+      tool: '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>'
+    };
+
+    const defaultIcons = ['edit', 'layers', 'sparkles', 'tool', 'refresh', 'zap'];
+
+    let html = `
+      <div class="iterations-section">
+        <div class="iterations-header">
+          <span class="iterations-label">Iterations</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${section.headline || 'Refining through feedback.'}</h2>
+        </div>
+    `;
+
+    if (section.items && section.items.length > 0) {
+      html += `<div class="iterations-grid">`;
+      html += section.items.map((item, index) => `
+        <div class="iteration-card">
+          <div class="iteration-card-icon">${icons[item.icon] || icons[defaultIcons[index % defaultIcons.length]]}</div>
+          <div class="iteration-card-content">
+            <h4>${item.title}</h4>
+            <p>${item.description}</p>
+          </div>
+        </div>
       `).join('');
+      html += `</div>`;
     }
-    
+
+    html += `</div>`;
     return html;
   }
 
@@ -380,9 +440,29 @@ class CaseStudyRenderer {
   // LEARNINGS SECTION
   // ============================================
   renderLearningsSection(section) {
-    let html = `<h2>${section.title}</h2>`;
+    let html = `
+      <div class="learnings-section">
+        <div class="learnings-header">
+          <span class="learnings-label">Learnings</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${section.headline || 'What we learned'}</h2>
+        </div>
+        <div class="learnings-grid">
+    `;
     
-    html += `<ul>${section.items.map(item => `<li><strong>${item.title}</strong> ${item.description}</li>`).join('')}</ul>`;
+    html += section.items.map((item, index) => `
+      <div class="learning-card">
+        <div class="learning-card-number">${String(index + 1).padStart(2, '0')}</div>
+        <div class="learning-card-content">
+          <h4>${item.title}</h4>
+          <p>${item.description}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    html += `
+        </div>
+      </div>
+    `;
     
     return html;
   }
@@ -391,14 +471,47 @@ class CaseStudyRenderer {
   // TESTIMONIALS SECTION
   // ============================================
   renderTestimonialsSection(section) {
-    let html = `<h2>${section.title}</h2>`;
+    let html = `
+      <div class="testimonials-section">
+        <div class="testimonials-header">
+          <span class="testimonials-label">Testimonials</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${section.headline || 'From the people who use it.'}</h2>
+        </div>
+        <div class="testimonials-grid">
+    `;
     
     html += section.quotes.map(quote => `
-      <blockquote>
-        <p>"${quote.text}"</p>
-        <cite>${quote.author}</cite>
-      </blockquote>
+      <div class="testimonial-card">
+        <blockquote>
+          <p>"${quote.text}"</p>
+          <cite>${quote.author}</cite>
+        </blockquote>
+      </div>
     `).join('');
+    
+    html += `
+        </div>
+      </div>
+    `;
+    
+    return html;
+  }
+
+  // ============================================
+  // CONCLUSION SECTION
+  // ============================================
+  renderConclusionSection(section) {
+    let html = `
+      <div class="conclusion-section">
+        <div class="conclusion-header">
+          <span class="conclusion-label">Conclusion</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${section.headline || 'The impact.'}</h2>
+        </div>
+        <div class="conclusion-content">
+          ${section.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
     
     return html;
   }
@@ -520,18 +633,24 @@ class CaseStudyRenderer {
   // NEXT CASE STUDY CTA
   // ============================================
   renderNextCaseStudy(next) {
+    // Bold numbers in impact text
+    const formattedImpact = next.impact ? 
+      next.impact.replace(/(\$?\d[\d,.]*\+?%?m?)/gi, '<strong>$1</strong>') : '';
+    
     return `
       <div class="next-case-study">
-        <div class="next-case-study-inner">
-          <span class="next-label">Next Case Study</span>
-          <a href="${next.url}" class="next-case-study-card">
-            <div class="next-case-study-info">
-              <h3>${next.title}</h3>
-              <p>${next.description}</p>
-            </div>
-            <img src="${next.image}" alt="${next.title}" class="next-case-study-image" />
-          </a>
-        </div>
+        <span class="next-label">Next Case Study</span>
+        <a href="${next.url}" class="next-case-study-card">
+          <div class="project-info">
+            <h3>${next.title}</h3>
+            <div class="tags">${next.tags || ''}</div>
+            <p>${next.description}</p>
+            ${formattedImpact ? `<p class="project-impact">${formattedImpact}</p>` : ''}
+          </div>
+          <div class="project-thumb-wrapper">
+            <img class="project-thumb" src="${next.image}" alt="${next.title}" />
+          </div>
+        </a>
       </div>
     `;
   }

@@ -1,9 +1,15 @@
 // Side Rail Navigation for Case Studies
 // Automatically generates a table of contents from h2 headings
 
-document.addEventListener('DOMContentLoaded', function() {
+let sideRailInitialized = false;
+
+function initSideRail() {
+  if (sideRailInitialized) return;
+  
   const caseStudy = document.querySelector('.case-study');
   if (!caseStudy) return;
+  
+  sideRailInitialized = true;
 
   // Get all h2 headings in the case study
   const headings = caseStudy.querySelectorAll('h2');
@@ -33,8 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add IDs to headings and create nav links
   headings.forEach((heading, index) => {
-    // Create a slug from the heading text
-    const slug = heading.textContent
+    // Use data-nav-title if available, otherwise use heading text
+    const navTitle = heading.dataset.navTitle || heading.textContent;
+    
+    // Create a slug from the nav title
+    const slug = navTitle
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
@@ -46,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const li = document.createElement('li');
     const link = document.createElement('a');
     link.href = `#${id}`;
-    link.textContent = heading.textContent;
+    link.textContent = navTitle;
     link.dataset.target = id;
 
     li.appendChild(link);
@@ -124,4 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
     firstLink.classList.add('active');
     currentActiveLink = firstLink;
   }
+}
+
+// Listen for case study render completion
+document.addEventListener('caseStudyRendered', initSideRail);
+
+// Also try on DOMContentLoaded for non-templated pages
+document.addEventListener('DOMContentLoaded', function() {
+  // Small delay to allow for any synchronous rendering
+  setTimeout(initSideRail, 100);
 });

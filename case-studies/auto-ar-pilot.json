@@ -42,20 +42,20 @@
         {
           "name": "Vehicle Recognition",
           "headline": "Point. Scan. Know.",
-          "before": "Before — Google everything.",
-          "description": "Walk around a vehicle while the phone <strong>scans and recognizes it instantly</strong>. The app returns specs, pricing, ratings, and offers insurance/loan quotes from USAA—all in real time."
+          "before": "Before: Google everything.",
+          "description": "Walk around a vehicle while the phone <strong>scans and recognizes it instantly</strong>. The app returns specs, pricing, ratings, and offers insurance/loan quotes from USAA, all in real time."
         },
         {
           "name": "Contextual Insights",
           "headline": "Info when you need it.",
-          "before": "Before — Research overload.",
-          "description": "Offer insights in a <strong>non-intrusive, intuitive way</strong>. Information appears naturally in your view—no app switching, no tab juggling."
+          "before": "Before: Research overload.",
+          "description": "Offer insights in a <strong>non-intrusive, intuitive way</strong>. Information appears naturally in your view. No app switching, no tab juggling."
         },
         {
           "name": "Financial Integration",
           "headline": "Decide with confidence.",
-          "before": "Before — Separate finance apps.",
-          "description": "<strong>Empower confident financial decisions</strong> with in-context info. See what you can afford, get quotes, and understand total cost—all while standing next to the car."
+          "before": "Before: Separate finance apps.",
+          "description": "<strong>Empower confident financial decisions</strong> with in-context info. See what you can afford, get quotes, and understand total cost, all while standing next to the car."
         }
       ]
     },
@@ -68,7 +68,7 @@
         {
           "icon": "heart",
           "title": "Integration over fragmentation",
-          "description": "Members want everything in one place—seamless, helpful, and connected."
+          "description": "Members want everything in one place: seamless, helpful, and connected."
         },
         {
           "icon": "compass",
@@ -85,7 +85,7 @@
     {
       "type": "text",
       "title": "Functionality Prioritization",
-      "paragraphs": ["Research led to a leaner MVP — showing relevant info first, with deeper layers accessible through interaction rather than overload."]
+      "paragraphs": ["Research led to a leaner MVP: show relevant info first, with deeper layers accessible through interaction rather than overload."]
     },
     {
       "type": "text",
@@ -106,9 +106,9 @@
       "type": "learnings",
       "title": "Lessons Learned",
       "items": [
-        { "title": "AR display fatigue is real", "description": "— ergonomic design matters" },
+        { "title": "AR display fatigue is real", "description": "Ergonomic design matters." },
         { "title": "Educating users is essential", "description": "for emerging tech" },
-        { "title": "Not all info belongs in AR", "description": "— progressive disclosure works better" }
+        { "title": "Not all info belongs in AR", "description": "Progressive disclosure works better." }
       ]
     }
   ],

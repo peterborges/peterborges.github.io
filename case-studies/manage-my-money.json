@@ -35,7 +35,7 @@
       "cards": [
         {
           "icon": "x",
-          "text": "Bad UI eroded trust—members switched banks when digital tools underdelivered."
+          "text": "Bad UI eroded trust. Members switched banks when digital tools underdelivered."
         },
         {
           "icon": "layers",
@@ -52,31 +52,31 @@
       "title": "Design Process",
       "features": [
         {
-          "label": "Phase 01 — Heuristic Evaluation",
+          "label": "Phase 01: Heuristic Evaluation",
           "name": "Heuristic Evaluation",
           "headline": "Finding the friction.",
-          "before": "Before — Inconsistent experiences.",
+          "before": "Before: Inconsistent experiences.",
           "description": "Used internal design guidelines to <strong>audit inconsistencies across account summary pages</strong>. Uncovered issues around clarity, hierarchy, and unauthenticated access."
         },
         {
-          "label": "Phase 02 — Competitive Analysis",
+          "label": "Phase 02: Competitive Analysis",
           "name": "Competitive Analysis",
           "headline": "Learning from the best.",
-          "before": "Before — Operating in a vacuum.",
+          "before": "Before: Operating in a vacuum.",
           "description": "Compared USAA tools to <strong>banks and fintechs</strong> (Capital One, Simple, etc.) and built an internal research library to close gaps in competitor understanding."
         },
         {
-          "label": "Phase 03 — Information Architecture",
+          "label": "Phase 03: Information Architecture",
           "name": "Information Architecture",
           "headline": "Structure that makes sense.",
-          "before": "Before — Confusing hierarchies.",
+          "before": "Before: Confusing hierarchies.",
           "description": "Ran IA tests using Treejack to <strong>restructure content based on real user behaviors</strong>. Simplified and consolidated account hierarchy across savings, checking, and credit products."
         },
         {
-          "label": "Phase 04 — Prototyping & Testing",
+          "label": "Phase 04: Prototyping & Testing",
           "name": "Prototyping & Testing",
           "headline": "Build, test, repeat.",
-          "before": "Before — Ship and pray.",
+          "before": "Before: Ship and pray.",
           "description": "Developed prototypes in InVision and <strong>tested with users via usertesting.com</strong>. Iterated based on feedback and performance analytics."
         }
       ]
