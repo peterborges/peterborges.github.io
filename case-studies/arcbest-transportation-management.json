@@ -67,15 +67,25 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Insights",
-      "lists": [
+      "type": "principles",
+      "label": "Key Insights",
+      "headline": "One shipment model to rule them all.",
+      "subheading": "What research revealed:",
+      "cards": [
         {
-          "items": [
-            "<strong>\"A shipment is a shipment\":</strong> Found significant overlap in load structure and lifecycle across service lines",
-            "<strong>Unified UI patterns:</strong> Required consistent interactions and interface elements",
-            "<strong>Multiple parallel projects:</strong> Influenced other ArcBest product teams to adopt shared language"
-          ]
+          "icon": "target",
+          "title": "\"A shipment is a shipment\"",
+          "description": "Found significant overlap in load structure and lifecycle across all five service lines."
+        },
+        {
+          "icon": "cpu",
+          "title": "Unified UI patterns",
+          "description": "Required consistent interactions and interface elements to reduce cognitive load."
+        },
+        {
+          "icon": "globe",
+          "title": "Cross-team influence",
+          "description": "Our design language influenced other ArcBest product teams to adopt shared patterns."
         }
       ]
     },

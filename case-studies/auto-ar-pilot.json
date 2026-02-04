@@ -60,15 +60,25 @@
       ]
     },
     {
-      "type": "text",
-      "title": "User Insights",
-      "lists": [
+      "type": "principles",
+      "label": "User Insights",
+      "headline": "Confidence through context, not complexity.",
+      "subheading": "What users told us:",
+      "cards": [
         {
-          "items": [
-            "Members want everything integrated and helpful",
-            "Users lack confidence in major financial decisions",
-            "Desire for automated, relevant, non-cluttered experiences"
-          ]
+          "icon": "heart",
+          "title": "Integration over fragmentation",
+          "description": "Members want everything in one place—seamless, helpful, and connected."
+        },
+        {
+          "icon": "compass",
+          "title": "Confidence in big decisions",
+          "description": "Users lack confidence when making major financial commitments without context."
+        },
+        {
+          "icon": "sparkle",
+          "title": "Relevant, not cluttered",
+          "description": "They want automated insights that feel natural, not overwhelming."
         }
       ]
     },

@@ -58,12 +58,25 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Users",
-      "paragraphs": ["Municipal plan reviewers are public servants managing heavy workloads of building applications. They vary significantly in:"],
-      "lists": [
+      "type": "principles",
+      "label": "The Users",
+      "headline": "Municipal plan reviewers with wildly different needs.",
+      "subheading": "Who we designed for:",
+      "cards": [
         {
-          "items": ["Technical proficiency (from novice to expert)", "Role (planning, fire, engineering, zoning)", "Department size and structure", "Available time"]
+          "icon": "users",
+          "title": "Varied technical proficiency",
+          "description": "From novice staff learning new systems to power users who've done this for decades."
+        },
+        {
+          "icon": "briefcase",
+          "title": "Cross-functional roles",
+          "description": "Planning, fire, engineering, and zoning departments—each with unique review criteria."
+        },
+        {
+          "icon": "settings",
+          "title": "Different team structures",
+          "description": "From single-person offices to large departments with complex approval chains."
         }
       ]
     },

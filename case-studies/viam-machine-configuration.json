@@ -48,15 +48,25 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Success Metrics",
-      "lists": [
+      "type": "principles",
+      "label": "Success Metrics",
+      "headline": "Adoption, speed, and familiarity.",
+      "subheading": "What success looked like:",
+      "cards": [
         {
-          "items": [
-            "Increased enterprise adoption",
-            "Reduced configuration time for solutions engineers",
-            "Incorporated familiar developer UI patterns"
-          ]
+          "icon": "target",
+          "title": "Increased enterprise adoption",
+          "description": "Make the platform feel mature and trustworthy for Fortune 500 teams."
+        },
+        {
+          "icon": "tool",
+          "title": "Reduced configuration time",
+          "description": "Cut setup friction for solutions engineers onboarding new customers."
+        },
+        {
+          "icon": "cpu",
+          "title": "Familiar developer patterns",
+          "description": "Mirror conventions from VS Code and modern dev tools to flatten the learning curve."
         }
       ]
     },

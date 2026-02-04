@@ -48,15 +48,25 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Design Goals",
-      "lists": [
+      "type": "principles",
+      "label": "Design Goals",
+      "headline": "Speed, consistency, and strategic insight.",
+      "subheading": "What we aimed to achieve:",
+      "cards": [
         {
-          "items": [
-            "Increase speed to shelf",
-            "Standardize processes across stores and categories",
-            "Improve profitability and strategic innovation"
-          ]
+          "icon": "target",
+          "title": "Speed to shelf",
+          "description": "Reduce the time from decision to store implementation dramatically."
+        },
+        {
+          "icon": "globe",
+          "title": "Standardized processes",
+          "description": "Create consistent workflows across 350+ stores and all categories."
+        },
+        {
+          "icon": "sparkle",
+          "title": "Strategic innovation",
+          "description": "Enable data-driven decisions that improve profitability and competitive positioning."
         }
       ]
     },

@@ -47,13 +47,31 @@
       ]
     },
     {
-      "type": "highlight",
-      "title": "Goals",
-      "items": [
-        "👁️ Enable real-time visibility into robot sensor states",
-        "↔️ Support bi-directional control for developers and operators",
-        "📶 Standardize telemetry UI for machine health",
-        "🛠️ Reduce tooling fatigue by consolidating multiple dashboards"
+      "type": "principles",
+      "label": "Design Goals",
+      "headline": "Visibility, control, and consolidation.",
+      "subheading": "What we aimed to achieve:",
+      "cards": [
+        {
+          "icon": "eye",
+          "title": "Real-time visibility",
+          "description": "Enable instant awareness of robot sensor states and system health."
+        },
+        {
+          "icon": "settings",
+          "title": "Bi-directional control",
+          "description": "Support both monitoring and active control for developers and operators."
+        },
+        {
+          "icon": "cpu",
+          "title": "Standardized telemetry",
+          "description": "Create consistent UI patterns for machine health across all device types."
+        },
+        {
+          "icon": "tool",
+          "title": "Reduced tooling fatigue",
+          "description": "Consolidate dashboards, logs, and CLI tools into one unified environment."
+        }
       ]
     },
     {
