@@ -271,6 +271,43 @@
     .project-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      cursor: none;
+    }
+
+    /* Custom cursor for case studies */
+    .cursor-follower {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .cursor-follower.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .cursor-follower-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 100px;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .cursor-follower-inner svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    [data-theme="dark"] .cursor-follower-inner {
+      background: #fff;
+      color: #0a0a0a;
     }
     [data-theme="dark"] .project-card:hover {
       box-shadow: 0 8px 32px rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.08);
@@ -490,6 +527,14 @@
   </style>
 </head>
 <body>
+  <!-- Custom cursor for case studies -->
+  <div class="cursor-follower" id="cursorFollower">
+    <div class="cursor-follower-inner">
+      <span>View case study</span>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+  </div>
+
   <div class="content-container">
     <header class="intro-section">
       <div class="grid-pattern" id="gridPattern"></div>
@@ -514,6 +559,53 @@
   <div id="site-footer"></div>
 
   <script>
+    // Custom cursor follower
+    (function() {
+      const cursor = document.getElementById('cursorFollower');
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let isHovering = false;
+
+      // Smooth cursor movement
+      function animateCursor() {
+        const ease = 0.15;
+        cursorX += (mouseX - cursorX) * ease;
+        cursorY += (mouseY - cursorY) * ease;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Show/hide on project cards (using event delegation)
+      document.addEventListener('mouseover', (e) => {
+        const card = e.target.closest('.project-card:not(.resume-card)');
+        if (card) {
+          isHovering = true;
+          cursor.classList.add('active');
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.project-card:not(.resume-card)');
+        if (card && !card.contains(e.relatedTarget)) {
+          isHovering = false;
+          cursor.classList.remove('active');
+        }
+      });
+
+      // Hide cursor when leaving window
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+      });
+    })();
+
     // Load projects from JSON
     fetch('projects.json')
       .then(response => response.json())
