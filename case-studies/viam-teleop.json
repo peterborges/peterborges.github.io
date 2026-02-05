@@ -3,7 +3,7 @@
   "subtitle": "Remote sensor visibility and control in real time",
   "hero": {
     "type": "image",
-    "src": "images/viam-teleop/teleop-hero-2.png",
+    "src": "images/index/teleop-hero-3.png",
     "alt": "TeleOp Hero Image"
   },
   "context": {
@@ -55,7 +55,7 @@
       "type": "principles",
       "label": "Design Goals",
       "headline": "Visibility, control, and consolidation.",
-      "subheading": "What we aimed to achieve:",
+      "subheading": "What we aimed to achieve",
       "cards": [
         {
           "icon": "eye",
@@ -92,6 +92,8 @@
     {
       "type": "insights",
       "title": "Key Insights",
+      "label": "Key Insights",
+      "headline": "What we learned from operators and developers.",
       "items": [
         { "icon": "📈", "title": "Sensor data was available, but not actionable", "description": "Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior." },
         { "icon": "🎮", "title": "Developers wanted control + clarity", "description": "Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely." },
@@ -170,37 +172,37 @@
       ]
     },
     {
-      "type": "text",
+      "type": "reflections",
       "title": "Reflections",
+      "label": "Reflections",
+      "headline": "What went well.",
       "subsections": [
         {
-          "title": "What Went Well",
+          "title": "",
           "lists": [
             {
               "items": [
-                "📈 Higher engagement across both business and consumer customers.",
-                "🛒 Increased customer conversion through clearer telemetry visibility.",
-                "🤝 Reduced support effort for our solutions engineering team.",
-                "🧠 Improved developer comfort and ease-of-use inside the app.",
-                "⚡ Faster task completion times for operators and engineers.",
-                "🛠️ Successfully integrated long-standing backlog items that had been blocked."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Areas for Improvement",
-          "lists": [
-            {
-              "items": [
-                "⏳ Overall time to develop and launch could be reduced.",
-                "🚀 A phased launch approach would have accelerated delivery and feedback loops.",
-                "🎨 Simultaneous development of the design system slowed product velocity.",
-                "⚖️ Balancing organization-wide demands with deep project work proved challenging."
+                "Real-time visibility drove adoption across operators and developers.",
+                "Centralized telemetry cut time spent switching between dashboards and CLI.",
+                "Solutions engineers reported faster machine setup and clearer demos.",
+                "Developer comfort with the UI increased; fewer \"how do I…\" support tickets.",
+                "Operators completed monitoring and control tasks faster in testing."
               ]
             }
           ]
         }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "Designing for remote control is different.",
+      "items": [
+        { "title": "Visibility and control had to live together.", "description": "Operators wanted joystick-like response; devs wanted a single place to see state and simulate. One surface for both was non-negotiable." },
+        { "title": "Tooling fatigue was real.", "description": "Users jumped between multiple dashboards, logs, and CLIs. Consolidating into one environment reduced cognitive load and sped up debugging." },
+        { "title": "Real-time feedback built trust.", "description": "When controlling machines remotely, operators needed immediate response; lag or delayed updates made them second-guess what they were seeing." },
+        { "title": "Sensor data needed structure.", "description": "Raw streams were overwhelming. Correlating sensor state with behavior in the UI turned data into something actionable." }
       ]
     }
   ],

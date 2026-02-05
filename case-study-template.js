@@ -149,6 +149,8 @@ class CaseStudyRenderer {
         return this.renderLearningsSection(section);
       case 'conclusion':
         return this.renderConclusionSection(section);
+      case 'reflections':
+        return this.renderReflectionsSection(section);
       case 'highlight':
         return this.renderHighlightSection(section);
       case 'media':
@@ -410,10 +412,11 @@ class CaseStudyRenderer {
 
     const defaultIcons = ['edit', 'layers', 'sparkles', 'tool', 'refresh', 'zap'];
 
+    const label = section.label || section.title || 'Iterations';
     let html = `
       <div class="iterations-section">
         <div class="iterations-header">
-          <span class="iterations-label">Iterations</span>
+          <span class="iterations-label">${label}</span>
           <h2 data-nav-title="${section.navTitle || section.title}">${section.headline || 'Refining through feedback.'}</h2>
         </div>
     `;
@@ -498,6 +501,67 @@ class CaseStudyRenderer {
   }
 
   // ============================================
+  // REFLECTIONS SECTION (card per item, icon + text like challenge)
+  // ============================================
+  renderReflectionsSection(section) {
+    const icons = {
+      check: '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+      'trending-up': '<svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>',
+      zap: '<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+      'alert-circle': '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+      refresh: '<svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>',
+      target: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
+      users: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+      layers: '<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+      eye: '<svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>'
+    };
+    const stripLeadingEmoji = (text) => (typeof text === 'string' ? text.replace(/^[\s\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B50}\u{2714}\u{274C}\u{2705}\u{274E}\u{23E9}\u{23EA}\u{2692}\u{2699}\u{26A0}\u{2691}\u{2690}\u{2696}\u{2697}\u{2694}\u{2695}\u{2699}\u{2702}\u{2705}\u{2709}\u{270A}\u{270B}\u{270C}\u{270F}\u{2712}\u{2714}\u{2716}\u{271D}\u{2721}\u{2728}\u{2733}\u{2734}\u{2744}\u{2747}\u{274C}\u{274E}\u{2753}\u{2754}\u{2755}\u{2757}\u{2763}\u{2764}\u{2795}\u{2796}\u{2797}\u{27A1}\u{27B0}\u{27BF}\u{2934}\u{2935}\u{2B05}\u{2B06}\u{2B07}\u{2B1B}\u{2B1C}\u{2B50}\u{2B55}\u{3030}\u{303D}\u{3297}\u{3299}]+/u, '').trim() : text);
+    const label = section.label || section.title || 'Reflections';
+    const headline = section.headline || "What went well, and what we'd do differently.";
+    let html = `
+      <div class="reflections-section">
+        <div class="reflections-header">
+          <span class="reflections-label">${label}</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${headline}</h2>
+        </div>
+        <div class="reflections-content">
+    `;
+    const reflectionIconKeys = ['check', 'trending-up', 'zap', 'users', 'target', 'refresh', 'layers', 'eye'];
+    if (section.subsections && section.subsections.length > 0) {
+      section.subsections.forEach(sub => {
+        html += `<div class="reflection-block">`;
+        if (sub.title && sub.title.trim() !== '') {
+          html += `<h4 class="reflection-block-title">${sub.title}</h4>`;
+        }
+        if (sub.lists) {
+          html += `<div class="reflection-cards">`;
+          let itemIndex = 0;
+          sub.lists.forEach(list => {
+            list.items.forEach(item => {
+              const text = stripLeadingEmoji(typeof item === 'string' ? item : (item.text || item));
+              const iconKey = typeof item === 'object' && item.icon && icons[item.icon] ? item.icon : reflectionIconKeys[itemIndex % reflectionIconKeys.length];
+              const iconSvg = icons[iconKey] || icons.check;
+              itemIndex++;
+              html += `
+                <div class="reflection-card">
+                  <div class="reflection-card-icon">${iconSvg}</div>
+                  <div class="reflection-card-content"><p>${text}</p></div>
+                </div>`;
+            });
+          });
+          html += `</div>`;
+        }
+        if (sub.paragraphs) {
+          html += sub.paragraphs.map(p => `<p class="reflection-block-para">${p}</p>`).join('');
+        }
+        html += `</div>`;
+      });
+    }
+    html += `</div></div>`;
+    return html;
+  }
+
+  // ============================================
   // CONCLUSION SECTION
   // ============================================
   renderConclusionSection(section) {
@@ -555,17 +619,35 @@ class CaseStudyRenderer {
   }
 
   // ============================================
-  // INSIGHTS SECTION (competitive analysis, etc.)
+  // INSIGHTS SECTION (same visual style as Govwell learnings)
   // ============================================
   renderInsightsSection(section) {
-    let html = `<h2>${section.title}</h2>`;
-    
-    if (section.items) {
-      html += section.items.map(item => `
-        ${item.icon || ''} <strong>${item.title}</strong><br>
-        ${item.description}
-        <br><br>
+    let html = '';
+
+    if (section.items && section.items.length > 0) {
+      const label = section.label || section.title || 'Key Insights';
+      const headline = section.headline || 'Research findings that shaped the product.';
+      html += `
+      <div class="learnings-section">
+        <div class="learnings-header">
+          <span class="learnings-label">${label}</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${headline}</h2>
+        </div>
+        <div class="learnings-grid">
+      `;
+      html += section.items.map((item, index) => `
+        <div class="learning-card">
+          <div class="learning-card-number">${String(index + 1).padStart(2, '0')}</div>
+          <div class="learning-card-content">
+            <h4>${item.title}</h4>
+            <p>${item.description}</p>
+          </div>
+        </div>
       `).join('');
+      html += `
+        </div>
+      </div>
+      `;
     }
 
     if (section.competitive) {
@@ -623,10 +705,14 @@ class CaseStudyRenderer {
   }
 
   // ============================================
-  // CTA LINK
+  // CTA BUTTON
   // ============================================
   renderCTA(cta) {
-    return `<p><a href="${cta.url}" target="_blank" class="resume-download">${cta.text}</a></p>`;
+    return `
+      <div class="case-study-cta">
+        <a href="${cta.url}" target="_blank" rel="noopener noreferrer" class="cta-button">${cta.text}</a>
+      </div>
+    `;
   }
 
   // ============================================
