@@ -1,4 +1,3 @@
-<!-- viam-machine-configuration.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,205 +7,163 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-SFY6LBQ0SF');
   </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIAM Machine Configuration | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
+  <!-- Early theme application to prevent flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+      applyTheme(savedTheme || 'system');
+      prefersDark.addEventListener('change', function(e) {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
+  <style>
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .quotes-grid img {
+      width: 100%;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+    }
+    @media (max-width: 600px) {
+      .quotes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .next-case-study {
+      background: var(--bg-secondary);
+      padding: 4rem 2rem;
+      margin-top: 2rem;
+    }
+    .next-case-study-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .next-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .next-case-study-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      padding: 1.5rem 0;
+      gap: 2rem;
+    }
+    .next-case-study-card:hover h3 {
+      text-decoration: underline;
+    }
+    .next-case-study-info h3 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+      color: var(--text-primary);
+    }
+    .next-case-study-info p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+    .next-case-study-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    @media (max-width: 700px) {
+      .next-case-study-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .next-case-study-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
 
   <div class="content-container" style="padding-top: 4rem;">
-    <section class="case-study">
-      <h1>VIAM Machine Configuration</h1>
-      <p class="subtitle">Unlocking data & AI in the physical world</p>
-
-      <img src="images/viam-machine-configuration/app-viam-mockup.png" alt="Machine Configuration Hero Image" class="hero-image" />
-
-      <div class="project-meta-block">
-        <div class="meta-column">
-          <h4><i class="fas fa-users"></i> Team</h4>
-          <ul>
-            <li>1 Project Owner</li>
-            <li>1 Designer</li>
-            <li>1 Technical Program Manager</li>
-            <li>7 Developers</li>
-          </ul>
-        </div>
-      
-        <div class="meta-column">
-          <h4><i class="fas fa-user-cog"></i> My Roles</h4>
-          <ul>
-            <li>Strategy</li>
-            <li>Competitive Research</li>
-            <li>Experience Design</li>
-            <li>User Research</li>
-            <li>Visual Design</li>
-          </ul>
-        </div>
-      
-        <div class="meta-column">
-          <h4>📅 Project Timeline</h4>
-          <p>Nov 2023 – Feb 2024</p>
-        </div>
-      </div>      
-
-      <h2>Overview</h2>
-      <p>Viam has been working since 2019 to create a new standard for hobbyist developers developers to Fortune 500 businesses to configure, launch, control, and monitor their fleets of IoT and robotic devices. <br>
-        <br>
-        To leverage the full power of Viam’s ecosystem of products, from data aggregation, machine learning models, and a registry of compliant components, users need a way to efficiently configure and test their new smart machines. Machine configuration acts as the core of the VIAM platform which other product services such as Fleet Management, Data, Machine Learning, & Registry derive their ecosystem level value from.</p>
-
-      <h2>Challenges</h2>
-      <ul>
-        <li><strong>Design/technical debt</strong> 
-          <br>Years of features needed consolidation.</li>
-        <li><strong>Usability</strong> 
-          <br>Developer tooling needed familiar UI patterns.</li>
-        <li><strong>Fragmented flows</strong> 
-          <br>Creation/configuration processes were disjointed.</li>
-      </ul>
-
-      <h2>Success Metrics</h2>
-      <ul>
-        <li>Increased enterprise adoption</li>
-        <li>Reduced configuration time for solutions engineers</li>
-        <li>Incorporated familiar developer UI patterns</li>
-      </ul>
-
-      <h2>Research & Competitive Analysis</h2>
-      <p>We studied leading platforms like ROS, Cogniteam, Intrinsic, ArduinoWeb, and VSCode. Insights included:</p>
-      <ul>
-        <li><strong>File trees:</strong> Essential for navigation</li>
-        <li><strong>Flexible IDE layouts:</strong> Users expected customization</li>
-      </ul>
-
-      <div class="insight-section">
-        <div class="insight-text">
-          <h3>Competitive Analysis</h3>
-          <ul class="key-insights">...your list...</ul>
-        </div>
-        <div class="insight-image">
-          <img src="images/viam-machine-configuration/ardunio-web.png" alt="Arduino IDE" />
-          <img src="images/viam-machine-configuration/intrinsic_flowstate.jpg" alt="Intrinsic" />
-        </div>
-      </div>
-
-      <h3>Key Insights</h3>
-      <ul class="key-insights">
-        <li><strong>File-tree navigation is essential:</strong> Developers expect to see a structured, nested view of machine components, similar to IDEs or JSON structures they're familiar with.</li>
-        <li><strong>Configuration needs to be readable and editable:</strong> Users wanted clear machine definitions they could read at a glance — and the flexibility to edit settings inline or via raw JSON when needed.</li>
-        <li><strong>Separation of setup and operation is critical:</strong> Many platforms confuse configuration with live control. Users wanted to configure safely before deployment — not while the robot is running.</li>
-        <li><strong>Familiar UI patterns reduce ramp-up time:</strong> Competitor tools like ROS and Intrinsic often rely on complex CLI tools or XML files. Viam’s web-based UI had an opportunity to stand out with familiar UI/UX conventions.</li>
-        <li><strong>Debugging needs to be integrated:</strong> Users expected to see real-time logs, validation warnings, and machine state summaries during configuration to reduce guesswork and deployment errors.</li>
-      </ul>
-      
-
-      <h2>Design Process</h2>
-      <h3>Flow Mapping</h3>
-      <img src="images/viam-machine-configuration/new-machine-flow.png" alt="Configuration flow" class="hero-image" />
-      <p>Aligned with stakeholders to streamline the machine creation process into fewer, more intuitive steps.</p>
-
-      <h3>Wireframing</h3>
-      <img src="images/viam-machine-configuration/adding-part-wireframe.png" alt="Configuration flow" class="hero-image" />
-      <p>Built early low-fidelity wireframes to test ideas. Ensured scalability for complex machine setups and allowed editing/refinement mid-flow.</p>
-
-      <h3>UI System Integration</h3>
-      <section class="demo">
-        <video 
-          class="hero-video" 
-          src="images/viam-machine-configuration/prime.mp4" 
-          autoplay 
-          muted 
-          loop 
-          playsinline>
-        </video>
-      </section>      
-      
-      <p>Extended and migrated the PRIME design system to support the new UI patterns needed for machine configuration.</p>
-
-      <h2>Key Features</h2>
-      <ul>
-        <li><strong>Tree navigation:</strong> Manage machines and sub-parts easily</li>
-        <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/tree-nav.mp4" 
-            autoplay 
-            muted 
-            loop 
-            playsinline>
-          </video>
-        </section>    
-        <li><strong>JSON editing:</strong> Granular configuration through direct code</li>
-        <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/json.mp4" 
-            autoplay 
-            muted 
-            loop 
-            playsinline>
-          </video>
-        </section>    
-        <li><strong>Null states:</strong> Friendly guidance for new users</li>
-        <img src="images/viam-machine-configuration/null-state.png" alt="Configuration flow" class="hero-image" /> 
-        <li><strong>Logs:</strong> Real-time diagnostics and feedback</li>
-        <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/logs.mp4" 
-            autoplay 
-            muted 
-            loop 
-            playsinline>
-          </video>
-        </section>    
-        <li><strong>Connect tab:</strong> Auto-generated boilerplate for quick integration</li>
-        <section class="demo">
-          <video 
-            class="hero-video" 
-            src="images/viam-machine-configuration/connect.mp4" 
-            autoplay 
-            muted 
-            loop 
-            playsinline>
-          </video>
-        </section>    
-      </ul>
-
-      <h2>Outcomes</h2>
-      <ul>
-        <li><strong>$117M</strong> raised, including a <strong>$30M</strong> Series C</li>
-        <li><strong>40+</strong> partnerships and <strong>2,750+</strong> developers</li>
-        <li><strong>23,000+</strong> machines created</li>
-        <li><strong>65%</strong> reduction in configuration time</li>
-      </ul>
-
-      <h2>Reflections</h2>
-      <p>This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch and earlier design system alignment could have accelerated delivery.</p>
-
-      <p><a href="https://app.viam.com/try" target="_blank" class="resume-download">Try Viam →</a></p>
-    </section>
+    <div id="case-study-content">
+      <div class="loading-state">Loading...</div>
+    </div>
   </div>
 
   <div id="site-footer"></div>
 
   <script>
-    function includeHTML(selector, url) {
+    function includeHTML(selector, url, callback) {
       fetch(url)
         .then(response => response.text())
         .then(data => {
           document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
         });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
-    includeHTML('#site-footer', 'partials/footer.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const theme = this.dataset.theme;
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('theme', theme);
+          });
+        });
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/viam-machine-configuration.json');
+      renderer.render();
+    });
   </script>
 </body>
 </html>

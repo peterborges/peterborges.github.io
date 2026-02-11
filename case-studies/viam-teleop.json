@@ -1,0 +1,219 @@
+{
+  "title": "Viam TeleOp",
+  "subtitle": "Remote sensor visibility and control in real time",
+  "hero": {
+    "type": "image",
+    "src": "images/index/teleop-hero-3.png",
+    "alt": "TeleOp Hero Image"
+  },
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Strategy", "Competitive Research", "Experience Design", "User Research", "Visual Design"]
+    },
+    "team": [
+      "1 Project Owner",
+      "1 Designer",
+      "1 Technical Program Manager",
+      "4 Developers"
+    ],
+    "timeline": {
+      "duration": "2 Months",
+      "status": "Launched Oct 2024"
+    },
+    "overview": [
+      "Many companies lack real-time visibility into their machines due to fragmented systems, outdated hardware, and inconsistent data standards. These gaps make it difficult to detect issues early, integrate insights, or respond quickly, especially in remote or infrastructure-poor environments."
+    ]
+  },
+  "outcomes": [
+    { "value": "$2.75M", "label": "Signed contracts" },
+    { "value": "6", "label": "Enterprise partnerships" },
+    { "value": "40%", "label": "Improved uptime" }
+  ],
+  "sections": [
+    {
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Data overload without actionable insight.",
+      "subheading": "Machine operators were flying blind:",
+      "cards": [
+        {
+          "icon": "layers",
+          "text": "Sensor data from multiple sources was fragmented and difficult to interpret or act on."
+        },
+        {
+          "icon": "clock",
+          "text": "No real-time visibility meant issues were discovered too late to prevent downtime."
+        },
+        {
+          "icon": "x",
+          "text": "Users juggled multiple dashboards, logs, and CLI tools just to understand machine state."
+        }
+      ]
+    },
+    {
+      "type": "principles",
+      "label": "Design Goals",
+      "headline": "Visibility, control, and consolidation.",
+      "subheading": "What we aimed to achieve",
+      "cards": [
+        {
+          "icon": "eye",
+          "title": "Real-time visibility",
+          "description": "Enable instant awareness of robot sensor states and system health."
+        },
+        {
+          "icon": "settings",
+          "title": "Bi-directional control",
+          "description": "Support both monitoring and active control for developers and operators."
+        },
+        {
+          "icon": "cpu",
+          "title": "Standardized telemetry",
+          "description": "Create consistent UI patterns for machine health across all device types."
+        },
+        {
+          "icon": "tool",
+          "title": "Reduced tooling fatigue",
+          "description": "Consolidate dashboards, logs, and CLI tools into one unified environment."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Process",
+      "subsections": [
+        {
+          "title": "Research & Discovery",
+          "paragraphs": ["I conducted interviews with internal stakeholders (product, engineering, support) and shadowed solutions engineers during real machine setup. I also benchmarked tooling from competitors like Arduino and Datadog. These efforts revealed a common theme: while the platform surfaced vast amounts of sensor data, users lacked the context or structure to interpret it confidently. Developers wanted tools that felt native to their workflow, familiar layouts, responsive controls, and streamlined diagnostics."]
+        }
+      ]
+    },
+    {
+      "type": "insights",
+      "title": "Key Insights",
+      "label": "Key Insights",
+      "headline": "What we learned from operators and developers.",
+      "items": [
+        { "icon": "📈", "title": "Sensor data was available, but not actionable", "description": "Users were overwhelmed by raw data streams and needed a way to correlate sensor states with system behavior." },
+        { "icon": "🎮", "title": "Developers wanted control + clarity", "description": "Solutions engineers expected joystick-like control with immediate feedback, while devs wanted a way to simulate/test remotely." },
+        { "icon": "🧩", "title": "Tooling fatigue was real", "description": "Many users jumped between multiple dashboards, logs, and command-line tools. They wanted a unified environment." },
+        { "icon": "🧠", "title": "Familiar patterns helped adoption", "description": "Using VS Code-like UI structures (e.g. tabbed panels, left-hand nav) reduced ramp-up time and made TeleOp feel \"native\" to their workflow." }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Design Approach",
+      "subsections": [
+        {
+          "title": "Flow Map",
+          "paragraphs": ["I mapped out the core user journeys for different personas, including solutions engineers and developers. Early flows prioritized quick access to machine status, streamlined manual control interactions, and fallback paths for degraded network environments."],
+          "media": {
+            "type": "image",
+            "src": "images/viam-teleop/TeleOp-Flowmap.jpg",
+            "alt": "TeleOp Flow Map"
+          }
+        },
+        {
+          "title": "Wireframes",
+          "paragraphs": ["Low-fidelity wireframes tested different structural models: tabbed dashboards, collapsible sensor panels, and split-view layouts combining control and telemetry. Wireframes helped validate navigation hierarchy and the balance between overview and detail views."],
+          "media": {
+            "type": "image",
+            "src": "images/viam-teleop/teleop-wireframes.png",
+            "alt": "TeleOp Wireframes"
+          }
+        },
+        {
+          "title": "Iterations",
+          "paragraphs": ["Through rounds of feedback and internal testing, we refined the UI to prioritize actionability, surfacing the most critical sensor states first and simplifying manual overrides. Design iterations also focused on making the dashboard feel responsive even under slower network conditions, improving trust during remote operations."]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Key Functionality",
+      "features": [
+        {
+          "name": "Adding Widgets",
+          "headline": "Build your command center.",
+          "description": "Create a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Drag and drop the widgets you need, exactly where you need them.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-adding-widgets.mp4"
+          }
+        },
+        {
+          "name": "Adding Machines",
+          "headline": "Connect in clicks, not hours.",
+          "description": "Quickly add machines to your workspace with <strong>streamlined onboarding flows</strong>. Get from zero to monitoring in minutes, not hours.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-adding-machine.mp4"
+          }
+        },
+        {
+          "name": "Widget Configuration",
+          "headline": "Your data, your way.",
+          "description": "Enjoy <strong>modular setup for selecting, arranging, and customizing</strong> live data and control widgets across the dashboard. Every operator gets the view that works for them.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-configuring-widget.mp4"
+          }
+        },
+        {
+          "name": "Machine Monitoring",
+          "headline": "Eyes everywhere, always.",
+          "description": "Access a <strong>centralized view of visual, spatial, and diagnostic sensor data</strong> for live machine monitoring. Know exactly what's happening, no matter where you are.",
+          "media": {
+            "type": "video",
+            "src": "images/viam-teleop/teleop-machine-monitoring.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "type": "reflections",
+      "title": "Reflections",
+      "label": "Reflections",
+      "headline": "What went well.",
+      "subsections": [
+        {
+          "title": "",
+          "lists": [
+            {
+              "items": [
+                "Real-time visibility drove adoption across operators and developers.",
+                "Centralized telemetry cut time spent switching between dashboards and CLI.",
+                "Solutions engineers reported faster machine setup and clearer demos.",
+                "Developer comfort with the UI increased; fewer \"how do I…\" support tickets.",
+                "Operators completed monitoring and control tasks faster in testing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "Designing for remote control is different.",
+      "items": [
+        { "title": "Visibility and control had to live together.", "description": "Operators wanted joystick-like response; devs wanted a single place to see state and simulate. One surface for both was non-negotiable." },
+        { "title": "Tooling fatigue was real.", "description": "Users jumped between multiple dashboards, logs, and CLIs. Consolidating into one environment reduced cognitive load and sped up debugging." },
+        { "title": "Real-time feedback built trust.", "description": "When controlling machines remotely, operators needed immediate response; lag or delayed updates made them second-guess what they were seeing." },
+        { "title": "Sensor data needed structure.", "description": "Raw streams were overwhelming. Correlating sensor state with behavior in the UI turned data into something actionable." }
+      ]
+    }
+  ],
+  "cta": {
+    "text": "Explore TeleOp in Viam →",
+    "url": "https://docs.viam.com/manage/troubleshoot/teleoperate/custom-interface/"
+  },
+  "nextCaseStudy": {
+    "title": "GovWell Plan Review",
+    "description": "Modernizing the review process for local government inspectors.",
+    "url": "govwell-plan-review.html",
+    "image": "images/index/govwell-hero.png"
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFY6LBQ0SF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFY6LBQ0SF');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Peter Borges</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+      applyTheme(savedTheme || 'system');
+    })();
+  </script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    footer { margin-top: auto; }
+
+    .four-oh-four {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .four-oh-four-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .four-oh-four-code {
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin: 0;
+      color: var(--text-primary);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .four-oh-four-message {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-muted);
+      margin: 1rem 0 0;
+      line-height: 1.5;
+      max-width: 400px;
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-out 0.4s both;
+    }
+
+    .four-oh-four-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      transition: all 0.2s ease;
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-out 0.6s both;
+    }
+
+    .four-oh-four-link:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .four-oh-four-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .four-oh-four-link:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* Grid background to match homepage hero */
+    .grid-pattern-404 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 56px);
+      grid-template-rows: repeat(auto-fill, 56px);
+      gap: 0;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+
+    .grid-square-404 {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid-square-404 svg rect {
+      stroke: rgba(0, 0, 0, 0.04);
+      transition: stroke 1.2s ease-out, fill 1.2s ease-out;
+    }
+
+    .grid-square-404.pulse svg rect {
+      animation: squarePulse404 2.5s ease-in-out;
+    }
+
+    @keyframes squarePulse404 {
+      0%, 100% {
+        stroke: rgba(0, 0, 0, 0.04);
+        fill: transparent;
+      }
+      50% {
+        stroke: rgba(0, 0, 0, 0.1);
+        fill: rgba(0, 0, 0, 0.015);
+      }
+    }
+
+    [data-theme="dark"] .grid-square-404 svg rect {
+      stroke: rgba(255, 255, 255, 0.08);
+    }
+
+    [data-theme="dark"] .grid-square-404.pulse svg rect {
+      animation: squarePulse404Dark 2.5s ease-in-out;
+    }
+
+    @keyframes squarePulse404Dark {
+      0%, 100% {
+        stroke: rgba(255, 255, 255, 0.08);
+        fill: transparent;
+      }
+      50% {
+        stroke: rgba(255, 255, 255, 0.2);
+        fill: rgba(255, 255, 255, 0.04);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .four-oh-four-code,
+      .four-oh-four-message,
+      .four-oh-four-link {
+        animation: none;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="four-oh-four">
+    <div class="grid-pattern-404" id="gridPattern404"></div>
+    <div class="four-oh-four-inner">
+      <h1 class="four-oh-four-code">404</h1>
+      <p class="four-oh-four-message">This page doesn't exist. Maybe it never did.</p>
+      <a href="/" class="four-oh-four-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Back to work
+      </a>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url, callback) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
+        });
+    }
+
+    includeHTML('#site-header', '/partials/header.html');
+    includeHTML('#site-footer', '/partials/footer.html', function() {
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        buttons.forEach(btn => { if (btn.dataset.theme === savedTheme) btn.classList.add('active'); });
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const theme = this.dataset.theme;
+            document.documentElement.setAttribute('data-theme', theme === 'system' ? (prefersDark.matches ? 'dark' : 'light') : theme);
+            localStorage.setItem('theme', theme);
+          });
+        });
+      }
+    });
+
+    // Grid pattern background
+    (function() {
+      const grid = document.getElementById('gridPattern404');
+      if (!grid) return;
+      const container = document.querySelector('.four-oh-four');
+      const cols = Math.ceil(container.offsetWidth / 56) + 2;
+      const rows = Math.ceil(container.offsetHeight / 56) + 2;
+      const squares = [];
+
+      for (let i = 0; i < cols * rows; i++) {
+        const square = document.createElement('div');
+        square.className = 'grid-square-404';
+        square.innerHTML = '<svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="48" height="48" rx="12" fill="none" stroke-width="1"/></svg>';
+        grid.appendChild(square);
+        squares.push(square);
+      }
+
+      function pulseRandom() {
+        const idx = Math.floor(Math.random() * squares.length);
+        if (!squares[idx].classList.contains('pulse')) {
+          squares[idx].classList.add('pulse');
+          setTimeout(() => squares[idx].classList.remove('pulse'), 2500);
+        }
+      }
+
+      setInterval(pulseRandom, 600);
+      for (let i = 0; i < 3; i++) setTimeout(pulseRandom, i * 400);
+    })();
+  </script>
+</body>
+</html>

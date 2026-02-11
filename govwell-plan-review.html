@@ -1,4 +1,3 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +11,12 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peter Borges | About</title>
+  <title>GovWell Plan Review | Peter Borges</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="side-rail.js" defer></script>
+  <script src="case-study-template.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
@@ -40,13 +42,11 @@
 <body>
   <div id="site-header"></div>
 
-  <div class="content-container">
-    <section class="about-inner">
-      <img class="about-image" src="images/about/RevUnit-CoWorking.jpg" alt="Workshop photo" />
-      <h2>About</h2>
-      <p>I'm a product designer focused on systems thinking, human-centered research, and designing for clarity. I believe good design is as much about understanding people as it is about pixels and process.</p>
-      <p>I've worked across industries including robotics, fintech, logistics, and retail, helping companies grow smarter, more intuitive digital experiences.</p>
-    </section>
+  <div class="content-container" style="padding-top: 4rem;">
+    <div id="case-study-content">
+      <!-- Content rendered by case-study-template.js -->
+      <div class="loading-state">Loading...</div>
+    </div>
   </div>
 
   <div id="site-footer"></div>
@@ -60,6 +60,7 @@
           if (callback) callback();
         });
     }
+    
     includeHTML('#site-header', 'partials/header.html');
     includeHTML('#site-footer', 'partials/footer.html', function() {
       const themeSwitcher = document.querySelector('.theme-switcher');
@@ -67,17 +68,29 @@
         const buttons = themeSwitcher.querySelectorAll('.theme-option');
         const savedTheme = localStorage.getItem('theme') || 'system';
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        buttons.forEach(btn => { if (btn.dataset.theme === savedTheme) btn.classList.add('active'); });
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
         buttons.forEach(btn => {
           btn.addEventListener('click', function() {
             buttons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             const theme = this.dataset.theme;
-            document.documentElement.setAttribute('data-theme', theme === 'system' ? (prefersDark.matches ? 'dark' : 'light') : theme);
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
             localStorage.setItem('theme', theme);
           });
         });
       }
+    });
+
+    // Render case study from JSON data
+    document.addEventListener('DOMContentLoaded', function() {
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/govwell-plan-review.json');
+      renderer.render();
     });
   </script>
 </body>

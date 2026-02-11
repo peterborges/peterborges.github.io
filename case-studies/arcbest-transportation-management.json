@@ -1,0 +1,137 @@
+{
+  "title": "ArcBest Transportation Management System (TMS)",
+  "subtitle": "Designing for logistics at scale",
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Strategy", "Generative Research", "Experience Design", "Member Research", "Design Language"]
+    },
+    "team": [
+      "1 Internal Product Owner",
+      "1 RevUnit Product Owner",
+      "2 Designers",
+      "12 Developers"
+    ],
+    "timeline": {
+      "duration": "March 2021 – Present",
+      "status": "Ongoing"
+    },
+    "overview": [
+      "ArcBest is a freight and logistics company offering integrated services across multiple transportation service lines. The goal was to consolidate tools across divisions into a single Transportation Management System (TMS) that reduces reliance on third-party systems and enhances internal efficiency."
+    ]
+  },
+  "sections": [
+    {
+      "type": "text",
+      "title": "My Role",
+      "paragraphs": ["I led user research, stakeholder workshops, workflow mapping, and the definition of a unified design language. I also supported feature validation and UI delivery across multiple teams."]
+    },
+    {
+      "type": "text",
+      "title": "What is a TMS?",
+      "paragraphs": ["A TMS manages data on loads, carriers, routes, costs, and contact info. It provides a centralized view of freight movements and enables planning, tracking, and coordination."]
+    },
+    {
+      "type": "text",
+      "title": "Service Lines Supported",
+      "lists": [
+        {
+          "items": [
+            "<strong>Partial Truckload (PT):</strong> Purchased capacity from 3rd party vendors",
+            "<strong>Less Than Truckload Brokerage (LTLB):</strong> Small shipments from multiple customers",
+            "<strong>Truckload (TL):</strong> Full trailer loads across hubs",
+            "<strong>Expedite:</strong> Critical, time-sensitive loads",
+            "<strong>Dedicated:</strong> Vehicles dedicated to single clients or contracts"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "challenge",
+      "label": "The Challenge",
+      "headline": "Five service lines, zero consistency.",
+      "subheading": "Operations were held back by fragmentation:",
+      "cards": [
+        {
+          "icon": "layers",
+          "text": "Teams used different tools with inconsistent workflows, creating training overhead and errors."
+        },
+        {
+          "icon": "x",
+          "text": "Overlapping data and disconnected logic meant no single source of truth."
+        },
+        {
+          "icon": "search",
+          "text": "No unified design language made the platform feel like five separate products."
+        }
+      ]
+    },
+    {
+      "type": "principles",
+      "label": "Key Insights",
+      "headline": "One shipment model to rule them all.",
+      "subheading": "What research revealed:",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "\"A shipment is a shipment\"",
+          "description": "Found significant overlap in load structure and lifecycle across all five service lines."
+        },
+        {
+          "icon": "cpu",
+          "title": "Unified UI patterns",
+          "description": "Required consistent interactions and interface elements to reduce cognitive load."
+        },
+        {
+          "icon": "globe",
+          "title": "Cross-team influence",
+          "description": "Our design language influenced other ArcBest product teams to adopt shared patterns."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Design Solutions",
+      "features": [
+        {
+          "name": "Prioritized Action List",
+          "headline": "Your tasks, organized.",
+          "before": "Before: Noise everywhere.",
+          "description": "A <strong>centralized task view</strong> for users to manage loads assigned by supervisors, eliminating redundancy and noise. Focus on what matters, ignore the rest."
+        },
+        {
+          "name": "Load Board",
+          "headline": "Every load, at a glance.",
+          "before": "Before: Scattered status checks.",
+          "description": "Displays <strong>load lifecycle stages across service lines</strong>. Enables prioritization via quick filters based on location and operational status."
+        },
+        {
+          "name": "Load Details",
+          "headline": "Deep dive, instantly.",
+          "before": "Before: Tab hopping madness.",
+          "description": "Unified tabs for <strong>Stops, Commodities, Tracking, Carrier Details, Financials</strong>, and more. Everything about a load, organized and accessible in one place."
+        },
+        {
+          "name": "Manual Load Creation",
+          "headline": "No EDI? No problem.",
+          "before": "Before: Workarounds everywhere.",
+          "description": "Enabled users to <strong>create loads manually via phone or email</strong> if not received through automated EDI feeds. Flexibility when automation falls short."
+        }
+      ]
+    },
+    {
+      "type": "outcomes-list",
+      "title": "Outcomes",
+      "items": [
+        "Unified user experience across previously siloed teams",
+        "Improved visibility into operations and financials",
+        "Simplified onboarding for new service lines and workflows"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reflections",
+      "paragraphs": ["This was a complex, multi-year systems integration challenge. Working across service lines meant aligning on terminology, workflows, and tools. Early wins came from shared visual patterns and consistent user research cadence. The design language helped bring cohesion and speed to a long roadmap of products."]
+    }
+  ]
+}

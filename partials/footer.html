@@ -1,7 +1,127 @@
-<footer>
-  <p>© 2025 Peter Borges · Made with pixels & Github Pages · pborges@alumni.risd.edu
-    <a href="https://linkedin.com/in/peterborges/" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-top">
+      <div class="footer-nav">
+        <div class="footer-column">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="https://drive.google.com/file/d/1JjAlBwxkYLUfPeR6OmHYoYwNVmCS7Ir5/view?usp=sharing" target="_blank">Resume</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://x.com/Pete_Borges" target="_blank">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/peterborges/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/peterborges" target="_blank">Github</a></li>
+            <li class="email-item">
+              <a href="mailto:pborges@alumni.risd.edu" class="email-link" id="emailLink">Email</a>
+              <div class="email-tooltip" id="emailTooltip">
+                <span class="tooltip-email">pborges@alumni.risd.edu</span>
+                <button class="tooltip-copy-btn" id="copyBtn" title="Copy email">
+                  <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-status">
+        <span class="status-dot"></span>
+        <span>All systems operational</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>© 2026</p>
+        <p class="visitor-location">Last visitor from <span id="visitor-location">...</span></p>
+      </div>
+      <div class="theme-switcher">
+        <button class="theme-option" data-theme="light" aria-label="Light mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button class="theme-option" data-theme="system" aria-label="System preference">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a10 10 0 0 1 0 20z"></path>
+          </svg>
+        </button>
+        <button class="theme-option" data-theme="dark" aria-label="Dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<script>
+  // Email copy functionality
+  (function() {
+    const copyBtn = document.getElementById('copyBtn');
+    const tooltip = document.getElementById('emailTooltip');
+    const email = 'pborges@alumni.risd.edu';
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        navigator.clipboard.writeText(email).then(() => {
+          tooltip.classList.add('copied');
+          setTimeout(() => {
+            tooltip.classList.remove('copied');
+          }, 2000);
+        }).catch(() => {
+          // Fallback
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          tooltip.classList.add('copied');
+          setTimeout(() => {
+            tooltip.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    }
+  })();
+
+  // Fetch visitor location
+  (function() {
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        const locationEl = document.getElementById('visitor-location');
+        if (data.city && data.region) {
+          locationEl.textContent = `${data.city}, ${data.region}`;
+        } else if (data.city && data.country_name) {
+          locationEl.textContent = `${data.city}, ${data.country_name}`;
+        } else if (data.country_name) {
+          locationEl.textContent = data.country_name;
+        } else {
+          locationEl.textContent = 'somewhere on Earth';
+        }
+      })
+      .catch(() => {
+        document.getElementById('visitor-location').textContent = 'parts unknown';
+      });
+  })();
+</script>
