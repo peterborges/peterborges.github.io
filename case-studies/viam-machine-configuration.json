@@ -54,7 +54,7 @@
     },
     {
       "type": "principles",
-      "label": "Success Metrics",
+      "label": "Metrics",
       "headline": "Adoption, speed, and familiarity.",
       "subheading": "What success looked like:",
       "cards": [
@@ -77,7 +77,7 @@
     },
     {
       "type": "text",
-      "title": "Design Process",
+      "title": "Process",
       "subsections": [
         {
           "title": "UI System Integration",
@@ -143,7 +143,8 @@
     {
       "type": "images-grid",
       "title": "Impact",
-      "intro": "The redesign addressed long-overdue improvements to the machine configuration experience, transforming a fragmented interface into a clearer, more structured workflow. Beyond immediate usability gains, it established a stable foundation for future feature development and scalability. The response from both customers and internal teams was overwhelmingly positive:",
+      "label": "Impact",
+      "headline": "The response from customers and internal teams.",
       "images": [
         { "src": "images/viam-machine-configuration/quote-1.webp", "alt": "Customer feedback quote" },
         { "src": "images/viam-machine-configuration/quote-2.webp", "alt": "Customer feedback quote" },
@@ -156,9 +157,54 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Reflections",
-      "paragraphs": ["This project delivered measurable success. It reduced engineering support load, improved user confidence, and helped close deals with Tennibot and the Billion Oyster Project. A phased launch could have accelerated delivery."]
+      "type": "insights",
+      "title": "Trade-offs",
+      "label": "Trade-offs",
+      "headline": "What we cut, and why it mattered.",
+      "navTitle": "Trade-offs",
+      "items": [
+        {
+          "title": "Dual-mode over wizard",
+          "description": "Chose visual + JSON editing instead of a step-by-step wizard. Protected power users who needed granular control while still offering a visual interface for beginners. Trade-off: slightly steeper initial learning curve for new users, but avoided the 'wizard trap' where advanced users hit a ceiling."
+        },
+        {
+          "title": "Phased launch deprioritized",
+          "description": "Shipped all features together in 4 months instead of breaking into phases. Prioritized delivering a cohesive experience over faster initial delivery. Trade-off: Later launch date, but avoided fragmented user experience and rework costs."
+        },
+        {
+          "title": "Template library postponed",
+          "description": "Cut pre-built configuration templates from v1 to ship on schedule. Focused on making the core configuration workflow 65% faster instead. Relied on null states + contextual help rather than template library. Trade-off: users start from scratch, but the core flow is so fast it's still net-positive."
+        },
+        {
+          "title": "Advanced filtering deferred",
+          "description": "Deprioritized complex filtering in tree navigation to focus on hierarchical clarity. Bet that clear structure would reduce the need for search/filter. Trade-off: users with 50+ components may need to scroll more, but 90% of users have simpler setups where hierarchy is sufficient."
+        }
+      ]
+    },
+    {
+      "type": "insights",
+      "title": "Systems Thinking",
+      "label": "Ecosystem Impact",
+      "headline": "How configuration changes ripple through the platform.",
+      "navTitle": "Systems Thinking",
+      "items": [
+        {
+          "title": "Fleet Management coordination",
+          "description": "Machine configuration feeds fleet-level data. Improved tree navigation meant fleet managers could now understand machine hierarchies without switching contexts. Coordinated with Fleet team to ensure config changes didn't break their dashboards. Reduced cross-team support tickets by enabling self-service troubleshooting."
+        },
+        {
+          "title": "Data pipeline quality",
+          "description": "Better configuration UX led to more accurate component setup, which meant cleaner data flowing to ML models. Logs feature caught misconfigurations before they corrupted datasets. Data team reported fewer 'garbage in, garbage out' edge cases after launch."
+        },
+        {
+          "title": "Registry ecosystem trust",
+          "description": "Enterprise customers evaluate the platform by configuration experience first. VS Code-style patterns increased enterprise confidence in the entire registry ecosystem. Helped close deals with Tennibot and Billion Oyster Project by demonstrating production readiness."
+        },
+        {
+          "title": "Engineering support efficiency",
+          "description": "65% faster configuration meant solutions engineers onboarded new customers faster. Connect tab (auto-generated code) removed documentation bottleneck. Engineering team shifted from reactive support to proactive feature development."
+        }
+      ]
     }
   ],
   "cta": {

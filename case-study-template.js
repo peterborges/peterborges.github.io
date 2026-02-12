@@ -608,13 +608,31 @@ class CaseStudyRenderer {
   // IMAGES GRID (for quotes, screenshots, etc.)
   // ============================================
   renderImagesGrid(section) {
-    let html = section.title ? `<h2>${section.title}</h2>` : '';
-    if (section.intro) html += `<p>${section.intro}</p>`;
-    
+    let html = '';
+
+    // Use label/headline structure if available (like insights sections)
+    if (section.label && section.headline) {
+      html += `
+      <div class="learnings-section">
+        <div class="learnings-header">
+          <span class="learnings-label">${section.label}</span>
+          <h2 data-nav-title="${section.navTitle || section.title}">${section.headline}</h2>
+        </div>
+      `;
+    } else {
+      // Fallback to simple title/intro structure
+      html += section.title ? `<h2>${section.title}</h2>` : '';
+      if (section.intro) html += `<p>${section.intro}</p>`;
+    }
+
     html += `<div class="quotes-grid">
       ${section.images.map(img => `<img src="${img.src}" alt="${img.alt || ''}" />`).join('')}
     </div>`;
-    
+
+    if (section.label && section.headline) {
+      html += `</div>`; // Close learnings-section
+    }
+
     return html;
   }
 
