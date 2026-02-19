@@ -797,6 +797,49 @@
         container.appendChild(card);
       });
 
+      // Count-up animation for impact metrics
+      (function() {
+        function parseMetric(text) {
+          // Extracts prefix (e.g. "$"), number (e.g. 9.5), suffix (e.g. "M", "+")
+          const match = text.match(/^([^0-9]*)(\d+(?:\.\d+)?)(.*)$/);
+          if (!match) return null;
+          return { prefix: match[1], value: parseFloat(match[2]), suffix: match[3] };
+        }
+
+        function animateCounter(el, metric, duration) {
+          const start = performance.now();
+          const isFloat = metric.value % 1 !== 0;
+          function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * metric.value;
+            el.textContent = metric.prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + metric.suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = metric.prefix + metric.value + metric.suffix;
+          }
+          requestAnimationFrame(step);
+        }
+
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            const impactEl = entry.target;
+            observer.unobserve(impactEl); // never re-animate
+            impactEl.querySelectorAll('strong').forEach(function(strong) {
+              const metric = parseMetric(strong.textContent.trim());
+              if (!metric) return;
+              animateCounter(strong, metric, 1200);
+            });
+          });
+        }, { threshold: 0.4 });
+
+        document.querySelectorAll('.project-impact').forEach(function(el) {
+          observer.observe(el);
+        });
+      })();
+
       // About Me card
       const aboutCard = document.createElement('div');
       aboutCard.className = 'about-card';
