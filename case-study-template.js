@@ -1,6 +1,18 @@
 // Case Study Template Renderer
 // Updates to this file will apply to ALL case studies
 
+// Escape untrusted strings before inserting into HTML attributes or plain text slots.
+// Rich text fields (paragraphs, impact text) intentionally allow a safe subset of HTML
+// tags that are already present in the JSON source files.
+function escAttr(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 class CaseStudyRenderer {
   constructor(containerId, dataUrl) {
     this.container = document.getElementById(containerId);
@@ -10,6 +22,7 @@ class CaseStudyRenderer {
   async render() {
     try {
       const response = await fetch(this.dataUrl);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       this.container.innerHTML = this.generateHTML(data);
       this.initAnimations();
@@ -54,13 +67,13 @@ class CaseStudyRenderer {
     
     if (data.hero.type === 'video') {
       return `
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="${data.hero.src}" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+          <source src="${escAttr(data.hero.src)}" type="video/mp4">
         </video>
       `;
     }
-    
-    return `<img src="${data.hero.src}" alt="${data.hero.alt || data.title}" class="hero-image ${data.hero.noCard ? 'no-card' : ''}" />`;
+
+    return `<img src="${escAttr(data.hero.src)}" alt="${escAttr(data.hero.alt || data.title)}" class="hero-image ${data.hero.noCard ? 'no-card' : ''}" loading="eager" decoding="sync" />`;
   }
 
   // ============================================
@@ -379,20 +392,20 @@ class CaseStudyRenderer {
 
   renderFeatureMedia(media) {
     if (!media) return '';
-    
+
     if (media.type === 'video') {
       return `
         <div class="feature-media">
-          <video autoplay muted loop playsinline class="hero-image">
-            <source src="${media.src}" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" class="hero-image">
+            <source src="${escAttr(media.src)}" type="video/mp4">
           </video>
         </div>
       `;
     }
-    
+
     return `
       <div class="feature-media">
-        <img src="${media.src}" alt="${media.alt || ''}" class="hero-image" />
+        <img src="${escAttr(media.src)}" alt="${escAttr(media.alt || '')}" class="hero-image" loading="lazy" decoding="async" />
       </div>
     `;
   }
@@ -626,7 +639,7 @@ class CaseStudyRenderer {
     }
 
     html += `<div class="quotes-grid">
-      ${section.images.map(img => `<img src="${img.src}" alt="${img.alt || ''}" />`).join('')}
+      ${section.images.map(img => `<img src="${escAttr(img.src)}" alt="${escAttr(img.alt || '')}" loading="lazy" decoding="async" />`).join('')}
     </div>`;
 
     if (section.label && section.headline) {
@@ -681,7 +694,7 @@ class CaseStudyRenderer {
             <div class="insight-image-row">
               ${section.competitiveImages.map(img => `
                 <div class="image-wrapper">
-                  <img src="${img.src}" alt="${img.alt || ''}" />
+                  <img src="${escAttr(img.src)}" alt="${escAttr(img.alt || '')}" loading="lazy" decoding="async" />
                   ${img.caption ? `<p class="image-caption">${img.caption}</p>` : ''}
                 </div>
               `).join('')}
@@ -728,7 +741,7 @@ class CaseStudyRenderer {
   renderCTA(cta) {
     return `
       <div class="case-study-cta">
-        <a href="${cta.url}" target="_blank" rel="noopener noreferrer" class="cta-button">${cta.text}</a>
+        <a href="${escAttr(cta.url)}" target="_blank" rel="noopener noreferrer" class="cta-button">${cta.text}</a>
       </div>
     `;
   }
@@ -744,7 +757,7 @@ class CaseStudyRenderer {
     return `
       <div class="next-case-study">
         <span class="next-label">Next Case Study</span>
-        <a href="${next.url}" class="next-case-study-card">
+        <a href="${escAttr(next.url)}" class="next-case-study-card">
           <div class="project-info">
             <h3>${next.title}</h3>
             <div class="tags">${next.tags || ''}</div>
@@ -752,7 +765,7 @@ class CaseStudyRenderer {
             ${formattedImpact ? `<p class="project-impact">${formattedImpact}</p>` : ''}
           </div>
           <div class="project-thumb-wrapper">
-            <img class="project-thumb" src="${next.image}" alt="${next.title}" />
+            <img class="project-thumb" src="${escAttr(next.image)}" alt="${escAttr(next.title)}" loading="lazy" decoding="async" />
           </div>
         </a>
       </div>

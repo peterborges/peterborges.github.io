@@ -77,6 +77,13 @@ function initSideRail() {
   contentContainer.style.padding = '0';
   contentContainer.appendChild(layoutWrapper);
 
+  // Apply scroll-margin-top to all headings so scrollIntoView respects the sticky navbar
+  const navbar = document.querySelector('.navbar');
+  const scrollMargin = (navbar ? navbar.offsetHeight : 72) + 24;
+  headings.forEach(heading => {
+    heading.style.scrollMarginTop = scrollMargin + 'px';
+  });
+
   // Smooth scroll on click
   navList.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -84,14 +91,7 @@ function initSideRail() {
       const targetId = this.dataset.target;
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const headerOffset = 100;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
