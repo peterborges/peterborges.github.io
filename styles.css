@@ -508,11 +508,6 @@ header p {
   color: var(--text-muted);
 }
 
-.visitor-location {
-  margin-top: 0.25rem !important;
-  color: var(--text-muted) !important;
-  opacity: 0.7;
-}
 
 /* Legacy footer support */
 footer:not(.site-footer) {

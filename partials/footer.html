@@ -36,7 +36,6 @@
     <div class="footer-bottom">
       <div class="footer-bottom-left">
         <p>© 2026</p>
-        <p class="visitor-location">Last visitor from <span id="visitor-location">...</span></p>
       </div>
       <div class="theme-switcher">
         <button class="theme-option" data-theme="light" aria-label="Light mode">
@@ -104,24 +103,4 @@
     }
   })();
 
-  // Fetch visitor location
-  (function() {
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        const locationEl = document.getElementById('visitor-location');
-        if (data.city && data.region) {
-          locationEl.textContent = `${data.city}, ${data.region}`;
-        } else if (data.city && data.country_name) {
-          locationEl.textContent = `${data.city}, ${data.country_name}`;
-        } else if (data.country_name) {
-          locationEl.textContent = data.country_name;
-        } else {
-          locationEl.textContent = 'somewhere on Earth';
-        }
-      })
-      .catch(() => {
-        document.getElementById('visitor-location').textContent = 'parts unknown';
-      });
-  })();
 </script>

@@ -26,8 +26,6 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     /* Loading Animations */
     @keyframes fadeInUp {
@@ -727,7 +725,7 @@
       const cols = Math.ceil((header.offsetWidth * 1.1) / 56) + 2;
       const rows = Math.ceil((header.offsetHeight + 112) / 56) + 2;
 
-      const squares = [];
+      let squares = [];
       for (let i = 0; i < cols * rows; i++) {
         const square = document.createElement('div');
         square.className = 'grid-square';
@@ -738,6 +736,7 @@
 
       // Random pulse animation
       function pulseRandomSquare() {
+        if (!squares) return;
         const randomIndex = Math.floor(Math.random() * squares.length);
         const square = squares[randomIndex];
         if (!square.classList.contains('pulse')) {
@@ -747,11 +746,22 @@
       }
 
       // Start random pulses
-      setInterval(pulseRandomSquare, 400);
+      let pulseInterval = setInterval(pulseRandomSquare, 400);
       // Initial pulses
       for (let i = 0; i < 3; i++) {
         setTimeout(pulseRandomSquare, i * 300);
       }
+
+      // Stop pulsing and free memory when header scrolls out of view
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) {
+          clearInterval(pulseInterval);
+          pulseInterval = null;
+          squares = null;
+          observer.disconnect();
+        }
+      });
+      observer.observe(header);
     })();
 
 
