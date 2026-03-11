@@ -251,11 +251,17 @@
     .experience-item:hover .experience-logo {
       filter: grayscale(0);
     }
+    /* Dark mode: mono logos (black-only) become white */
     [data-theme="dark"] .experience-logo {
       filter: grayscale(1) invert(1);
     }
-    [data-theme="dark"] .experience-item:hover .experience-logo {
+    /* Dark mode hover: mono logos stay white */
+    [data-theme="dark"] .experience-item:hover .experience-logo[data-mono] {
       filter: invert(1);
+    }
+    /* Dark mode hover: color logos show brand color */
+    [data-theme="dark"] .experience-item:hover .experience-logo:not([data-mono]) {
+      filter: grayscale(0);
     }
     .experience-title {
       flex: 1;
@@ -427,32 +433,32 @@
       <h2 class="section-label">Experience</h2>
       <div class="experience-list">
         <a class="experience-item" href="https://www.govwell.com" target="_blank">
-          <img src="images/logos/govwell-logo-black.png" alt="GovWell" class="experience-logo" />
+          <img src="images/logos/govwell-logo-black.png" alt="GovWell" class="experience-logo" data-mono />
           <p class="experience-title">Founding Designer</p>
           <span class="experience-years">2025 — Present</span>
         </a>
         <a class="experience-item" href="https://www.viam.com" target="_blank">
-          <img src="images/logos/viam-logo.png" alt="Viam" class="experience-logo" />
+          <img src="images/logos/viam-logo.png" alt="Viam" class="experience-logo" data-mono />
           <p class="experience-title">Founding → Lead Designer</p>
           <span class="experience-years">2021 — 2025</span>
         </a>
         <a class="experience-item" href="https://www.heb.com" target="_blank">
-          <img src="images/logos/heb-logo.png" alt="HEB" class="experience-logo" />
+          <img src="images/logos/heb-logo-color.svg" alt="HEB" class="experience-logo" />
           <p class="experience-title">Senior Product Designer</p>
           <span class="experience-years">2019 — 2021</span>
         </a>
         <a class="experience-item" href="https://www.usaa.com" target="_blank">
-          <img src="images/logos/USAA-Emblem.png" alt="USAA" class="experience-logo" style="height: 28px;" />
+          <img src="images/logos/usaa-wordmark.svg" alt="USAA" class="experience-logo" />
           <p class="experience-title">Experience Designer</p>
           <span class="experience-years">2017 — 2019</span>
         </a>
         <a class="experience-item" href="https://www.saic.com" target="_blank">
-          <img src="images/logos/saic-logo.png" alt="SAIC" class="experience-logo" />
+          <img src="images/logos/saic-logo-color.svg" alt="SAIC" class="experience-logo" />
           <p class="experience-title">UI/UX Designer</p>
           <span class="experience-years">2015 — 2017</span>
         </a>
         <a class="experience-item" href="https://www.risd.edu" target="_blank">
-          <img src="images/logos/risd-logo.png" alt="RISD" class="experience-logo" style="height: 28px;" />
+          <img src="images/logos/risd-wordmark.svg" alt="RISD" class="experience-logo" />
           <p class="experience-title">BFA, Industrial Design</p>
           <span class="experience-years">2011 — 2015</span>
         </a>
