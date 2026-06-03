@@ -2522,7 +2522,21 @@ h2.solution-label::before {
 }
 
 .next-case-study-card:hover .project-thumb {
-  transform: scale(1.01);
+  transform: scale(1.03);
+}
+
+/* Animated arrow affordance on the "next" card title */
+.next-case-study-card .project-info h3::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.4rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.next-case-study-card:hover .project-info h3::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 [data-theme="dark"] .next-case-study-card {
@@ -2543,5 +2557,87 @@ h2.solution-label::before {
   
   .next-case-study-card .project-thumb-wrapper {
     padding: 0 1.5rem;
+  }
+}
+
+/* =====================================================================
+   Motion & interaction pass
+   View transitions, scroll reveal, animated link underlines
+   ===================================================================== */
+
+/* ----- Cross-document page transitions (gentle cross-fade) ----- */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ----- Theme toggle: circular reveal from the toggle button -----
+   Scoped to .theme-vt so page navigation keeps the plain cross-fade. */
+html.theme-vt::view-transition-old(root) {
+  animation: none;
+  z-index: 1;
+}
+html.theme-vt::view-transition-new(root) {
+  animation: theme-reveal 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+}
+
+/* ----- Scroll reveal (homepage below-the-fold blocks) -----
+   Hidden state is gated behind `.js` so content stays visible if
+   JavaScript is disabled or fails to load. */
+.reveal-on-scroll {
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.js .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ----- Animated underline on prose links ----- */
+.about-content a,
+.case-study p a,
+.case-study li a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  padding-bottom: 1px;
+  transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+.about-content a:hover,
+.case-study p a:hover,
+.case-study li a:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
   }
 }

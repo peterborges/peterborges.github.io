@@ -28,9 +28,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="enhance.min.js" defer></script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
       function applyTheme(theme) {
@@ -107,6 +109,12 @@
     }
     .headshot:hover {
       transform: rotate(360deg);
+    }
+    .headshot-tilt {
+      display: inline-block;
+      line-height: 0;
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
     }
     .wave-emoji {
       display: inline-block;
@@ -251,6 +259,12 @@
     .experience-item:hover .experience-logo {
       filter: grayscale(0);
     }
+    /* RISD mark is a squarer aspect (~2.27) than the other logos, so the
+       18px-tall box caps it at ~41px wide. Allow a little more height so it
+       fills the same ~52px visual width as the rest. */
+    .experience-logo--risd {
+      height: 23px;
+    }
     /* Dark mode: mono logos (black-only) become white */
     [data-theme="dark"] .experience-logo {
       filter: grayscale(1) invert(1);
@@ -386,7 +400,7 @@
     }
     .city-wrapper:hover .city-popover { opacity: 1; visibility: visible; }
 
-    /* Intro links (Resume, LinkedIn) */
+    /* Intro links (Resume) */
     .intro-links {
       display: flex;
       gap: 1.5rem;
@@ -416,7 +430,7 @@
       <div class="grid-pattern" id="gridPattern"></div>
       <div class="intro-text">
         <div class="greeting-row">
-          <img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot" />
+          <span class="headshot-tilt"><img src="images/index/borges-headshot.jpeg" alt="Peter Borges" class="headshot" /></span>
           <p class="greeting">Hi, I'm Peter <span class="wave-emoji">👋</span></p>
         </div>
         <h1 class="site-title">Product designer turning complex systems into interfaces people love.</h1>
@@ -424,7 +438,6 @@
         <p class="intro locations">Based in <span class="city-wrapper"><span class="city struck">Providence</span><img src="images/index/providence.png" alt="Providence" class="city-popover" loading="lazy" decoding="async" /></span>, <span class="city-wrapper"><span class="city struck">San Francisco</span><img src="images/index/san-francisco.png" alt="San Francisco" class="city-popover" loading="lazy" decoding="async" /></span>, <span class="city-wrapper"><span class="city">Brooklyn</span><img src="images/index/brooklyn.png" alt="Brooklyn" class="city-popover" loading="lazy" decoding="async" /></span>.</p>
         <div class="intro-links">
           <a href="https://drive.google.com/file/d/1JjAlBwxkYLUfPeR6OmHYoYwNVmCS7Ir5/view?usp=sharing" target="_blank" class="intro-link">Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-          <a href="https://www.linkedin.com/in/peterborges/" target="_blank" class="intro-link">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
         </div>
       </div>
     </header>
@@ -432,40 +445,40 @@
     <section id="work">
       <h2 class="section-label">Experience</h2>
       <div class="experience-list">
-        <a class="experience-item" href="https://www.govwell.com" target="_blank">
+        <a class="experience-item reveal-on-scroll" href="https://www.govwell.com" target="_blank">
           <img src="images/logos/govwell-logo-black.png" alt="GovWell" class="experience-logo" data-mono />
           <p class="experience-title">Founding Designer</p>
           <span class="experience-years">2025 — Present</span>
         </a>
-        <a class="experience-item" href="https://www.viam.com" target="_blank">
+        <a class="experience-item reveal-on-scroll" href="https://www.viam.com" target="_blank">
           <img src="images/logos/viam-logo.png" alt="Viam" class="experience-logo" data-mono />
           <p class="experience-title">Founding → Lead Designer</p>
           <span class="experience-years">2021 — 2025</span>
         </a>
-        <a class="experience-item" href="https://www.heb.com" target="_blank">
+        <a class="experience-item reveal-on-scroll" href="https://www.heb.com" target="_blank">
           <img src="images/logos/heb-logo-color.svg" alt="HEB" class="experience-logo" />
           <p class="experience-title">Senior Product Designer</p>
           <span class="experience-years">2019 — 2021</span>
         </a>
-        <a class="experience-item" href="https://www.usaa.com" target="_blank">
+        <a class="experience-item reveal-on-scroll" href="https://www.usaa.com" target="_blank">
           <img src="images/logos/usaa-wordmark.svg" alt="USAA" class="experience-logo" />
           <p class="experience-title">Experience Designer</p>
           <span class="experience-years">2017 — 2019</span>
         </a>
-        <a class="experience-item" href="https://www.saic.com" target="_blank">
+        <a class="experience-item reveal-on-scroll" href="https://www.saic.com" target="_blank">
           <img src="images/logos/saic-logo-color.svg" alt="SAIC" class="experience-logo" />
           <p class="experience-title">UI/UX Designer</p>
           <span class="experience-years">2015 — 2017</span>
         </a>
-        <a class="experience-item" href="https://www.risd.edu" target="_blank">
-          <img src="images/logos/risd-wordmark.svg" alt="RISD" class="experience-logo" />
+        <a class="experience-item reveal-on-scroll" href="https://www.risd.edu" target="_blank">
+          <img src="images/logos/risd-logo-vector.svg" alt="RISD" class="experience-logo experience-logo--risd" />
           <p class="experience-title">BFA, Industrial Design</p>
           <span class="experience-years">2011 — 2015</span>
         </a>
       </div>
 
       <!-- About Me Card -->
-      <div class="about-card">
+      <div class="about-card reveal-on-scroll">
         <div class="about-content">
           <h3>About me</h3>
           <p>I've spent the last decade obsessing over the details that make complex systems actually usable. Currently at <strong>GovWell</strong>, turning bureaucratic nightmares into interfaces people don't dread.</p>
