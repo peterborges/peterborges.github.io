@@ -776,48 +776,37 @@ class CaseStudyRenderer {
   // ANIMATIONS
   // ============================================
   initAnimations() {
+    const upSelector = [
+      '.case-study h1', '.case-study .subtitle', '.project-meta-block',
+      '.hero-image', '.hero-video', '.case-study h2', '.case-study h3',
+      '.problem-section', '.case-study blockquote', '.feature-section'
+    ].join(', ');
+    const inSelector = '.feature-media img, .feature-media video';
+
+    const upEls = Array.from(this.container.querySelectorAll(upSelector));
+    const inEls = Array.from(this.container.querySelectorAll(inSelector));
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      // No motion: just make everything visible.
+      upEls.concat(inEls).forEach(el => { el.style.opacity = '1'; });
+      return;
+    }
 
-    const heroTitle = this.container.querySelector('.case-study h1');
-    const subtitle = this.container.querySelector('.case-study .subtitle');
-    if (heroTitle) setTimeout(() => heroTitle.classList.add('fade-in-up'), 0);
-    if (subtitle) setTimeout(() => subtitle.classList.add('fade-in-up'), 0);
+    // Reveal each element as it scrolls into view rather than all at once
+    // on load. Above-the-fold elements intersect immediately, so the hero
+    // still animates in on arrival.
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(entry.target.dataset.revealClass || 'fade-in-up');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 
-    const heroMedia = this.container.querySelectorAll('.hero-image, .hero-video');
-    heroMedia.forEach((el, index) => {
-      setTimeout(() => el.classList.add('fade-in-up'), 200 + (index * 100));
-    });
-
-    const h2Sections = this.container.querySelectorAll('.case-study h2');
-    h2Sections.forEach((h2, index) => {
-      setTimeout(() => h2.classList.add('fade-in-up'), 300 + (index * 100));
-    });
-
-    const h3Sections = this.container.querySelectorAll('.case-study h3');
-    h3Sections.forEach((h3, index) => {
-      setTimeout(() => h3.classList.add('fade-in-up'), 400 + (index * 50));
-    });
-
-    const problemSections = this.container.querySelectorAll('.problem-section');
-    problemSections.forEach((section, index) => {
-      setTimeout(() => section.classList.add('fade-in-up'), 500 + (index * 100));
-    });
-
-    const blockquotes = this.container.querySelectorAll('.case-study blockquote');
-    blockquotes.forEach((quote, index) => {
-      setTimeout(() => quote.classList.add('fade-in-up'), 600 + (index * 100));
-    });
-
-    const featureSections = this.container.querySelectorAll('.feature-section');
-    featureSections.forEach((section, index) => {
-      setTimeout(() => section.classList.add('fade-in-up'), 700 + (index * 100));
-    });
-
-    const featureMedia = this.container.querySelectorAll('.feature-media img, .feature-media video');
-    featureMedia.forEach((media, index) => {
-      setTimeout(() => media.classList.add('fade-in'), 800 + (index * 50));
-    });
+    upEls.forEach(el => { el.dataset.revealClass = 'fade-in-up'; observer.observe(el); });
+    inEls.forEach(el => { el.dataset.revealClass = 'fade-in'; observer.observe(el); });
   }
 }
 
