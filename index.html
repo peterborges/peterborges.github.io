@@ -259,6 +259,12 @@
     .experience-item:hover .experience-logo {
       filter: grayscale(0);
     }
+    /* RISD mark is a squarer aspect (~2.27) than the other logos, so the
+       18px-tall box caps it at ~41px wide. Allow a little more height so it
+       fills the same ~52px visual width as the rest. */
+    .experience-logo--risd {
+      height: 23px;
+    }
     /* Dark mode: mono logos (black-only) become white */
     [data-theme="dark"] .experience-logo {
       filter: grayscale(1) invert(1);
@@ -466,7 +472,7 @@
           <span class="experience-years">2015 — 2017</span>
         </a>
         <a class="experience-item reveal-on-scroll" href="https://www.risd.edu" target="_blank">
-          <img src="images/logos/risd-wordmark.svg" alt="RISD" class="experience-logo" />
+          <img src="images/logos/risd-logo-vector.svg" alt="RISD" class="experience-logo experience-logo--risd" />
           <p class="experience-title">BFA, Industrial Design</p>
           <span class="experience-years">2011 — 2015</span>
         </a>
