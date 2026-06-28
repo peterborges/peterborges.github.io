@@ -570,11 +570,17 @@ function applyTheme() {
   if (light) {
     u.uDotColor.value.set(0.04, 0.04, 0.05);
     u.uBgColor.value.set(0.965, 0.965, 0.975);
+    // Disable the CRT pass entirely on the light stage — scanlines/vignette only
+    // read well over black and turn into ugly grey banding on white. Gating via
+    // uCrtEnabled also makes this robust if the FPS watchdog re-applies
+    // quality.scanlines on a downgrade (the scanline branch is skipped regardless).
+    u.uCrtEnabled.value = 0.0;
     u.uCrtVignette.value = 0.0;
     u.uCrtScanlines.value = 0.0;
   } else {
     u.uDotColor.value.set(1.0, 1.0, 1.0);
     u.uBgColor.value.set(0.00784, 0.00784, 0.01176);
+    u.uCrtEnabled.value = 1.0;
     u.uCrtVignette.value = settings.crt.vignette;
     u.uCrtScanlines.value = quality.scanlines;
   }
@@ -626,6 +632,9 @@ function downgradeQuality() {
   dotMatrixPass.uniforms.uDotGap.value = quality.dotGap;
   dotMatrixPass.uniforms.uCrtScanlines.value = quality.scanlines;
   dotMatrixPass.uniforms.uBloomEnabled.value = quality.bloomEnabled ? 1.0 : 0.0;
+  // Re-assert theme overrides so the new quality preset can't turn scanlines
+  // back on over the light stage.
+  applyTheme();
 
   // Reset watchdog for another sample window
   fpsFrames = 0;
