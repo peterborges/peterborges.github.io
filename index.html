@@ -29,6 +29,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="enhance.min.js" defer></script>
+  <!-- three.js for the hero WebGL background (landing-bg.js) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    }
+  }
+  </script>
   <!-- Early theme application to prevent flash -->
   <script>
     (function() {
@@ -155,15 +164,77 @@
       max-width: 600px;
     }
     .intro-section {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 1rem;
+      /* full-viewport dark stage for the WebGL hero background */
+      min-height: 100dvh;
+      box-sizing: border-box;
+      padding: 4rem 0 4.5rem;
+      margin: 0 0 1rem;
       position: relative;
       overflow: visible;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-bottom: none;
+    }
+    /* Dark theme: dark stage, light dots, white copy */
+    [data-theme="dark"] .intro-section {
+      background: #020203;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.85);
+      --text-muted: rgba(255, 255, 255, 0.68);
+      --border-color: rgba(255, 255, 255, 0.16);
+    }
+    [data-theme="dark"] #crt-frame { background: #020203; }
+    [data-theme="dark"] .hero-fade {
+      background: linear-gradient(to top, #020203 0%, #020203 42%, rgba(2, 2, 3, 0.82) 62%, rgba(2, 2, 3, 0.3) 82%, transparent 100%);
+    }
+    /* Light theme: light stage, dark dots, default dark copy */
+    [data-theme="light"] .intro-section { background: #ffffff; }
+    [data-theme="light"] #crt-frame { background: #ffffff; }
+    [data-theme="light"] .hero-fade {
+      background: linear-gradient(to top, #ffffff 0%, #ffffff 42%, rgba(255, 255, 255, 0.82) 62%, rgba(255, 255, 255, 0.3) 82%, transparent 100%);
     }
     .intro-section .intro-text {
       position: relative;
+      z-index: 2;
+      /* shrink to content so flex-end drops the copy into the clean dark zone
+         below the effect (overrides the site-wide flex: 1 1 0%) */
+      flex: 0 0 auto;
+    }
+    /* WebGL canvas container — full-bleed, clipped, behind hero text */
+    #crt-frame {
+      position: absolute;
+      top: 0;
+      left: calc(-50vw + 50%);
+      width: 100vw;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      background: #020203;
+    }
+    #crt-frame canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none;
+    }
+    /* darken the lower hero so the white copy stays legible over the scene */
+    .hero-fade {
+      position: absolute;
+      left: calc(-50vw + 50%);
+      bottom: 0;
+      width: 100vw;
+      height: 52%;
       z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(to top, #020203 0%, #020203 42%, rgba(2, 2, 3, 0.82) 62%, rgba(2, 2, 3, 0.3) 82%, transparent 100%);
+    }
+    /* the WebGL scene replaces the light grid background on the home hero */
+    .grid-pattern { display: none !important; }
+    /* respect reduced-motion: drop the animated canvas, keep a calm dark hero */
+    @media (prefers-reduced-motion: reduce) {
+      #crt-frame { display: none; }
     }
     .grid-pattern {
       position: absolute;
@@ -427,6 +498,8 @@
 <body>
   <div class="content-container">
     <header class="intro-section">
+      <div id="crt-frame"></div>
+      <div class="hero-fade"></div>
       <div class="grid-pattern" id="gridPattern"></div>
       <div class="intro-text">
         <div class="greeting-row">
@@ -577,5 +650,7 @@
       }
     });
   </script>
+  <!-- hero WebGL background: raymarched metaballs + dot-matrix/CRT shader + cursor reaction -->
+  <script type="module" src="landing-bg.js?v=3"></script>
 </body>
 </html>
