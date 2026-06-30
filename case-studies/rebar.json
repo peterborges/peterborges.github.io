@@ -1,0 +1,141 @@
+{
+  "title": "Rebar",
+  "subtitle": "One-line description of the Rebar project",
+  "hero": {
+    "type": "image",
+    "src": "images/rebar/hero.png",
+    "alt": "Rebar case study hero image",
+    "noCard": true
+  },
+  "context": {
+    "role": {
+      "title": "Your role (e.g. Lead Product Designer)",
+      "skills": ["UX Design", "UI Design", "Prototyping", "User Research"]
+    },
+    "timeline": {
+      "duration": "X Months",
+      "status": "Status (e.g. Launched 2026)"
+    },
+    "overview": [
+      "Opening paragraph: what the project was and why it mattered.",
+      "Second paragraph: the gap or opportunity you identified.",
+      "Third paragraph: what success looked like."
+    ]
+  },
+  "outcomes": [
+    { "value": "00%", "label": "Headline metric one" },
+    { "value": "00", "label": "Headline metric two" },
+    { "value": "00", "label": "Headline metric three" }
+  ],
+  "sections": [
+    {
+      "type": "challenge",
+      "label": "Challenge",
+      "navTitle": "Challenge",
+      "headline": "The core problem in one sentence.",
+      "subheading": "Why this was hard:",
+      "cards": [
+        { "icon": "clock", "text": "Pain point one. Describe the friction users faced." },
+        { "icon": "x", "text": "Pain point two." },
+        { "icon": "users", "text": "Pain point three." },
+        { "icon": "search", "text": "Pain point four." }
+      ]
+    },
+    {
+      "type": "principles",
+      "label": "Users",
+      "navTitle": "Users",
+      "headline": "Who you designed for.",
+      "subheading": "Who we designed for",
+      "cards": [
+        { "icon": "users", "title": "User group one", "description": "Describe this audience and their needs." },
+        { "icon": "briefcase", "title": "User group two", "description": "Describe this audience and their needs." },
+        { "icon": "settings", "title": "User group three", "description": "Describe this audience and their needs." }
+      ]
+    },
+    {
+      "type": "problems",
+      "label": "Problems",
+      "navTitle": "Problems",
+      "headline": "What kept users stuck.",
+      "subheading": "What we heard",
+      "problems": [
+        {
+          "title": "Problem one",
+          "description": "Describe the problem and its impact.",
+          "quote": { "text": "A real user quote that captures this problem.", "author": "Name, Company" }
+        },
+        {
+          "title": "Problem two",
+          "description": "Describe the problem and its impact.",
+          "quote": { "text": "A real user quote that captures this problem.", "author": "Name, Company" }
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Solution",
+      "features": [
+        {
+          "name": "Feature one",
+          "headline": "What this feature does, in a punchy line.",
+          "description": "Explain the feature and the problem it solves. Use <strong>bold</strong> for emphasis on key phrases.",
+          "media": { "type": "image", "src": "images/rebar/feature-one.png", "alt": "Feature one" }
+        },
+        {
+          "name": "Feature two",
+          "headline": "What this feature does, in a punchy line.",
+          "description": "Explain the feature and the problem it solves.",
+          "media": { "type": "video", "src": "videos/rebar/feature-two.mp4" }
+        }
+      ]
+    },
+    {
+      "type": "iterations",
+      "title": "Iterations",
+      "navTitle": "Iterations",
+      "headline": "Refining through feedback.",
+      "items": [
+        { "title": "Iteration one", "icon": "edit", "description": "What changed and why." },
+        { "title": "Iteration two", "icon": "layers", "description": "What changed and why." },
+        { "title": "Iteration three", "icon": "sparkles", "description": "What changed and why." }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "What I took away.",
+      "items": [
+        { "title": "Learning one.", "description": "A short takeaway." },
+        { "title": "Learning two.", "description": "A short takeaway." },
+        { "title": "Learning three.", "description": "A short takeaway." }
+      ]
+    },
+    {
+      "type": "conclusion",
+      "title": "Conclusion",
+      "navTitle": "Conclusion",
+      "headline": "Where the project landed.",
+      "paragraphs": ["Wrap up the impact and what it meant for the product and the team."]
+    },
+    {
+      "type": "testimonials",
+      "title": "Testimonials",
+      "navTitle": "Testimonials",
+      "headline": "From the people who use it.",
+      "quotes": [
+        { "text": "A testimonial from a user or stakeholder.", "author": "Name, Company" },
+        { "text": "Another testimonial.", "author": "Name, Company" }
+      ]
+    }
+  ],
+  "nextCaseStudy": {
+    "title": "GovWell Plan Review",
+    "tags": "UX · UI · Prototyping · Claude Code · Launch",
+    "description": "Modernizing plan review permitting for local governments.",
+    "impact": "$9.5M seed funding · Launched to 80+ municipalities",
+    "image": "images/index/govwell-hero.png",
+    "url": "govwell-plan-review.html"
+  }
+}
