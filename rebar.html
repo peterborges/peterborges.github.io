@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFY6LBQ0SF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFY6LBQ0SF');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rebar | Peter Borges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.min.css" />
+  <script src="side-rail.min.js" defer></script>
+  <script src="case-study-template.min.js" defer></script>
+  <script src="enhance.min.js" defer></script>
+  <!-- Early theme application to prevent flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+      applyTheme(savedTheme || 'system');
+      prefersDark.addEventListener('change', function(e) {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 4rem;">
+    <div id="case-study-content">
+      <!-- Content rendered by case-study-template.js -->
+      <div class="loading-state">Loading...</div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url, callback) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
+        });
+    }
+
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        buttons.forEach(btn => {
+          if (btn.dataset.theme === savedTheme) btn.classList.add('active');
+        });
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const theme = this.dataset.theme;
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('theme', theme);
+          });
+        });
+      }
+    });
+
+    // Render case study from JSON data
+    document.addEventListener('DOMContentLoaded', function() {
+      const renderer = new CaseStudyRenderer('case-study-content', 'case-studies/rebar.json');
+      renderer.render();
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,13 @@
 [
   {
+    "title": "Rebar",
+    "tags": "UX · UI · Prototyping · Design Systems",
+    "description": "One-line description of the Rebar project.",
+    "impact": "Add headline impact metrics here",
+    "image": "images/rebar/hero.png",
+    "link": "rebar.html"
+  },
+  {
     "title": "GovWell Plan Review",
     "tags": "UX · UI · Prototyping · Claude Code · Launch",
     "description": "Modernizing plan review permitting for local governments.",
