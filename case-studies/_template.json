@@ -185,7 +185,7 @@
           "title": "What went well",
           "items": [
             { "icon": "check", "text": "A positive reflection." },
-            { "icon": "star", "text": "Another positive reflection." }
+            { "icon": "trending-up", "text": "Another positive reflection." }
           ]
         },
         {
