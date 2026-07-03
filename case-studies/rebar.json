@@ -1,74 +1,78 @@
 {
   "title": "Rebar",
-  "subtitle": "One-line description of the Rebar project",
+  "subtitle": "Making AI construction takeoffs trustworthy, starting with scale",
   "hero": {
     "type": "image",
     "src": "images/rebar/hero.png",
-    "alt": "Rebar case study hero image",
+    "alt": "Rebar plan editor with the consolidated calibration popover",
     "noCard": true
   },
   "context": {
     "role": {
-      "title": "Your role (e.g. Lead Product Designer)",
-      "skills": ["UX Design", "UI Design", "Prototyping", "User Research"]
+      "title": "Lead Product Designer",
+      "skills": ["Product Design", "IA", "Interaction Design", "AI/UX", "Prototyping"]
     },
     "timeline": {
-      "duration": "X Months",
-      "status": "Status (e.g. Launched 2026)"
+      "duration": "~6 Weeks",
+      "status": "Shipped v3.11.0"
     },
     "overview": [
-      "Opening paragraph: what the project was and why it mattered.",
-      "Second paragraph: the gap or opportunity you identified.",
-      "Third paragraph: what success looked like."
+      "Rebar is an AI-powered takeoff platform for mechanical and HVAC contractors. Estimators upload construction plan sets and Rebar's AI extracts the measurements, schedules, and quantities they'd otherwise count by hand, turning days of manual takeoff into minutes.",
+      "But an AI number is only useful if the estimator believes it. And every measurement Rebar produces rests on one fragile input: the scale of each sheet. Get scale wrong and every downstream quantity is wrong, quietly.",
+      "This case study is about the least glamorous, highest-leverage part of that trust problem: calibration. It consolidated scale from three scattered surfaces into one, and set the pattern for how we surface AI confidence across the product."
     ]
   },
   "outcomes": [
-    { "value": "00%", "label": "Headline metric one" },
-    { "value": "00", "label": "Headline metric two" },
-    { "value": "00", "label": "Headline metric three" }
+    { "value": "3→1", "label": "Scale surfaces consolidated into one" },
+    { "value": "[X]%", "label": "Faster to set and verify scale" },
+    { "value": "[X]", "label": "Fewer mis-scale support tickets" }
   ],
   "sections": [
     {
       "type": "challenge",
       "label": "Challenge",
       "navTitle": "Challenge",
-      "headline": "The core problem in one sentence.",
-      "subheading": "Why this was hard:",
+      "headline": "AI takeoffs are only as trustworthy as the scale underneath them.",
+      "subheading": "Estimators wouldn't rely on Rebar until they could trust and verify it:",
       "cards": [
-        { "icon": "clock", "text": "Pain point one. Describe the friction users faced." },
-        { "icon": "x", "text": "Pain point two." },
-        { "icon": "users", "text": "Pain point three." },
-        { "icon": "search", "text": "Pain point four." }
+        { "icon": "file", "text": "Every quantity depends on sheet scale. One mis-scaled page silently corrupts the whole takeoff." },
+        { "icon": "search", "text": "When the AI detected scale, there was no clear way to see where a number came from or whether to trust it." },
+        { "icon": "layers", "text": "Scale controls lived in three disconnected places, so there was no single source of truth." },
+        { "icon": "alert", "text": "A wrong number an estimator can't catch is worse than no number at all. Trust, once broken, doesn't come back." }
       ]
     },
     {
       "type": "principles",
       "label": "Users",
       "navTitle": "Users",
-      "headline": "Who you designed for.",
+      "headline": "Estimators, not power users.",
       "subheading": "Who we designed for",
       "cards": [
-        { "icon": "users", "title": "User group one", "description": "Describe this audience and their needs." },
-        { "icon": "briefcase", "title": "User group two", "description": "Describe this audience and their needs." },
-        { "icon": "settings", "title": "User group three", "description": "Describe this audience and their needs." }
+        { "icon": "briefcase", "title": "High-stakes, low-margin", "description": "A bid won or lost on a bad quantity is real money. Estimators are accountable for every number." },
+        { "icon": "users", "title": "Varied tech comfort", "description": "From spreadsheet veterans to first-week hires. The workflow has to be obvious, not clever." },
+        { "icon": "eye", "title": "Skeptical of black boxes", "description": "They've been burned by automation before. They trust what they can see and correct, not what they're told." }
       ]
     },
     {
       "type": "problems",
       "label": "Problems",
       "navTitle": "Problems",
-      "headline": "What kept users stuck.",
-      "subheading": "What we heard",
+      "headline": "Scale had no home.",
+      "subheading": "What we found",
       "problems": [
         {
-          "title": "Problem one",
-          "description": "Describe the problem and its impact.",
-          "quote": { "text": "A real user quote that captures this problem.", "author": "Name, Company" }
+          "title": "Scale lived in three places",
+          "description": "Setting or correcting scale meant hunting across a toolbar Scale + DPI menu, a 'saved scales' dropdown on the scale chip, and a per-page floor-plans list. Each showed a slice of the truth; none showed all of it.",
+          "quote": { "text": "I could never remember where the scale setting actually was. Every project felt like a scavenger hunt.", "author": "[Estimator name, Company]" }
         },
         {
-          "title": "Problem two",
-          "description": "Describe the problem and its impact.",
-          "quote": { "text": "A real user quote that captures this problem.", "author": "Name, Company" }
+          "title": "No source of truth",
+          "description": "With controls scattered, estimators couldn't answer a basic question: what scale is this sheet, and where did that scale come from: the AI, a default, or me?"
+        },
+        {
+          "title": "AI scale was invisible when it was wrong",
+          "description": "When the AI mis-detected a scale, nothing surfaced it. The error only showed up downstream as a quantity that looked off, long after the estimator had moved on.",
+          "quote": { "text": "I don't need it to be perfect. I need to know when it's not sure, so I can check.", "author": "[Estimator name, Company]" }
         }
       ]
     },
@@ -77,16 +81,22 @@
       "title": "Solution",
       "features": [
         {
-          "name": "Feature one",
-          "headline": "What this feature does, in a punchy line.",
-          "description": "Explain the feature and the problem it solves. Use <strong>bold</strong> for emphasis on key phrases.",
-          "media": { "type": "image", "src": "images/rebar/feature-one.png", "alt": "Feature one" }
+          "name": "One place for scale",
+          "headline": "Every scale, one popover.",
+          "description": "I consolidated all three surfaces into a single calibration popover. It answers the whole question at a glance: <strong>what scale each sheet is, and where it came from</strong>. Setting, correcting, and reviewing scale now happen in one predictable place.",
+          "media": { "type": "image", "src": "images/rebar/calibration-popover.png", "alt": "The consolidated calibration popover" }
         },
         {
-          "name": "Feature two",
-          "headline": "What this feature does, in a punchy line.",
-          "description": "Explain the feature and the problem it solves.",
-          "media": { "type": "video", "src": "videos/rebar/feature-two.mp4" }
+          "name": "Defaults that cascade",
+          "headline": "Set it once, override where it matters.",
+          "description": "A <strong>document and project default</strong> covers the common case, with <strong>per-floor-plan overrides</strong> for the sheets that differ. Estimators stop re-setting the same scale page after page and only touch the exceptions.",
+          "media": { "type": "image", "src": "images/rebar/scale-defaults.png", "alt": "Document and project defaults with per-floor-plan rows" }
+        },
+        {
+          "name": "Show the work",
+          "headline": "Where every scale came from.",
+          "description": "Each sheet shows whether its scale was <strong>AI-detected, inherited from a default, or set by hand</strong>. Low-confidence detections are flagged with a plain-language bucket, not a percentage, so estimators know exactly where to look before they trust a number.",
+          "media": { "type": "image", "src": "images/rebar/scale-provenance.png", "alt": "Scale provenance and confidence indicators" }
         }
       ]
     },
@@ -94,11 +104,11 @@
       "type": "iterations",
       "title": "Iterations",
       "navTitle": "Iterations",
-      "headline": "Refining through feedback.",
+      "headline": "Hardened in QA and early use.",
       "items": [
-        { "title": "Iteration one", "icon": "edit", "description": "What changed and why." },
-        { "title": "Iteration two", "icon": "layers", "description": "What changed and why." },
-        { "title": "Iteration three", "icon": "sparkles", "description": "What changed and why." }
+        { "title": "Explicit cross-page propagation", "icon": "layers", "description": "Applying a scale across pages used to happen silently. We made propagation visible and intentional, so estimators always know which sheets a change touched." },
+        { "title": "Calmer picker interaction", "icon": "edit", "description": "Reworked how the scale picker opens so setting scale on a page felt inline and predictable instead of modal and disruptive." },
+        { "title": "Confidence, refined", "icon": "refresh", "description": "Tuned the low-confidence threshold and language after watching where estimators actually double-checked, so the flag earns attention instead of crying wolf." }
       ]
     },
     {
@@ -107,17 +117,21 @@
       "navTitle": "Learnings",
       "headline": "What I took away.",
       "items": [
-        { "title": "Learning one.", "description": "A short takeaway." },
-        { "title": "Learning two.", "description": "A short takeaway." },
-        { "title": "Learning three.", "description": "A short takeaway." }
+        { "title": "Trust is a design surface.", "description": "For AI features, showing provenance and uncertainty isn't polish. It's the product. Estimators adopt what they can verify." },
+        { "title": "Confidence is a bucket, not a number.", "description": "'Low confidence, check this' beats '73%.' Named buckets tell people what to do; percentages make them do math." },
+        { "title": "Removing surfaces is a feature.", "description": "The win wasn't new controls. It was collapsing three into one and giving scale a single, obvious home." },
+        { "title": "Design for the 90% path.", "description": "Estimators aren't power users. Defaults that cascade beat flexibility no one asked for." }
       ]
     },
     {
       "type": "conclusion",
       "title": "Conclusion",
       "navTitle": "Conclusion",
-      "headline": "Where the project landed.",
-      "paragraphs": ["Wrap up the impact and what it meant for the product and the team."]
+      "headline": "From scattered setting to a source of truth.",
+      "paragraphs": [
+        "Calibration went from three disconnected controls to one popover that sets, corrects, and explains scale in a single place. Estimators can finally answer 'what scale is this, and can I trust it?' without leaving their flow.",
+        "More than a cleanup, it set the trust pattern for the rest of Rebar: show where an AI number came from, flag when we're unsure in plain language, and always leave the estimator in control. That's how a takeoff tool earns the right to be believed."
+      ]
     },
     {
       "type": "testimonials",
@@ -125,8 +139,8 @@
       "navTitle": "Testimonials",
       "headline": "From the people who use it.",
       "quotes": [
-        { "text": "A testimonial from a user or stakeholder.", "author": "Name, Company" },
-        { "text": "Another testimonial.", "author": "Name, Company" }
+        { "text": "[Placeholder: real quote about scale being in one place / trusting the numbers.]", "author": "[Name, Company]" },
+        { "text": "[Placeholder: real quote about catching a bad scale before it cost a bid.]", "author": "[Name, Company]" }
       ]
     }
   ],
