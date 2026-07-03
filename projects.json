@@ -1,9 +1,9 @@
 [
   {
     "title": "Rebar",
-    "tags": "UX · UI · Prototyping · Design Systems",
-    "description": "One-line description of the Rebar project.",
-    "impact": "Add headline impact metrics here",
+    "tags": "Product Design · IA · AI/UX · Shipped",
+    "description": "Making AI construction takeoffs trustworthy, starting with scale.",
+    "impact": "3 scale surfaces → 1 · Shipped v3.11.0",
     "image": "images/rebar/hero.png",
     "link": "rebar.html"
   },
