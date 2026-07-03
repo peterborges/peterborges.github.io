@@ -1,0 +1,223 @@
+{
+  "title": "Case Study Template",
+  "subtitle": "A reference showing every available section type — copy this file to start a new case study",
+  "hero": {
+    "type": "image",
+    "src": "images/index/govwell-hero.png",
+    "alt": "Placeholder hero — replace with your own",
+    "noCard": true
+  },
+  "context": {
+    "role": {
+      "title": "Your role",
+      "skills": ["Skill one", "Skill two", "Skill three"]
+    },
+    "timeline": {
+      "duration": "X Months",
+      "status": "Status"
+    },
+    "overview": [
+      "Overview paragraph one.",
+      "Overview paragraph two.",
+      "Overview paragraph three."
+    ]
+  },
+  "outcomes": [
+    { "value": "00%", "label": "Headline metric one" },
+    { "value": "00", "label": "Headline metric two" },
+    { "value": "00", "label": "Headline metric three" }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "title": "TEXT — free-form prose with lists and subsections",
+      "paragraphs": [
+        "A plain text section. Use <code>paragraphs</code> for body copy and inline <strong>HTML</strong> is allowed.",
+        "Add as many paragraphs as you need."
+      ],
+      "lists": [
+        { "intro": "An optional list with an intro line:", "items": ["List item one", "List item two", "List item three"] }
+      ],
+      "subsections": [
+        { "title": "A subsection heading", "paragraphs": ["Subsections nest an h3 with their own paragraphs and lists."] }
+      ]
+    },
+    {
+      "type": "challenge",
+      "label": "Challenge",
+      "navTitle": "Challenge",
+      "headline": "CHALLENGE — the core problem in one line.",
+      "subheading": "Icon cards with a short line each:",
+      "cards": [
+        { "icon": "clock", "text": "Card one. icon = any key from the icon set." },
+        { "icon": "x", "text": "Card two." },
+        { "icon": "users", "text": "Card three." },
+        { "icon": "search", "text": "Card four." }
+      ]
+    },
+    {
+      "type": "principles",
+      "label": "Users / Principles",
+      "navTitle": "Users",
+      "headline": "PRINCIPLES — icon cards with a title + description.",
+      "subheading": "Like challenge cards, but with titles",
+      "cards": [
+        { "icon": "users", "title": "Card title one", "description": "Supporting description." },
+        { "icon": "briefcase", "title": "Card title two", "description": "Supporting description." },
+        { "icon": "settings", "title": "Card title three", "description": "Supporting description." }
+      ]
+    },
+    {
+      "type": "problems",
+      "label": "Problems",
+      "navTitle": "Problems",
+      "headline": "PROBLEMS — numbered problems, each with an optional quote.",
+      "subheading": "What we heard",
+      "problems": [
+        {
+          "title": "Problem one",
+          "description": "Describe the problem and its impact.",
+          "quote": { "text": "An optional supporting quote.", "author": "Name, Company" }
+        },
+        {
+          "title": "Problem two",
+          "description": "This one omits the quote — quote is optional."
+        }
+      ]
+    },
+    {
+      "type": "insights",
+      "label": "Insights",
+      "navTitle": "Insights",
+      "headline": "INSIGHTS — numbered research findings, plus optional competitive block.",
+      "items": [
+        { "title": "Insight one", "description": "What you learned." },
+        { "title": "Insight two", "description": "What you learned." }
+      ],
+      "competitive": [
+        { "name": "Competitor A", "description": "What they do well / poorly." },
+        { "name": "Competitor B", "description": "What they do well / poorly." }
+      ]
+    },
+    {
+      "type": "design-flow",
+      "title": "DESIGN-FLOW — a left-to-right step diagram",
+      "steps": [
+        { "icon": "1", "label": "Step one" },
+        { "icon": "2", "label": "Step two" },
+        { "icon": "3", "label": "Step three" }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "FEATURES — alternating feature blocks with media",
+      "features": [
+        {
+          "name": "Feature one",
+          "headline": "Punchy headline for the feature.",
+          "description": "Explain the feature. <strong>Bold</strong> key phrases. Media can be image or video.",
+          "media": { "type": "image", "src": "images/index/govwell-hero.png", "alt": "Placeholder — replace" }
+        },
+        {
+          "name": "Feature two",
+          "headline": "Second feature with a video.",
+          "description": "Videos autoplay muted in a loop.",
+          "media": { "type": "video", "src": "videos/govwell-plan-review/checklists.mp4" }
+        }
+      ]
+    },
+    {
+      "type": "media",
+      "title": "MEDIA — a single standalone image or video",
+      "intro": "Optional intro line above the media.",
+      "media": { "type": "image", "src": "images/index/govwell-hero.png", "alt": "Placeholder — replace" }
+    },
+    {
+      "type": "images-grid",
+      "label": "Gallery",
+      "navTitle": "Gallery",
+      "headline": "IMAGES-GRID — a responsive grid of images.",
+      "intro": "Optional intro line.",
+      "images": [
+        { "src": "images/index/govwell-hero.png", "alt": "Placeholder one" },
+        { "src": "images/index/app-viam-mockup.png", "alt": "Placeholder two" },
+        { "src": "images/index/teleop-hero-3.png", "alt": "Placeholder three" }
+      ]
+    },
+    {
+      "type": "highlight",
+      "title": "HIGHLIGHT — a simple emphasized bullet list",
+      "items": ["Highlight one", "Highlight two", "Highlight three"]
+    },
+    {
+      "type": "outcomes-list",
+      "title": "OUTCOMES-LIST — a plain bullet list of outcomes",
+      "items": ["Outcome one", "Outcome two", "Outcome three"]
+    },
+    {
+      "type": "iterations",
+      "title": "Iterations",
+      "navTitle": "Iterations",
+      "headline": "ITERATIONS — icon items showing what changed.",
+      "items": [
+        { "title": "Iteration one", "icon": "edit", "description": "What changed and why." },
+        { "title": "Iteration two", "icon": "layers", "description": "What changed and why." },
+        { "title": "Iteration three", "icon": "sparkles", "description": "What changed and why." }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "LEARNINGS — takeaway cards.",
+      "items": [
+        { "title": "Learning one.", "description": "A short takeaway." },
+        { "title": "Learning two.", "description": "A short takeaway." }
+      ]
+    },
+    {
+      "type": "reflections",
+      "label": "Reflections",
+      "navTitle": "Reflections",
+      "headline": "REFLECTIONS — grouped reflection blocks.",
+      "subsections": [
+        {
+          "title": "What went well",
+          "items": [
+            { "icon": "check", "text": "A positive reflection." },
+            { "icon": "star", "text": "Another positive reflection." }
+          ]
+        },
+        {
+          "title": "What I'd do differently",
+          "paragraphs": ["A subsection can use paragraphs instead of icon items."]
+        }
+      ]
+    },
+    {
+      "type": "conclusion",
+      "title": "Conclusion",
+      "navTitle": "Conclusion",
+      "headline": "CONCLUSION — wrap-up paragraphs.",
+      "paragraphs": ["Summarize the impact and what it meant."]
+    },
+    {
+      "type": "testimonials",
+      "title": "Testimonials",
+      "navTitle": "Testimonials",
+      "headline": "TESTIMONIALS — quote cards.",
+      "quotes": [
+        { "text": "A testimonial quote.", "author": "Name, Company" },
+        { "text": "Another testimonial.", "author": "Name, Company" }
+      ]
+    }
+  ],
+  "nextCaseStudy": {
+    "title": "GovWell Plan Review",
+    "tags": "UX · UI · Prototyping · Claude Code · Launch",
+    "description": "Modernizing plan review permitting for local governments.",
+    "impact": "$9.5M seed funding · Launched to 80+ municipalities",
+    "image": "images/index/govwell-hero.png",
+    "url": "govwell-plan-review.html"
+  }
+}
