@@ -3,8 +3,8 @@
   "subtitle": "A reference showing every available section type — copy this file to start a new case study",
   "hero": {
     "type": "image",
-    "src": "images/index/govwell-hero.png",
-    "alt": "Placeholder hero — replace with your own",
+    "src": "images/template/hero.png",
+    "alt": "Placeholder hero, replace with your own",
     "noCard": true
   },
   "context": {
@@ -116,7 +116,7 @@
           "name": "Feature one",
           "headline": "Punchy headline for the feature.",
           "description": "Explain the feature. <strong>Bold</strong> key phrases. Media can be image or video.",
-          "media": { "type": "image", "src": "images/index/govwell-hero.png", "alt": "Placeholder — replace" }
+          "media": { "type": "image", "src": "images/template/feature.png", "alt": "Placeholder, replace" }
         },
         {
           "name": "Feature two",
@@ -130,7 +130,7 @@
       "type": "media",
       "title": "MEDIA — a single standalone image or video",
       "intro": "Optional intro line above the media.",
-      "media": { "type": "image", "src": "images/index/govwell-hero.png", "alt": "Placeholder — replace" }
+      "media": { "type": "image", "src": "images/template/media.png", "alt": "Placeholder, replace" }
     },
     {
       "type": "images-grid",
@@ -139,9 +139,9 @@
       "headline": "IMAGES-GRID — a responsive grid of images.",
       "intro": "Optional intro line.",
       "images": [
-        { "src": "images/index/govwell-hero.png", "alt": "Placeholder one" },
-        { "src": "images/index/app-viam-mockup.png", "alt": "Placeholder two" },
-        { "src": "images/index/teleop-hero-3.png", "alt": "Placeholder three" }
+        { "src": "images/template/gallery-1.png", "alt": "Placeholder one" },
+        { "src": "images/template/gallery-2.png", "alt": "Placeholder two" },
+        { "src": "images/template/gallery-3.png", "alt": "Placeholder three" }
       ]
     },
     {
