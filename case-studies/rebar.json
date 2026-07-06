@@ -18,8 +18,9 @@
     },
     "overview": [
       "Rebar is an AI-powered takeoff platform for mechanical and HVAC contractors. Estimators upload construction plan sets and Rebar's AI extracts the measurements, schedules, and quantities they'd otherwise count by hand, turning days of manual takeoff into minutes.",
-      "But an AI number is only useful if the estimator believes it. And every measurement Rebar produces rests on one fragile input: the scale of each sheet. Get scale wrong and every downstream quantity is wrong, quietly.",
-      "This case study is about the least glamorous, highest-leverage part of that trust problem: calibration. It consolidated scale from three scattered surfaces into one, and set the pattern for how we surface AI confidence across the product."
+      "But an AI number is only useful if the estimator believes it. And every measurement Rebar produces rests on one fragile input: the scale of each sheet. Get scale wrong and every downstream quantity is wrong, quietly, with no error message to catch it.",
+      "Scale was also the most confusing part of the product. It was split across three different controls, the AI set it invisibly, and there was no way to tell a trustworthy scale from a guessed one. It was the number one source of 'why is this quantity off?' confusion.",
+      "This case study is about the least glamorous, highest-leverage part of that trust problem: calibration. I consolidated scale from three scattered surfaces into one, made every scale's origin legible, and in doing so set the pattern for how Rebar surfaces AI confidence everywhere else."
     ]
   },
   "outcomes": [
@@ -35,9 +36,9 @@
       "headline": "AI takeoffs are only as trustworthy as the scale underneath them.",
       "subheading": "Estimators wouldn't rely on Rebar until they could trust and verify it:",
       "cards": [
-        { "icon": "file", "text": "Every quantity depends on sheet scale. One mis-scaled page silently corrupts the whole takeoff." },
-        { "icon": "search", "text": "When the AI detected scale, there was no clear way to see where a number came from or whether to trust it." },
-        { "icon": "layers", "text": "Scale controls lived in three disconnected places, so there was no single source of truth." },
+        { "icon": "file", "text": "Every quantity depends on sheet scale. One mis-scaled page silently corrupts the whole takeoff, and the mistake only surfaces as a number that looks slightly off." },
+        { "icon": "search", "text": "When the AI detected a scale, there was no way to see where it came from or whether it was a confident read or a guess." },
+        { "icon": "layers", "text": "Scale controls lived in three disconnected places, so there was no single source of truth for a whole plan set." },
         { "icon": "alert", "text": "A wrong number an estimator can't catch is worse than no number at all. Trust, once broken, doesn't come back." }
       ]
     },
@@ -48,9 +49,9 @@
       "headline": "Estimators, not power users.",
       "subheading": "Who we designed for",
       "cards": [
-        { "icon": "briefcase", "title": "High-stakes, low-margin", "description": "A bid won or lost on a bad quantity is real money. Estimators are accountable for every number." },
-        { "icon": "users", "title": "Varied tech comfort", "description": "From spreadsheet veterans to first-week hires. The workflow has to be obvious, not clever." },
-        { "icon": "eye", "title": "Skeptical of black boxes", "description": "They've been burned by automation before. They trust what they can see and correct, not what they're told." }
+        { "icon": "briefcase", "title": "High-stakes, low-margin", "description": "Bids are won or lost on quantities. A scale error can mean underbidding a job or losing one, so estimators are personally accountable for every number that leaves their desk." },
+        { "icon": "users", "title": "Varied tech comfort", "description": "From spreadsheet veterans who've estimated for 30 years to first-week hires. The workflow has to be obvious to both, which means it can't reward memorizing where things hide." },
+        { "icon": "eye", "title": "Skeptical of black boxes", "description": "They've been burned by automation that was confidently wrong. They trust what they can see and correct, not what they're simply told to accept." }
       ]
     },
     {
@@ -62,17 +63,40 @@
       "problems": [
         {
           "title": "Scale lived in three places",
-          "description": "Setting or correcting scale meant hunting across a toolbar Scale + DPI menu, a 'saved scales' dropdown on the scale chip, and a per-page floor-plans list. Each showed a slice of the truth; none showed all of it.",
+          "description": "Setting or correcting scale meant hunting across a toolbar Scale and DPI menu, a saved-scales dropdown on the scale chip, and a per-page floor-plans list. Each surface exposed a different slice of the truth, and none of them showed the whole picture for a plan set.",
           "quote": { "text": "I could never remember where the scale setting actually was. Every project felt like a scavenger hunt.", "author": "[Estimator name, Company]" }
         },
         {
           "title": "No source of truth",
-          "description": "With controls scattered, estimators couldn't answer a basic question: what scale is this sheet, and where did that scale come from: the AI, a default, or me?"
+          "description": "With controls scattered, estimators couldn't answer a basic question: what scale is this sheet, and where did that scale come from, the AI, a default, or me? The same sheet could read differently depending on which control you opened.",
+          "quote": { "text": "Two of us on the same job got different numbers. Turned out we'd set the scale in two different spots.", "author": "[Estimator name, Company]" }
         },
         {
           "title": "AI scale was invisible when it was wrong",
-          "description": "When the AI mis-detected a scale, nothing surfaced it. The error only showed up downstream as a quantity that looked off, long after the estimator had moved on.",
+          "description": "When the AI mis-detected a scale, nothing surfaced it. There was no signal for a low-confidence read, so the error only showed up downstream as a quantity that looked off, long after the estimator had moved on to the next sheet.",
           "quote": { "text": "I don't need it to be perfect. I need to know when it's not sure, so I can check.", "author": "[Estimator name, Company]" }
+        },
+        {
+          "title": "Every sheet was set from scratch",
+          "description": "Most sheets in a set share the same scale, but there was no way to set it once for the document and let the exceptions differ. Estimators re-entered the same value page after page, which was both tedious and one more place to make a mistake."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Approach",
+      "navTitle": "Approach",
+      "paragraphs": [
+        "I started by auditing every place scale could be set or read, then mapped how estimators actually think about it. Their mental model was simple and consistent: a plan set has one scale, a few sheets are the exceptions, and the AI takes a first pass I want to check. The product just didn't reflect that anywhere."
+      ],
+      "lists": [
+        {
+          "intro": "That gave me three design bets:",
+          "items": [
+            "Consolidate: one surface that owns scale for the whole document, not three that each own a piece.",
+            "Cascade: a document and project default that covers the common case, with per-sheet overrides for the exceptions.",
+            "Explain: make every scale's origin and confidence visible, so verifying is a glance instead of a guess."
+          ]
         }
       ]
     },
@@ -83,19 +107,19 @@
         {
           "name": "One place for scale",
           "headline": "Every scale, one popover.",
-          "description": "I consolidated all three surfaces into a single calibration popover. It answers the whole question at a glance: <strong>what scale each sheet is, and where it came from</strong>. Setting, correcting, and reviewing scale now happen in one predictable place.",
+          "description": "I collapsed the toolbar menu, the scale chip dropdown, and the floor-plans list into a single calibration popover. It answers the whole question at a glance: <strong>what scale each sheet is, and where it came from</strong>. Setting, correcting, and reviewing scale now happen in one predictable place instead of three.",
           "media": { "type": "image", "src": "images/rebar/calibration-popover.png", "alt": "The consolidated calibration popover" }
         },
         {
           "name": "Defaults that cascade",
           "headline": "Set it once, override where it matters.",
-          "description": "A <strong>document and project default</strong> covers the common case, with <strong>per-floor-plan overrides</strong> for the sheets that differ. Estimators stop re-setting the same scale page after page and only touch the exceptions.",
+          "description": "A <strong>document and project default</strong> covers the common case, with <strong>per-floor-plan overrides</strong> for the sheets that differ. Estimators stop re-entering the same scale page after page and only touch the handful of exceptions, which removes the tedium and the mistakes that came with it.",
           "media": { "type": "image", "src": "images/rebar/scale-defaults.png", "alt": "Document and project defaults with per-floor-plan rows" }
         },
         {
           "name": "Show the work",
           "headline": "Where every scale came from.",
-          "description": "Each sheet shows whether its scale was <strong>AI-detected, inherited from a default, or set by hand</strong>. Low-confidence detections are flagged with a plain-language bucket, not a percentage, so estimators know exactly where to look before they trust a number.",
+          "description": "Each sheet shows whether its scale was <strong>AI-detected, inherited from a default, or set by hand</strong>. Low-confidence detections are flagged with a <strong>plain-language bucket, not a percentage</strong>, so estimators know exactly which sheets to check before they trust a number, instead of auditing all of them or none.",
           "media": { "type": "image", "src": "images/rebar/scale-provenance.png", "alt": "Scale provenance and confidence indicators" }
         }
       ]
@@ -106,9 +130,9 @@
       "navTitle": "Iterations",
       "headline": "Hardened in QA and early use.",
       "items": [
-        { "title": "Explicit cross-page propagation", "icon": "layers", "description": "Applying a scale across pages used to happen silently. We made propagation visible and intentional, so estimators always know which sheets a change touched." },
-        { "title": "Calmer picker interaction", "icon": "edit", "description": "Reworked how the scale picker opens so setting scale on a page felt inline and predictable instead of modal and disruptive." },
-        { "title": "Confidence, refined", "icon": "refresh", "description": "Tuned the low-confidence threshold and language after watching where estimators actually double-checked, so the flag earns attention instead of crying wolf." }
+        { "title": "Explicit cross-page propagation", "icon": "layers", "description": "Applying a scale across pages used to happen silently, which quietly re-scaled sheets estimators hadn't touched. I made propagation visible and intentional, so a change always shows which sheets it will affect before it lands." },
+        { "title": "Calmer picker interaction", "icon": "edit", "description": "The first build opened the scale picker as a disruptive modal. I reworked it to expand inline from the sheet's row, so setting scale feels like a quick edit in place rather than a context switch away from the plans." },
+        { "title": "Confidence, refined", "icon": "refresh", "description": "I tuned the low-confidence threshold and its wording after watching where estimators actually double-checked. The flag now earns attention on the sheets that deserve it instead of crying wolf on every AI read." }
       ]
     },
     {
@@ -117,10 +141,10 @@
       "navTitle": "Learnings",
       "headline": "What I took away.",
       "items": [
-        { "title": "Trust is a design surface.", "description": "For AI features, showing provenance and uncertainty isn't polish. It's the product. Estimators adopt what they can verify." },
-        { "title": "Confidence is a bucket, not a number.", "description": "'Low confidence, check this' beats '73%.' Named buckets tell people what to do; percentages make them do math." },
-        { "title": "Removing surfaces is a feature.", "description": "The win wasn't new controls. It was collapsing three into one and giving scale a single, obvious home." },
-        { "title": "Design for the 90% path.", "description": "Estimators aren't power users. Defaults that cascade beat flexibility no one asked for." }
+        { "title": "Trust is a design surface.", "description": "For AI features, showing provenance and uncertainty isn't polish added at the end. It is the product. Estimators adopt what they can verify and quietly abandon what they can't." },
+        { "title": "Confidence is a bucket, not a number.", "description": "'Low confidence, check this' beats '73%.' Named buckets tell people what to do; percentages make them do math and then guess anyway." },
+        { "title": "Removing surfaces is a feature.", "description": "The win wasn't a new control. It was collapsing three into one and giving scale a single, obvious home, which is harder to design and easier to use." },
+        { "title": "Design for the 90% path.", "description": "Estimators aren't power users chasing flexibility. A default that cascades beat every clever option we could have added on top." }
       ]
     },
     {
@@ -129,7 +153,7 @@
       "navTitle": "Conclusion",
       "headline": "From scattered setting to a source of truth.",
       "paragraphs": [
-        "Calibration went from three disconnected controls to one popover that sets, corrects, and explains scale in a single place. Estimators can finally answer 'what scale is this, and can I trust it?' without leaving their flow.",
+        "Calibration went from three disconnected controls to one popover that sets, corrects, and explains scale in a single place. Estimators can finally answer 'what scale is this, and can I trust it?' without leaving their flow, and shared jobs stop drifting because everyone is reading the same source of truth.",
         "More than a cleanup, it set the trust pattern for the rest of Rebar: show where an AI number came from, flag when we're unsure in plain language, and always leave the estimator in control. That's how a takeoff tool earns the right to be believed."
       ]
     },
