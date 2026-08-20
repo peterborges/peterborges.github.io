@@ -1,0 +1,191 @@
+{
+  "title": "Rebar Editor 4.0",
+  "subtitle": "Rebuilding the takeoff canvas estimators live in all day",
+  "hero": {
+    "type": "image",
+    "src": "images/editor-4-0/hero.png",
+    "alt": "Rebar Editor 4.0",
+    "noCard": true
+  },
+  "context": {
+    "role": {
+      "title": "Lead Product Designer",
+      "skills": ["Product Design", "IA", "Interaction Design", "Design Systems", "AI/UX", "Prototyping"]
+    },
+    "timeline": {
+      "duration": "~6 Months",
+      "status": "Shipped / rolling out 2026"
+    },
+    "overview": [
+      "The editor is Rebar's core surface: the plan canvas where mechanical and HVAC estimators spend their entire day marking up drawings and turning them into takeoffs, now with AI doing the first pass.",
+      "It had grown organically into something powerful but sprawling. Every new capability added another menu, another toggle, another place to look. Estimators had to memorize where things lived, dense plans were hard to make sense of, and the AI features were easy to miss and hard to trust.",
+      "Editor 4.0 was a ground-up pass at the whole experience: consolidate the scattered controls into a coherent system, make dense plans legible, and fold AI in so it feels dependable instead of magic. This is the work I'd point to first."
+    ]
+  },
+  "outcomes": [
+    { "value": "[X]%", "label": "Weekly active estimators on 4.0" },
+    { "value": "[X]", "label": "Controls consolidated into one system" },
+    { "value": "♥ 13", "label": "\"Much cleaner,\" customer reaction" }
+  ],
+  "sections": [
+    {
+      "type": "challenge",
+      "label": "Challenge",
+      "navTitle": "Challenge",
+      "headline": "A powerful editor that had outgrown its own UI.",
+      "subheading": "Growth had made the core tool harder to use:",
+      "cards": [
+        { "icon": "layers", "text": "Filters, visibility, tags, and scale each lived in their own menu. There was no single mental model for controlling the plan." },
+        { "icon": "search", "text": "Dense plans were hard to read, and there was no consistent way to show, hide, or focus what mattered." },
+        { "icon": "zap", "text": "AI features were bolted on in different corners, so they were easy to miss and hard to trust." },
+        { "icon": "users", "text": "Estimators range from 30-year veterans to first-week hires. Complexity that a power user tolerates blocks everyone else." }
+      ]
+    },
+    {
+      "type": "principles",
+      "label": "Users",
+      "navTitle": "Users",
+      "headline": "Estimators, not power users.",
+      "subheading": "Who we designed for",
+      "cards": [
+        { "icon": "briefcase", "title": "High-stakes, low-margin", "description": "Bids are won or lost on quantities. Estimators are personally accountable for every number, so the tool has to be fast and legible, not clever." },
+        { "icon": "users", "title": "Varied tech comfort", "description": "From spreadsheet veterans to brand-new hires. If a feature needs a tutorial, most of them won't use it." },
+        { "icon": "eye", "title": "Skeptical of black boxes", "description": "They've been burned by automation before. They trust what they can see, verify, and correct." }
+      ]
+    },
+    {
+      "type": "problems",
+      "label": "Problems",
+      "navTitle": "Problems",
+      "headline": "Power buried under sprawl.",
+      "subheading": "What we heard and saw",
+      "problems": [
+        {
+          "title": "Controls with no home",
+          "description": "Showing a layer, filtering by tag, adjusting visibility, and setting scale were four separate journeys through four different menus. Estimators couldn't build one mental model of how to drive the plan.",
+          "quote": { "text": "I know it can do it. I just can't ever remember where the button is.", "author": "[Estimator name, Company]" }
+        },
+        {
+          "title": "Dense plans, blunt tools",
+          "description": "A full mechanical sheet is a wall of overlapping elements. Without a consistent way to focus on one system or hide the noise, estimators worked buried in visual clutter."
+        },
+        {
+          "title": "AI that hid in the corners",
+          "description": "Search, extraction, and suggestions each surfaced differently. The AI was doing real work, but because it wasn't legible or consistent, estimators didn't lean on it.",
+          "quote": { "text": "Half the time I didn't know the AI had already done it.", "author": "[Estimator name, Company]" }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Approach",
+      "navTitle": "Approach",
+      "paragraphs": [
+        "Rather than add more, 4.0 was about consolidation and consistency. I audited every control in the editor, grouped them by the question an estimator was actually asking, and designed one coherent system for driving the plan instead of a pile of independent menus."
+      ],
+      "lists": [
+        {
+          "intro": "Three principles guided every decision:",
+          "items": [
+            "One place per job: filtering, visibility, tags, and scale each get a single, predictable home.",
+            "Consistent interaction: the same open, pin, and reset behavior everywhere, so learning one control teaches them all.",
+            "AI in the open: surface what the AI did and how sure it is, so estimators trust it instead of second-guessing it."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "title": "Solution",
+      "features": [
+        {
+          "name": "Unified filter & visibility",
+          "headline": "One system to drive the whole plan.",
+          "description": "Filtering, showing, hiding, and focusing all collapsed into <strong>one consistent menu</strong>. Estimators control a dense sheet from a single place with a single mental model, instead of hunting across four menus.",
+          "media": { "type": "image", "src": "images/editor-4-0/filter-menu.png", "alt": "Unified filter and visibility menu" }
+        },
+        {
+          "name": "Hover-to-open, click-to-pin",
+          "headline": "Fast for experts, forgiving for everyone.",
+          "description": "Menus and submenus open on a short hover dwell and stay put on click. A <strong>safe-triangle</strong> path and edge-flip logic keep submenus from closing when the cursor cuts a corner, so precise work stays precise.",
+          "media": { "type": "image", "src": "images/editor-4-0/hover-filters.png", "alt": "Hover-to-open filters with click-to-pin" }
+        },
+        {
+          "name": "Unified AI search",
+          "headline": "One search across the whole plan.",
+          "description": "Extraction, lookup, and AI suggestions came together into <strong>one search surface</strong>. Estimators ask for what they need in one place, and the AI's work is visible instead of buried.",
+          "media": { "type": "image", "src": "images/editor-4-0/ai-search.png", "alt": "Unified AI search" }
+        },
+        {
+          "name": "Tags, managed inline",
+          "headline": "Find, rename, and clean up tags in place.",
+          "description": "Searching, editing, and deleting tags moved <strong>into the flow of work</strong> instead of a separate settings trip, so estimators keep a takeoff tidy without breaking stride.",
+          "media": { "type": "image", "src": "images/editor-4-0/tags.png", "alt": "Inline tag management" }
+        },
+        {
+          "name": "Calibration, consolidated",
+          "headline": "Every scale in one place, with its origin.",
+          "description": "Scale used to live in three surfaces with no source of truth. 4.0 folds it into a single calibration control with <strong>document and project defaults</strong>, per-sheet overrides, and a <strong>plain-language confidence flag</strong> so estimators know which AI-detected scales to check.",
+          "media": { "type": "image", "src": "images/editor-4-0/calibration.png", "alt": "Consolidated calibration control" }
+        },
+        {
+          "name": "Guided first run",
+          "headline": "A welcome that shows what changed.",
+          "description": "Because 4.0 moved things people relied on, I added a <strong>first-run walkthrough</strong> that orients returning estimators to the new system quickly, so the redesign felt like an upgrade rather than a relearn.",
+          "media": { "type": "image", "src": "images/editor-4-0/first-run.png", "alt": "First-run welcome experience" }
+        }
+      ]
+    },
+    {
+      "type": "iterations",
+      "title": "Iterations",
+      "navTitle": "Iterations",
+      "headline": "Tuned in QA and real use.",
+      "items": [
+        { "title": "Hover timing", "icon": "refresh", "description": "Dialed in the open dwell and close grace after watching real cursors. Too eager and menus flickered; too slow and it felt sticky. The final timing reads as instant without misfiring." },
+        { "title": "Submenu precision", "icon": "edit", "description": "Added a safe-triangle hit path and edge-aware flipping so submenus stop collapsing when the cursor clips a corner, which was the top complaint in early testing." },
+        { "title": "Reset & active state", "icon": "layers", "description": "Made the current filter and visibility state always visible with a one-click reset, so estimators never get lost wondering why half the plan disappeared." }
+      ]
+    },
+    {
+      "type": "learnings",
+      "title": "Learnings",
+      "navTitle": "Learnings",
+      "headline": "What I took away.",
+      "items": [
+        { "title": "Consolidation is a feature.", "description": "The biggest wins came from collapsing surfaces and unifying behavior, not adding capability. Fewer places to look is real product value." },
+        { "title": "Trust is a design surface.", "description": "For AI, showing what it did and how sure it is is the product, not polish. Estimators lean on what they can verify." },
+        { "title": "Design for the 90% path.", "description": "Estimators aren't chasing flexibility. Sensible defaults and one obvious way beat a wall of options every time." },
+        { "title": "Ship the relearn gently.", "description": "Redesigning a tool people depend on daily means guiding the transition, not just shipping the new thing." }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "title": "Customer feedback",
+      "navTitle": "Customer feedback",
+      "headline": "From the people who use it.",
+      "quotes": [
+        { "text": "Really like the update. Much cleaner.", "author": "Cam, Aero" },
+        { "text": "[Placeholder: another real customer quote about Editor 4.0.]", "author": "[Name, Company]" }
+      ]
+    },
+    {
+      "type": "conclusion",
+      "title": "Conclusion",
+      "navTitle": "Conclusion",
+      "headline": "From sprawl to a system.",
+      "paragraphs": [
+        "Editor 4.0 turned a powerful but scattered tool into one coherent system. The controls estimators use all day now share a home and a behavior, dense plans are legible, and the AI does its work in the open.",
+        "It's the surface Rebar's whole product runs through, and it's the work I'm proudest of: not a flashy new feature, but a hard, unglamorous consolidation that made the daily job faster, calmer, and more trustworthy. And the people who use it noticed."
+      ]
+    }
+  ],
+  "nextCaseStudy": {
+    "title": "GovWell Plan Review",
+    "tags": "UX · UI · Prototyping · Claude Code · Launch",
+    "description": "Modernizing plan review permitting for local governments.",
+    "impact": "$9.5M seed funding · Launched to 80+ municipalities",
+    "image": "images/index/govwell-hero.png",
+    "url": "govwell-plan-review.html"
+  }
+}

@@ -1,5 +1,13 @@
 [
   {
+    "title": "Rebar Editor 4.0",
+    "tags": "Product Design · IA · Interaction · AI/UX · Shipped",
+    "description": "Rebuilding the takeoff canvas estimators live in all day.",
+    "impact": "Core editor redesign · shipped to customers",
+    "image": "images/editor-4-0/hero.png",
+    "link": "editor-4-0.html"
+  },
+  {
     "title": "Rebar",
     "tags": "Product Design · IA · AI/UX · Shipped",
     "description": "Making AI construction takeoffs trustworthy, starting with scale.",

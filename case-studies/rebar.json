@@ -159,12 +159,12 @@
     },
     {
       "type": "testimonials",
-      "title": "Testimonials",
-      "navTitle": "Testimonials",
+      "title": "Customer feedback",
+      "navTitle": "Customer feedback",
       "headline": "From the people who use it.",
       "quotes": [
-        { "text": "[Placeholder: real quote about scale being in one place / trusting the numbers.]", "author": "[Name, Company]" },
-        { "text": "[Placeholder: real quote about catching a bad scale before it cost a bid.]", "author": "[Name, Company]" }
+        { "text": "Really like the update. Much cleaner.", "author": "Cam, Aero" },
+        { "text": "[Placeholder: another real customer quote.]", "author": "[Name, Company]" }
       ]
     }
   ],
