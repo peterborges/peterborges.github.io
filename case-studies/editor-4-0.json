@@ -14,7 +14,7 @@
     },
     "timeline": {
       "duration": "~6 Months",
-      "status": "Shipped / rolling out 2026"
+      "status": "GA to all users, Oct 2026"
     },
     "overview": [
       "The editor is Rebar's core surface: the plan canvas where mechanical and HVAC estimators spend their entire day marking up drawings and turning them into takeoffs, now with AI doing the first pass.",
@@ -23,9 +23,9 @@
     ]
   },
   "outcomes": [
-    { "value": "[X]%", "label": "Weekly active estimators on 4.0" },
-    { "value": "[X]", "label": "Controls consolidated into one system" },
-    { "value": "♥ 13", "label": "\"Much cleaner,\" customer reaction" }
+    { "value": "65%", "label": "of estimators on 4.0 before GA" },
+    { "value": "2.5×", "label": "more weekly time in-tool vs holdouts" },
+    { "value": "98%", "label": "AI accuracy on a 200-device takeoff" }
   ],
   "sections": [
     {
@@ -165,8 +165,10 @@
       "navTitle": "Customer feedback",
       "headline": "From the people who use it.",
       "quotes": [
-        { "text": "Really like the update. Much cleaner.", "author": "Cam, Aero" },
-        { "text": "[Placeholder: another real customer quote about Editor 4.0.]", "author": "[Name, Company]" }
+        { "text": "Transitions look like transitions. Elbows look like elbows now.", "author": "Estimator, mechanical contractor" },
+        { "text": "I already love this. Way above and beyond Bluebeam.", "author": "Estimator, HVAC supply" },
+        { "text": "Everything's right here, instead of scrolling for it. And it runs a lot, lot smoother.", "author": "Estimator, mechanical contractor" },
+        { "text": "The schedule integration is absolutely helpful. I'm not as intimidated now.", "author": "Estimator, HVAC supply" }
       ]
     },
     {

@@ -568,7 +568,7 @@ function applyTheme() {
   const light = document.documentElement.getAttribute('data-theme') === 'light';
   const u = dotMatrixPass.uniforms;
   if (light) {
-    u.uDotColor.value.set(0.04, 0.04, 0.05);
+    u.uDotColor.value.set(0.62, 0.63, 0.66);
     u.uBgColor.value.set(0.965, 0.965, 0.975);
     u.uCrtVignette.value = 0.0;
     u.uCrtScanlines.value = 0.0;
