@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFY6LBQ0SF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFY6LBQ0SF');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog | Peter Borges</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.min.css" />
+  <script src="enhance.min.js" defer></script>
+  <!-- Early theme application to prevent flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(theme) {
+        if (theme === 'system' || !theme) {
+          document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      }
+      applyTheme(savedTheme || 'system');
+      prefersDark.addEventListener('change', function(e) {
+        const currentSetting = localStorage.getItem('theme');
+        if (!currentSetting || currentSetting === 'system') {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
+  <style>
+    .cl-wrap { max-width: 920px; margin: 0 auto; --cl-rail: 200px; --cl-dot: 7px; }
+    .cl-intro { margin: 2.5rem 0 1rem; }
+    .cl-intro h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem;
+    }
+    .cl-intro p { font-size: 1.05rem; color: var(--text-secondary); margin: 0; }
+
+    /* Timeline: left date rail with a connecting line and a dot per entry */
+    .cl-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--cl-rail) 1fr;
+      column-gap: 2.5rem;
+      padding: 2.25rem 0;
+    }
+    .cl-entry > :not(.cl-meta) { grid-column: 2; }
+    /* the connecting line (stacked per-entry segments form one continuous line) */
+    .cl-entry::before {
+      content: "";
+      position: absolute;
+      left: var(--cl-dot);
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-1px);
+    }
+    .cl-entry:first-of-type::before { top: 2.6rem; }
+    .cl-entry:last-of-type::before { bottom: auto; height: 2.6rem; }
+    .cl-meta {
+      grid-column: 1; grid-row: 1 / -1;
+      position: sticky;
+      top: 1.5rem;
+      align-self: start;
+      padding-left: 1.9rem;
+      font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+      margin: 0 0 0.35rem;
+    }
+    /* the dot, centered on the line */
+    .cl-meta::before {
+      content: "";
+      position: absolute;
+      left: 1px; top: 0.25em;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background: var(--bg-primary);
+      border: 2px solid var(--text-muted);
+    }
+    .cl-entry:first-of-type .cl-meta::before {
+      background: #f5600a; border-color: #f5600a;
+    }
+    @media (max-width: 720px) {
+      .cl-entry { grid-template-columns: 1fr; column-gap: 0; }
+      .cl-entry > :not(.cl-meta) { grid-column: 1; }
+      .cl-entry::before { display: none; }
+      .cl-meta { padding-left: 0; position: static; }
+      .cl-meta::before { display: none; }
+    }
+    .cl-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--text-primary);
+      margin: 0 0 1.25rem;
+    }
+    .cl-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin: 0 0 1.5rem;
+      background: var(--bg-secondary);
+    }
+    .cl-body p { margin: 0 0 0.9rem; color: var(--text-secondary); line-height: 1.65; font-size: 1.02rem; max-width: 46rem; }
+    .cl-body p:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="content-container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="cl-wrap">
+      <div class="cl-intro">
+        <h1>Changelog</h1>
+        <p>A running log of what I've shipped at Rebar, updated most Fridays. The design I drove, and the front-end I built.</p>
+      </div>
+
+      <!-- New week goes on top each Friday: copy an .cl-entry, set the date + title,
+           drop a screenshot/GIF into images/changelog/<YYYY-MM-DD>.(png|gif), write outcome-first bullets. -->
+
+      <article class="cl-entry" id="w-2026-11-06">
+        <p class="cl-meta">Nov 6, 2026</p>
+        <h2 class="cl-title">Agent updates that follow you, plus a sign-in polish</h2>
+        <img class="cl-media" src="images/changelog/2026-11-06.png" alt="Agent notifications and sign-in polish" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Agent responses now reach you even after you've moved to another page, so you don't miss a result. Cloning a rate book became a single step, and the sign-in screens and sidebars got a consistency pass.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-10-30">
+        <p class="cl-meta">Oct 30, 2026</p>
+        <h2 class="cl-title">Sharper Editor 4.0 workflows</h2>
+        <img class="cl-media" src="images/changelog/2026-10-30.png" alt="Editor 4.0 workflow improvements" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>A run of editor sharpeners: whiteout mode now stays on without holding the key, symbol search is quicker to accept and easier to scan, and you can drop tags straight from the menu. Duct rules also became editable right in the editor.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-10-23">
+        <p class="cl-meta">Oct 23, 2026</p>
+        <h2 class="cl-title">A faster way to create tools</h2>
+        <img class="cl-media" src="images/changelog/2026-10-23.png" alt="New tool creation flow" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Introduced a new tool-creation flow and a mini page indicator for seeing and switching pages without leaving the canvas, alongside a grayscale hotkey and smoother page and version-history navigation.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-10-16">
+        <p class="cl-meta">Oct 16, 2026</p>
+        <h2 class="cl-title">Bid Board gets calendar cards</h2>
+        <img class="cl-media" src="images/changelog/2026-10-16.png" alt="Bid Board calendar card view" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>The Bid Board now shows bids as calendar cards with right-click value edits. A collapsed filter tab keeps the editor canvas clear, and the agent's spec-upload step got cleaner.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-10-09">
+        <p class="cl-meta">Oct 9, 2026</p>
+        <h2 class="cl-title">Version history moves into the toolchest</h2>
+        <img class="cl-media" src="images/changelog/2026-10-09.png" alt="Version history in the toolchest" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>You can now review and jump between versions from inside the toolchest without losing your place. The top page navigation was reworked, and in-editor source citations show where an AI answer came from.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-10-02">
+        <p class="cl-meta">Oct 2, 2026</p>
+        <h2 class="cl-title">Bid Board, Triage, and BI get their own pages</h2>
+        <img class="cl-media" src="images/changelog/2026-10-02.png" alt="Bid Board, Bid Triage, and Business Intelligence pages" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Shipped dedicated product pages for Bid Board, Bid Triage, and Business Intelligence, and added multi-select on the Bid Board for bulk category edits.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-09-25">
+        <p class="cl-meta">Sep 25, 2026</p>
+        <h2 class="cl-title">AI ductwork takes shape</h2>
+        <img class="cl-media" src="images/changelog/2026-09-25.png" alt="AI ductwork takes shape" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Duct line items can now take a multiplier, and the additional-details view for duct specs got its design. Project creation gained labels, with dark-mode fixes across dropdowns and search.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-09-18">
+        <p class="cl-meta">Sep 18, 2026</p>
+        <h2 class="cl-title">Editor chat and the ductwork agent</h2>
+        <img class="cl-media" src="images/changelog/2026-09-18.png" alt="Editor chat and the ductwork agent" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Redesigned the editor chat UI and introduced annotation actions for accepting, rejecting, and the empty case. The duct spec confirmation step and the ductwork takeoff trigger came together.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-09-11">
+        <p class="cl-meta">Sep 11, 2026</p>
+        <h2 class="cl-title">One filter menu for the whole plan set</h2>
+        <img class="cl-media" src="images/changelog/2026-09-11.png" alt="One filter menu for the whole plan set" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Shipped the unified filter menu, a single control for everything on the plan set, and made the current page visible while you search.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-09-04">
+        <p class="cl-meta">Sep 4, 2026</p>
+        <h2 class="cl-title">Bookmarks, comments, and shortcuts</h2>
+        <img class="cl-media" src="images/changelog/2026-09-04.png" alt="Bookmarks, comments, and shortcuts" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Consolidated the bookmark model for AI ductwork and redesigned the comment and bookmark menus, plus a shortcut to collapse the control surfaces and more specific display tags.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-08-28">
+        <p class="cl-meta">Aug 28, 2026</p>
+        <h2 class="cl-title">Editor 4.0 filtering and the agent surfaces</h2>
+        <img class="cl-media" src="images/changelog/2026-08-28.png" alt="Editor 4.0 filtering and the agent surfaces" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>More Editor 4.0 filtering and a way to sort and isolate unused tools, plus an exploration of every agent surface toward a consolidated chat direction. The Bid Board gained a spec-upload section, the dark-mode sidebar went black, and editor toasts were redesigned.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-08-21">
+        <p class="cl-meta">Aug 21, 2026</p>
+        <h2 class="cl-title">Filters that open on hover</h2>
+        <img class="cl-media" src="images/changelog/2026-08-21.png" alt="Filters that open on hover" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>The toolchest filter menu now opens on a hover dwell, the editor opens with tabs collapsed, and filter selection got clearer. Also kicked off the exploration for in-editor source citations.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-08-14">
+        <p class="cl-meta">Aug 14, 2026</p>
+        <h2 class="cl-title">Bid Board polish</h2>
+        <img class="cl-media" src="images/changelog/2026-08-14.png" alt="Bid Board polish" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>The Bid Board now handles long project names and a uniform AI toggle across projects, with clearer upload-destination defaults and tidier diffuser styling.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-08-07">
+        <p class="cl-meta">Aug 7, 2026</p>
+        <h2 class="cl-title">Bid Board and Triage build-out</h2>
+        <img class="cl-media" src="images/changelog/2026-08-07.png" alt="Bid Board and Triage build-out" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>A big Bid Board and Triage push: a status bar, landing on the board by default, bulk contractor-status updates, equipment categories, quote-number generation, and Triage's duplicate and related-bid actions. Unified AI search can now place tags and rooms straight from results.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-07-31">
+        <p class="cl-meta">Jul 31, 2026</p>
+        <h2 class="cl-title">The command-K filter menu and the Bid Board calendar</h2>
+        <img class="cl-media" src="images/changelog/2026-07-31.png" alt="The command-K filter menu and the Bid Board calendar" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Organized and designed the command-K filter menu, with an active-filter strip and one-click reset, this-page and all-pages scoping, and a visibility toggle in the inventory. The Bid Board monthly calendar got cleaned up.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-07-24">
+        <p class="cl-meta">Jul 24, 2026</p>
+        <h2 class="cl-title">Upload and processing controls</h2>
+        <img class="cl-media" src="images/changelog/2026-07-24.png" alt="Upload and processing controls" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Gave users control over when a file is processed, reworked the saved-view interaction and the manufacturer cross-reference, and added first-run launch messaging.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-07-17">
+        <p class="cl-meta">Jul 17, 2026</p>
+        <h2 class="cl-title">The Editor 4.0 canvas and navigation</h2>
+        <img class="cl-media" src="images/changelog/2026-07-17.png" alt="The Editor 4.0 canvas and navigation" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Brought a unified box to the canvas and toolbar, added page-scope and equipment-visibility toggles and a home for preset tool tabs, and explored alternative page navigation and an early AI Bid Coordinator concept.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-07-10">
+        <p class="cl-meta">Jul 10, 2026</p>
+        <h2 class="cl-title">Symbol detection and schedule breakout</h2>
+        <img class="cl-media" src="images/changelog/2026-07-10.png" alt="Symbol detection and schedule breakout" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Defined symbol detection and display with sharper thumbnails and a hover magnifier, brought breakout mode to schedule review, and added Ctrl+F and a page-callout jump to the editor.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-07-03">
+        <p class="cl-meta">Jul 3, 2026</p>
+        <h2 class="cl-title">Scale, legends, and inventory polish</h2>
+        <img class="cl-media" src="images/changelog/2026-07-03.png" alt="Scale, legends, and inventory polish" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Redesigned setting the scale, added deleting legend rows by selection, and tightened the inventory table with auto-hiding scrollbars and file info on row hover.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-06-26">
+        <p class="cl-meta">Jun 26, 2026</p>
+        <h2 class="cl-title">Schedule linking and calibration</h2>
+        <img class="cl-media" src="images/changelog/2026-06-26.png" alt="Schedule linking and calibration" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Defined schedule linking and the process for addendum changes, moved calibration into the floor-plan page selector, and added double-click-to-open on bid rows and multi-select filters.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-06-19">
+        <p class="cl-meta">Jun 19, 2026</p>
+        <h2 class="cl-title">Symbol search and schedule tables</h2>
+        <img class="cl-media" src="images/changelog/2026-06-19.png" alt="Symbol search and schedule tables" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Expanded the symbol-search results and interacting with tags by text or symbol, enabled combining schedule tables with legends, and added addendum-diff visualization.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-06-12">
+        <p class="cl-meta">Jun 12, 2026</p>
+        <h2 class="cl-title">Filters and page summaries</h2>
+        <img class="cl-media" src="images/changelog/2026-06-12.png" alt="Filters and page summaries" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Added hiding filtered-out tags from outside settings, a default-search toggle, control over the page-summary columns, and a Bid Board indicator for when a takeoff finishes processing.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-06-05">
+        <p class="cl-meta">Jun 5, 2026</p>
+        <h2 class="cl-title">Inventory navigation</h2>
+        <img class="cl-media" src="images/changelog/2026-06-05.png" alt="Inventory navigation" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Repositioned the inventory back button for a cleaner flow.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-05-29">
+        <p class="cl-meta">May 29, 2026</p>
+        <h2 class="cl-title">Bid Board calendar and project units</h2>
+        <img class="cl-media" src="images/changelog/2026-05-29.png" alt="Bid Board calendar and project units" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Shipped the Bid Board month calendar view and support for selecting project units, plus a reusable coachmark component and keeping table filters open during selection.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-05-22">
+        <p class="cl-meta">May 22, 2026</p>
+        <h2 class="cl-title">Sharing and markup editing</h2>
+        <img class="cl-media" src="images/changelog/2026-05-22.png" alt="Sharing and markup editing" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Added view-only sharing for Bid Board projects, persistent addendum change notes, and removing a single addendum, with better editing for linears, plenums, and accessories.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-05-15">
+        <p class="cl-meta">May 15, 2026</p>
+        <h2 class="cl-title">AI addendum takeoff</h2>
+        <img class="cl-media" src="images/changelog/2026-05-15.png" alt="AI addendum takeoff" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Designed the UI for AI addendum takeoff, added a flex-duct summary to the GRD section and grey shading for existing schedule tags, and brought Linear-style pill cards to the Bid Board week view.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-05-08">
+        <p class="cl-meta">May 8, 2026</p>
+        <h2 class="cl-title">Ductwork in breakout mode</h2>
+        <img class="cl-media" src="images/changelog/2026-05-08.png" alt="Ductwork in breakout mode" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Included ductwork in total breakout mode and made the hide and unhide equipment preferences clearer.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-05-01">
+        <p class="cl-meta">May 1, 2026</p>
+        <h2 class="cl-title">Revision summaries and export</h2>
+        <img class="cl-media" src="images/changelog/2026-05-01.png" alt="Revision summaries and export" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Added an inventory-list revision change summary, an inline export notification, and sheet numbers in the markup table.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-04-24">
+        <p class="cl-meta">Apr 24, 2026</p>
+        <h2 class="cl-title">Breadcrumbs, page nav, and ductwork</h2>
+        <img class="cl-media" src="images/changelog/2026-04-24.png" alt="Breadcrumbs, page nav, and ductwork" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Added depth-based breadcrumb collapse and longer folder names, a shortcut to collapse both sidebars, a brighter selected page in collapsed page nav, and ductwork revisions.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-04-17">
+        <p class="cl-meta">Apr 17, 2026</p>
+        <h2 class="cl-title">Editor refresh concepts</h2>
+        <img class="cl-media" src="images/changelog/2026-04-17.png" alt="Editor refresh concepts" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Explored concepts for the editor UI refresh, added re-parsing a schedule with AI and placing accessories on ductwork, and brought multiple bid dates to the Bid Board.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-04-10">
+        <p class="cl-meta">Apr 10, 2026</p>
+        <h2 class="cl-title">Bid Board revisions</h2>
+        <img class="cl-media" src="images/changelog/2026-04-10.png" alt="Bid Board revisions" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Reworked how revisions are handled on the Bid Board.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-04-03">
+        <p class="cl-meta">Apr 3, 2026</p>
+        <h2 class="cl-title">Navigation on the canvas</h2>
+        <img class="cl-media" src="images/changelog/2026-04-03.png" alt="Navigation on the canvas" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>Added page-navigation buttons and keybindings to the canvas, and made dashboard columns adjustable.</p></div>
+      </article>
+
+      <article class="cl-entry" id="w-2026-03-27">
+        <p class="cl-meta">Mar 27, 2026 · joined Rebar</p>
+        <h2 class="cl-title">The first ships</h2>
+        <img class="cl-media" src="images/changelog/2026-03-27.png" alt="The first ships" loading="lazy" decoding="async" />
+        <div class="cl-body"><p>My first week: kicked off Editor 4.0 with a heuristic analysis of the old editor and a redesign plan, produced the Bid Board wireframes and design, and set the review-versus-completed status colors.</p></div>
+      </article>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function includeHTML(selector, url, callback) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+          if (callback) callback();
+        });
+    }
+
+    includeHTML('#site-header', 'partials/header.html');
+    includeHTML('#site-footer', 'partials/footer.html', function() {
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      if (themeSwitcher) {
+        const buttons = themeSwitcher.querySelectorAll('.theme-option');
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        buttons.forEach(btn => { if (btn.dataset.theme === savedTheme) btn.classList.add('active'); });
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const theme = this.dataset.theme;
+            if (theme === 'system') {
+              document.documentElement.setAttribute('data-theme', prefersDark.matches ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', theme);
+            }
+            localStorage.setItem('theme', theme);
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
